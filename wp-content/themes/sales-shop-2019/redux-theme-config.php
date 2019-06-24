@@ -245,22 +245,74 @@
         'icon'  => 'el el-home'
     ) );
 
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Header Options', 'redux-framework' ),
-        'desc'       => __( 'In this section, you can change the theme options displayed in the header site.', 'redux-framework' ),
-        'id'         => 'header-options',
-        'icon'       => 'el-icon-website',
-        'subsection' => true,
-        'fields'     => array(
-            array(
-                'id'       => 'logo-upload',
-                'type'     => 'media',
-                'title'    => __( 'Site logo', 'redux-framework' ),
-                'subtitle' => __( 'Uploader your logo', 'redux-framework' ),
-                'compiler' => 'true'
+Redux::setSection( $opt_name, array(
+    'title'      => __( 'Header Options', 'redux-framework' ),
+    'desc'       => __( 'In this section, you can change the theme options displayed in the header site.', 'redux-framework' ),
+    'id'         => 'header-options',
+    'subsection' => true,
+    'fields'     => array(
+        array(
+            'id'       => 'logo-upload',
+            'type'     => 'media',
+            'title'    => __( 'Logo Uploader', 'redux-framework' ),
+            'subtitle' => __( 'Uploader your logo', 'redux-framework' ),
+            'compiler' => 'true'
+        ),
+        array(
+            'id'       => 'slogan',
+            'type'     => 'text',
+            'title'    => __( 'Slogan', 'redux-framework' ),
+            'subtitle' => __( 'Enter your site slogan', 'redux-framework' ),
+        ),
+    )
+) );
+
+Redux::setSection( $opt_name, array(
+    'title'      => __( 'Exchange Rates', 'redux-framework' ),
+    'desc'       => __( 'In this section you can change the exchange rate.', 'redux-framework' ),
+    'id'         => 'exchange-rates',
+    'icon'       => 'el el-usd',
+    'fields'     => array(
+        array(
+            'id'       => 'default-currency',
+            'type'     => 'button_set',
+            'title'    => __( 'Default currency', 'redux-framework' ),
+            'subtitle' => __( 'Choose the default currency', 'redux-framework' ),
+            'desc'     => __( 'This currency will be used on the site by default', 'redux-framework' ),
+            //Must provide key => value pairs for radio options
+            'options'  => array(
+                '1' => 'GNF',
+                '2' => 'USD',
+                '3' => 'EUR'
             ),
-        )
-    ) );
+            'default'  => '1'
+        ),
+        array(
+            'id'       => 'gnf-rate',
+            'type'     => 'text',
+            'title'    => __( 'GNF', 'redux-framework' ),
+            'subtitle' => __( 'Enter the guinean franc rate', 'redux-framework' ),
+            'validate' => 'comma_numeric',
+            'default'  => '1'
+        ),
+        array(
+            'id'       => 'usd-rate',
+            'type'     => 'text',
+            'title'    => __( 'USD', 'redux-framework' ),
+            'subtitle' => __( 'Enter us dollar rate', 'redux-framework' ),
+            'validate' => 'comma_numeric',
+            'default'  => '0.00011'
+        ),
+        array(
+            'id'       => 'eur-rate',
+            'type'     => 'text',
+            'title'    => __( 'EUR', 'redux-framework' ),
+            'subtitle' => __( 'Enter the euro rate', 'redux-framework' ),
+            'validate' => 'comma_numeric',
+            'default'  => '0.000095'
+        ),
+    )
+) );
 
     /*
      * <--- END SECTIONS
