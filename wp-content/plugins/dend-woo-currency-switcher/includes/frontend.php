@@ -1,17 +1,19 @@
 <?php
 
-//ригестрируем шорт код для вывода плагина
-function sld_render_shortcode()
-{
-    include(SLD_PLUGIN . '/parts/main.php');
+//scripts
+function wcs_frontend_scripts(){
+    wp_register_script('wcs_frontend', WCS_SCRIPTS . '/frontend.js', false);
+    wp_localize_script( 'wcs_frontend', 'wcsData', array( 
+        'wcs_cc' => wp_create_nonce("wcs_cc"), 
+    ) );
 }
-add_shortcode('sld_spec_list', 'sld_render_shortcode');
+add_action( 'wp_enqueue_scripts', 'wcs_frontend_scripts');
 
-//регестрируем скрипты и стили для фронтенда
-add_action('admin_init', 'sld_register_assets');
-add_action('init', 'sld_register_assets');
-function sld_register_assets()
-{
-    wp_enqueue_script('sld_read_file_script', plugins_url('/assets/js/readFile.js', __DIR__), array('jquery'), false);
-    wp_enqueue_script('sld_index_script', plugins_url('/assets/js/index.js', __DIR__), array('sld_read_file_script'), false);
+//render switcher shortcode
+function wcs_render_shortcode()
+{   
+    wp_enqueue_script('wcs_frontend');
+    $plugin_core = WCS_Settings::getInstance();
+    return $plugin_core->renderWidget();
 }
+add_shortcode('wcs_switcher', 'wcs_render_shortcode');
