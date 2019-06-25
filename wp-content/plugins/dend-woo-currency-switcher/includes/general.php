@@ -28,7 +28,7 @@ class WCS_Settings
         $default['oneTemplate'] = '<option class="wcs-curr" data-curr=@code value=@code>@name</option>';
         $default['activeTemplate'] = '<option class="active" value="@code">@name</option>';
 
-        self::setSettings($default);
+        self::getInstance()->setSettings($default);
     }
 
     static public function uninstall()
