@@ -9,3 +9,6 @@ register_post_type('banner', array(
     'rewrite' => true,
     'query_var' => true,
 ));
+//Hide wp editor from Banners
+remove_post_type_support( 'banner', 'editor');
+
