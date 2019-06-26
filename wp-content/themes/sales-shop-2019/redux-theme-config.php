@@ -260,7 +260,7 @@ Redux::setSection($opt_name, [
         ],
         [
             'id' => 'slogan',
-            'type' => 'text',
+            'type' => 'editor',
             'title' => __('Slogan', 'redux-framework'),
             'subtitle' => __('Enter your site slogan', 'redux-framework'),
         ],
@@ -274,6 +274,24 @@ Redux::setSection($opt_name, [
     'subsection' => true,
     'fields' => [
 
+    ]
+]);
+
+Redux::setSection($opt_name, [
+    'title' => __('Coupon Options', 'redux-framework'),
+    'desc' => __('In this section, you can change the coupon options.', 'redux-framework'),
+    'id' => 'coupon-options',
+    'subsection' => true,
+    'fields' => [
+        [
+            'id' => 'coupon-validity',
+            'type' => 'text',
+            'title' => __('Validity', 'redux-framework'),
+            'subtitle' => __('Validity of the coupon from the date of sale', 'redux-framework'),
+            'desc' => __('days', 'redux-framework'),
+            'validate' => 'numeric',
+            'default' => '30'
+        ],
     ]
 ]);
 
