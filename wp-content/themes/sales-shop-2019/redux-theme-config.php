@@ -273,7 +273,307 @@ Redux::setSection($opt_name, [
     'id' => 'footer-options',
     'subsection' => true,
     'fields' => [
+        [
+            'id' => 'footer-logo',
+            'type' => 'media',
+            'title' => __('Logo Uploader', 'redux-framework'),
+            'subtitle' => __('Uploader your logo', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'footer-follow-section-start',
+            'type' => 'section',
+            'title' => __('Follow Us', 'redux-framework'),
+            'subtitle' => __('Change block Follow us.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-facebook-url',
+            'type' => 'text',
+            'title' => __('Link to facebook', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-viber-url',
+            'type' => 'text',
+            'title' => __('Link to viber', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-linkedin-url',
+            'type' => 'text',
+            'title' => __('Link to linkedin', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'category-contact-section-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-copyright-url',
+            'type' => 'text',
+            'title' => __('Copyright', 'redux-framework'),
+            'subtitle' => __('Enter copyright', 'redux-framework'),
+        ]
+    ]
+]);
 
+Redux::setSection($opt_name, [
+    'title' => __('Contact Us in Footer', 'redux-framework'),
+    'desc' => __('In this section you can change the theme settings displayed in the "Contacts Us".',
+        'redux-framework'),
+    'id' => 'contact-options',
+    'subsection' => true,
+    'fields' => [
+        [
+            'id' => 'footer-contact-1-section-start',
+            'type' => 'section',
+            'title' => __('First element', 'redux-framework'),
+            'subtitle' => __('The first element in the contact block.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-1-icon',
+            'type' => 'media',
+            'title' => __('Icon Uploader', 'redux-framework'),
+            'subtitle' => __('Uploader your icon', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'footer-contact-1-text',
+            'type' => 'text',
+            'title' => __('Text', 'redux-framework'),
+            'subtitle' => __('Enter the text displayed in the first item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-1-link-variant',
+            'type' => 'button_set',
+            'title' => __('Link type', 'redux-framework'),
+            'subtitle' => __('Select the link type for the first item', 'redux-framework'),
+            //Must provide key => value pairs for radio options
+            'options' => [
+                '1' => 'none',
+                '2' => 'url',
+                '3' => 'phone',
+                '4' => 'e-mail'
+            ],
+            'default' => '1'
+        ],
+        [
+            'id' => 'footer-contact-1-url',
+            'type' => 'text',
+            'required' => ['footer-contact-1-link-variant', '=', '2'],
+            'title' => __('Link', 'redux-framework'),
+            'subtitle' => __('Enter the link', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-contact-1-phone',
+            'type' => 'text',
+            'required' => ['footer-contact-1-link-variant', '=', '3'],
+            'title' => __('Phone', 'redux-framework'),
+            'subtitle' => __('Enter the phone number', 'redux-framework')
+        ],
+        [
+            'id' => 'footer-contact-1-email',
+            'type' => 'text',
+            'required' => ['footer-contact-1-link-variant', '=', '4'],
+            'title' => __('E-mail', 'redux-framework'),
+            'subtitle' => __('Enter the e-mail', 'redux-framework'),
+            'validate' => 'email'
+        ],
+        [
+            'id' => 'footer-contact-1-section-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-2-section-start',
+            'type' => 'section',
+            'title' => __('Second element', 'redux-framework'),
+            'subtitle' => __('The second element in the contact block.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-2-icon',
+            'type' => 'media',
+            'title' => __('Icon Uploader', 'redux-framework'),
+            'subtitle' => __('Uploader your icon', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'footer-contact-2-text',
+            'type' => 'text',
+            'title' => __('Text', 'redux-framework'),
+            'subtitle' => __('Enter the text displayed in the second item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-2-link-variant',
+            'type' => 'button_set',
+            'title' => __('Link type', 'redux-framework'),
+            'subtitle' => __('Select the link type for the second item', 'redux-framework'),
+            //Must provide key => value pairs for radio options
+            'options' => [
+                '1' => 'none',
+                '2' => 'url',
+                '3' => 'phone',
+                '4' => 'e-mail'
+            ],
+            'default' => '1'
+        ],
+        [
+            'id' => 'footer-contact-2-url',
+            'type' => 'text',
+            'required' => ['footer-contact-2-link-variant', '=', '2'],
+            'title' => __('Link', 'redux-framework'),
+            'subtitle' => __('Enter the link', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-contact-2-phone',
+            'type' => 'text',
+            'required' => ['footer-contact-2-link-variant', '=', '3'],
+            'title' => __('Phone', 'redux-framework'),
+            'subtitle' => __('Enter the phone number', 'redux-framework')
+        ],
+        [
+            'id' => 'footer-contact-2-email',
+            'type' => 'text',
+            'required' => ['footer-contact-2-link-variant', '=', '4'],
+            'title' => __('E-mail', 'redux-framework'),
+            'subtitle' => __('Enter the e-mail', 'redux-framework'),
+            'validate' => 'email'
+        ],
+        [
+            'id' => 'footer-contact-2-section-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-3-section-start',
+            'type' => 'section',
+            'title' => __('Third element', 'redux-framework'),
+            'subtitle' => __('The third element in the contact block.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-3-icon',
+            'type' => 'media',
+            'title' => __('Icon Uploader', 'redux-framework'),
+            'subtitle' => __('Uploader your icon', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'footer-contact-3-text',
+            'type' => 'text',
+            'title' => __('Text', 'redux-framework'),
+            'subtitle' => __('Enter the text displayed in the third item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-3-link-variant',
+            'type' => 'button_set',
+            'title' => __('Link type', 'redux-framework'),
+            'subtitle' => __('Select the link type for the third item', 'redux-framework'),
+            //Must provide key => value pairs for radio options
+            'options' => [
+                '1' => 'none',
+                '2' => 'url',
+                '3' => 'phone',
+                '4' => 'e-mail'
+            ],
+            'default' => '1'
+        ],
+        [
+            'id' => 'footer-contact-3-url',
+            'type' => 'text',
+            'required' => ['footer-contact-3-link-variant', '=', '2'],
+            'title' => __('Link', 'redux-framework'),
+            'subtitle' => __('Enter the link', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-contact-3-phone',
+            'type' => 'text',
+            'required' => ['footer-contact-3-link-variant', '=', '3'],
+            'title' => __('Phone', 'redux-framework'),
+            'subtitle' => __('Enter the phone number', 'redux-framework')
+        ],
+        [
+            'id' => 'footer-contact-3-email',
+            'type' => 'text',
+            'required' => ['footer-contact-3-link-variant', '=', '4'],
+            'title' => __('E-mail', 'redux-framework'),
+            'subtitle' => __('Enter the e-mail', 'redux-framework'),
+            'validate' => 'email'
+        ],
+        [
+            'id' => 'footer-contact-3-section-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-4-section-start',
+            'type' => 'section',
+            'title' => __('Fourth element', 'redux-framework'),
+            'subtitle' => __('The fourth element in the contact block.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-contact-4-icon',
+            'type' => 'media',
+            'title' => __('Icon Uploader', 'redux-framework'),
+            'subtitle' => __('Uploader your icon', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'footer-contact-4-text',
+            'type' => 'text',
+            'title' => __('Text', 'redux-framework'),
+            'subtitle' => __('Enter the text displayed in the fourth item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-4-link-variant',
+            'type' => 'button_set',
+            'title' => __('Link type', 'redux-framework'),
+            'subtitle' => __('Select the link type for the fourth item', 'redux-framework'),
+            //Must provide key => value pairs for radio options
+            'options' => [
+                '1' => 'none',
+                '2' => 'url',
+                '3' => 'phone',
+                '4' => 'e-mail'
+            ],
+            'default' => '1'
+        ],
+        [
+            'id' => 'footer-contact-4-url',
+            'type' => 'text',
+            'required' => ['footer-contact-4-link-variant', '=', '2'],
+            'title' => __('Link', 'redux-framework'),
+            'subtitle' => __('Enter the link', 'redux-framework'),
+            'validate' => 'url'
+        ],
+        [
+            'id' => 'footer-contact-4-phone',
+            'type' => 'text',
+            'required' => ['footer-contact-4-link-variant', '=', '3'],
+            'title' => __('Phone', 'redux-framework'),
+            'subtitle' => __('Enter the phone number', 'redux-framework')
+        ],
+        [
+            'id' => 'footer-contact-4-email',
+            'type' => 'text',
+            'required' => ['footer-contact-4-link-variant', '=', '4'],
+            'title' => __('E-mail', 'redux-framework'),
+            'subtitle' => __('Enter the e-mail', 'redux-framework'),
+            'validate' => 'email'
+        ],
+        [
+            'id' => 'footer-contact-4-section-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
+        ],
     ]
 ]);
 
@@ -302,11 +602,11 @@ Redux::setSection($opt_name, [
     'subsection' => true,
     'fields' => [
         [
-            'id'       => 'category-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Category Page', 'redux-framework' ),
-            'subtitle' => __( 'Pagination options on the category page.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+            'id' => 'category-section-start',
+            'type' => 'section',
+            'title' => __('Category Page', 'redux-framework'),
+            'subtitle' => __('Pagination options on the category page.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'category-pagination',
@@ -329,16 +629,16 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'category-section-end',
-            'type'   => 'section',
+            'id' => 'category-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id'       => 'shop-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Shop Page', 'redux-framework' ),
-            'subtitle' => __( 'Pagination options on the shop page.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+            'id' => 'shop-section-start',
+            'type' => 'section',
+            'title' => __('Shop Page', 'redux-framework'),
+            'subtitle' => __('Pagination options on the shop page.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'shop-pagination',
@@ -361,16 +661,16 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'shop-section-end',
-            'type'   => 'section',
+            'id' => 'shop-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id'       => 'search-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Search results Page', 'redux-framework' ),
-            'subtitle' => __( 'Pagination options on the search results page.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+            'id' => 'search-section-start',
+            'type' => 'section',
+            'title' => __('Search results Page', 'redux-framework'),
+            'subtitle' => __('Pagination options on the search results page.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'search-pagination',
@@ -393,16 +693,16 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'search-section-end',
-            'type'   => 'section',
+            'id' => 'search-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id'       => 'seller-page-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Seller Page', 'redux-framework' ),
-            'subtitle' => __( 'Customize the "Load more" button on the seller page.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+            'id' => 'seller-page-section-start',
+            'type' => 'section',
+            'title' => __('Seller Page', 'redux-framework'),
+            'subtitle' => __('Customize the "Load more" button on the seller page.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'seller-page-pagination-amount',
@@ -413,15 +713,16 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'seller-page-section-end',
-            'type'   => 'section',
+            'id' => 'seller-page-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
-        ],[
-            'id'       => 'seller-dashboard-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Seller Dashboard', 'redux-framework' ),
-            'subtitle' => __( 'Pagination options on the Seller Dashboard.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'seller-dashboard-section-start',
+            'type' => 'section',
+            'title' => __('Seller Dashboard', 'redux-framework'),
+            'subtitle' => __('Pagination options on the Seller Dashboard.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'seller-dashboard-pagination-amount',
@@ -432,16 +733,16 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'seller-dashboard-section-end',
-            'type'   => 'section',
+            'id' => 'seller-dashboard-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id'       => 'buyer-section-start',
-            'type'     => 'section',
-            'title'    => __( 'Buyer Dashboard', 'redux-framework' ),
-            'subtitle' => __( 'Pagination options on the Buyer Dashboard.', 'redux-framework' ),
-            'indent'   => true, // Indent all options below until the next 'section' option is set.
+            'id' => 'buyer-section-start',
+            'type' => 'section',
+            'title' => __('Buyer Dashboard', 'redux-framework'),
+            'subtitle' => __('Pagination options on the Buyer Dashboard.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'buyer-tab-my-coupons-pagination-amount',
@@ -460,8 +761,8 @@ Redux::setSection($opt_name, [
             'default' => '5'
         ],
         [
-            'id'     => 'buyer-section-end',
-            'type'   => 'section',
+            'id' => 'buyer-section-end',
+            'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
     ]
@@ -469,7 +770,8 @@ Redux::setSection($opt_name, [
 
 Redux::setSection($opt_name, [
     'title' => __('Popup Register', 'redux-framework'),
-    'desc' => __('In this section you can change popup options that will be displayed to non-registered users.', 'redux-framework'),
+    'desc' => __('In this section you can change popup options that will be displayed to non-registered users.',
+        'redux-framework'),
     'id' => 'popup-register-options',
     'subsection' => true,
     'fields' => [
