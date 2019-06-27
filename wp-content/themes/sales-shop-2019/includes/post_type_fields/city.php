@@ -3,31 +3,12 @@ if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array(
         'key' => 'group_5d133f6eaec8a',
-        'title' => 'Cities Fields',
+        'title' => __('Neighborhoods Fields'),
         'fields' => array(
             array(
-                'key' => 'field_5d133faccd504',
-                'label' => 'City name',
-                'name' => 'city_name',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 1,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-            array(
-                'key' => 'field_5d133fe6cd505',
-                'label' => 'Districts',
-                'name' => 'districts',
+                'key' => 'field_5d145cc326287',
+                'label' => __('Neighborhoods'),
+                'name' => 'neighborhoods',
                 'type' => 'repeater',
                 'instructions' => '',
                 'required' => 1,
@@ -41,12 +22,12 @@ if( function_exists('acf_add_local_field_group') ):
                 'min' => 1,
                 'max' => 0,
                 'layout' => 'table',
-                'button_label' => 'Add district',
+                'button_label' => __('Add neighborhood'),
                 'sub_fields' => array(
                     array(
-                        'key' => 'field_5d1340b9cd506',
-                        'label' => 'District',
-                        'name' => 'district',
+                        'key' => 'field_5d145d2626288',
+                        'label' => __('Neighborhood'),
+                        'name' => 'neighborhood',
                         'type' => 'text',
                         'instructions' => '',
                         'required' => 1,

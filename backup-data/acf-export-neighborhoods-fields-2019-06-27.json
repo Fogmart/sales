@@ -1,0 +1,69 @@
+[
+    {
+        "key": "group_5d133f6eaec8a",
+        "title": "Neighborhoods Fields",
+        "fields": [
+            {
+                "key": "field_5d145cc326287",
+                "label": "Neighborhoods",
+                "name": "neighborhoods",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 1,
+                "max": 0,
+                "layout": "table",
+                "button_label": "Add neighborhood",
+                "sub_fields": [
+                    {
+                        "key": "field_5d145d2626288",
+                        "label": "Neighborhood",
+                        "name": "neighborhood",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "city"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink",
+            "the_content",
+            "featured_image"
+        ],
+        "active": true,
+        "description": ""
+    }
+]
