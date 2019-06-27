@@ -3,3 +3,4 @@ wp-content/uploads
 *.log
 .idea/
 wp-config.php
+wp-content/cache
