@@ -10,4 +10,11 @@ register_post_type('city', array(
     'query_var' => true,
 ));
 
+add_filter( 'enter_title_here', 'filter_function_name_city', 10, 2 );
+function filter_function_name_city( $text, $post ){
+    if ( $post->post_type === 'city' ) {
+        $text = __('City name');
+    }
 
+    return $text;
+}
