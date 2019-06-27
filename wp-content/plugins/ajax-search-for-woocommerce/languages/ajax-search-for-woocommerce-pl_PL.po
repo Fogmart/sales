@@ -1,0 +1,1290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ajax Search for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-03 21:18+0000\n"
+"PO-Revision-Date: 2019-05-03 21:21+0000\n"
+"Last-Translator: dev_nIXCkVKHG <admin@webtroter.pl>\n"
+"Language-Team: Polski\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
+"&&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.2; wp-5.1.1"
+
+#: ajax-search-for-woocommerce.php:198
+msgid ""
+"<b>AJAX Search for WooCommerce</b>: You need PHP version at least 5.3 to run "
+"this plugin. You are currently using PHP version "
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:221
+msgid ""
+"<b>AJAX Search for WooCommerce</b>: You need PHP version at least 5.5 to run "
+"this plugin. You are currently using PHP version "
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:250
+#, php-format
+msgid ""
+"<b>AJAX Search for WooCommerce</b>:<br /> Your PHP version <b><i>%s</i></b> "
+"will not longer supported in the next plugin releases."
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:252
+msgid ""
+" You have to update your PHP version to least 5.5 (recommended 7.2 or "
+"greater)."
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:255
+msgid ""
+"If you cannot upgrade your PHP version yourself, you can send an email to "
+"your host."
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:258
+msgid ""
+"If you do not upgrade the php version, the next plugin release will not work!"
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:263
+msgid "Remind me again in week."
+msgstr ""
+
+#: ajax-search-for-woocommerce.php:285
+#, php-format
+msgid ""
+"<b>AJAX Search for WooCommerce</b> is enabled but not effective. It requires "
+"%s in order to work."
+msgstr ""
+
+#: widget.php:25
+msgid "AJAX (live) search form for WooCommerce"
+msgstr ""
+
+#: widget.php:27
+msgid "Woo AJAX Search"
+msgstr ""
+
+#: widget.php:32
+msgid "Title"
+msgstr "Tytuł"
+
+#: partials/search-form.php:19 backward-compatibility/1-1-7/search-form.php:67
+msgid "Products search"
+msgstr "Wyszukiwarka produktów"
+
+#: partials/search-form.php:26 includes/Settings.php:188
+#: backward-compatibility/1-1-7/search-form.php:74
+msgid "Search for products..."
+msgstr "Szukaj produktów"
+
+#: includes/Settings.php:86
+msgid "Basic"
+msgstr "Podstawowe"
+
+#: includes/Settings.php:90
+msgid "Form"
+msgstr ""
+
+#: includes/Settings.php:94
+msgid "Colors"
+msgstr ""
+
+#: includes/Settings.php:98
+msgid "Scope"
+msgstr ""
+
+#: includes/Settings.php:105 includes/Helpers.php:441 includes/Helpers.php:444
+msgid "Pro"
+msgstr ""
+
+#: includes/Settings.php:111
+msgid "Increase sales"
+msgstr ""
+
+#: includes/Settings.php:113
+msgid "by simple tricks"
+msgstr ""
+
+#: includes/Settings.php:136
+msgid "How to use?"
+msgstr "Jak używać?"
+
+#: includes/Settings.php:142
+msgid "Suggestions limit"
+msgstr "Limit podpowiedzi"
+
+#: includes/Settings.php:145
+msgid "Maximum number of suggestions rows."
+msgstr "Maksymalna liczba podpowiedzi."
+
+#: includes/Settings.php:150
+msgid "Minimum characters"
+msgstr "Minimalna liczba znaków"
+
+#: includes/Settings.php:153
+msgid "Minimum number of characters required to trigger autosuggest."
+msgstr ""
+"Minimalna liczba znaków, które należy wpisać aby pojawiły się podpowiedzi"
+
+#: includes/Settings.php:158
+msgid "Max form width"
+msgstr ""
+
+#: includes/Settings.php:161
+msgid "To set 100% width leave blank"
+msgstr ""
+
+#: includes/Settings.php:166
+msgid "Show submit button"
+msgstr "Pokaż przycisk \"Szukaj\""
+
+#: includes/Settings.php:173
+msgid "Custom labels"
+msgstr ""
+
+#: includes/Settings.php:179
+msgid "Search submit button text"
+msgstr "Własny tekst na przycisku wyszukiwania"
+
+#: includes/Settings.php:181
+msgid "To display the magnifier icon leave this field empty."
+msgstr ""
+
+#: includes/Settings.php:182
+msgid "Search"
+msgstr "Szukaj"
+
+#: includes/Settings.php:186
+msgid "Search input placeholder"
+msgstr "Placeholder dla pola wyszukiwania"
+
+#: includes/Settings.php:192
+msgid "More results"
+msgstr ""
+
+#: includes/Settings.php:194 includes/Scripts.php:41
+msgid "See all results..."
+msgstr ""
+
+#: includes/Settings.php:198
+msgctxt "admin"
+msgid "No results"
+msgstr ""
+
+#: includes/Settings.php:200 includes/Scripts.php:42
+msgid "No results"
+msgstr "Brak wyników"
+
+#: includes/Settings.php:206
+msgid "Suggestions output"
+msgstr "Wygląd podpowiedzi"
+
+#: includes/Settings.php:212
+msgid "Show product image"
+msgstr "Pokaż zdjęcie produktu"
+
+#: includes/Settings.php:218
+msgid "Show price"
+msgstr "Pokaż cenę"
+
+#: includes/Settings.php:224
+msgid "Show product description"
+msgstr "Pokaż opis produktu"
+
+#: includes/Settings.php:230
+msgid "Show SKU"
+msgstr "Pokaż SKU"
+
+#: includes/Settings.php:236
+msgid "Also show matching categories"
+msgstr ""
+
+#: includes/Settings.php:242
+msgid "Also show matching tags"
+msgstr ""
+
+#: includes/Settings.php:260
+msgid "Mobile"
+msgstr ""
+
+#: includes/Settings.php:266
+msgid "Overlay search (beta)"
+msgstr ""
+
+#: includes/Settings.php:267
+msgid "Enhances user experience on mobile"
+msgstr ""
+
+#: includes/Settings.php:273
+msgid "Preloader"
+msgstr ""
+
+#: includes/Settings.php:279
+msgid "Show preloader"
+msgstr "Pokaż preloader"
+
+#: includes/Settings.php:285
+msgid "Upload preloader image"
+msgstr "Załaduj zdjęcie na preloader"
+
+#: includes/Settings.php:291
+msgid "Details box"
+msgstr ""
+
+#: includes/Settings.php:297
+msgid "Show details box"
+msgstr "Pokaż okno z dodatkowymi informacjami"
+
+#: includes/Settings.php:301
+#, php-format
+msgid ""
+"The Details box is an additional container for extended information. The "
+"details are changed dynamically when you hover the mouse over one of the "
+"suggestions. <a href=\"%s\" target=\"_blank\">See where the details box will "
+"appear.</a>"
+msgstr ""
+
+#: includes/Settings.php:306
+msgid "Products list"
+msgstr ""
+
+#: includes/Settings.php:308 includes/Settings.php:322
+#: includes/Settings.php:336
+msgid "Applies only to category or tags suggestions type"
+msgstr ""
+
+#: includes/Settings.php:310
+msgid "All Product"
+msgstr "Wszystkie produkty"
+
+#: includes/Settings.php:311
+msgid "Featured Products"
+msgstr "Produkty wyróżnione"
+
+#: includes/Settings.php:312
+msgid "On-sale Products"
+msgstr "Produkty oznaczone jako \"wyprzedaż\""
+
+#: includes/Settings.php:319
+msgid "Order by"
+msgstr "Kolejność przez"
+
+#: includes/Settings.php:324
+msgid "Date"
+msgstr "Data"
+
+#: includes/Settings.php:325
+msgid "Price"
+msgstr "Cena"
+
+#: includes/Settings.php:326
+msgid "Random"
+msgstr "Losowo"
+
+#: includes/Settings.php:327
+msgid "Sales"
+msgstr "Sprzedaż"
+
+#: includes/Settings.php:333
+msgid "Order"
+msgstr ""
+
+#: includes/Settings.php:338
+msgid "DESC"
+msgstr "Malejąco"
+
+#: includes/Settings.php:339
+msgid "ASC"
+msgstr "Rosnąco"
+
+#: includes/Settings.php:347
+msgid "Search form"
+msgstr "Formularz wyszukiwania"
+
+#: includes/Settings.php:353
+msgid "Search input background"
+msgstr "Tło pola do wpisania frazy"
+
+#: includes/Settings.php:359
+msgid "Search input text"
+msgstr "Tekst "
+
+#: includes/Settings.php:365
+msgid "Search input border"
+msgstr "Obramowanie inputa"
+
+#: includes/Settings.php:371
+msgid "Search submit background"
+msgstr "Tło przycisku \"szukaj\""
+
+#: includes/Settings.php:377
+msgid "Search submit text"
+msgstr "Tekst na przycisku \"szukaj\""
+
+#: includes/Settings.php:383
+msgid "Suggestions"
+msgstr "Podpowiedzi"
+
+#: includes/Settings.php:389
+msgid "Suggestion background"
+msgstr "Tło podpowiedzi"
+
+#: includes/Settings.php:395
+msgid "Suggestion selected"
+msgstr "Tło zaznaczonej podpowiedzi"
+
+#: includes/Settings.php:401
+msgid "Text color"
+msgstr "Kolor tekstu"
+
+#: includes/Settings.php:407
+msgid "Highlight color"
+msgstr "Kolor podświetlenia"
+
+#: includes/Settings.php:413
+msgid "Border color"
+msgstr "Kolor obramowania"
+
+#: includes/Settings.php:421
+msgid "Search scope"
+msgstr ""
+
+#: includes/Settings.php:427
+msgid "Info"
+msgstr ""
+
+#: includes/Settings.php:429
+msgid ""
+"Searching in products names is always enabled. You can extend or narrow the "
+"searching scope using the following options."
+msgstr ""
+
+#: includes/Settings.php:434
+msgid "Search in description"
+msgstr ""
+
+#: includes/Settings.php:440
+msgid "Search in short description"
+msgstr ""
+
+#: includes/Settings.php:446
+msgid "Search in SKU"
+msgstr ""
+
+#: includes/Settings.php:448
+msgid "Searching also in variable products SKU"
+msgstr ""
+
+#: includes/Settings.php:448
+#, php-format
+msgid ""
+"Searching in variable products SKU is available only in <a href=\"%s\">the "
+"pro version</a>. It will also be available in the free version soon."
+msgstr ""
+
+#: includes/Settings.php:453
+msgid "Search in attributes"
+msgstr ""
+
+#: includes/Settings.php:460
+msgid "Exclude 'out of stock' products"
+msgstr "Wyklucz produkty o zerowym stanie magazynowym"
+
+#: includes/Settings.php:468
+msgid "Pro features"
+msgstr ""
+
+#: includes/Settings.php:474
+msgid "Fuzziness"
+msgstr ""
+
+#: includes/Settings.php:480
+msgid "Speed up search!"
+msgstr ""
+
+#: includes/Settings.php:487
+msgid ""
+"<strong>Increases sales conversions.</strong> Returns sugestions based on "
+"likely relevance even though a search keyword may not exactly match. E.g if "
+"you type \"ipho<b>m</b>e\" you get the same results as for \"iphone\""
+msgstr ""
+
+#: includes/Settings.php:493
+msgid "Profits"
+msgstr ""
+
+#: includes/Settings.php:500 includes/Settings.php:532
+msgid "Fuzzy matching"
+msgstr ""
+
+#: includes/Settings.php:505 includes/Settings.php:537
+msgid "-- Disabled"
+msgstr ""
+
+#: includes/Settings.php:506 includes/Settings.php:538
+msgid "Soft"
+msgstr ""
+
+#: includes/Settings.php:507 includes/Settings.php:539
+msgid "Normal"
+msgstr ""
+
+#: includes/Settings.php:508 includes/Settings.php:540
+msgid "Hard"
+msgstr ""
+
+#: includes/Settings.php:518
+msgid "Select the database"
+msgstr ""
+
+#: includes/Settings.php:522
+msgid "SQLite"
+msgstr ""
+
+#: includes/Settings.php:523
+msgid "MySQL"
+msgstr ""
+
+#: includes/Settings.php:552 includes/Settings.php:560
+msgid "Index status"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:338 partials/admin/indexer-header.php:21
+msgid "Troubleshooting"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:339
+msgid "troubleshooting"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:348
+msgid "<span style=\"color:#9b5c8f\">Complete the update process</span>"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:348
+msgid ""
+"In the last update we have changed the AJAX search form on the frontend (CSS "
+"styles, names of the HTML classes etc.). You have to check if the AJAX "
+"search form looks correct with your theme after these changes."
+msgstr ""
+
+#: includes/BackwardCompatibility.php:356
+msgid "What should you do now?"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:359
+msgid ""
+"Switch manually to the latest version to check if the AJAX search form "
+"displays correctly with your theme"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:364
+msgid "You have activated the latest version. Follow the steps below:"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:367
+#, php-format
+msgid "Visit your <a target=\"_blank\" href=\"%s\">store</a>"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:368
+msgid "Check if the AJAX search form displays correctly"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:369
+#, php-format
+msgid "If it is ok, click %s"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:369
+msgid "finish the update"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:370
+#, php-format
+msgid "If not, switch back to <code>previous version %s</code> and see %s"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:377
+msgid "Version switcher"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:378
+msgid "Something went wrong. Refresh the page and try again."
+msgstr ""
+
+#: includes/BackwardCompatibility.php:379
+msgid "Saved!"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:381
+msgid "previous version"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:388
+msgid "latest version"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:395
+#, php-format
+msgid ""
+"If the AJAX search form displays incorrectly after switching to the latest "
+"version, see the  %s"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:402
+msgid ""
+"Your AJAX search form does not display correctly after manual switching to "
+"the latest version."
+msgstr ""
+
+#: includes/BackwardCompatibility.php:406
+msgid ""
+"Probably your theme uses additional CSS styles to customize the appearance "
+"of the AJAX search form. Contact the authors of your theme. Maybe they have "
+"to update their CSS styles if necessary."
+msgstr ""
+
+#: includes/BackwardCompatibility.php:412
+msgid "Your Theme Details"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:417
+msgctxt "Wordpress theme name"
+msgid "Name:"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:432
+msgid "Author:"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:449
+msgid "A sample e-mail message that you can send them:"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:454
+#, php-format
+msgid ""
+"Hello,\n"
+"                    <br /><br />\n"
+"                    I use your %s theme with AJAX Search for WooCommerce "
+"plugin - (https://wordpress.org/plugins/ajax-search-for-woocommerce/)\n"
+"                    <br /><br />\n"
+"                    In the lates version of AJAX Search for WooCommerce %s "
+"they have changed the search form on the frontend (CSS, HTML etc.).\n"
+"                    <br /><br />\n"
+"                    Could you check it and update your CSS if necessary?"
+msgstr ""
+
+#: includes/BackwardCompatibility.php:470
+msgid ""
+"If you have any questions, do not hesitate contact <a href=\"mailto:"
+"dgoraplugins@gmail.com?subject=Ajax Search for WooCommerce - Update "
+"problem\">our support </a> or <a href=\"https://wordpress."
+"org/support/plugin/ajax-search-for-woocommerce\" target=\"_blank\">write on "
+"the WordPress.org Support</a>."
+msgstr ""
+
+#: includes/BackwardCompatibility.php:477
+msgid "Remind me later"
+msgstr ""
+
+#: includes/Scripts.php:34
+msgctxt "For product badge: on sale"
+msgid "sale"
+msgstr "sprzedaż"
+
+#: includes/Scripts.php:35
+msgctxt "For product badge: featured"
+msgid "featured"
+msgstr "wyróżniony"
+
+#: includes/Scripts.php:36 includes/Engines/WordPressNative/DetailsBox.php:168
+msgid "Category"
+msgstr "Kategoria"
+
+#: includes/Scripts.php:37
+msgid "tag"
+msgstr ""
+
+#: includes/Scripts.php:38
+msgid "SKU:"
+msgstr ""
+
+#: includes/Scripts.php:64
+msgctxt "in categories fe. in Books > Crime stories"
+msgid "in"
+msgstr ""
+
+#: partials/admin/indexer-header.php:8
+#, php-format
+msgid "Indexed <strong>100&#37;</strong>, <strong>%d products</strong>."
+msgstr ""
+
+#: partials/admin/indexer-header.php:12
+#, php-format
+msgid "Last build %s"
+msgstr ""
+
+#: partials/admin/indexer-header.php:13
+msgid "All products changes will be <strong>re-indexed automatically</strong>"
+msgstr ""
+
+#: partials/admin/indexer-header.php:24
+#, php-format
+msgid "First try to <a class=\"%s\" href=\"#\">build the index again</a>"
+msgstr ""
+
+#: partials/admin/indexer-header.php:25
+#, php-format
+msgid ""
+"Go to <a target=\"_blank\" href=\"%s\">WooCommerce -> Status -> section "
+"\"AJAX Search for WooCommerce Pro\"</a>. Is everything green?"
+msgstr ""
+
+#: partials/admin/indexer-header.php:26
+#, php-format
+msgid ""
+"Go to <a target=\"_blank\" href=\"%s\">WooCommerce -> Status -> Logs (tab)"
+"</a>. Open last \"fatal-errors...\". Look for a phrase \"ajax-search-for-"
+"woocommerce\". Did you find anything significant?"
+msgstr ""
+
+#: partials/admin/indexer-header.php:27
+#, php-format
+msgid ""
+"Is it still not working? Write a <a target=\"_blank\" href=\"%s\">support "
+"request</a>."
+msgstr ""
+
+#: partials/admin/indexer-header.php:36
+#: partials/admin/indexer-header-demo.php:8
+msgid "Show details"
+msgstr ""
+
+#: partials/admin/indexer-header.php:37
+msgid "Hide details"
+msgstr ""
+
+#: partials/admin/indexer-body.php:6
+msgid ""
+"Indexing... This process will continue in the background. You can leave this "
+"page."
+msgstr ""
+
+#: partials/admin/indexer-body.php:8
+msgid "Index build progress"
+msgstr ""
+
+#: partials/admin/indexer-body.php:11
+#, php-format
+msgid "Finalization... Wait a moment. (%s products)"
+msgstr ""
+
+#: partials/admin/indexer-body.php:15
+msgid "Cancellation..."
+msgstr ""
+
+#: partials/admin/indexer-body.php:32
+msgid "Build ID"
+msgstr ""
+
+#: partials/admin/indexer-body.php:36
+msgid "DB"
+msgstr ""
+
+#: partials/admin/indexer-body.php:40
+msgid "Index build start"
+msgstr ""
+
+#: partials/admin/indexer-body.php:44
+msgid "Status"
+msgstr ""
+
+#: partials/admin/indexer-body.php:48
+msgid "Products"
+msgstr ""
+
+#: partials/admin/indexer-body.php:52
+msgid "Searchable"
+msgstr ""
+
+#: partials/admin/indexer-body.php:56 partials/admin/indexer-body.php:79
+#: partials/admin/indexer-body.php:104
+msgid "Start"
+msgstr ""
+
+#: partials/admin/indexer-body.php:60 partials/admin/indexer-body.php:83
+#: partials/admin/indexer-body.php:108
+msgid "End"
+msgstr ""
+
+#: partials/admin/indexer-body.php:65 partials/admin/indexer-body.php:88
+#: partials/admin/indexer-body.php:113
+msgid "Time"
+msgstr ""
+
+#: partials/admin/indexer-body.php:74
+msgid "Readable"
+msgstr ""
+
+#: partials/admin/indexer-body.php:99
+msgid "Taxonomies"
+msgstr ""
+
+#: partials/admin/indexer-body.php:127
+msgid "Logs"
+msgstr ""
+
+#: partials/admin/pro-starter.php:8
+msgid ""
+"You are using the Pro plugin version. Your customers will find the right "
+"products <span>faster and simpler</span> and your sales will increase."
+msgstr ""
+
+#: partials/admin/pro-starter.php:14
+#, php-format
+msgid ""
+"If you have any questions, do not hesitate to <a target=\"_blank\" "
+"href=\"%s\">get in touch</a>."
+msgstr ""
+
+#: partials/admin/settings.php:12
+msgid "AJAX Search for WooCommerce (PRO) Settings"
+msgstr ""
+
+#: partials/admin/settings.php:14
+msgid "AJAX Search for WooCommerce Settings"
+msgstr ""
+
+#: partials/admin/indexer-header-demo.php:3
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:414
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:398
+msgid "The search index does not exist yet. Build it now."
+msgstr ""
+
+#: partials/admin/indexer-header-demo.php:7
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:443
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:430
+msgid "Build index"
+msgstr ""
+
+#: partials/admin/how-to-use.php:10
+msgid "There are two easy ways to display the search form"
+msgstr "Wyszukiwarkę można wyświetlić na dwa sposoby"
+
+#: partials/admin/how-to-use.php:11
+#, php-format
+msgid "Use a shortcode %s"
+msgstr "Użyj shortcode %s"
+
+#: partials/admin/how-to-use.php:12
+#, php-format
+msgid "Go to the %s and choose \"Woo AJAX Search\""
+msgstr ""
+
+#: partials/admin/how-to-use.php:12
+msgid "Widgets Screen"
+msgstr "Widoku widgetów"
+
+#: partials/admin/how-to-use.php:14
+#, php-format
+msgid ""
+"Are there any difficulties? <a href=\"%s\">Upgrade now</a> and our "
+"developers will do everything for you."
+msgstr ""
+
+#: partials/admin/system-status.php:5
+msgid "Ajax Search for WooCommerce (Pro)"
+msgstr ""
+
+#: partials/admin/system-status.php:6
+msgid "This section shows the plugin requirements."
+msgstr ""
+
+#: partials/admin/system-status.php:12
+msgid "PHP extension (mbstring)"
+msgstr ""
+
+#: partials/admin/system-status.php:29
+msgid "PHP extension (pdo_mysql)"
+msgstr ""
+
+#: partials/admin/system-status.php:46
+msgid "PHP extension (sqlite3)"
+msgstr ""
+
+#: partials/admin/system-status.php:61
+msgid "PHP extension (pdo_sqlite)"
+msgstr ""
+
+#: partials/admin/system-status.php:76
+msgid "Index directory test"
+msgstr ""
+
+#: partials/admin/system-status.php:93
+msgid "Default upload path"
+msgstr ""
+
+#: partials/admin/system-status.php:96
+msgid "At this moment the plugin works only with default upload directory."
+msgstr ""
+
+#: partials/admin/system-status.php:113
+msgid "DB readable tables exist"
+msgstr ""
+
+#: partials/admin/system-status.php:134
+msgid "Finding wp-load.php from outside"
+msgstr ""
+
+#: partials/admin/system-status.php:143
+msgid "The location of wp-load.php is not the default."
+msgstr ""
+
+#: partials/admin/system-status.php:158
+msgid "Multisite"
+msgstr ""
+
+#: partials/admin/system-status.php:161
+msgid ""
+"The Ajax Search for WooCommerce (Pro) does not support multisite yet. "
+"Multisite must be disabled."
+msgstr ""
+
+#: partials/admin/system-status.php:166
+msgid "disabled"
+msgstr ""
+
+#: partials/admin/system-status.php:168
+msgid "enabled"
+msgstr ""
+
+#: partials/admin/system-status.php:175
+msgid "Conflicts with other plugins"
+msgstr ""
+
+#: partials/admin/system-status.php:178
+msgid ""
+"The Ajax Search for WooCommerce (Pro) does not support multilanguages yet."
+msgstr ""
+
+#: partials/admin/system-status.php:184
+msgid "no"
+msgstr ""
+
+#: partials/admin/features.php:8
+msgid ""
+"If users can’t find the product they’re searching for, they can’t buy it. "
+"Help your customers to find the right products <span>faster and "
+"simpler</span>."
+msgstr ""
+
+#: partials/admin/features.php:10 includes/Admin/Promo/Upgrade.php:62
+msgid ""
+"Update now and increase your sales. You will receive 14-day satisfaction "
+"guarantee.  A return on investment will come very quickly."
+msgstr ""
+
+#: partials/admin/features.php:13
+msgid "Speed up search! (even <b>10x faster</b>) - users love it!"
+msgstr ""
+
+#: partials/admin/features.php:14
+msgid ""
+"Help in embedding the search form in your theme. <b>Our developers will do "
+"it for you</b>."
+msgstr ""
+
+#: partials/admin/features.php:15
+msgid ""
+"Efficient with a large number of products. Tested on <b>20 000 products</b>"
+msgstr ""
+
+#: partials/admin/features.php:16 includes/Admin/Promo/Upgrade.php:51
+msgid "New modern search engine based on bm25 ranking algorithm"
+msgstr ""
+
+#: partials/admin/features.php:17 includes/Admin/Promo/Upgrade.php:52
+msgid "Fuzzy search"
+msgstr ""
+
+#: partials/admin/features.php:18
+msgid "Search in variation products SKUs (option)"
+msgstr ""
+
+#: partials/admin/features.php:19
+msgid "Search in product attributes (option)"
+msgstr ""
+
+#: partials/admin/features.php:20
+msgid "Advanced search analytics and tips (in plans)"
+msgstr ""
+
+#: partials/admin/features.php:21 includes/Admin/Promo/Upgrade.php:54
+msgid "Individual customization of the search form (simple CSS improvements)"
+msgstr ""
+
+#: partials/admin/features.php:22
+msgid "Individual tips and support"
+msgstr ""
+
+#: partials/admin/features.php:23
+msgid "And more..."
+msgstr ""
+
+#: partials/admin/features.php:25
+msgid "Upgrade Now!"
+msgstr ""
+
+#. Name of the plugin
+#: includes/Admin/AdminMenu.php:31
+msgid "Ajax Search for WooCommerce"
+msgstr ""
+
+#: includes/Admin/AdminMenu.php:32
+msgid "AJAX search form"
+msgstr ""
+
+#: includes/Admin/SettingsAPI.php:572
+msgid "Contact"
+msgstr ""
+
+#: includes/Admin/SettingsAPI.php:575
+msgid "My Account"
+msgstr ""
+
+#: includes/Admin/Requirements.php:60
+#, php-format
+msgid "Required PHP version 5.5 or higher. You use %s"
+msgstr ""
+
+#: includes/Admin/Requirements.php:79 includes/Admin/Requirements.php:84
+#: includes/Admin/Requirements.php:89 includes/Admin/Requirements.php:94
+#, php-format
+msgid "Required PHP extension: %s"
+msgstr ""
+
+#: includes/Admin/Requirements.php:128
+#, php-format
+msgid "Problem with permission for the directory: %s"
+msgstr ""
+
+#: includes/Admin/Requirements.php:181
+#, php-format
+msgid ""
+"You use the %s plugin. The Ajax Search for WooCommerce PRO does not support "
+"multilingual yet."
+msgstr ""
+
+#: includes/Admin/Requirements.php:205
+msgid ""
+"Your WordPress use the multisite. The Ajax Search for WooCommerce PRO does "
+"not support multisite yet."
+msgstr ""
+
+#: includes/Admin/Requirements.php:222
+msgid "Attention! Read this before the upgrade."
+msgstr ""
+
+#: includes/Admin/Requirements.php:223
+msgid ""
+"Ajax Search for WooCommerce PRO may not work properly in your environment "
+"for the following reasons:"
+msgstr ""
+
+#: includes/Admin/Requirements.php:233
+msgid "Ajax Search for WooCommerce PRO - Requirements"
+msgstr ""
+
+#: includes/Admin/Requirements.php:234
+#, php-format
+msgid ""
+"If you have any questions, do not hesitate contact <a href=\"%s\">our "
+"support</a>."
+msgstr ""
+
+#: includes/Engines/WordPressNative/DetailsBox.php:170
+msgid "Tag"
+msgstr "Tag"
+
+#: includes/Integrations/Themes/Storefront.php:28
+msgid "Storefront theme"
+msgstr ""
+
+#: includes/Integrations/Themes/Storefront.php:35
+msgid "Replace search form"
+msgstr ""
+
+#: includes/Integrations/Themes/Storefront.php:36
+msgid ""
+"Replace the Storefront theme's default product search with the Ajax Search "
+"for WooCommerce form."
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:50
+msgid "Speed up search! (even 10x faster) - users love it!"
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:53
+msgid "Search in attributes and variation products SKUs (option)"
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:55
+msgid "Individual tips and support by Damian Góra - the author of the plugin"
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:56
+msgid "and more..."
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:58
+msgid "Ajax Search for WooCommerce PRO - Upgrade Now"
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:68
+msgid "You can upgrade without leaving the admin panel by clicking below."
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:69
+msgid "Free updates and email support included."
+msgstr ""
+
+#: includes/Admin/Promo/Upgrade.php:70
+msgid "Upgrade Now"
+msgstr ""
+
+#: includes/Admin/Promo/FeedbackNotice.php:72
+#, php-format
+msgid ""
+"Hey %s, it's Damian Góra from %s. You have used this free plugin for some "
+"time now, and I hope you like it!"
+msgstr ""
+"Cześć %s, tu Damian Góra z %s. Korzystasz z tej wyszukiwarki produktów od "
+"pewnego czasu i mam nadzieję że Ci się podoba!"
+
+#: includes/Admin/Promo/FeedbackNotice.php:77
+#, php-format
+msgid ""
+"I have spent countless hours developing it, and it would mean a lot to me if "
+"you %ssupport it with a quick review on WordPress.org.%s"
+msgstr ""
+"Spędziłem wiele godzin na pisaniu tej wtyczki i potrzebuję motywacji do "
+"dalszego rozwoju wyszukiwarki. Byłbym bardzo szczęśliwy gdybyś %socenił/a "
+"moją wtyczkę na WordPress.org.%s Mała rzecz a cieszy :)"
+
+#: includes/Admin/Promo/FeedbackNotice.php:83
+#, php-format
+msgid "Review %s"
+msgstr "Oceń teraz"
+
+#: includes/Admin/Promo/FeedbackNotice.php:87
+msgid "No thanks"
+msgstr "Zamknij"
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:149
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:151
+msgctxt "Admin, logs"
+msgid ""
+"The request to build a new index rejected. Another process is in progress."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:155
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:318
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:159
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:302
+msgctxt "Admin, logs"
+msgid "There are no tables in the database"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:163
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:168
+msgctxt "Admin, logs"
+msgid "Indexer started"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:183
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:202
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:192
+msgctxt "Admin, logs"
+msgid "[Readable index] Building..."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:198
+#: includes/Engines/TNTSearch/Indexer/Readable/AsyncProcess.php:168
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/AsyncProcess.php:168
+msgctxt "Admin, logs"
+msgid "[Readable index] Completed"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:209
+#: includes/Engines/TNTSearch/Indexer/Searchable/AsyncRequest.php:37
+#: includes/Engines/TNTSearchMySQL/Indexer/Searchable/AsyncRequest.php:37
+msgctxt "Admin, logs"
+msgid "[Searchable index] Building..."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:220
+#: includes/Engines/TNTSearch/Indexer/Searchable/AsyncRequest.php:53
+#: includes/Engines/TNTSearchMySQL/Indexer/Searchable/AsyncRequest.php:53
+msgctxt "Admin, logs"
+msgid "[Searchable index] Completed"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:393
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:377
+msgid "Wait... Indexing in progress"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:394
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:378
+msgid "This process will continue in the background. You can leave this page!"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:398
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:382
+msgid "Wait... The index build process is canceling"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:399
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:383
+msgid "Canceling..."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:404
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:388
+msgid "The search index was built successfully."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:405
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:389
+msgid "Completed. Works."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:409
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:393
+msgid "The search index could not be built."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:410
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:394
+msgid "Errors"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:415
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:399
+msgid "Not exist"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:437
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:421
+msgid "Stop process"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:439
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:424
+msgid "Rebuild index"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Buildier.php:441
+#: includes/Engines/TNTSearchMySQL/Indexer/Buildier.php:427
+msgid "Try to build the index again."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Taxonomy/Indexer.php:199
+#: includes/Engines/TNTSearchMySQL/Indexer/Taxonomy/Indexer.php:199
+msgctxt "Admin, logs"
+msgid "[Taxonomy index] Cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Taxonomy/Indexer.php:201
+#: includes/Engines/TNTSearchMySQL/Indexer/Taxonomy/Indexer.php:201
+msgctxt "Admin, logs"
+msgid "[Taxonomy index] Can not be cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Taxonomy/Request.php:38
+#: includes/Engines/TNTSearchMySQL/Indexer/Taxonomy/Request.php:38
+#, php-format
+msgctxt "Admin, logs"
+msgid "[Taxonomy index] Building %s..."
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Taxonomy/Request.php:51
+#: includes/Engines/TNTSearchMySQL/Indexer/Taxonomy/Request.php:51
+#, php-format
+msgctxt "Admin, logs"
+msgid "[Taxonomy index] Completed: %s, Not indexed: %s"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Searchable/Indexer.php:176
+#: includes/Engines/TNTSearchMySQL/Indexer/Searchable/Indexer.php:171
+msgctxt "Admin, logs"
+msgid "[Searchable index] Cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Searchable/Indexer.php:178
+msgctxt "Admin, logs"
+msgid "[Searchable index] Can not be cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Readable/Indexer.php:153
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/Indexer.php:153
+msgctxt "Admin, logs"
+msgid "[Readable index] Cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Readable/Indexer.php:155
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/Indexer.php:155
+msgctxt "Admin, logs"
+msgid "[Readable index] Can not be cleared"
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Readable/AsyncProcess.php:121
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/AsyncProcess.php:121
+#, php-format
+msgctxt "Admin, logs"
+msgid "[Readable index] The queue <code>%s</code> was deleted "
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Readable/AsyncProcess.php:134
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/AsyncProcess.php:134
+#, php-format
+msgctxt "Admin, logs"
+msgid "[Readable index] Schedule <code>%s</code> was created "
+msgstr ""
+
+#: includes/Engines/TNTSearch/Indexer/Readable/AsyncProcess.php:150
+#: includes/Engines/TNTSearchMySQL/Indexer/Readable/AsyncProcess.php:150
+#, php-format
+msgctxt "Admin, logs"
+msgid "[Readable index] The queue <code>%s</code> was created"
+msgstr ""
+
+#. Name of the plugin
+msgid "AJAX Search for WooCommerce MysQL"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Allows your customers to search products easily and quickly. It will display "
+"the results instantly while typing in an inputbox."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/ajax-search-for-woocommerce/"
+msgstr "https://pl.wordpress.org/plugins/ajax-search-for-woocommerce/"
+
+#. Author of the plugin
+msgid "Damian Góra"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://damiangora.com"
+msgstr ""
