@@ -161,7 +161,7 @@ class acf_field_auto_generated_value extends acf_field {
 
 	function input_admin_enqueue_scripts() {
 
-		$dir = plugin_dir_url( __FILE__ );
+		$dir = SS_PLUGINS_URL . '/' . basename(__DIR__) . '/'; //plugin_dir_url( __FILE__ );
 
 
 		// register & include JS
