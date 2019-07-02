@@ -6,10 +6,6 @@ define('SS_POST_TYPES', SS_INC . '/post_types');
 define('SS_POST_TYPE_FIELDS', SS_INC . '/post_type_fields');
 define('SS_CLASSES', SS_INC . '/classes');
 
-
-//theme options
-require_once(SS_INC . '/redux-theme-config.php');
-
 //menus
 require_once(SS_INC . '/menu.php');
 
@@ -35,6 +31,15 @@ $theme_plugins = array(
     SS_PLUGINS.'/advanced-custom-fields-pro/acf.php',
     SS_PLUGINS.'/ACF-auto-generated-value-master/acf-auto_generated_value.php',
     //SS_PLUGINS.'/ajax-search-for-woocommerce/ajax-search-for-woocommerce.php',
+    SS_PLUGINS.'/classic-editor/classic-editor.php',
+    SS_PLUGINS.'/contact-form-7/wp-contact-form-7.php',
+    SS_PLUGINS.'/dbc-breadcrumbs/plugin.php',
+    SS_PLUGINS.'/dend-woo-currency-switcher/plugin.php',
+    SS_PLUGINS.'/mailchimp-for-wp/mailchimp-for-wp.php',
+    SS_PLUGINS.'/redux-framework/redux-framework.php',
+    SS_INC . '/redux-theme-config.php',
+    SS_PLUGINS.'/woocommerce/woocommerce.php',
+    SS_PLUGINS.'/wp-super-cache/wp-cache.php',
 );
 
 foreach ($theme_plugins as $plugin) {
