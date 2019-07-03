@@ -9,7 +9,7 @@
 
 //create necessary constants
 define('WCS_PLUGIN', dirname(__FILE__));
-define('WCS_PLUGIN_URL', SS_PLUGINS_URL . '/' . basename(__DIR__) . '/'); //plugin_dir_url(__FILE__));
+define('WCS_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 define('WCS_INC', WCS_PLUGIN . '/includes');
 define('WCS_PARTS', WCS_PLUGIN . '/parts');

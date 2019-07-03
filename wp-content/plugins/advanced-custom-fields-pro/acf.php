@@ -68,8 +68,9 @@ class ACF {
 		$version = $this->version;
 		$basename = plugin_basename( __FILE__ );
 		$path = plugin_dir_path( __FILE__ );
-		$url = SS_PLUGINS_URL . '/' . basename(__DIR__) . '/'; //plugin_dir_url( $basename );
+		$url = plugin_dir_url( __FILE__ );
 		$slug = dirname($basename);
+		
 		
 		// settings
 		$this->settings = array(
@@ -116,7 +117,6 @@ class ACF {
 		$this->define( 'ACF', 			true );
 		$this->define( 'ACF_VERSION', 	$version );
 		$this->define( 'ACF_PATH', 		$path );
-		$this->define( 'ACF_URL',         $url);
 		
 		
 		// api

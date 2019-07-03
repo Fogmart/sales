@@ -205,7 +205,7 @@ if ( !class_exists( 'DGWT_WC_Ajax_Search' ) && !function_exists( 'dgoraAsfwFs' )
             $this->define( 'DGWT_WCAS_NAME', 'AJAX Search for WooCommerce' );
             $this->define( 'DGWT_WCAS_FILE', __FILE__ );
             $this->define( 'DGWT_WCAS_DIR', plugin_dir_path( __FILE__ ) );
-            $this->define( 'DGWT_WCAS_URL', SS_PLUGINS_URL . '/' . basename(__DIR__) . '/'); //plugin_dir_url( __FILE__ ) );
+            $this->define( 'DGWT_WCAS_URL', plugin_dir_url( __FILE__ ) );
             $this->define( 'DGWT_WCAS_SETTINGS_KEY', 'dgwt_wcas_settings' );
             $this->define( 'DGWT_WCAS_SEARCH_ACTION', 'dgwt_wcas_ajax_search' );
             $this->define( 'DGWT_WCAS_RESULT_DETAILS_ACTION', 'dgwt_wcas_result_details' );
