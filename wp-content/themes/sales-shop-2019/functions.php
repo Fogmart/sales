@@ -9,23 +9,6 @@ define('SS_CLASSES', SS_INC . '/classes');
 //menus
 require_once(SS_INC . '/menu.php');
 
-//post types, post type fields, classes include
-$except = array('.', '..');
-$to_include = array(
-    SS_POST_TYPES,
-    SS_POST_TYPE_FIELDS,
-    SS_CLASSES
-);
-
-foreach ($to_include as $one) {
-    $files = scandir($one);
-    foreach ($files as $item) {
-        if (!in_array($item, $except)) {
-            require_once($one . '/' . $item);
-        }
-    }
-}
-
 //require plugins
 $theme_plugins = array(
     SS_PLUGINS.'/advanced-custom-fields-pro/acf.php',
@@ -44,4 +27,21 @@ $theme_plugins = array(
 
 foreach ($theme_plugins as $plugin) {
     require_once($plugin);
+}
+
+//post types, post type fields, classes include
+$except = array('.', '..');
+$to_include = array(
+    // SS_POST_TYPES,
+    SS_POST_TYPE_FIELDS,
+    SS_CLASSES
+);
+
+foreach ($to_include as $one) {
+    $files = scandir($one);
+    foreach ($files as $item) {
+        if (!in_array($item, $except)) {
+            require_once($one . '/' . $item);
+        }
+    }
 }
