@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="<?= bloginfo('language') ?>">
 <head>
-	<meta charset="utf-8">
-
+	<meta charset="<?= bloginfo('charset') ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<link href="css/main.min.css?v=2" rel="stylesheet">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-
-	<title>Anadi</title>
-
+	<title><?php bloginfo('name') ?></title>
 </head>
 
 <body>
@@ -22,13 +16,7 @@
 			<div class="container">
 				<div class="header__top__content">
 					<div class="header__top__text">La Guinée en Ligne</div>
-					<div class="accordeon currency">
-						<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
-						<div class="accordeon__content">
-							<div class="currency__item">€ euro</div>
-							<div class="currency__item">gnf</div>
-						</div>
-					</div>
+					<?= do_shortcode('[wcs_switcher]') ?>
 				</div>
 			</div>
 		</div>

@@ -3,7 +3,7 @@
  * Plugin Name: DEND - Woo Currency Switcher
  * Description: Woocomerce Currency tool. Extends functional. Add, Delete, Manage Woocomerce Curencies. 
  * Author:      <a href="https://t.me/dendrofen">Dendrofen</a>
- * Version:     1.0
+ * Version:     1.4
  */
 
 

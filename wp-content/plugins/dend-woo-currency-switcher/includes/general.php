@@ -61,6 +61,7 @@ class WCS_Settings
             if($key == $system_curr_code){
                 $rez['name'] = $value;
                 $rez['code'] = $key;
+                $rez['symbol'] = get_woocommerce_currency_symbol($key);
             }
         }
         
@@ -110,6 +111,16 @@ class WCS_Settings
         return in_array($currency_code, $codes);
     }
 
+    private function fillTemplateItem($currency_obj, $template){
+        $item = $template;
+
+        $item = str_replace('@name', $currency_obj['name'], $item);
+        $item = str_replace('@code', $currency_obj['code'], $item);
+        $item = str_replace('@symbol', $currency_obj['symbol'], $item);
+
+        return $item;
+    }
+
     static public function renderWidget()
     {
         $out = self::getMainTemplate();
@@ -118,11 +129,9 @@ class WCS_Settings
 
         $items = '';
 
-        //firstly display active elem
+        //fill active elem
         $system_currency = self::getSystemCurrencyInfo();
-        $activeTemplate = str_replace('@name', $system_currency['name'], $activeTemplate);
-        $activeTemplate = str_replace('@code', $system_currency['code'], $activeTemplate);
-        $items .= $activeTemplate;
+        $active = self::fillTemplateItem($system_currency, $activeTemplate);
 
         //remove active elem from all 
         $currencies = self::getCurrencies();
@@ -132,13 +141,10 @@ class WCS_Settings
 
         //display all without active
         foreach ($currencies as $currency) {
-
-            $item = str_replace('@name', $currency['name'], $oneTemplate);
-            $item = str_replace('@code', $currency['code'], $item);
-
-            $items .= $item;
+            $items .= self::fillTemplateItem($currency, $oneTemplate);
         }
-        $out = str_replace('@loop', $items, $out);
+        $out = str_replace('@active', $active, $out);
+        $out = str_replace('@all', $items, $out);
 
         return $out;
     }

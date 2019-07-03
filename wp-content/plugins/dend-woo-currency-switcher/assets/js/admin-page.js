@@ -28,7 +28,8 @@ jQuery(function ($) {
                 var $this = $(this);
                 currencies.push({
                     code: $this.val(),
-                    name: $this.data('name')
+                    name: $this.data('name'),
+                    symbol: $this.data('symbol')
                 });
             });
             var mainTemplate = $('.wcs-template-main').val();

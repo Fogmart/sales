@@ -15,9 +15,8 @@ require_once(SS_INC . '/menu.php');
 //post types, post type fields, classes include
 $except = array('.', '..');
 $to_include = array(
-    // SS_POST_TYPES,
+    SS_POST_TYPES,
     SS_POST_TYPE_FIELDS,
-    SS_CLASSES
 );
 
 foreach ($to_include as $one) {

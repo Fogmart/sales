@@ -1,3 +1,6 @@
+// Author: dendrofen
+// Date: 24.06.2019
+
 jQuery(function ($) {
     $(document).ready(function () {
         wcsCurrencySwitcher.init();

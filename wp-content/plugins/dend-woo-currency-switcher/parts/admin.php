@@ -26,7 +26,7 @@
                 <?php foreach ($currencies as $code => $name) : ?>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input wcs-curr" data-name="<?= $name ?>" value="<?= $code ?>" style="margin-top: .3rem;margin-left: -1.25rem;" <?= WCS_Settings::getInstance()->isSelectedCurrency($code) ? 'checked' : ''?>>
+                            <input type="checkbox" class="form-check-input wcs-curr" data-symbol="<?= get_woocommerce_currency_symbol($code) ?>" data-name="<?= $name ?>" value="<?= $code ?>" style="margin-top: .3rem;margin-left: -1.25rem;" <?= WCS_Settings::getInstance()->isSelectedCurrency($code) ? 'checked' : ''?>>
                             <strong><?= $code ?></strong>
                             <?= $name ?>
                         </label>
@@ -43,8 +43,12 @@
                     <div class="col jumbotron">
                         <h3><?= __('Write template for <span class="text-info">loop container</span>')?></h3>
                         <p class="text">
-                            <?= __('<strong>@loop</strong>
-                            - looped currencies')?>
+                            <?= __('<strong>@active</strong>
+                            - active currency')?>
+                        </p>
+                        <p class="text">
+                            <?= __('<strong>@all</strong>
+                            - looped currencies, without active')?>
                         </p>
                         <p class="text">
                             <strong class="text-info">.wcs-container</strong> add this class to container element.
@@ -60,6 +64,10 @@
                         <p class="text">
                             <?= __('<strong>@name</strong>
                             - name of currency (Dominican peso)')?>
+                        </p>
+                        <p class="text">
+                            <?= __('<strong>@symbol</strong>
+                            - symbol of currency ($)')?>
                         </p>
                         <p class="text">
                             <?= __('<strong>@code</strong>
@@ -85,6 +93,10 @@
                         <p class="text">
                             <?= __('<strong>@name</strong>
                             - name of currency (Dominican peso)')?>
+                        </p>
+                        <p class="text">
+                            <?= __('<strong>@symbol</strong>
+                            - symbol of currency ($)')?>
                         </p>
                         <p class="text">
                             <?= __('<strong>@code</strong>
