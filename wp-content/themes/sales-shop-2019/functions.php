@@ -2,6 +2,8 @@
 define('SS_PLUGINS', get_template_directory() . '/plugins');
 define('SS_PLUGINS_URL', get_stylesheet_directory_uri() . '/plugins');
 define('SS_INC', get_template_directory() . '/includes');
+define('SS_JS', get_template_directory_uri().'/assets/js');
+define('SS_CSS', get_template_directory_uri().'/assets/css');
 define('SS_POST_TYPES', SS_INC . '/post_types');
 define('SS_POST_TYPE_FIELDS', SS_INC . '/post_type_fields');
 define('SS_CLASSES', SS_INC . '/classes');
@@ -44,4 +46,13 @@ foreach ($to_include as $one) {
             require_once($one . '/' . $item);
         }
     }
+}
+
+add_action('wp_enqueue_scripts', 'ss_theme_assets');
+function ss_theme_assets(){
+    wp_register_script('ss_script', SS_JS.'/scripts.min.js');
+    wp_register_style('ss_style', SS_CSS.'/main.min.css');
+
+    wp_enqueue_script('ss_script');
+    wp_enqueue_style('ss_style');
 }
