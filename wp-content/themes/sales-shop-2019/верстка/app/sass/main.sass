@@ -1,0 +1,2093 @@
+@import "mixins"
+@import "var"
+@import "fonts"
+@import "../libs/slick/slick-theme.css"
+@import "../libs/slick/slick.css"
+@import "../libs/optimaX/optimaX.min.css"
+@import "../libs/jQueryUI/jquery-ui.min.css"
+@import "../libs/selectric/selectric.css"
+
+.ui > *
+	margin: 10px 0
+
+html
+
+	&.fixed
+		overflow-y: hidden
+
+body
+	font-family: Poppins
+	font-size: 13px
+	font-weight: 300
+	color: $text
+	background-color: #F3F3F3
+
+button
+	background-color: transparent
+	border: none
+	padding: 0
+	+ease
+
+h1
+	font-size: 36px
+	line-height: 1.2
+	font-weight: 400
+
+h2, h3
+	font-size: 18px
+	font-weight: 400
+
+h4
+	font-weight: 400
+	font-size: 16px
+
+h5
+	font-weight: 400
+	font-size: 14px
+
+input
+	border: none
+	font-size: 16px
+	padding: 15px 20px
+
+input, textarea
+
+	&::placeholder
+		font-family: Poppins
+		font-size: 16px
+		font-weight: 300
+		color: #828282
+
+textarea
+	width: 100%
+	font-size: 16px
+	padding: 15px 20px
+	color: $text
+
+.breadcrumbs
+	font-weight: 400
+	margin-bottom: 10px
+
+a.breadcrumb
+	color: $yellow
+	position: relative
+	margin-right: 12px
+
+	&:hover
+		text-decoration: underline
+
+	&:after
+		content: '>'
+		position: absolute
+		right: -10px
+		top: 0
+		color: $text
+
+input[type="radio"]
+	display: none
+
+.radio-label
+	position: relative
+	cursor: pointer
+	padding-left: 20px
+	display: block
+
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 15px
+		height: 15px
+		background: url(../img/icons/radio-unchecked.svg) no-repeat
+
+input[type="radio"]:checked + .radio-label
+	background-color: #FFF9EC
+
+	&:before
+		background: url(../img/icons/radio-checked.svg) no-repeat
+
+.selectric
+	border-radius: 0
+	background-color: #fff
+	border: 1px solid #ECECEC
+
+	.label
+		font-size: 16px
+		color: #828282
+		height: auto
+		line-height: 1.3
+		padding: 14px 0
+
+	.button
+		border: none
+		+ease
+		box-shadow: none !important
+
+		&:after
+			border-top-color: #B6B6B6
+
+	&-items
+		background: #fff
+		border: none !important
+
+		li
+			border: none 
+
+			&:hover
+				background-color: #FFF2D8
+
+			&.highlighted, &.selected
+				background-color: #FFD98D
+
+.selectric-open 
+
+	.selectric
+		background-color: #fff
+
+	.button
+		transform: rotate(180deg)
+
+.category 
+
+	.selectric
+		background-color: $yellow
+		border: none
+
+		.label
+			color: #fff
+			padding: 12px 0
+			font-size: 13px
+
+		.button:after
+			border-top-color: #fff
+
+	.selectric-open 
+		background-color: $yellow
+
+.button
+	font-weight: 400
+	font-size: 15px
+	text-transform: uppercase
+	color: #fff
+	border: 1px solid $yellow
+	cursor: pointer
+
+	&:hover
+		+shadow
+
+	&-1
+		width: 100%
+		display: block
+		background-color: $yellow
+		padding: 11px 10px
+		text-align: center
+
+		&_120
+			width: 120px
+
+		&_140
+			width: 140px
+
+		&_160
+			width: 160px
+
+		&_180
+			width: 180px
+
+	&-2
+		display: flex
+		align-items: center
+		border: none
+
+		&_1
+			background-color: $yellow
+
+			.button-2__icon
+				border-right: 1px solid #E9A829
+
+		&_2
+			background-color: $blue
+
+			.button-2__icon
+				border-right: 1px solid #107590
+
+		&__icon
+			width: 50px
+			height: 50px
+			display: inline-flex
+			align-items: center
+			justify-content: center
+
+		&__text
+			padding: 16px 26px
+
+	&-3
+		background-color: $yellow
+		width: 50px
+		height: 50px
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&_light
+		background-color: transparent
+		border: 1px solid $yellow
+		color: $yellow
+
+	&-4
+		@extend .button-1
+		background-color: $blue
+		border-color: $blue
+
+.header
+	background-color: $blue
+	color: #fff
+
+	&__top
+		border-bottom: 1px solid #3395AF
+		padding: 10px 0
+
+		&__content
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+	&__main
+		padding: 15px 0
+
+		&__content
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+.menu
+	background-color: #fff
+
+	&__content
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&__link
+		color: $text
+		transition: none
+		padding: 20px 0
+		display: inline-block
+
+	&__item
+		text-transform: uppercase
+		font-weight: 400
+		font-size: 14px
+		margin: 0 20px
+
+		&:hover
+			font-weight: 500
+
+.menu-button
+	display: none
+	transition: transform 400ms
+	user-select: none
+	width: 30px
+	height: 30px
+
+	.line
+		fill: none
+		transition: stroke-dasharray 400ms, stroke-dashoffset 400ms
+		stroke: #fff
+		stroke-width: 5.5
+		stroke-linecap: round
+
+	.top, .bottom
+		stroke-dasharray: 40 121
+
+	&.active
+		transform: rotate(45deg)
+
+		.top, .bottom
+			stroke-dashoffset: -68px
+
+.header .search input
+	width: 440px
+
+.control
+	display: flex
+	align-items: center
+
+	&__item
+		margin-left: 25px
+		display: inline-flex
+		align-items: center
+		position: relative
+		cursor: pointer
+		padding: 5px 0
+
+		&:hover
+
+			.control__link
+				text-decoration: underline
+
+			.control__popup
+				display: block
+
+	&__link
+		color: #fff
+		padding: 5px 0
+		font-size: 15px
+
+	&__icon
+		position: relative
+		margin-right: 10px
+		height: 28px
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&__counter
+		position: absolute
+		right: -6px
+		top: -6px
+		background-color: $yellow
+		color: #fff
+		width: 20px
+		height: 20px
+		border-radius: 50px
+		display: flex
+		align-items: center
+		justify-content: center
+		font-weight: 500
+		line-height: 1
+
+	&__popup
+		position: absolute
+		top: 40px
+		background-color: #fff
+		display: none
+		color: $text
+		box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1)
+
+		&:before
+			content: ''
+			position: absolute
+			top: -6px
+			width: 0
+			height: 0
+			border-style: solid
+			border-width: 0 6px 6px 6px
+			border-color: transparent transparent #fff transparent
+
+	&__login
+		left: -20px
+		width: 220px
+		padding: 30px 20px
+		text-align: center
+
+		&:before
+			left: 22px
+
+		&__register
+			color: $yellow
+			text-transform: uppercase
+			padding: 6px 0
+			margin-bottom: 6px
+			display: block
+
+			&:hover
+				text-decoration: underline
+
+		&__title
+			font-size: 14px
+			color: #000
+
+	&__cabinet
+		@extend .control__login
+		padding: 0
+
+		&__item
+			color: $text
+			line-height: 2.3
+
+			&:hover
+				color: $yellow
+
+			span
+				width: 18px
+				display: inline-block
+				margin-right: 4px
+
+		&__menu
+			text-align: left
+			border-bottom: 1px solid $whitegrey
+			padding: 20px 20px 15px
+
+		&__button
+			padding: 20px 20px 22px
+
+	&__cart
+		right: 0
+		width: 380px
+		font-weight: 400
+
+		&:before
+			right: 48px
+
+		&__item
+			display: flex
+			align-items: center
+			padding: 8px 10px
+
+			.photo
+				flex-basis: 15%
+				flex-shrink: 0
+
+				img
+					width: 100%
+					height: 100%
+
+			.info
+				flex-basis: 60%
+				padding: 0 10px
+				font-size: 14px
+
+			.title
+				+ease
+
+				&:hover
+					color: $yellow
+
+			.quantity
+				color: #B6B6B6
+
+			.price
+				flex-basis: 25%
+				text-align: right
+				font-size: 14px
+				line-height: 1
+
+			.remove
+				display: none
+				margin-left: 10px
+				cursor: pointer
+
+			&:hover
+				box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1)
+
+				.remove
+					display: block
+
+		&__total
+			display: flex
+			justify-content: space-between
+			padding: 10px
+			font-size: 16px
+			border-top: 1px solid #F2F2F2
+
+			.sum
+				font-weight: bold
+				font-family: Roboto
+
+		&__buttons
+			display: flex
+			justify-content: space-between
+			padding: 10px
+
+.search
+	display: flex
+
+	input
+		padding: 10px 20px
+
+	.button
+		width: 40px
+		height: 40px
+		flex-shrink: 0
+
+	&__mobile-btn, &_mobile
+		display: none
+
+.currency
+	text-align: right
+	position: relative
+	min-width: 70px
+	text-transform: uppercase
+	font-size: 14px
+	font-weight: 600
+
+	&_mobile
+		display: none
+		@extend .currency
+		color: #000
+		text-align: center
+
+		.accordeon__button:after
+			background: url(../img/icons/angle-down-black.svg) no-repeat center !important
+			right: 20px !important
+
+	&__item
+		cursor: pointer
+
+	.accordeon
+
+		&__button
+			position: relative
+
+			&:after
+				content: ''
+				background: url(../img/icons/angle-down.svg) no-repeat center
+				width: 6px
+				height: 3px
+				position: absolute
+				right: -10px
+				top: 8px
+				+ease
+
+			&.active:after
+				transform: rotate(180deg)
+
+		&__content
+			position: absolute
+			top: 20px
+			right: 0
+			background-color: rgba($blue, 0.4)
+			z-index: 2
+
+.subscribe
+	background-color: #E3E3E3
+	padding: 36px 0 34px
+	margin-top: 54px
+
+	&__form
+		display: flex
+		margin-top: 15px
+
+		input
+			width: 100%
+
+		.button
+			flex-shrink: 0
+
+	&__text
+		margin: 8px 0 15px
+
+	&__items
+		display: flex
+		align-items: center
+
+	&__item
+		margin-right: 38px
+
+		img
+			margin-right: 5px
+
+.page
+	padding-top: 176px
+
+.socials
+	display: flex
+	align-items: center
+
+.social
+	width: 40px
+	height: 40px
+	display: flex
+	align-items: center
+	justify-content: center
+	border-radius: 50px
+	margin-right: 20px
+
+	&.fb
+		background-color: #4267B2
+
+	&.wa
+		background-color: #1BD741
+
+	&.in
+		background-color: #0085B2
+
+	&.twitter
+		background-color: #50ABF1
+
+	&.mail
+		background-color: $yellow
+
+	&:hover
+		box-shadow: 0 4px 15px rgba($yellow, 0.4)
+
+.copyright
+	display: flex
+	align-items: center
+	justify-content: space-between
+	padding-top: 35px
+
+	&__text
+		color: rgba(255, 255, 255, 0.5)
+
+.footer
+	background-color: #434343
+	color: #fff
+	padding-top: 35px
+	padding-bottom: 12px
+
+	&__item
+
+		&__title
+			margin-bottom: 15px
+
+	&__link
+		color: #fff
+		text-transform: uppercase
+		line-height: 1.9
+
+		&:hover
+			text-decoration: underline
+
+	&__logo
+		margin-bottom: 30px
+
+	.socials
+		margin-top: 20px
+
+.popular
+	display: block
+	color: #fff
+	padding: 95px 40px
+	position: relative
+	overflow: hidden
+	margin-bottom: 20px
+
+	&:before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 100%
+		background: linear-gradient(to top, rgba(#000, 0.3), rgba(#dfdfdf, 0.3))
+		top: -100%
+		left: 0
+		z-index: 1
+		+ease
+
+	&:hover:before
+		top: 0
+
+	&__title
+		margin-bottom: 13px
+		position: relative
+		z-index: 2
+
+	&__subtitle
+		font-size: 17px
+		line-height: 1.3
+		position: relative
+		z-index: 2
+
+	> img
+		+cover
+		position: absolute
+		top: 0
+		right: 0
+
+.card
+	display: block
+	color: $text
+	margin-bottom: 30px
+
+	&:hover
+		box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05)
+
+		.card__title
+			color: $yellow
+
+		.card__photo img
+			transform: scale(1.1)
+
+	&__photo
+		position: relative
+		overflow: hidden
+		height: 180px
+
+		img
+			+cover
+			+ease
+
+	&__discount
+		font-family: Roboto
+		position: absolute
+		bottom: 22px
+		left: 0
+		border-radius: 0 100px 100px 0
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15)
+		background-color: #fff
+		padding: 10px 14px
+		font-weight: 900
+		font-size: 16px
+
+	&__content
+		height: auto
+		padding: 20px 23px 20px
+		background-color: #fff
+
+	&__title
+		color: $text
+		font-size: 16px
+		line-height: 1.5
+		margin-bottom: 5px
+		font-weight: 400
+		+ease
+
+	&__name
+		color: #B0B0B0
+		text-transform: uppercase
+		margin-bottom: 5px
+
+	&__location
+		font-size: 14px
+		margin-bottom: 20px
+
+	&__old-price
+		font-family: Roboto
+		color: #828282
+		text-decoration: line-through
+		font-size: 17px
+		margin-bottom: 14px
+
+	&__new-price
+		font-family: Roboto
+		font-weight: 500
+		font-size: 24px
+
+	&__big
+		background-color: #fff
+
+		.button
+			margin: 21px 0 28px
+
+		.card
+
+			&__photo
+				height: auto
+				border: 20px solid #fff
+				border-right: none
+
+				img
+					position: absolute
+
+			&__discount
+				left: auto
+				bottom: auto
+				right: 0
+				top: 20px
+				border-radius: 100px 0 0 100px
+
+			&__content
+				padding: 20px 23px 20px
+
+			&__new-price
+				font-size: 28px
+				font-weight: 300
+
+.cards
+
+	&__block
+		margin-top: 15px
+
+		&__title
+			margin-bottom: 15px
+
+		&__link
+			margin-left: 40px
+			display: inline-block
+			text-transform: uppercase
+			color: $yellow
+			font-size: 14px
+
+			&:hover
+				color: $blue
+
+.banner
+	color: #fff
+	display: flex
+	justify-content: flex-end
+	align-items: flex-start
+	flex-direction: column
+	overflow: hidden
+	position: relative
+	min-height: 280px
+	padding: 20px 40px
+
+	&:hover > img
+		transform: scale(1.1)
+
+	&__content
+		max-width: 50%
+
+	> img
+		+cover
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		+ease
+
+	&__text
+		font-family: Roboto
+		font-size: 15px
+		margin-bottom: 16px
+		margin-top: 8px
+
+	.button
+		margin-bottom: 20px
+
+.limited
+	color: #828282
+	text-transform: uppercase
+	font-size: 15px
+
+	img
+		margin-right: 8px
+
+.byuings
+	@extend .limited
+
+.popular-block
+	margin: 20px 0
+
+.popular-categories
+	background-color: #fff
+
+	&__title
+		padding: 16px 14px
+		border-bottom: 1px solid #E5E5E5
+		font-size: 18px
+		font-weight: 400
+
+	&__content
+		padding: 8px 0
+
+	&__all
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 16px 14px
+		border-top: 1px solid #E5E5E5
+		color: $text
+
+		&:hover
+			color: $yellow
+
+	&__item
+		display: flex
+		align-items: center
+		padding: 6px 14px
+		color: $text
+
+		&:hover
+			color: $yellow
+			font-weight: 500
+
+			.item__quantity
+				color: $yellow
+
+		.item
+
+			&__icon
+				width: 40px
+				flex-shrink: 0
+
+				img
+					max-width: 30px
+
+			&__title
+				flex-basis: 90%
+
+			&__quantity
+				font-family: Roboto
+				font-weight: 400
+				color: #C4C4C4
+				+ease
+
+				&:before
+					content: '('
+
+				&:after
+					content: ')'
+
+.checkbox-label:before
+	border: 1px solid $yellow
+	border-radius: 0
+
+input[type="checkbox"]:checked + .checkbox-label
+
+	&:before
+		content: ''
+		background: url(../img/icons/check.svg) no-repeat center $yellow
+
+.filter
+	background-color: #fff
+
+	&__toggler
+		display: none
+		background-color: $yellow
+		text-align: center
+		color: #fff
+		text-transform: uppercase
+		font-weight: 500
+		padding: 15px 10px
+
+		img
+			width: 10px
+			margin-left: 5px
+			+ease
+
+	.ui-widget-content
+		background-color: #F2F2F2
+		border: none
+		height: 2px
+
+	.ui-widget-header
+		background: #FEDFA1
+
+	.ui-slider-handle
+		cursor: pointer
+		background-color: $yellow !important
+		border: none !important
+		width: 10px !important
+		height: 10px !important
+		top: -4px !important
+
+		&:nth-child(2)
+			border-radius: 10px 0 0 10px !important
+
+		&:last-child
+			border-radius: 0 10px 10px 0 !important
+
+	&__title
+		margin-bottom: 10px
+
+	&__item
+		margin-bottom: 15px
+
+		&__title
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			.accordeon__button
+				display: flex
+				align-items: center
+				justify-content: center
+				margin-left: 10px
+				flex-shrink: 0
+				width: 15px
+				height: 15px
+
+				&.active
+					transform: rotate(180deg)
+
+		.accordeon__content
+			padding-left: 15px
+			padding-top: 3px
+
+	&__block
+		padding: 15px 20px
+		border-bottom: 1px solid #E5E5E5
+
+		&:last-child
+			border: none
+
+		.search
+			width: 100%
+
+			input
+				width: 100%
+				border: 1px solid #F2F2F2
+
+.price-range
+
+	&__block
+		display: flex
+		align-items: center
+		margin-top: 10px
+
+		span
+			flex-basis: 10%
+			font-weight: 400
+			text-align: center
+
+	&__item
+		flex-basis: 45%
+		position: relative
+
+		.input
+			padding: 6px 10px
+			width: 100%
+			text-align: center
+			color: $text
+			border: 1px solid #F2F2F2
+			font-family: Roboto
+			font-weight: 300
+
+.category
+
+	&__content
+
+		.button
+			margin: 0 auto
+
+	&__options
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 20px
+
+		&__text
+			color: #B6B6B6
+			margin-right: 10px
+
+	&__filter
+		display: flex
+		align-items: center
+
+		.selectric
+			width: 170px
+
+	&__location
+		margin-bottom: 20px
+
+		&__baloon
+			display: none
+			width: 530px
+			position: absolute
+			z-index: 2
+			left: 50%
+			top: -80px
+			+center(-50%, 0)
+
+		&__map
+
+			img
+				width: 100%
+
+		&:hover
+
+			.category__location__baloon
+				display: block
+
+.product
+
+	&__added
+		z-index: 99
+		background-color: #fff
+		left: 0
+		width: 100%
+		padding: 10px 0
+		color: $text
+		box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1)
+		border-top: 1px solid #EFEFEF
+
+		.container
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+		&__block
+			display: flex
+			align-items: center
+
+		&__photo
+			height: 40px
+			width: 60px
+			flex-shrink: 0
+
+			img
+				+cover
+
+		&__title
+			padding-left: 10px
+
+		&__buttons
+			display: flex
+			margin-right: 30px
+
+			.button
+				margin-left: 10px
+
+	.main-title
+		margin-bottom: 20px
+
+	&__block
+		background-color: #fff
+		padding: 20px
+		margin-bottom: 20px
+
+	&__main
+
+		&__top
+			display: flex
+			justify-content: space-between
+			align-items: center
+			margin-bottom: 15px
+
+			.card
+
+				&__name, &__location
+					margin-bottom: 0
+
+		&__photo
+			height: 500px
+			overflow: hidden
+
+			img
+				+cover
+
+		&__slider
+
+			&_nav
+				margin: 0 -4px
+
+				&__photo
+					height: 80px
+					margin: 8px 4px
+					opacity: .5
+					cursor: pointer
+					+ease
+
+					&:hover, &.slick-current
+						opacity: 1
+
+					img
+						+cover
+
+
+	&__details
+
+		&__block:not(:first-child)
+			display: none
+
+		&__tabs
+			margin-bottom: 15px
+
+		&__tab
+			font-size: 13px
+			color: #B6B6B6
+			padding: 8px 0
+			text-transform: uppercase
+			margin-right: 27px
+			border-top: 1px solid transparent
+
+			&.active
+				color: $yellow
+				border-color: $yellow
+
+	&__text
+		margin-bottom: 20px
+
+	&__supplier
+
+		&__title
+			margin-bottom: 15px
+
+		&__rating
+			display: flex
+			justify-content: space-between
+			align-items: center
+			margin-bottom: 14px
+
+			.product__text
+				margin-bottom: 0
+
+		&__map
+
+			img
+				width: 100%
+
+	&__sidebar
+		background-color: #fff
+
+		&__top
+			display: flex
+			align-items: center
+			justify-content: space-between
+			padding: 20px 20px 0
+
+			.limited
+				position: relative
+				padding-left: 30px
+				font-size: 13px
+				padding-right: 3px
+
+				img
+					position: absolute
+					top: 8px
+					left: 0
+
+			.byuings
+				position: relative
+				padding-left: 20px
+				font-size: 13px
+				padding-right: 3px
+
+				img
+					position: absolute
+					top: 11px
+					left: 0
+
+		&__main
+			padding: 10px
+
+			.product__sidebar__title
+				padding-left: 10px
+
+		&__option
+			margin-bottom: 10px
+
+			.radio-label
+				padding: 10px
+
+				> *
+					display: block
+
+				&:before
+					left: 10px
+					top: 10px
+
+				.option
+
+					&__title
+						padding-left: 24px
+
+				.card__new-price
+					font-weight: 300
+					font-size: 28px
+
+				.card__old-price
+					margin: 10px 0
+
+		.social
+			margin-right: 10px
+
+		&__buttons
+			padding: 0 23px
+
+			.button
+				margin: 5px 0
+		
+		.product__sidebar__title
+			margin-bottom: 15px
+
+		&__bottom
+			padding: 10px 20px 20px
+
+.rating
+	display: flex
+	align-items: center
+
+.star
+	width: 20px
+	height: 20px
+	margin-right: 3px
+	background-size: contain !important
+
+	&_full
+		background: url(../img/icons/star-full.svg) no-repeat center
+
+	&_empty
+		background: url(../img/icons/star-empty.svg) no-repeat center
+
+.input__rating
+	display: flex
+	align-items: center
+	color: #949494
+	padding: 12px 40px
+	border: 1px solid #e0e0e0
+	border-radius: 50px
+	margin: 10px 6px !important
+
+	span
+		padding-top: 3px
+
+	.rating__inputs
+		margin-left: 4px
+
+.rating
+
+	&__inputs
+		display: flex
+
+	&__star
+
+		&__item
+			position: relative
+			margin-right: 5px
+
+			&.active
+
+				.rating__star__label
+					background: url(../img/icons/star-full.svg) no-repeat
+					background-size: contain
+
+		&__label
+			background: url(../img/icons/star-empty.svg) no-repeat
+			background-size: contain
+			width: 20px
+			height: 20px
+			display: block
+			cursor: pointer
+
+		&:checked + .rating__star__label
+			background: url(../img/icons/star-full.svg) no-repeat
+			background-size: contain
+
+.link
+	color: $yellow
+
+	&_grey
+		color: #333
+
+	&_bold
+		font-weight: 500
+
+	&:hover
+		text-decoration: underline
+
+.login
+
+	&__title
+		margin-bottom: 15px
+		margin-top: 35px
+
+	&__content
+		background-color: #fff
+		margin-top: 70px
+
+	&__socials
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+
+		.button-2__icon
+			flex-shrink: 0
+
+			img
+				min-height: 23px
+
+		.button-2__text
+			width: 100%
+			text-align: center
+
+		.button
+			text-transform: none
+
+	&__social
+		margin: 8px 0
+		width: 280px
+
+		&.fb
+			background-color: #4267B2
+
+			.button-2__icon
+				border-color: #6C89C4
+
+		&.google
+			background-color: #EA4335
+
+			.button-2__icon
+				border-color: #FF796E
+
+	&_or
+		display: flex
+		align-items: center
+		justify-content: center
+		text-transform: uppercase
+		color: #B6B6B6
+		position: relative
+
+		span
+			background-color: #fff
+			padding: 20px 0
+			display: inline-block
+			position: relative
+			z-index: 2
+
+		&:before
+			content: ''
+			position: absolute
+			left: 50%
+			top: 0
+			width: 1px
+			height: 100%
+			background-color: #F2F2F2
+
+	&__enter
+		padding: 40px 0
+
+	&__item
+		margin-bottom: 15px
+
+	&__forgot
+		margin: 10px 0 23px
+		display: inline-block
+
+	&__form
+		width: 90%
+		margin-bottom: 20px
+
+.login
+
+	&__form
+
+		.requirements
+			overflow: hidden
+			max-height: 0
+			color: #EB5757
+
+		.input
+			width: 100%
+
+			&:invalid:not(:focus):not(:placeholder-shown)
+				border-color: #EB5757
+
+			&:invalid:focus:not(:placeholder-shown)
+				border-color: #EB5757
+
+				& + .requirements
+					max-height: 200px
+
+.input
+	border: 1px solid #ECECEC
+	padding: 15px 20px
+
+.reset
+
+	&_3
+		text-align: center
+
+		img
+			margin-bottom: 15px
+
+	&__content
+		background-color: #fff
+		padding: 20px
+		margin-top: 70px
+		padding: 54px 0 90px
+
+	.input
+		width: 100%
+		margin: 6px 0 20px
+
+.register
+
+	&__content
+		padding: 70px 80px
+		background-color: #fff
+		margin-top: 70px
+
+	.login__social
+		text-transform: none
+		width: 100%
+
+	.button-2__text
+		text-align: center
+		width: 100%
+
+	.button-2__icon
+		flex-shrink: 0
+
+		img
+			min-height: 23px
+
+	&_or
+		@extend .login_or
+		margin: 30px 0
+
+		&:before
+			width: 100%
+			height: 1px
+			top: 50%
+			left: 0
+
+		span
+			padding: 0 20px
+
+	&__item
+		margin-bottom: 15px
+
+	.checkbox-label
+		margin-bottom: 10px
+
+		&:before
+			top: 3px
+
+	&__form
+
+		.button
+			margin-top: 15px
+
+		.input
+			width: 100%
+
+.password-input
+	position: relative
+
+.password-show
+	position: absolute
+	top: 50%
+	right: 15px
+	+center(0, -50%)
+	z-index: 2
+	width: 20px
+	height: 15px
+	cursor: pointer
+	background: url(../img/icons/eye.svg) no-repeat center
+	background-size: contain
+
+	&:hover
+		background: url(../img/icons/eye-black.svg) no-repeat center
+		background-size: contain
+
+.input-stepper
+	border: 1px solid $whitegrey
+	display: inline-flex
+	height: 30px
+	margin-right: 20px
+
+	&__buttons
+		display: flex
+		flex-direction: column
+
+	input
+		width: 30px
+		text-align: center
+		border: none
+		background-color: #fff
+		font-family: Proxima
+		font-size: 14px
+		color: $text
+		padding: 0
+		font-family: Roboto
+		font-weight: 300
+
+	button
+		background-color: transparent
+		border: none
+		width: 25px
+		height: 15px
+		display: flex
+		align-items: center
+		justify-content: center
+		+ease
+		background-color: $blue
+
+		&:hover
+			color: #fff
+			background-color: $yellow
+
+		&.plus
+			border-bottom: 0.5px solid #2297B7
+
+		&.minus
+			border-top: 0.5px solid #2297B7
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+.order
+	background-color: #fff
+	display: flex
+	position: relative
+	padding: 20px 21px
+	+ease
+
+	&:hover
+		+shadow
+
+	&__photo
+		flex-basis: 20%
+
+		img
+			width: 100%
+
+	&__content
+		flex-basis: 78%
+		padding-left: 20px
+
+	&__remove
+		position: absolute
+		right: 19px
+		top: 19px
+		cursor: pointer
+
+	&__details
+		display: flex
+		align-items: center
+
+		&__block
+			flex-basis: 30%
+			display: flex
+
+			&.quantity
+				align-items: center
+
+	&__block
+
+		&__title
+			text-transform: uppercase
+			color: $blackgrey
+			margin-right: 7px
+
+		&__price
+			font-size: 14px
+			font-family: Roboto
+
+		&__total
+			font-family: Roboto
+			font-size: 16px
+			font-weight: 500
+
+		&__status
+
+	&__title
+		color: $text
+		font-size: 14px
+		display: block
+
+		&:hover
+			color: $yellow
+
+	&__subtitle
+		margin: 35px 0 20px
+
+		&_mute
+			color: $blackgrey
+
+.canceled
+	color: $red
+
+.used
+	color: $green
+
+.awaiting
+	color: $yellow
+
+.cart
+
+	&__title
+		margin-bottom: 35px
+		margin-top: 25px
+
+	.order
+		margin-bottom: 10px
+
+	&__sidebar
+		background-color: #fff
+
+		&__title
+			padding: 20px
+			border-bottom: 1px solid $whitegrey
+			font-size: 16px
+			font-weight: 400
+
+		&__subtotal
+			padding: 26px 20px
+			display: flex
+			align-items: center
+			justify-content: space-between
+			border-bottom: 1px solid $whitegrey
+
+			.left
+				font-size: 14px
+				font-weight: 400
+
+			.right
+				font-family: Roboto
+				font-weight: 500
+				font-size: 17px
+
+		&__total
+			padding: 22px 20px
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			.left
+				font-size: 14px
+				font-weight: 600
+
+			.right
+				font-family: Roboto
+				font-size: 24px
+				font-weight: 500
+
+		&__checkout
+			padding: 15px 20px 20px
+
+.modal-action
+	display: flex
+	align-items: stretch
+
+	&_wrap
+		border: 10px solid #fff
+		display: none
+		position: relative
+		width: 920px
+		background-color: #fff
+		text-align: center
+		margin: 50px auto
+
+	&__photo
+		flex-basis: 40%
+
+		img
+			+cover
+
+	&__content
+		flex-basis: 60%
+		padding: 56px 10px 10px 20px
+
+	&__subtitle
+		margin: 16px 0 22px
+
+	&__socials
+		width: 70%
+		margin: 0 auto 47px
+
+		.button
+			background-color: #fff
+			color: $text
+			border: 1px solid #E6E6E6
+			margin-bottom: 16px
+
+			&:hover
+				+shadow
+				border-color: transparent
+
+			&-2
+
+				&__icon
+					border-color: #E6E6E6
+					flex-shrink: 0
+
+				&__text
+					width: 100%
+					padding-top: 13.5px
+					padding-bottom: 13.5px
+					text-align: center
+					text-transform: none
+
+p.text
+	margin-bottom: 20px
+
+.content
+
+	&__content
+		margin-top: 30px
+		background-color: #fff
+		padding: 20px 20px 1px
+
+	&__subtitle
+		margin: 5px 0 15px
+	
+	&__block
+		margin-bottom: 20px
+
+		&__photo
+
+			img
+				+cover
+
+.contact
+	padding-bottom: 60px
+
+	.main-title
+		margin-bottom: 35px
+
+	.register__item
+
+		.input
+			width: 100%
+
+		.login__form__title
+			margin-bottom: 5px
+
+		textarea
+			height: 141px
+
+	&__block
+		background-color: #fff
+		padding: 20px
+
+		&__title
+			margin-bottom: 20px
+
+		&__item
+			padding-left: 40px
+			position: relative
+
+			&__icon
+				position: absolute
+				top: 0
+				left: 0
+
+.orders
+
+	.col-md-2
+		padding-right: 5px
+
+	&__title
+		margin: 22px 0 35px
+
+	&__subtitle
+		margin-bottom: 20px
+		padding: 20px 0 0 20px
+
+	&__main
+		background-color: #fff
+
+	.order
+		border-bottom: 1px solid $whitegrey
+
+		&:hover
+			z-index: 2
+			box-shadow: none
+
+		&__block__price
+			margin-bottom: 25px
+
+		&__subtitle_mute
+			margin: 15px 0
+
+		&__details__block
+			flex-basis: 44%
+
+		&__photo
+
+			img
+				height: 100%
+				object-fit: cover
+	
+	&__control
+		margin-top: 20px
+		padding: 0 20px 20px
+
+		&__text
+			margin-bottom: 10px
+			color: $blackgrey
+
+		&__buttons
+			display: flex
+			
+			.button
+				margin-right: 20px
+
+	&__sidebar
+		padding: 20px 
+		background-color: #fff
+
+		.link
+			line-height: 20px
+
+		.button
+			margin: 10px 0 20px
+
+.history
+
+	.order__details
+		align-items: flex-start
+
+		&__block.status
+			flex-basis: 20%
+
+.order-page
+
+	&__block
+		padding: 20px
+		background-color: #fff
+
+		&__title
+			margin-bottom: 17px
+
+	&__subtitle
+		padding-bottom: 17px
+
+	&__main
+		border-top: 1px solid $whitegrey
+		border-bottom: 1px solid $whitegrey
+		padding: 13px 0 0
+		margin-bottom: 14px
+
+	&__item
+		line-height: 20px
+		margin-bottom: 20px
+
+		&__title
+			font-weight: 500
+
+.seller
+
+	&__board
+		background: linear-gradient(98.1deg, #FDB932 0.69%, #FBA079 49.65%, #F17318 99.15%) no-repeat
+		padding-top: 40px
+		background-size: 100% 74%
+
+		&__content
+			display: flex
+			align-items: flex-end
+
+		&__photo
+			width: 215px
+			height: 215px
+			overflow: hidden
+			flex-shrink: 0
+
+			img
+				+cover
+
+		&__info
+			flex-basis: 80%
+			padding-left: 20px
+
+		&__rating-block
+			flex-basis: 10%
+			flex-shrink: 0
+			text-align: right
+
+		&__rating
+			color: $yellow
+			font-size: 24px
+			font-weight: 400
+
+			&_mute
+				font-size: 18px
+
+		&__title
+			font-size: 24px
+			font-weight: 400
+
+		&__city
+			font-size: 14px
+			margin-top: 5px
+
+		&__votes
+			font-size: 14px
+			color: $blackgrey
+
+	&__contacts
+		padding: 10px 20px 20px
+		margin-top: 40px
+		background-color: #fff
+
+		&__content
+			margin: 20px -15px 10px
+
+		&__subtitle
+			font-size: 14px
+			font-weight: 500
+
+	&__coupons
+		margin: 20px 0
+
+	&__coupon
+		@extend .order
+		margin-top: 10px
+		padding: 0
+
+		&__photo
+			@extend .order__photo
+			flex-basis: 140px
+			min-height: 130px
+
+			img
+				+cover
+
+		&__content
+			@extend .order__content
+			padding: 20px
+			flex-basis: 100%
+
+		&__price
+			font-weight: 500
+			font-size: 18px
+			text-align: right
+
+	&__reviews
+		padding: 20px
+		background-color: #fff
+
+		&__rating
+			display: flex
+			align-items: center
+			margin: 14px 0
+
+			p
+				margin-right: 10px
+
+	&__comment
+		margin-bottom: 20px
+
+	&__reviews
+
+		&__content
+			margin-top: 30px
+
+			.button
+				margin: 20px auto 0
+
+	&__review
+		display: flex
+		align-items: flex-start
+		padding: 15px 0
+		border-bottom: 1px solid $whitegrey
+
+		&__photo
+			width: 80px
+			height: 80px
+			flex-shrink: 0
+
+			img
+				+cover
+
+		&__content
+			padding-left: 20px
+
+		&__title
+			display: flex
+			align-self: flex-end
+
+		&__name
+			margin-right: 8px
+
+		.rating
+			margin: 10px 0
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "media"

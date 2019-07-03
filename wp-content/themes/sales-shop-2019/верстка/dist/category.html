@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="css/main.min.css?v=2" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<title>Anadi</title>
+
+</head>
+
+<body>
+
+	<header class="header fixed-header">
+		
+		<div class="header__top">
+			<div class="container">
+				<div class="header__top__content">
+					<div class="header__top__text">La Guinée en Ligne</div>
+					<div class="accordeon currency">
+						<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+						<div class="accordeon__content">
+							<div class="currency__item">€ euro</div>
+							<div class="currency__item">gnf</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="header__main">
+			<div class="container">
+				<div class="header__main__content">
+	
+					<div class="header__left">
+						<button class="menu-button" onclick="this.classList.toggle('active')">
+							<svg viewBox="0 0 100 100">
+								<path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+								<path class="line middle" d="m 70,50 h -40" />
+								<path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+							</svg>
+						</button>
+						<div class="logo"><a href="/"><img src="img/logo.svg" alt=""></a></div>
+					</div>
+	
+					<form class="search header__search">
+						<input type="text" placeholder="Search">
+						<button class="button button-3"><img src="img/icons/search.svg" alt=""></button>
+					</form>
+	
+					<div class="control">
+	
+						<div class="control__item search__mobile-btn">
+							<span class="control__icon"><img src="img/icons/search.svg" alt=""></span>
+						</div>
+	
+						<div class="control__item">
+							<span class="control__icon"><img src="img/icons/user.svg" alt=""></span>
+							<span class="control__link">Sign in</span>
+	
+							<div class="control__login control__popup">
+								<div class="control__login__title">If you are a new user</div>
+								<a href="#!" class="control__login__register">register</a>
+								<button class="button button-1">login</button>
+							</div>
+						</div>
+	
+						<div class="control__item my-anadi">
+							<span class="control__icon">
+								<img src="img/icons/label.svg" alt="">
+								<span class="control__counter">21</span>
+							</span>
+							<span class="control__link">My Anadi </span>
+						</div>
+	
+						<div class="control__item">
+							<span class="control__icon">
+								<img src="img/icons/cart.svg" alt="">
+								<span class="control__counter">3</span>
+							</span>
+							<span class="control__link">Cart</span>
+	
+							<div class="control__cart control__popup">
+								<div class="control__cart__content">
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here Product Title Goes Here </div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+								</div>
+	
+								<div class="control__cart__total">
+									<div class="text">Total</div>
+									<div class="sum">20 000 000$</div>
+								</div>
+								<div class="control__cart__buttons">
+									<button class="button button-1 button-1_120 button_light">View cart</button>
+									<button class="button button-1 button-1_120">Checkout</button>
+								</div>
+							</div>
+	
+						</div>
+	
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	
+		<div class="menu">
+			<div class="container">
+				<ul class="menu__content">
+					<li class="menu__item"><a href="#!" class="menu__link">local</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">shopping</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">gateways</a></li>
+				</ul>
+			</div>
+			<div class="accordeon currency_mobile">
+				<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+				<div class="accordeon__content">
+					<div class="currency__item">€ euro</div>
+					<div class="currency__item">gnf</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="search_mobile">
+			<form class="search_mobile__content">
+				<input type="text" placeholder="Search">
+				<button class="button button-3"><img src="img/icons/search-yellow.svg" alt=""></button>
+			</form>
+		</div>
+	
+	</header>
+
+	<div class="category page">
+
+		<div class="container">
+			<a href="#!" class="popular">
+				<img src="img/popular/pink.png" alt="">
+				<div class="row no-gutters">
+					<div class="col-md-7 col-xs-8 col-9">
+						<div class="popular__text">
+							<h1 class="popular__title">Browse Popular Categories</h1>
+							<div class="popular__subtitle">Kingscliff: From $349 for a 3-Night Romantic Stay with Bottle of Wine…</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="filter__accordeon">
+						<div class="filter__toggler">
+							filter
+							<img src="img/icons/angle-down.svg" alt="">
+						</div>
+						<div class="filter">
+							<div class="filter__block">
+								<h4 class="filter__title">Select by cities</h4>
+								<div class="filter__item">
+									<input type="checkbox" id="c1">
+									<label class="checkbox-label" for="c1">Name city</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="c2">
+									<label class="checkbox-label" for="c2">Name city</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="c3">
+									<label class="checkbox-label" for="c3">Name city</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="c4">
+									<label class="checkbox-label" for="c4">Name city</label>
+								</div>
+							</div>
+							<div class="filter__block">
+								<h4 class="filter__title">Filter by neighborhoods</h4>
+								<div class="filter__item">
+									<input type="checkbox" id="n1">
+									<label class="checkbox-label" for="n1">Name neighborhoods</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="n2">
+									<label class="checkbox-label" for="n2">Name neighborhoods</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="n3">
+									<label class="checkbox-label" for="n3">Name neighborhoods</label>
+								</div>
+								<div class="filter__item">
+									<input type="checkbox" id="n4">
+									<label class="checkbox-label" for="n4">Name neighborhoods</label>
+								</div>
+							</div>
+							<div class="filter__block">
+								<h4 class="filter__title">Filter by Keyword</h4>
+								<form class="search">
+									<input type="text" placeholder="Keyword">
+									<button class="button button-3"><img src="img/icons/search.svg" alt=""></button>
+								</form>
+							</div>
+							<div class="filter__block">
+								<h4 class="filter__title">Filter by Price</h4>
+								<div id="price-range"></div>
+								<div class="price-range__block">
+
+									<div class="price-range__item">
+										<input type="text" class="input price-min" id="price-min">
+									</div>
+
+									<span>to</span>
+
+									<div class="price-range__item">
+										<input type="text" class="input price-max" id="price-max">
+									</div>
+
+								</div>
+
+							</div>
+							<div class="filter__block">
+								<h4 class="filter__title">Filter by Category</h4>
+
+								<div class="filter__item accordeon">
+									<div class="filter__item__title">
+										<input type="checkbox" id="cat1">
+										<label class="checkbox-label" for="cat1">Category 1#</label>
+										<button class="accordeon__button"><img src="img/icons/angle-down-black.svg" alt=""></button>
+									</div>
+									<div class="accordeon__content">
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat1">
+											<label class="checkbox-label" for="subcat1">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat2">
+											<label class="checkbox-label" for="subcat2">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat3">
+											<label class="checkbox-label" for="subcat3">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat4">
+											<label class="checkbox-label" for="subcat4">Sub Category 1#</label>
+										</div>
+									</div>
+								</div>
+								<div class="filter__item accordeon">
+									<div class="filter__item__title">
+										<input type="checkbox" id="cat2">
+										<label class="checkbox-label" for="cat2">Category 1#</label>
+										<button class="accordeon__button"><img src="img/icons/angle-down-black.svg" alt=""></button>
+									</div>
+									<div class="accordeon__content">
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat5">
+											<label class="checkbox-label" for="subcat5">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat6">
+											<label class="checkbox-label" for="subcat6">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat7">
+											<label class="checkbox-label" for="subcat7">Sub Category 1#</label>
+										</div>
+										<div class="filter__subcat">
+											<input type="checkbox" id="subcat8">
+											<label class="checkbox-label" for="subcat8">Sub Category 1#</label>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-9">
+
+					<div class="breadcrumbs">
+						<a href="/" class="breadcrumb">Home</a>	
+						<a href="/" class="breadcrumb">Page</a>	
+						<span class="breadcrumb">This page</span>
+					</div>
+
+					<div class="category__options">
+						<div class="category__options__text">114 results found</div>
+						<div class="category__filter">
+							<div class="category__options__text">Sort by</div>
+							<select>
+								<option>Default</option>
+								<option>Name A - Z</option>
+								<option>Name Z - A</option>
+								<option>Price Low to High</option>
+								<option>Price High to Low</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="category__content cards">
+						<div class="row">
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-4 col-6">
+								<a href="#!" class="card">
+									<div class="card__photo">
+										<img src="img/card.jpg" alt="">
+										<div class="card__discount">-51%</div>
+									</div>
+									<div class="card__content">
+										<div class="card__title">Pamper Spa Package for Two Spa Package</div>
+										<div class="card__name">Charlotte Johnson</div>
+										<div class="card__location">Kiev, Ukraine</div>
+										<div class="card__old-price">45 200 000$</div>
+										<div class="card__new-price">24 200 000$</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<button class="button button-1 button-1_160">load more</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<div class="subscribe">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 subscribe__col">
+					<h4 class="subscribe__title">Contact Us</h4>
+					<div class="subscribe__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </div>
+					<div class="subscribe__items">
+						<div class="subscribe__item">
+							<img src="img/icons/contacts/mail-black.svg" alt="">
+							Sed ut perspiciatis
+						</div>
+						<div class="subscribe__item">
+							<img src="img/icons/contacts/phone-black.svg" alt="">
+							+7 45 654-454-45
+						</div>
+						<div class="subscribe__item">
+							<img src="img/icons/contacts/help-black.svg" alt="">
+							Sed ut perspiciatis
+						</div>
+						<div class="subscribe__item">
+							<img src="img/icons/contacts/shop-black.svg" alt="">
+							Sell on Anadi
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 subscribe__col">
+					<h4 class="subscribe__title">Subscribe</h4>
+					<form class="subscribe__form">
+						<input type="text" placeholder="Enter E-mail">
+						<button class="button button-3"><img src="img/icons/plane.svg" alt=""></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6 order-xs-2">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-3">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-4">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-1">
+					<div class="footer__block footer__main">
+						<div class="footer__logo"><img src="img/logo-2.svg" alt=""></div>
+						<h4 class="footer__title">Follow Us</h4>
+						<div class="socials">
+							<a href="#!" class="social fb"><img src="img/icons/fb.svg" alt=""></a>
+							<a href="#!" class="social wa"><img src="img/icons/whatsapp.svg" alt=""></a>
+							<a href="#!" class="social in"><img src="img/icons/LinkedIn.svg" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="copyright">
+				<div class="copyright__text">© 2019 Anadi Guinee. All Rights Reserved.</div>
+				<div class="copyright__payments">
+					<img alt="" src="img/payments/visa.png">
+					<img alt="" src="img/payments/mastercard.png">
+					<img alt="" src="img/payments/amex.png">
+					<img alt="" src="img/payments/paypal.png">
+					<img alt="" src="img/payments/orange_money.png">
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+	
+	<script src="js/scripts.min.js?v=2"></script>
+	
+</body>
+
+</html>

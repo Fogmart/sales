@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+//= snippets/head.html
+
+<body>
+
+	<header class="header fixed-header">
+
+		<div class="header__top">
+			<div class="container">
+				<div class="header__top__content">
+					<div class="header__top__text">La Guinée en Ligne</div>
+					<div class="accordeon currency">
+						<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+						<div class="accordeon__content">
+							<div class="currency__item">€ euro</div>
+							<div class="currency__item">gnf</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="header__main">
+			<div class="container">
+				<div class="header__main__content">
+
+					<div class="header__left">
+						<button class="menu-button" onclick="this.classList.toggle('active')">
+							<svg viewBox="0 0 100 100">
+								<path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+								<path class="line middle" d="m 70,50 h -40" />
+								<path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+							</svg>
+						</button>
+						<div class="logo"><a href="/"><img src="img/logo.svg" alt=""></a></div>
+					</div>
+
+					<form class="search header__search">
+						<input type="text" placeholder="Search">
+						<button class="button button-3"><img src="img/icons/search.svg" alt=""></button>
+					</form>
+
+					<div class="control">
+
+						<div class="control__item search__mobile-btn">
+							<span class="control__icon"><img src="img/icons/search.svg" alt=""></span>
+						</div>
+
+						<div class="control__item">
+							<span class="control__icon"><img src="img/icons/user.svg" alt=""></span>
+							<span class="control__link">Sign in</span>
+
+							<div class="control__login control__popup">
+								<div class="control__login__title">If you are a new user</div>
+								<a href="#!" class="control__login__register">register</a>
+								<button class="button button-1">login</button>
+							</div>
+						</div>
+
+						<div class="control__item my-anadi">
+							<span class="control__icon">
+								<img src="img/icons/label.svg" alt="">
+								<span class="control__counter">21</span>
+							</span>
+							<span class="control__link">My Anadi </span>
+						</div>
+
+						<div class="control__item">
+							<span class="control__icon">
+								<img src="img/icons/cart.svg" alt="">
+								<span class="control__counter">3</span>
+							</span>
+							<span class="control__link">Cart</span>
+
+							<div class="control__cart control__popup">
+								<div class="control__cart__content">
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here Product Title Goes Here </div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+								</div>
+
+								<div class="control__cart__total">
+									<div class="text">Total</div>
+									<div class="sum">20 000 000$</div>
+								</div>
+								<div class="control__cart__buttons">
+									<button class="button button-1 button-1_120 button_light">View cart</button>
+									<button class="button button-1 button-1_120">Checkout</button>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="menu">
+			<div class="container">
+				<ul class="menu__content">
+					<li class="menu__item"><a href="#!" class="menu__link">local</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">shopping</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">gateways</a></li>
+				</ul>
+			</div>
+			<div class="accordeon currency_mobile">
+				<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+				<div class="accordeon__content">
+					<div class="currency__item">€ euro</div>
+					<div class="currency__item">gnf</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="search_mobile">
+			<form class="search_mobile__content">
+				<input type="text" placeholder="Search">
+				<button class="button button-3"><img src="img/icons/search-yellow.svg" alt=""></button>
+			</form>
+		</div>
+
+		<div class="product__added">
+			<div class="container">
+				<div class="product__added__block">
+					<div class="product__added__photo"><img src="img/card.jpg" alt=""></div>
+					<h4 class="product__added__title">Product Title Goes Here and here and here and here </h4>
+				</div>
+				<div class="product__added__block">
+					<div class="product__added__buttons">
+						<button class="button button-1 button-1_160 button_light">View Cart</button>
+						<button class="button button-1 button-1_160">checkout</button>
+					</div>
+					<button class="product__added__remove"><img src="img/icons/remove.svg" alt=""></button>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="product page">
+
+		<div class="container">
+			
+			//= snippets/breadcrumbs.html
+
+			<h1 class="main-title">Product Title Goes Here and here and here and here </h1>
+
+			<div class="row">
+				<div class="col-md-9">
+					<div class="product__main product__block">
+						<div class="product__main__top">
+							<div class="card__name">Charlotte Johnson</div>
+							<div class="card__location">Kiev, Ukraine</div>
+						</div>
+
+						<div class="product__main__slider_for">
+							<div class="product__main__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__photo"><img src="img/card.jpg" alt=""></div>
+						</div>
+						<div class="product__main__slider_nav">
+							<div class="product__main__slider_nav__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card-big.jpg" alt=""></div>
+							<div class="product__main__slider_nav__photo"><img src="img/card.jpg" alt=""></div>
+						</div>
+					</div>
+
+					<div class="product__sidebar_mobile"></div>
+
+					<div class="product__details product__block">
+						<div class="product__details__tabs">
+							<button class="product__details__tab active">Product Details</button>
+							<button class="product__details__tab">The Fine Print</button>
+						</div>
+
+						<div class="product__details__content">
+							<div class="product__details__block">
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+								adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+								adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+								adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
+							</div>
+							<div class="product__details__block">
+								<p class="product__text">123</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="product__supplier product__block">
+						<div class="row">
+							<div class="col-md-5">
+								<h4 class="product__supplier__title">Supplier Information</h4>
+								<div class="card__name">Charlotte Johnson</div>
+								<div class="card__location">Kiev, Ukraine</div>
+								<div class="product__supplier__rating">
+									<div class="rating">
+										<div class="star star_full"></div>
+										<div class="star star_full"></div>
+										<div class="star star_full"></div>
+										<div class="star star_full"></div>
+										<div class="star star_empty"></div>
+									</div>
+									<div class="product__text">23 Reviews</div>
+								</div>
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur adipisi cing lorem ipsum dolor sit amet, consectetur 
+									adipisicing ipsum dolor sit amet, tetur
+								adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing Lorem ipsum dolor sit amet, consecte tur adipisicing lorem ipsum dolor sit amet </p>
+								<a href="#!" class="button button-1 button-1_140">view</a>
+							</div>
+							<div class="col-md-7">
+								<div class="product__supplier__map"><img src="img/map.jpg" alt=""></div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="col-md-3">
+					
+					<div class="product__sidebar_desktop">
+						<div class="product__sidebar">
+							<div class="product__sidebar__top">
+								<div class="limited"><img src="img/icons/chronometer.svg" alt="">Limited time only</div>
+								<div class="byuings"><img src="img/icons/smile.svg" alt="">Over 10,000 bought</div>
+							</div>
+
+							<div class="product__sidebar__main">
+								<h4 class="product__sidebar__title">Select From Options:</h4>
+
+								<div class="product__sidebar__options">
+									<div class="product__sidebar__option">
+										<input type="radio" id="r1" name="options" checked>
+										<label for="r1" class="radio-label option__title">
+											<span class="option__title">First option</span>
+											<span class="card__old-price">45 200 000$</span>
+											<span class="card__new-price">24 200 000$</span>
+										</label>
+
+									</div>
+									<div class="product__sidebar__option">
+										<input type="radio" id="r2" name="options">
+										<label for="r2" class="radio-label">
+											<span class="option__title">Second option</span>
+											<span class="card__old-price">45 200 000$</span>
+											<span class="card__new-price">24 200 000$</span>
+										</label>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="product__sidebar__buttons">
+								<button class="button button-1">Add cart</button>
+								<button class="button button-4">Buy for a Friend</button>
+							</div>
+
+							<div class="product__sidebar__bottom">
+								<h4 class="product__sidebar__title">In summary</h4>
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur
+									adipisicing lorem ipsum dolor sit amet, consectetur
+									adipisicing ipsum dolor sit amet, tetur
+									adipisicing Lorem ipsum dolor sit amet, consectetur
+								adipisicing</p>
+								<p class="product__text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing lorem ipsum dolor sit amet</p>
+
+								<h4 class="product__sidebar__title">Share this deal</h4>
+
+								<div class="socials">
+									<a href="#!" class="social fb"><img src="img/icons/fb.svg" alt=""></a>
+									<a href="#!" class="social mail"><img src="img/icons/mail.svg" alt=""></a>
+									<a href="#!" class="social twitter"><img src="img/icons/twitter.svg" alt=""></a>
+									<a href="#!" class="social wa"><img src="img/icons/whatsapp.svg" alt=""></a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cards__block">
+				<h2 class="cards__block__title">You might also like these!</h2>
+				<div class="cards">
+					<div class="row">
+						<div class="col-md-3 col-sm-4 col-6">
+							//= snippets/card.html
+						</div>
+						<div class="col-md-3 col-sm-4 col-6">
+							//= snippets/card.html
+						</div>
+						<div class="col-md-3 col-sm-4 col-6">
+							//= snippets/card.html
+						</div>
+						<div class="col-md-3 col-sm-4 col-6">
+							//= snippets/card.html
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	//= snippets/subscribe.html
+	//= snippets/footer.html
+
+	//= snippets/scripts.html
+	
+</body>
+
+</html>
