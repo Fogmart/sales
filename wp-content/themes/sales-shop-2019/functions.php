@@ -10,7 +10,11 @@ define('SS_CLASSES', SS_INC . '/classes');
 require_once(SS_INC . '/redux-theme-config.php');
 
 //menus
-require_once(SS_INC . '/menu.php');
+require_once(SS_INC . '/menu/register.php');
+require_once(SS_INC . '/menu/render.php');
+
+//custom functinal
+require_once(SS_INC . '/theme-functional.php');
 
 //post types, post type fields, classes include
 $except = array('.', '..');

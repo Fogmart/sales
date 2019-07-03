@@ -1,3 +1,7 @@
+<?php
+global $kdn_theme_options; 
+$logo = $kdn_theme_options['logo-upload'];
+?>
 <!DOCTYPE html>
 <html lang="<?= bloginfo('language') ?>">
 <head>
@@ -15,7 +19,7 @@
 		<div class="header__top">
 			<div class="container">
 				<div class="header__top__content">
-					<div class="header__top__text">La Guinée en Ligne</div>
+					<div class="header__top__text"><?= $kdn_theme_options['slogan'] ?></div>
 					<?= do_shortcode('[wcs_switcher]') ?>
 				</div>
 			</div>
@@ -33,86 +37,47 @@
 								<path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
 							</svg>
 						</button>
-						<div class="logo"><a href="/"><img src="img/logo.svg" alt=""></a></div>
+						<div class="logo"><a href="/"><img src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>"></a></div>
 					</div>
 	
 					<form class="search header__search">
-						<input type="text" placeholder="Search">
-						<button class="button button-3"><img src="img/icons/search.svg" alt=""></button>
+						<input type="text" placeholder="<?= __('Search')?>">
+						<button class="button button-3"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt=""></button>
 					</form>
 	
 					<div class="control">
 	
 						<div class="control__item search__mobile-btn">
-							<span class="control__icon"><img src="img/icons/search.svg" alt=""></span>
+							<span class="control__icon"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt=""></span>
 						</div>
 	
 						<div class="control__item">
-							<span class="control__icon"><img src="img/icons/user.svg" alt=""></span>
-							<span class="control__link">Sign in</span>
+							<span class="control__icon"><img src="<?= ss_asset('img/icons/user.svg') ?>" alt=""></span>
+							<span class="control__link"><?= __('Sign in') ?></span>
 	
 							<div class="control__login control__popup">
-								<div class="control__login__title">If you are a new user</div>
-								<a href="#!" class="control__login__register">register</a>
-								<button class="button button-1">login</button>
+								<div class="control__login__title"><?= __('If you are a new user') ?></div>
+								<a href="#!" class="control__login__register"><?= __('register') ?></a>
+								<button class="button button-1"><?= __('login') ?></button>
 							</div>
 						</div>
 	
 						<div class="control__item my-anadi">
 							<span class="control__icon">
-								<img src="img/icons/label.svg" alt="">
+								<img src="<?= ss_asset('img/icons/label.svg') ?>" alt="">
 								<span class="control__counter">21</span>
 							</span>
-							<span class="control__link">My Anadi </span>
+							<span class="control__link"><?= __('My Anadi') ?></span>
 						</div>
 	
 						<div class="control__item">
 							<span class="control__icon">
-								<img src="img/icons/cart.svg" alt="">
+								<img src="<?= ss_asset('img/icons/cart.svg') ?>" alt="">
 								<span class="control__counter">3</span>
 							</span>
-							<span class="control__link">Cart</span>
+							<span class="control__link"><?= __('Cart') ?></span>
 	
-							<div class="control__cart control__popup">
-								<div class="control__cart__content">
-									<div class="control__cart__item">
-										<div class="photo"><img src="img/card.jpg" alt=""></div>
-										<div class="info">
-											<div class="title">Product Title Goes Here</div>
-											<div class="quantity">3 item</div>
-										</div>
-										<div class="price">20 000 000$</div>
-										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
-									</div>
-									<div class="control__cart__item">
-										<div class="photo"><img src="img/card.jpg" alt=""></div>
-										<div class="info">
-											<div class="title">Product Title Goes Here Product Title Goes Here </div>
-											<div class="quantity">3 item</div>
-										</div>
-										<div class="price">20 000 000$</div>
-										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
-									</div>
-									<div class="control__cart__item">
-										<div class="photo"><img src="img/card.jpg" alt=""></div>
-										<div class="info">
-											<div class="title">Product Title Goes Here</div>
-											<div class="quantity">3 item</div>
-										</div>
-										<div class="price">20 000 000$</div>
-										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
-									</div>
-								</div>
-	
-								<div class="control__cart__total">
-									<div class="text">Total</div>
-									<div class="sum">20 000 000$</div>
-								</div>
-								<div class="control__cart__buttons">
-									<button class="button button-1 button-1_120 button_light">View cart</button>
-									<button class="button button-1 button-1_120">Checkout</button>
-								</div>
-							</div>
+							<?php get_template_part('parts/header', 'cart') ?>
 	
 						</div>
 	
@@ -122,27 +87,12 @@
 			</div>
 		</div>
 	
-		<div class="menu">
-			<div class="container">
-				<ul class="menu__content">
-					<li class="menu__item"><a href="#!" class="menu__link">local</a></li>
-					<li class="menu__item"><a href="#!" class="menu__link">shopping</a></li>
-					<li class="menu__item"><a href="#!" class="menu__link">gateways</a></li>
-				</ul>
-			</div>
-			<div class="accordeon currency_mobile">
-				<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
-				<div class="accordeon__content">
-					<div class="currency__item">€ euro</div>
-					<div class="currency__item">gnf</div>
-				</div>
-			</div>
-		</div>
+		<?php echo ss_menu_header(); ?>
 	
 		<div class="search_mobile">
 			<form class="search_mobile__content">
-				<input type="text" placeholder="Search">
-				<button class="button button-3"><img src="img/icons/search-yellow.svg" alt=""></button>
+				<input type="text" placeholder="<?= __('Search')?>">
+				<button class="button button-3"><img src="<?= ss_asset('img/icons/search-yellow.svg')?>" alt=""></button>
 			</form>
 		</div>
 	<?php wp_head(); ?>

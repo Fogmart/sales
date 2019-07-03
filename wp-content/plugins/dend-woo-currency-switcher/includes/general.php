@@ -121,7 +121,7 @@ class WCS_Settings
         return $item;
     }
 
-    static public function renderWidget()
+    static public function renderWidget($atts)
     {
         $out = self::getMainTemplate();
         $oneTemplate = self::getOneTemplate();
@@ -145,6 +145,15 @@ class WCS_Settings
         }
         $out = str_replace('@active', $active, $out);
         $out = str_replace('@all', $items, $out);
+        
+        //adding extra classes
+        if($atts['classes']){
+            $class_pos = strpos($out, 'class');
+            $class_content_start = strpos($out, '"', $class_pos);
+            $class_content_end = strpos($out, '"', $class_content_start+1);
+
+            $out = substr_replace( $out, ' '.$atts['classes'], $class_content_end, 0 ); 
+        }
 
         return $out;
     }

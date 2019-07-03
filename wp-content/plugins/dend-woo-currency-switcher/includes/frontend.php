@@ -10,10 +10,13 @@ function wcs_frontend_scripts(){
 add_action( 'wp_enqueue_scripts', 'wcs_frontend_scripts');
 
 //render switcher shortcode
-function wcs_render_shortcode()
+function wcs_render_shortcode($atts)
 {   
+    $atts = shortcode_atts([
+        'classes' => '',
+    ], $atts);
     wp_enqueue_script('wcs_frontend');
     $plugin_core = WCS_Settings::getInstance();
-    return $plugin_core->renderWidget();
+    return $plugin_core->renderWidget($atts);
 }
 add_shortcode('wcs_switcher', 'wcs_render_shortcode');
