@@ -1,11 +1,11 @@
 <?php
 function dbc_container_template(){
-    return '<div>@loop</div>';
+    return '<div class="breadcrumbs">@loop</div>';
 }
 function dbc_one_template(){
-    return '<div><a href="@link">@name</a></div> >';
+    return '<a class="breadcrumb" href="@link">@name</a>';
 }
 
 function dbc_last_template(){
-    return '<div class="last_elem">@name</div>';
+    return '<span class="breadcrumb">@name</span>';
 }

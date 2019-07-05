@@ -40,3 +40,7 @@ function ss_theme_assets(){
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 }
+add_action( 'after_setup_theme', 'woocommerce_support' );
+    function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
