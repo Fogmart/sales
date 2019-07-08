@@ -1,6 +1,6 @@
 <?php
-global $kdn_theme_options; 
-$logo = $kdn_theme_options['logo-upload'];
+global $ss_theme_option; 
+$logo = $ss_theme_option['logo-upload'];
 ?>
 <!DOCTYPE html>
 <html lang="<?= bloginfo('language') ?>">
@@ -19,7 +19,7 @@ $logo = $kdn_theme_options['logo-upload'];
 		<div class="header__top">
 			<div class="container">
 				<div class="header__top__content">
-					<div class="header__top__text"><?= $kdn_theme_options['slogan'] ?></div>
+					<div class="header__top__text"><?= $ss_theme_option['slogan'] ?></div>
 					<?= do_shortcode('[wcs_switcher]') ?>
 				</div>
 			</div>

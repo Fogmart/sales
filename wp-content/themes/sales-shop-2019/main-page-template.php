@@ -468,40 +468,4 @@
 	</div>
 
 </div>
-
-<div class="subscribe">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 subscribe__col">
-				<h4 class="subscribe__title">Contact Us</h4>
-				<div class="subscribe__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </div>
-				<div class="subscribe__items">
-					<div class="subscribe__item">
-						<img src="img/icons/contacts/mail-black.svg" alt="">
-						Sed ut perspiciatis
-					</div>
-					<div class="subscribe__item">
-						<img src="img/icons/contacts/phone-black.svg" alt="">
-						+7 45 654-454-45
-					</div>
-					<div class="subscribe__item">
-						<img src="img/icons/contacts/help-black.svg" alt="">
-						Sed ut perspiciatis
-					</div>
-					<div class="subscribe__item">
-						<img src="img/icons/contacts/shop-black.svg" alt="">
-						Sell on Anadi
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 subscribe__col">
-				<h4 class="subscribe__title">Subscribe</h4>
-				<form class="subscribe__form">
-					<input type="text" placeholder="Enter E-mail">
-					<button class="button button-3"><img src="img/icons/plane.svg" alt=""></button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
 <?php get_footer(); ?>

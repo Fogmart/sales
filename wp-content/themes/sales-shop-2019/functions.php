@@ -1,7 +1,7 @@
 <?php
 define('SS_INC', get_template_directory() . '/includes');
-define('SS_JS', get_template_directory_uri().'/assets/js');
-define('SS_CSS', get_template_directory_uri().'/assets/css');
+define('SS_JS', get_template_directory_uri() . '/assets/js');
+define('SS_CSS', get_template_directory_uri() . '/assets/css');
 define('SS_POST_TYPES', SS_INC . '/post_types');
 define('SS_POST_TYPE_FIELDS', SS_INC . '/post_type_fields');
 define('SS_CLASSES', SS_INC . '/classes');
@@ -15,6 +15,7 @@ require_once(SS_INC . '/menu/render.php');
 
 //custom functinal
 require_once(SS_INC . '/theme-functional.php');
+require_once(SS_INC . '/theme-extends.php');
 
 //post types, post type fields, classes include
 $except = array('.', '..');
@@ -33,14 +34,17 @@ foreach ($to_include as $one) {
 }
 
 add_action('wp_enqueue_scripts', 'ss_theme_assets');
-function ss_theme_assets(){
-    wp_register_script('ss_script', SS_JS.'/scripts.min.js');
-    wp_register_style('ss_style', SS_CSS.'/main.min.css');
+function ss_theme_assets()
+{
+    wp_register_script('ss_script', SS_JS . '/scripts.min.js');
+    wp_register_style('ss_style', SS_CSS . '/main.min.css');
 
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 }
-add_action( 'after_setup_theme', 'woocommerce_support' );
-    function woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
+
+
+add_filter('wpcf7_form_elements', function ($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+    return $content;
+});
