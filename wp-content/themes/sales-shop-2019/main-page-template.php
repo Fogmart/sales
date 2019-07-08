@@ -1,19 +1,7 @@
 <?php /* Template Name: Main Page Template */ ?>
 <?php get_header(); ?>
 <div class="main page">
-	<div class="container">
-		<a href="#!" class="popular">
-			<img src="img/popular/pink.png" alt="">
-			<div class="row no-gutters">
-				<div class="col-md-7 col-xs-8 col-9">
-					<div class="popular__text">
-						<h1 class="popular__title">Browse Popular Categories</h1>
-						<div class="popular__subtitle">Kingscliff: From $349 for a 3-Night Romantic Stay with Bottle of Wine…</div>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
+	<?php ss_banner_full(get_field('banner_top')); ?>
 
 	<div class="popular-block">
 		<div class="container">
@@ -150,25 +138,8 @@
 	<div class="banners">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
-					<div class="banner">
-						<img src="img/banner-1.jpg" alt="">
-						<div class="banner__content">
-							<h2 class="banner__title">Browse Popular Categories</h2>
-							<div class="banner__text">Kingscliff: From $349 for a 3-Night Romantic Stay with Bottle of Wine…</div>
-							<button class="button button-2 button-2_1">
-								<span class="button-2__icon"><img src="img/icons/add-cart.svg" alt=""></span>
-								<span class="button-2__text">Add cart</span>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<a href="#!" class="banner">
-						<img src="img/banner-2.jpg" alt="">
-						<h2 class="banner__title">Browse Popular Categories</h2>
-					</a>
-				</div>
+				<?php ss_banner_two(get_field('banner_middle_left')); ?>
+				<?php ss_banner_one(get_field('banner_middle_right')); ?>
 			</div>
 		</div>
 	</div>
@@ -453,19 +424,7 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<a href="#!" class="popular">
-			<img src="img/popular/green.png" alt="">
-			<div class="row no-gutters">
-				<div class="col-md-7 col-xs-8 col-9">
-					<div class="popular__text">
-						<h1 class="popular__title">Browse Popular Categories</h1>
-						<div class="popular__subtitle">Kingscliff: From $349 for a 3-Night Romantic Stay with Bottle of Wine…</div>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
+	<?php ss_banner_full(get_field('banner_bottom')); ?>
 
 </div>
 <?php get_footer(); ?>

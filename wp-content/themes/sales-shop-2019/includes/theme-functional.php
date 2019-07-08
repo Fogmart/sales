@@ -6,3 +6,4 @@
 function ss_asset($file_path){
     return get_template_directory_uri().'/assets/'.$file_path;
 }
+

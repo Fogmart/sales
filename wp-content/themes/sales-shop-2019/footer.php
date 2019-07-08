@@ -113,18 +113,18 @@ global $ss_theme_option;
 </div>
 
 <script>
-	$(document).ready(function() {
-		/* popup sign in */
-		setTimeout(function() {
-			$('.modal-action_wrap').show()
-			$.magnificPopup.open({
-				items: {
-					src: '#modal-action'
-				},
-				type: 'inline'
-			});
-		}, 1000);
-	})
+	// $(document).ready(function() {
+	// 	/* popup sign in */
+	// 	setTimeout(function() {
+	// 		$('.modal-action_wrap').show()
+	// 		$.magnificPopup.open({
+	// 			items: {
+	// 				src: '#modal-action'
+	// 			},
+	// 			type: 'inline'
+	// 		});
+	// 	}, 1000);
+	// })
 </script>
 <?php wp_footer(); ?>
 </body>

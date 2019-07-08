@@ -13,13 +13,14 @@ add_filter('wpcf7_form_elements', function ($content) {
 });
 
 //Contact form theme asset tag
-add_action( 'wpcf7_init', 'ss_contact_asset_tag' );
-function ss_contact_asset_tag() {
-    wpcf7_add_form_tag( 'ss_asset', 'ss_contact_asset_handler' );
+add_action('wpcf7_init', 'ss_contact_asset_tag');
+function ss_contact_asset_tag()
+{
+    wpcf7_add_form_tag('ss_asset', 'ss_contact_asset_handler');
 }
 
-function ss_contact_asset_handler( $tag ) {
+function ss_contact_asset_handler($tag)
+{
     $path_index = array_search('path', $tag->options);
-
     return ss_asset($tag->values[$path_index]);
 }

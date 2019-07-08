@@ -3,7 +3,7 @@ define('SS_INC', get_template_directory() . '/includes');
 define('SS_JS', get_template_directory_uri() . '/assets/js');
 define('SS_CSS', get_template_directory_uri() . '/assets/css');
 define('SS_POST_TYPES', SS_INC . '/post_types');
-define('SS_POST_TYPE_FIELDS', SS_INC . '/post_type_fields');
+define('SS_CUSTOM_FIELDS', SS_INC . '/custom_fields');
 define('SS_CLASSES', SS_INC . '/classes');
 
 //theme options
@@ -15,13 +15,14 @@ require_once(SS_INC . '/menu/render.php');
 
 //custom functinal
 require_once(SS_INC . '/theme-functional.php');
+require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 
 //post types, post type fields, classes include
 $except = array('.', '..');
 $to_include = array(
     SS_POST_TYPES,
-    SS_POST_TYPE_FIELDS,
+    SS_CUSTOM_FIELDS,
 );
 
 foreach ($to_include as $one) {
@@ -43,8 +44,3 @@ function ss_theme_assets()
     wp_enqueue_style('ss_style');
 }
 
-
-add_filter('wpcf7_form_elements', function ($content) {
-    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-    return $content;
-});
