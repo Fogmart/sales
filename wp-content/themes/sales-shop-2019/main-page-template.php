@@ -1,5 +1,6 @@
 <?php /* Template Name: Main Page Template */ ?>
 <?php get_header(); ?>
+<?php global $ss_theme_option; ?>
 <div class="main page">
 	<?php ss_banner_full(get_field('banner_top')); ?>
 
@@ -40,26 +41,9 @@
 						<a href="#!" class="popular-categories__all">View all categories <img src="img/angle-right-grey.svg" alt=""></a>
 					</div>
 				</div>
+
 				<div class="col-md-9">
-					<div class="card__big">
-						<div class="row no-gutters">
-							<div class="col-sm-8 card__photo">
-								<img src="img/card-big.jpg" alt="">
-								<div class="card__discount">-51%</div>
-							</div>
-							<div class="col-sm-4 card__content">
-								<div class="card__title">Pamper Spa Package</div>
-								<div class="card__name">Charlotte Johnson</div>
-								<div class="card__location">Kiev, Ukraine</div>
-								<div class="card__old-price">45 200 000$</div>
-								<div class="card__new-price">24 200 000$</div>
-								<div class="card__big__button">
-									<button class="button button-1">View now</button>
-								</div>
-								<div class="limited"><img src="img/icons/chronometer.svg" alt="">Limited only</div>
-							</div>
-						</div>
-					</div>
+					<?php ss_render_product_big($ss_theme_option['promoted-product-id']) ?>
 				</div>
 			</div>
 		</div>

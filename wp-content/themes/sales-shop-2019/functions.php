@@ -5,6 +5,7 @@ define('SS_CSS', get_template_directory_uri() . '/assets/css');
 define('SS_POST_TYPES', SS_INC . '/post_types');
 define('SS_CUSTOM_FIELDS', SS_INC . '/custom_fields');
 define('SS_CLASSES', SS_INC . '/classes');
+define('SS_WOOCOMMERCE', SS_INC . '/woocommerce');
 
 //theme options
 require_once(SS_INC . '/redux-theme-config.php');
@@ -18,22 +19,14 @@ require_once(SS_INC . '/theme-functional.php');
 require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 
+//woocommerce
+require_once(SS_WOOCOMMERCE . '/theme-product.php');
+
 //post types, post type fields, classes include
-$except = array('.', '..');
-$to_include = array(
-    SS_POST_TYPES,
-    SS_CUSTOM_FIELDS,
-);
+ss_autoload_scripts([SS_POST_TYPES, SS_CUSTOM_FIELDS,]);
 
-foreach ($to_include as $one) {
-    $files = scandir($one);
-    foreach ($files as $item) {
-        if (!in_array($item, $except)) {
-            require_once($one . '/' . $item);
-        }
-    }
-}
 
+//scripts, styles
 add_action('wp_enqueue_scripts', 'ss_theme_assets');
 function ss_theme_assets()
 {
@@ -43,4 +36,3 @@ function ss_theme_assets()
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 }
-

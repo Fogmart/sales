@@ -575,6 +575,34 @@ Redux::setSection($opt_name, [
     ]
 ]);
 
+//Shop options start
+Redux::setSection($opt_name, [
+    'title' => __('Shop Options', 'redux-framework'),
+    'id' => 'shop',
+    'desc' => __('Shop settings, and values', 'redux-framework'),
+    'icon' => 'el el-shopping-cart'
+]);
+
+Redux::setSection($opt_name, [
+    'title' => __('Promoted shares', 'redux-framework'),
+    'desc' => __('In this section you can select item which will be involved in action.',
+        'redux-framework'),
+    'id' => 'promoted-shares-options',
+    'subsection' => true,
+    'fields' => [
+        [
+            'id' => 'promoted-product-id',
+            'type' => 'text',
+            'title' => __('Promoted product', 'redux-framework'),
+            'subtitle' => __('Enter Product ID which will be appearing on promoted shares block', 'redux-framework'),
+            'desc' => __('id', 'redux-framework'),
+            'validate' => 'numeric',
+            'default' => '30'
+        ],
+    ]
+]);
+//Shop options end
+
 Redux::setSection($opt_name, [
     'title' => __('Exchange Rates', 'redux-framework'),
     'desc' => __('In this section you can change the exchange rate.', 'redux-framework'),
