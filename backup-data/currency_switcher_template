@@ -1,0 +1,14 @@
+<div class="accordeon currency">
+<div class="accordeon__button">
+@active
+</div>
+<div class="accordeon__content">
+@all
+</div>
+</div>
+
+
+<div class="currency__item wcs-curr" data-curr=@code>@symbol @name</div>
+
+
+<div class="currency__item">@symbol @name</div>

@@ -46,7 +46,7 @@ class WCS_Settings
     {
         $out = get_option(self::$system_currency_slug);
         if(!$out){
-            $out = get_option('woocommerce_currency');
+            $out = self::getSystemCurrencyInfo();
             self::setSystemCurrency($out);
         }
         return $out;

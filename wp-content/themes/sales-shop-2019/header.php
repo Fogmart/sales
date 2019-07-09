@@ -10,8 +10,8 @@ $logo = $ss_theme_option['logo-upload'];
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title><?php bloginfo('name') ?></title>
+	<?php wp_head(); ?>
 </head>
-
 <body>
 
 	<header class="header fixed-header">
@@ -95,5 +95,4 @@ $logo = $ss_theme_option['logo-upload'];
 				<button class="button button-3"><img src="<?= ss_asset('img/icons/search-yellow.svg')?>" alt=""></button>
 			</form>
 		</div>
-	<?php wp_head(); ?>
 	</header>

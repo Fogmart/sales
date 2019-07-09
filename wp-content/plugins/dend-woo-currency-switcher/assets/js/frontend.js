@@ -6,7 +6,6 @@ jQuery(function ($) {
         wcsCurrencySwitcher.init();
     });
 
-
     var wcsCurrencySwitcher = {
         init: function () {
             this.currSelector = '.wcs-curr';
