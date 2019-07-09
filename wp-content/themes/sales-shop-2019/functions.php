@@ -44,3 +44,11 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
     function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
+
+add_action('pre_get_posts','tt_woocommerce_archive');
+function tt_woocommerce_archive($query) {
+    if (!is_admin() && $query->is_main_query() && is_product_category()) {
+        global $kdn_theme_options;
+        $query->set( 'posts_per_page', $kdn_theme_options["category-pagination-amount"] );
+    }
+}
