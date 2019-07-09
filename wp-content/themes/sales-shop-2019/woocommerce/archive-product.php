@@ -1,5 +1,5 @@
 <?php
-
+global $ss_theme_option; 
 defined( 'ABSPATH' ) || exit;
 get_header();
 do_action( 'woocommerce_before_main_content' );
@@ -173,7 +173,7 @@ do_action( 'woocommerce_before_main_content' );
                                         <?php 
                                         if ( wc_get_loop_prop( 'total' ) ) { ?>
                                             <div class="category__content cards">
-						<div class="row">
+						<div class="row js_appendTo">
                                                 <?php while ( have_posts() ) {
                                                         the_post();
 
@@ -187,12 +187,21 @@ do_action( 'woocommerce_before_main_content' );
                                                         wc_get_template_part( 'content', 'product' );
                                                 }?>
                                                 </div>
-                                                <?php woocommerce_pagination(); ?>
-						<button class="button button-1 button-1_160">load more</button>
+                                                
+                                                <?php
+                                                    if($ss_theme_option["category-pagination"] === "1"){?>
+                                                        <?php if (wc_get_loop_prop( 'total' ) > $ss_theme_option["category-pagination-amount"]){?>
+                                                            <button class="button button-1 button-1_160 js_load_more_products">load more</button>
+                                                        <?php } ?>
+                                                    <?php } else {
+                                                       woocommerce_pagination();
+                                                    }
+                                                ?>
+                                                     
                                             </div>    
                                         <?php }
                                         woocommerce_product_loop_end();
-                                        ?>
+                                        ?>      
 				</div>
 			</div>
 		</div>

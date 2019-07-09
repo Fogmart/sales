@@ -36,3 +36,11 @@ function ss_theme_assets()
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 }
+
+add_action('pre_get_posts','tt_woocommerce_archive');
+function tt_woocommerce_archive($query) {
+    if (!is_admin() && $query->is_main_query() && is_product_category()) {
+        global $ss_theme_option;
+        $query->set( 'posts_per_page', $ss_theme_option["category-pagination-amount"] );
+    }
+}
