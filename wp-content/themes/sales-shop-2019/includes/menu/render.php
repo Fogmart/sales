@@ -13,3 +13,7 @@ function ss_menu_header(){
     $out .= '</div>';
     return $out;
 }
+
+function ss_menu_footer(){
+    $out = '';
+}

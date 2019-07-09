@@ -24,7 +24,7 @@ if( function_exists('acf_add_local_field_group') ):
             array(
                 'key' => 'field_5d13329a56be0',
                 'label' => __('Seller Name'),
-                'name' => 'seller_name',
+                'name' => 'name',
                 'type' => 'text',
                 'instructions' => __('This name will be displayed on the seller page'),
                 'required' => 1,

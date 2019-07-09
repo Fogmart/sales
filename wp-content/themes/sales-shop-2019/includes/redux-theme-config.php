@@ -10,7 +10,7 @@ if (!class_exists('Redux')) {
 }
 
 // This is your option name where all the Redux data is stored.
-$opt_name = "kdn_theme_options";
+$opt_name = "ss_theme_option";
 
 /**
  * ---> SET ARGUMENTS
@@ -294,9 +294,9 @@ Redux::setSection($opt_name, [
             'validate' => 'url'
         ],
         [
-            'id' => 'footer-viber-url',
+            'id' => 'footer-whatsup-url',
             'type' => 'text',
-            'title' => __('Link to viber', 'redux-framework'),
+            'title' => __('Link to whatsup', 'redux-framework'),
             'validate' => 'url'
         ],
         [
@@ -311,266 +311,54 @@ Redux::setSection($opt_name, [
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id' => 'footer-copyright-url',
+            'id' => 'footer-copyright-text',
             'type' => 'text',
             'title' => __('Copyright', 'redux-framework'),
             'subtitle' => __('Enter copyright', 'redux-framework'),
-        ]
+        ],
     ]
 ]);
 
 Redux::setSection($opt_name, [
-    'title' => __('Contact Us in Footer', 'redux-framework'),
-    'desc' => __('In this section you can change the theme settings displayed in the "Contacts Us".',
+    'title' => __('Footer Contact Us', 'redux-framework'),
+    'desc' => __('In this section you can change the theme settings displayed in the footer',
         'redux-framework'),
-    'id' => 'contact-options',
+    'id' => 'footer_forms',
     'subsection' => true,
     'fields' => [
         [
-            'id' => 'footer-contact-1-section-start',
+            'id' => 'footer-contact-us-section-start',
             'type' => 'section',
-            'title' => __('First element', 'redux-framework'),
-            'subtitle' => __('The first element in the contact block.', 'redux-framework'),
+            'title' => __('Contact Us', 'redux-framework'),
+            'subtitle' => __('Block settings', 'redux-framework'),
             'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id' => 'footer-contact-1-icon',
-            'type' => 'media',
-            'title' => __('Icon Uploader', 'redux-framework'),
-            'subtitle' => __('Uploader your icon', 'redux-framework'),
-            'compiler' => 'true'
-        ],
-        [
-            'id' => 'footer-contact-1-text',
+            'id' => 'footer-contact-us-form',
             'type' => 'text',
-            'title' => __('Text', 'redux-framework'),
-            'subtitle' => __('Enter the text displayed in the first item', 'redux-framework'),
+            'title' => __('Block shortcode', 'redux-framework'),
+            'subtitle' => __('Enter contact form 7 shortcode', 'redux-framework'),
         ],
         [
-            'id' => 'footer-contact-1-link-variant',
-            'type' => 'button_set',
-            'title' => __('Link type', 'redux-framework'),
-            'subtitle' => __('Select the link type for the first item', 'redux-framework'),
-            //Must provide key => value pairs for radio options
-            'options' => [
-                '1' => 'none',
-                '2' => 'url',
-                '3' => 'phone',
-                '4' => 'e-mail'
-            ],
-            'default' => '1'
-        ],
-        [
-            'id' => 'footer-contact-1-url',
-            'type' => 'text',
-            'required' => ['footer-contact-1-link-variant', '=', '2'],
-            'title' => __('Link', 'redux-framework'),
-            'subtitle' => __('Enter the link', 'redux-framework'),
-            'validate' => 'url'
-        ],
-        [
-            'id' => 'footer-contact-1-phone',
-            'type' => 'text',
-            'required' => ['footer-contact-1-link-variant', '=', '3'],
-            'title' => __('Phone', 'redux-framework'),
-            'subtitle' => __('Enter the phone number', 'redux-framework')
-        ],
-        [
-            'id' => 'footer-contact-1-email',
-            'type' => 'text',
-            'required' => ['footer-contact-1-link-variant', '=', '4'],
-            'title' => __('E-mail', 'redux-framework'),
-            'subtitle' => __('Enter the e-mail', 'redux-framework'),
-            'validate' => 'email'
-        ],
-        [
-            'id' => 'footer-contact-1-section-end',
+            'id' => 'footer-contact-us-section-end',
             'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id' => 'footer-contact-2-section-start',
+            'id' => 'footer-subscribe-section-start',
             'type' => 'section',
-            'title' => __('Second element', 'redux-framework'),
-            'subtitle' => __('The second element in the contact block.', 'redux-framework'),
+            'title' => __('Subscribe', 'redux-framework'),
+            'subtitle' => __('Form block settings', 'redux-framework'),
             'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id' => 'footer-contact-2-icon',
-            'type' => 'media',
-            'title' => __('Icon Uploader', 'redux-framework'),
-            'subtitle' => __('Uploader your icon', 'redux-framework'),
-            'compiler' => 'true'
-        ],
-        [
-            'id' => 'footer-contact-2-text',
+            'id' => 'footer-subscribe-form',
             'type' => 'text',
-            'title' => __('Text', 'redux-framework'),
-            'subtitle' => __('Enter the text displayed in the second item', 'redux-framework'),
+            'title' => __('Form Shortcode', 'redux-framework'),
+            'subtitle' => __('Enter contact form 7 shortcode', 'redux-framework'),
         ],
         [
-            'id' => 'footer-contact-2-link-variant',
-            'type' => 'button_set',
-            'title' => __('Link type', 'redux-framework'),
-            'subtitle' => __('Select the link type for the second item', 'redux-framework'),
-            //Must provide key => value pairs for radio options
-            'options' => [
-                '1' => 'none',
-                '2' => 'url',
-                '3' => 'phone',
-                '4' => 'e-mail'
-            ],
-            'default' => '1'
-        ],
-        [
-            'id' => 'footer-contact-2-url',
-            'type' => 'text',
-            'required' => ['footer-contact-2-link-variant', '=', '2'],
-            'title' => __('Link', 'redux-framework'),
-            'subtitle' => __('Enter the link', 'redux-framework'),
-            'validate' => 'url'
-        ],
-        [
-            'id' => 'footer-contact-2-phone',
-            'type' => 'text',
-            'required' => ['footer-contact-2-link-variant', '=', '3'],
-            'title' => __('Phone', 'redux-framework'),
-            'subtitle' => __('Enter the phone number', 'redux-framework')
-        ],
-        [
-            'id' => 'footer-contact-2-email',
-            'type' => 'text',
-            'required' => ['footer-contact-2-link-variant', '=', '4'],
-            'title' => __('E-mail', 'redux-framework'),
-            'subtitle' => __('Enter the e-mail', 'redux-framework'),
-            'validate' => 'email'
-        ],
-        [
-            'id' => 'footer-contact-2-section-end',
-            'type' => 'section',
-            'indent' => false, // Indent all options below until the next 'section' option is set.
-        ],
-        [
-            'id' => 'footer-contact-3-section-start',
-            'type' => 'section',
-            'title' => __('Third element', 'redux-framework'),
-            'subtitle' => __('The third element in the contact block.', 'redux-framework'),
-            'indent' => true, // Indent all options below until the next 'section' option is set.
-        ],
-        [
-            'id' => 'footer-contact-3-icon',
-            'type' => 'media',
-            'title' => __('Icon Uploader', 'redux-framework'),
-            'subtitle' => __('Uploader your icon', 'redux-framework'),
-            'compiler' => 'true'
-        ],
-        [
-            'id' => 'footer-contact-3-text',
-            'type' => 'text',
-            'title' => __('Text', 'redux-framework'),
-            'subtitle' => __('Enter the text displayed in the third item', 'redux-framework'),
-        ],
-        [
-            'id' => 'footer-contact-3-link-variant',
-            'type' => 'button_set',
-            'title' => __('Link type', 'redux-framework'),
-            'subtitle' => __('Select the link type for the third item', 'redux-framework'),
-            //Must provide key => value pairs for radio options
-            'options' => [
-                '1' => 'none',
-                '2' => 'url',
-                '3' => 'phone',
-                '4' => 'e-mail'
-            ],
-            'default' => '1'
-        ],
-        [
-            'id' => 'footer-contact-3-url',
-            'type' => 'text',
-            'required' => ['footer-contact-3-link-variant', '=', '2'],
-            'title' => __('Link', 'redux-framework'),
-            'subtitle' => __('Enter the link', 'redux-framework'),
-            'validate' => 'url'
-        ],
-        [
-            'id' => 'footer-contact-3-phone',
-            'type' => 'text',
-            'required' => ['footer-contact-3-link-variant', '=', '3'],
-            'title' => __('Phone', 'redux-framework'),
-            'subtitle' => __('Enter the phone number', 'redux-framework')
-        ],
-        [
-            'id' => 'footer-contact-3-email',
-            'type' => 'text',
-            'required' => ['footer-contact-3-link-variant', '=', '4'],
-            'title' => __('E-mail', 'redux-framework'),
-            'subtitle' => __('Enter the e-mail', 'redux-framework'),
-            'validate' => 'email'
-        ],
-        [
-            'id' => 'footer-contact-3-section-end',
-            'type' => 'section',
-            'indent' => false, // Indent all options below until the next 'section' option is set.
-        ],
-        [
-            'id' => 'footer-contact-4-section-start',
-            'type' => 'section',
-            'title' => __('Fourth element', 'redux-framework'),
-            'subtitle' => __('The fourth element in the contact block.', 'redux-framework'),
-            'indent' => true, // Indent all options below until the next 'section' option is set.
-        ],
-        [
-            'id' => 'footer-contact-4-icon',
-            'type' => 'media',
-            'title' => __('Icon Uploader', 'redux-framework'),
-            'subtitle' => __('Uploader your icon', 'redux-framework'),
-            'compiler' => 'true'
-        ],
-        [
-            'id' => 'footer-contact-4-text',
-            'type' => 'text',
-            'title' => __('Text', 'redux-framework'),
-            'subtitle' => __('Enter the text displayed in the fourth item', 'redux-framework'),
-        ],
-        [
-            'id' => 'footer-contact-4-link-variant',
-            'type' => 'button_set',
-            'title' => __('Link type', 'redux-framework'),
-            'subtitle' => __('Select the link type for the fourth item', 'redux-framework'),
-            //Must provide key => value pairs for radio options
-            'options' => [
-                '1' => 'none',
-                '2' => 'url',
-                '3' => 'phone',
-                '4' => 'e-mail'
-            ],
-            'default' => '1'
-        ],
-        [
-            'id' => 'footer-contact-4-url',
-            'type' => 'text',
-            'required' => ['footer-contact-4-link-variant', '=', '2'],
-            'title' => __('Link', 'redux-framework'),
-            'subtitle' => __('Enter the link', 'redux-framework'),
-            'validate' => 'url'
-        ],
-        [
-            'id' => 'footer-contact-4-phone',
-            'type' => 'text',
-            'required' => ['footer-contact-4-link-variant', '=', '3'],
-            'title' => __('Phone', 'redux-framework'),
-            'subtitle' => __('Enter the phone number', 'redux-framework')
-        ],
-        [
-            'id' => 'footer-contact-4-email',
-            'type' => 'text',
-            'required' => ['footer-contact-4-link-variant', '=', '4'],
-            'title' => __('E-mail', 'redux-framework'),
-            'subtitle' => __('Enter the e-mail', 'redux-framework'),
-            'validate' => 'email'
-        ],
-        [
-            'id' => 'footer-contact-4-section-end',
+            'id' => 'footer-subscribe-section-end',
             'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
@@ -786,6 +574,34 @@ Redux::setSection($opt_name, [
         ],
     ]
 ]);
+
+//Shop options start
+Redux::setSection($opt_name, [
+    'title' => __('Shop Options', 'redux-framework'),
+    'id' => 'shop',
+    'desc' => __('Shop settings, and values', 'redux-framework'),
+    'icon' => 'el el-shopping-cart'
+]);
+
+Redux::setSection($opt_name, [
+    'title' => __('Promoted shares', 'redux-framework'),
+    'desc' => __('In this section you can select item which will be involved in action.',
+        'redux-framework'),
+    'id' => 'promoted-shares-options',
+    'subsection' => true,
+    'fields' => [
+        [
+            'id' => 'promoted-product-id',
+            'type' => 'text',
+            'title' => __('Promoted product', 'redux-framework'),
+            'subtitle' => __('Enter Product ID which will be appearing on promoted shares block', 'redux-framework'),
+            'desc' => __('id', 'redux-framework'),
+            'validate' => 'numeric',
+            'default' => '30'
+        ],
+    ]
+]);
+//Shop options end
 
 Redux::setSection($opt_name, [
     'title' => __('Exchange Rates', 'redux-framework'),

@@ -1,37 +1,20 @@
+<?php
+global $ss_theme_option;
+?>
+
 <div class="subscribe">
-        <div class="container">
-                <div class="row">
-                        <div class="col-md-8 subscribe__col">
-                                <h4 class="subscribe__title">Contact Us</h4>
-                                <div class="subscribe__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </div>
-                                <div class="subscribe__items">
-                                        <div class="subscribe__item">
-                                                <img src="img/icons/contacts/mail-black.svg" alt="">
-                                                Sed ut perspiciatis
-                                        </div>
-                                        <div class="subscribe__item">
-                                                <img src="img/icons/contacts/phone-black.svg" alt="">
-                                                +7 45 654-454-45
-                                        </div>
-                                        <div class="subscribe__item">
-                                                <img src="img/icons/contacts/help-black.svg" alt="">
-                                                Sed ut perspiciatis
-                                        </div>
-                                        <div class="subscribe__item">
-                                                <img src="img/icons/contacts/shop-black.svg" alt="">
-                                                Sell on Anadi
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="col-md-4 subscribe__col">
-                                <h4 class="subscribe__title">Subscribe</h4>
-                                <form class="subscribe__form">
-                                        <input type="text" placeholder="Enter E-mail">
-                                        <button class="button button-3"><img src="img/icons/plane.svg" alt=""></button>
-                                </form>
-                        </div>
-                </div>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 subscribe__col">
+				<?php echo do_shortcode($ss_theme_option['footer-contact-us-form']) ?>
+			</div>
+
+			<div class="col-md-4 subscribe__col">
+				<h4 class="subscribe__title">Subscribe</h4>
+				<?php echo do_shortcode($ss_theme_option['footer-subscribe-form']) ?>
+			</div>
+		</div>
+	</div>
 </div>
 <footer class="footer">
 
@@ -75,25 +58,26 @@
 			</div>
 			<div class="col-md-3 col-xs-6 order-xs-1">
 				<div class="footer__block footer__main">
-					<div class="footer__logo"><img src="img/logo-2.svg" alt=""></div>
-					<h4 class="footer__title">Follow Us</h4>
+					<div class="footer__logo"><img src="<?= $ss_theme_option['footer-logo']['url'] ?>" alt="<?= $ss_theme_option['footer-logo']['alt'] ?>"></div>
+					<h4 class="footer__title"><?= __('Follow Us') ?></h4>
+					</h4>
 					<div class="socials">
-						<a href="#!" class="social fb"><img src="img/icons/fb.svg" alt=""></a>
-						<a href="#!" class="social wa"><img src="img/icons/whatsapp.svg" alt=""></a>
-						<a href="#!" class="social in"><img src="img/icons/LinkedIn.svg" alt=""></a>
+						<a href="<?= $ss_theme_option['footer-facebook-url'] ?>" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
+						<a href="<?= $ss_theme_option['footer-whatsup-url'] ?>" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
+						<a href="<?= $ss_theme_option['footer-linkedin-url'] ?>" class="social in"><img src="<?= ss_asset('img/icons/LinkedIn.svg') ?>" alt=""></a>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="copyright">
-			<div class="copyright__text">© 2019 Anadi Guinee. All Rights Reserved.</div>
+			<div class="copyright__text"><?= __($ss_theme_option['footer-copyright-text']) ?></div>
 			<div class="copyright__payments">
-				<img alt="" src="img/payments/visa.png">
-				<img alt="" src="img/payments/mastercard.png">
-				<img alt="" src="img/payments/amex.png">
-				<img alt="" src="img/payments/paypal.png">
-				<img alt="" src="img/payments/orange_money.png">
+				<img alt="" src="<?= ss_asset('img/payments/visa.png') ?>">
+				<img alt="" src="<?= ss_asset('img/payments/mastercard.png') ?>">
+				<img alt="" src="<?= ss_asset('img/payments/amex.png') ?>">
+				<img alt="" src="<?= ss_asset('img/payments/paypal.png') ?>">
+				<img alt="" src="<?= ss_asset('img/payments/orange_money.png') ?>">
 			</div>
 		</div>
 	</div>
@@ -128,22 +112,21 @@
 	</div>
 </div>
 
-<script src="js/scripts.min.js?v=2"></script>
-
 <script>
-	$(document).ready(function() {
-		/* popup sign in */
-		setTimeout(function() {
-			$('.modal-action_wrap').show()
-			$.magnificPopup.open({
-				items: {
-					src: '#modal-action'
-				},
-				type: 'inline'
-			});
-		}, 1000);
-	})
+	// $(document).ready(function() {
+	// 	/* popup sign in */
+	// 	setTimeout(function() {
+	// 		$('.modal-action_wrap').show()
+	// 		$.magnificPopup.open({
+	// 			items: {
+	// 				src: '#modal-action'
+	// 			},
+	// 			type: 'inline'
+	// 		});
+	// 	}, 1000);
+	// })
 </script>
 <?php wp_footer(); ?>
 </body>
+
 </html>

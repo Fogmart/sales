@@ -1,5 +1,5 @@
 <?php
-global $kdn_theme_options; 
+global $ss_theme_option; 
 defined( 'ABSPATH' ) || exit;
 get_header();
 do_action( 'woocommerce_before_main_content' );
@@ -189,8 +189,8 @@ do_action( 'woocommerce_before_main_content' );
                                                 </div>
                                                 
                                                 <?php
-                                                    if($kdn_theme_options["category-pagination"] === "1"){?>
-                                                        <?php if (wc_get_loop_prop( 'total' ) > $kdn_theme_options["category-pagination-amount"]){?>
+                                                    if($ss_theme_option["category-pagination"] === "1"){?>
+                                                        <?php if (wc_get_loop_prop( 'total' ) > $ss_theme_option["category-pagination-amount"]){?>
                                                             <button class="button button-1 button-1_160 js_load_more_products">load more</button>
                                                         <?php } ?>
                                                     <?php } else {
