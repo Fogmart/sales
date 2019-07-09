@@ -1,7 +1,7 @@
 <?php
 
 function ss_get_product_seller($product_id){
-    $seller = new class{};
+    $seller = new stdClass();
     $seller_id = get_field('seller', $product_id);
     if($seller_id){
         $seller->id = $seller_id;
@@ -11,7 +11,7 @@ function ss_get_product_seller($product_id){
 }
 
 function ss_get_seller_city($seller_id){
-    $city = new class{};
+    $city = new stdClass();
     $city_id = get_field('city', $seller_id);
     if($city_id){
         $city->id = $city_id;
