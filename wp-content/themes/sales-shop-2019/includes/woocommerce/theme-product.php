@@ -16,6 +16,7 @@ function ss_get_seller_city($seller_id){
     if($city_id){
         $city->id = $city_id;
         $city->name = get_the_title($city->id);
+        $city->country = get_field('country', $seller_id);
     }
     return $city;
 }
