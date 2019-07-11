@@ -28,6 +28,7 @@ function ss_get_product($product_id){
     //init product city
     $obj->city = ss_get_seller_city($obj->seller->id);
     $obj->neighborhood = get_field('neighborhood', $obj->seller->id);
+    $obj->sale_percentage = $obj->is_on_sale() ? floor(($obj->get_sale_price() / $obj->get_regular_price())*100) : 0;
     
     return $obj;
 }

@@ -9,39 +9,23 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="popular-categories">
-						<div class="popular-categories__title">Popular</div>
+						<div class="popular-categories__title"><?= __('Popular') ?></div>
 						<div class="popular-categories__content">
-							<a href="#!" class="popular-categories__item">
-								<div class="item__icon"><img src="img/icons/popular/spa.svg" alt=""></div>
-								<div class="item__title">Spa and Beauty</div>
-								<div class="item__quantity">5</div>
-							</a>
-							<a href="#!" class="popular-categories__item">
-								<div class="item__icon"><img src="img/icons/popular/restaurant.svg" alt=""></div>
-								<div class="item__title">Resturants</div>
-								<div class="item__quantity">5</div>
-							</a>
-							<a href="#!" class="popular-categories__item">
-								<div class="item__icon"><img src="img/icons/popular/health.svg" alt=""></div>
-								<div class="item__title">Health and fitness</div>
-								<div class="item__quantity">5</div>
-							</a>
-							<a href="#!" class="popular-categories__item">
-								<div class="item__icon"><img src="img/icons/popular/book.svg" alt=""></div>
-								<div class="item__title">Online Courses</div>
-								<div class="item__quantity">5</div>
-							</a>
-							<a href="#!" class="popular-categories__item">
-								<div class="item__icon"><img src="img/icons/popular/services.svg" alt=""></div>
-								<div class="item__title">Services</div>
-								<div class="item__quantity">5</div>
-							</a>
-
+							<?php foreach (get_field('popular_categories') as $one) : ?>
+								<a href="#!" class="popular-categories__item">
+									<div class="item__icon">
+										<?php if ($thumbnail_id = get_woocommerce_term_meta($one->term_id, 'thumbnail_id', true)) : ?>
+											<img src="<?= wp_get_attachment_url($thumbnail_id) ?>" alt="">
+										<?php endif; ?>
+									</div>
+									<div class="item__title"><?= $one->name ?></div>
+									<div class="item__quantity"><?= $one->count ?></div>
+								</a>
+							<?php endforeach; ?>
 						</div>
-						<a href="#!" class="popular-categories__all">View all categories <img src="img/angle-right-grey.svg" alt=""></a>
+						<a href="<?= get_field('view_all_categories_link') ?>" class="popular-categories__all"><?= __('View all categories') ?> <img src="<?= ss_asset('img/angle-right-grey.svg') ?>" alt=""></a>
 					</div>
 				</div>
-
 				<div class="col-md-9">
 					<?php ss_render_product_big($ss_theme_option['promoted-product-id']) ?>
 				</div>
