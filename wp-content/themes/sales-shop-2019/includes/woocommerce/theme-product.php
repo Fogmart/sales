@@ -47,3 +47,7 @@ function ss_render_product_big($product_id)
 {
     ss_render_product($product_id, 'big');
 }
+
+function ss_render_product_card($product_id){
+    ss_render_product($product_id, 'card');
+}
