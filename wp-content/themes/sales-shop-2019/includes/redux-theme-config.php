@@ -310,6 +310,34 @@ Redux::setSection($opt_name, [
             'type' => 'section',
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
+        //footer menu columns
+        [
+            'id' => 'footer-link-columns-start',
+            'type' => 'section',
+            'title' => __('Footer columns with links', 'redux-framework'),
+            'subtitle' => __('Change columns with links.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-link-columns',
+            'type' => 'repeater',
+            'title' => 'Link',
+            'fields' => [
+                [
+                    'id' => 'footer-linkedin-url-asd',
+                    'type' => 'text',
+                    'title' => __('Link to linkedin', 'redux-framework'),
+                    'validate' => 'url'
+                ],
+            ]
+        ],
+        [
+            'id' => 'footer-link-columns-end',
+            'type' => 'section',
+            'title' => __('Footer columns with links', 'redux-framework'),
+            'subtitle' => __('Change columns with links.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
         [
             'id' => 'footer-copyright-text',
             'type' => 'text',

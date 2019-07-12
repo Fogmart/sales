@@ -5,22 +5,16 @@
 
     <div class="container">
 
-        <h1 class="center login__title">Create an account!</h1>
-        <h5 class="login__subtitle center">Already have an account? <a href="#!" class="link link_bold">Click here</a> to login</h5>
+        <h1 class="center login__title"><?= __('Create an account!')?></h1>
+        <h5 class="login__subtitle center"><?= __('Already have an account?')?> <a href="<?= SS_LOGIN_PAGE ?>" class="link link_bold"><?= __('Click here')?></a> <?= __('to login')?></h5>
 
         <div class="row">
             <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1">
                 <div class="register__content">
-                    <a href="#!" class="login__social fb button button-2 button-2_1">
-                        <span class="button-2__icon"><img src="img/icons/fb.svg" alt=""></span>
-                        <span class="button-2__text">Sign in with Facebook</span>
-                    </a>
-                    <a href="#!" class="login__social google button button-2 button-2_1">
-                        <span class="button-2__icon"><img src="img/icons/google.svg" alt=""></span>
-                        <span class="button-2__text">Sign in with Google</span>
-                    </a>
-                    <div class="register_or"><span>or</span></div>
-                    <form class="register__form">
+                    <?php get_template_part('parts/auth', 'socials') ?>
+                    <div class="register_or"><span><?= __('or')?></span></div>
+                    <form class="register__form" <?= SS_FORM_POST ?>>
+                        <input type="hidden" name="action" value="register">
                         <div class="register__item">
                             <h5 class="login__form__title">Full Name</h5>
                             <input type="text" class="input" placeholder="Enter Full Name" required>

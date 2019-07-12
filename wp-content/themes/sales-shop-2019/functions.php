@@ -7,6 +7,17 @@ define('SS_CUSTOM_FIELDS', SS_INC . '/custom_fields');
 define('SS_CLASSES', SS_INC . '/classes');
 define('SS_WOOCOMMERCE', SS_INC . '/woocommerce');
 
+//web options
+define('SS_REG_PAGE', '/register');
+define('SS_LOGIN_PAGE', '/login');
+define('SS_RESET_PAGE', '/reset');
+
+//settings
+define('SS_ENABLE_MIDDLEWARE', false);
+
+$post_form_action = 'action="'.esc_url(admin_url('admin-post.php')).'" method="POST"';
+define('SS_FORM_POST', $post_form_action);
+
 //theme options
 require_once(SS_INC . '/redux-theme-config.php');
 
@@ -18,6 +29,8 @@ require_once(SS_INC . '/menu/render.php');
 require_once(SS_INC . '/theme-functional.php');
 require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
+require_once(SS_INC . '/theme-forms.php');
+require_once(SS_INC . '/theme-middleware.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-product.php');
@@ -38,10 +51,11 @@ function ss_theme_assets()
     wp_enqueue_style('ss_style');
 }
 
-add_action('pre_get_posts','tt_woocommerce_archive');
-function tt_woocommerce_archive($query) {
+add_action('pre_get_posts', 'tt_woocommerce_archive');
+function tt_woocommerce_archive($query)
+{
     if (!is_admin() && $query->is_main_query() && is_product_category()) {
         global $ss_theme_option;
-        $query->set( 'posts_per_page', $ss_theme_option["category-pagination-amount"] );
+        $query->set('posts_per_page', $ss_theme_option["category-pagination-amount"]);
     }
 }
