@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: DEND - Price Model Table
- * Description: Create and view price tables linked with model. 
+ * Plugin Name: Price Model Table
+ * Description: Edit and view price tables linked with model.
  * Author:      <a href="https://t.me/dendrofen">Dendrofen</a>
- * Version:     0.1
+ * Version:     0.2
  */
 
 //create necessary constants

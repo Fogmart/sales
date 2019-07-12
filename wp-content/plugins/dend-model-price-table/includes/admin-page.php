@@ -10,7 +10,8 @@ function mp_register_my_custom_submenu_page()
 		__('Model Price Table'),
 		'manage_options',
 		'model_price_table',
-		'mp_render_page'
+		'mp_render_page',
+		'dashicons-editor-paste-text'
 	);
 }
 
