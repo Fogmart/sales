@@ -12,7 +12,7 @@ function ss_get_user()
         $user->is_seller = $is_seller;
         $user->is_customer = !$is_seller;
     }
-    return $user;
+    return $user->exists() ? $user : null;
 }
 
 /**
