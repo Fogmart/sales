@@ -13,19 +13,3 @@ function ss_get_user()
     }
     return $user->exists() ? $user : null;
 }
-
-/**
- * Stub function 
- */
-function ss_is_customer($return)
-{
-    return $return;
-}
-
-/**
- * * Stub function 
- */
-function ss_is_seller($return)
-{
-    return $return;
-}
