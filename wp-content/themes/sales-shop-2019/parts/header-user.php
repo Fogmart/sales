@@ -1,3 +1,4 @@
+<span class="control__icon"><img src="<?= ss_asset('img/icons/user.svg') ?>" alt=""></span>
 <?php if (is_user_logged_in()) : ?>
     <!-- <span class="control__link"></span> -->
 

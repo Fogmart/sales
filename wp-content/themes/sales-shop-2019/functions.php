@@ -14,6 +14,8 @@ define('SS_RESET_PAGE', '/reset');
 define('SS_PROFILE_PAGE', '/profile');
 define('SS_ORDERS_PAGE', '/orders');
 define('SS_VOUCHERS_PAGE', '/vouchers');
+define('SS_CART_PAGE', '/cart');
+define('SS_CHECKOUT_PAGE', '/checkout');
 
 //settings
 define('SS_ENABLE_MIDDLEWARE', false);

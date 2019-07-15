@@ -54,8 +54,6 @@ $logo = $ss_theme_option['logo-upload'];
 						</div>
 
 						<div class="control__item">
-							<span class="control__icon"><img src="<?= ss_asset('img/icons/user.svg') ?>" alt=""></span>
-
 							<?php get_template_part('parts/header', 'user')?>
 						</div>
 
@@ -72,14 +70,7 @@ $logo = $ss_theme_option['logo-upload'];
 						</a>
 
 						<div class="control__item">
-							<span class="control__icon">
-								<img src="<?= ss_asset('img/icons/cart.svg') ?>" alt="">
-								<span class="control__counter">3</span>
-							</span>
-							<span class="control__link"><?= __('Cart') ?></span>
-
 							<?php get_template_part('parts/header', 'cart') ?>
-
 						</div>
 
 					</div>
