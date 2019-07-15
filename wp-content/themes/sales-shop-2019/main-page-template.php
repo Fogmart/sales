@@ -11,7 +11,7 @@
 						<div class="popular-categories__title"><?= __('Popular') ?></div>
 						<div class="popular-categories__content">
 							<?php foreach (get_field('popular_categories') as $one) : ?>
-								<a href="#!" class="popular-categories__item">
+								<a href="<?= get_term_link($one) ?>" class="popular-categories__item">
 									<div class="item__icon">
 										<?php if ($thumbnail_id = get_woocommerce_term_meta($one->term_id, 'thumbnail_id', true)) : ?>
 											<img src="<?= wp_get_attachment_url($thumbnail_id) ?>" alt="">

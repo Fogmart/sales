@@ -10,7 +10,7 @@
             <div class="card__title"><?= $product->name ?></div>
             <div class="card__name"><?= $product->seller->name ?></div>
             <div class="card__location">
-                <?= $product->city->name ?>, <?= $product->neighborhood ?>
+                <?= $product->city->country ?>, <?= $product->city->name ?>
             </div>
             <div class="card__old-price">
                 <?= $product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?>

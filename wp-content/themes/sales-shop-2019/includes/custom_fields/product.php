@@ -9,7 +9,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'key' => 'field_5d23801759c85',
                 'label' => 'Seller',
                 'name' => 'seller',
-                'type' => 'post_object',
+                'type' => 'user',
                 'instructions' => '',
                 'required' => 1,
                 'conditional_logic' => 0,
@@ -18,14 +18,12 @@ if (function_exists('acf_add_local_field_group')) :
                     'class' => '',
                     'id' => '',
                 ),
-                'post_type' => array(
+                'role' => array(
                     0 => 'seller',
                 ),
-                'taxonomy' => '',
                 'allow_null' => 0,
                 'multiple' => 0,
-                'return_format' => 'id',
-                'ui' => 1,
+                'return_format' => 'object',
             ),
         ),
         'location' => array(

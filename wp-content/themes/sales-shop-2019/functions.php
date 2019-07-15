@@ -27,7 +27,9 @@ define('SS_FORM_POST', $post_form_action);
 require_once(SS_INC . '/menu/register.php');
 require_once(SS_INC . '/menu/render.php');
 
-//custom functinal
+//custom functional
+require_once(SS_INC . '/admin/neighborhood.php');
+require_once(SS_INC . '/theme-roles.php');
 require_once(SS_INC . '/theme-functional.php');
 require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');

@@ -8,9 +8,8 @@ function ss_get_user()
     $user = wp_get_current_user();
     //user is logged in
     if ($user->exists()) {
-        $is_seller = get_user_meta($user->ID, 'is_seller');
-        $user->is_seller = $is_seller;
-        $user->is_customer = !$is_seller;
+        $user->is_seller = in_array('seller', (array) $user->roles);
+        $user->is_customer = in_array('customer', (array) $user->roles);
     }
     return $user->exists() ? $user : null;
 }

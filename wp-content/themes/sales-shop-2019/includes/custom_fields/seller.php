@@ -1,5 +1,5 @@
 <?php
-if( function_exists('acf_add_local_field_group') ):
+if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
         'key' => 'group_5d1317331c8ce',
@@ -20,25 +20,6 @@ if( function_exists('acf_add_local_field_group') ):
                 ),
                 'placement' => 'left',
                 'endpoint' => 0,
-            ),
-            array(
-                'key' => 'field_5d13329a56be0',
-                'label' => __('Seller Name'),
-                'name' => 'name',
-                'type' => 'text',
-                'instructions' => __('This name will be displayed on the seller page'),
-                'required' => 1,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
             ),
             array(
                 'key' => 'field_5d1332c556be1',
@@ -125,10 +106,8 @@ if( function_exists('acf_add_local_field_group') ):
                     'class' => '',
                     'id' => '',
                 ),
-                'choices' => array(
-                ),
-                'default_value' => array(
-                ),
+                'choices' => array(),
+                'default_value' => array(),
                 'allow_null' => 0,
                 'multiple' => 0,
                 'ui' => 0,
@@ -154,58 +133,6 @@ if( function_exists('acf_add_local_field_group') ):
                 'toolbar' => 'full',
                 'media_upload' => 0,
                 'delay' => 0,
-            ),
-            array(
-                'key' => 'field_5d132ded56bdc',
-                'label' => __('Accesses'),
-                'name' => '',
-                'type' => 'tab',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'placement' => 'left',
-                'endpoint' => 0,
-            ),
-            array(
-                'key' => 'field_5d132e0b56bdd',
-                'label' => __('Login'),
-                'name' => 'login',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 1,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ),
-            array(
-                'key' => 'field_5d13323856bde',
-                'label' => __('Password'),
-                'name' => 'password',
-                'type' => 'password',
-                'instructions' => '',
-                'required' => 1,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
             ),
             array(
                 'key' => 'field_5d1334dc56be5',
@@ -241,40 +168,6 @@ if( function_exists('acf_add_local_field_group') ):
                 'prepend' => '',
                 'append' => '',
                 'maxlength' => '',
-            ),
-            array(
-                'key' => 'field_5d13354e56be7',
-                'label' => __('E-mail'),
-                'name' => 'email',
-                'type' => 'email',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-            ),
-            array(
-                'key' => 'field_5d13356e56be8',
-                'label' => __('Website'),
-                'name' => 'website',
-                'type' => 'url',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => '',
             ),
             array(
                 'key' => 'field_5d13358056be9',
@@ -354,7 +247,7 @@ if( function_exists('acf_add_local_field_group') ):
         'location' => array(
             array(
                 array(
-                    'param' => 'post_type',
+                    'param' => 'user_role',
                     'operator' => '==',
                     'value' => 'seller',
                 ),
