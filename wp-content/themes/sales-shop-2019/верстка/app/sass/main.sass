@@ -99,13 +99,23 @@ input[type="radio"]
 		left: 0
 		width: 15px
 		height: 15px
-		background: url(../img/icons/radio-unchecked.svg) no-repeat
+		background: url(../img/icons/radio-unchecked-white.svg) no-repeat
+
+	&_yellow
+
+		&:before
+			background: url(../img/icons/radio-unchecked.svg) no-repeat
 
 input[type="radio"]:checked + .radio-label
-	background-color: #FFF9EC
 
 	&:before
-		background: url(../img/icons/radio-checked.svg) no-repeat
+		background: url(../img/icons/radio-checked-white.svg) no-repeat
+
+	&_yellow
+		background-color: #FFF9EC
+
+		&:before
+			background: url(../img/icons/radio-checked.svg) no-repeat
 
 .selectric
 	border-radius: 0
@@ -234,6 +244,13 @@ input[type="radio"]:checked + .radio-label
 		background-color: transparent
 		border: 1px solid $yellow
 		color: $yellow
+
+	&_grey
+		background-color: $blackgrey
+		border: none
+
+		&:hover
+			background-color: $yellow
 
 	&-4
 		@extend .button-1
@@ -1157,7 +1174,6 @@ input[type="checkbox"]:checked + .checkbox-label
 					img
 						+cover
 
-
 	&__details
 
 		&__block:not(:first-child)
@@ -1661,6 +1677,22 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 		&_mute
 			color: $blackgrey
 
+	&__client
+		margin-top: 18px
+
+		&__title
+			margin-bottom: 5px
+
+		&__info
+
+			&__item
+				display: inline-block
+				margin-right: 10px
+				padding-right: 10px
+				border-right: 1px solid $blackgrey
+				color: $blackgrey
+				line-height: 1
+
 .canceled
 	color: $red
 
@@ -1721,6 +1753,32 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 
 		&__checkout
 			padding: 15px 20px 20px
+
+		&__discount
+			padding: 20px
+			border-bottom: 1px solid $whitegrey
+
+			h5
+				margin-bottom: 8px
+
+			&__form
+				display: flex
+				align-items: center
+				justify-content: space-between
+
+				.input
+					width: 60%
+					padding: 10px 20px
+
+				.button
+					width: 37%
+
+		&__privacy
+			margin-bottom: 10px
+
+		&__secure
+			text-align: center
+			margin-top: 5px
 
 .modal-action
 	display: flex
@@ -1889,6 +1947,14 @@ p.text
 
 		.button
 			margin: 10px 0 20px
+
+		&__photo
+			height: 120px
+			overflow: hidden
+			margin-bottom: 12px
+
+			img
+				+cover
 
 .history
 
@@ -2060,8 +2126,513 @@ p.text
 		.rating
 			margin: 10px 0
 
+.checkout
 
+	&__top-line
+		display: flex
+		align-items: center
 
+		.left
+			margin-right: 20px
+
+	&__title
+		margin-top: 30px
+
+	&__subtitle
+		margin-bottom: 15px
+
+	.order
+
+		&__details
+			justify-content: space-between
+
+			&__block
+				flex-basis: auto
+
+		&__photo
+
+			img
+				+cover
+
+		&__subtitle
+			margin: 15px 0
+
+	&__block
+		background-color: #fff
+		margin-bottom: 20px
+
+		.input
+			width: 100%
+
+		&__title
+			background-color: $blue
+			padding: 20px
+			color: #fff
+
+			.radio-label:before
+				top: 5px
+
+			.link
+				font-size: 13px
+				margin-left: 60px
+
+		&__content
+			padding: 20px
+
+			&.orders
+				padding: 0
+
+	&__form
+
+		&_card
+
+			&__row
+				display: flex
+				align-items: flex-start
+				justify-content: space-between
+				margin: 10px -10px 0
+
+				.input-block
+					width: 38%
+					padding: 0 10px
+
+					&.small
+						width: 24%
+
+	&__gift
+
+		&__item
+			display: flex
+			align-items: center
+			line-height: 1.8
+
+			.left
+				flex-basis: 25%
+
+			.right
+				flex-basis: 40%
+				font-weight: 400
+
+.checkout-success
+
+	&__block
+		background-color: #fff
+		padding: 20px
+		margin-bottom: 20px
+
+		&__title
+			margin-bottom: 12px
+
+	&__text
+		line-height: 21px
+		font-size: 14px
+
+	&__billing
+		padding-top: 20px
+		border-top: 1px solid $whitegrey
+
+		.order-page__item
+			margin-bottom: 0
+
+		.order-page__item__value
+			display: inline-block
+			margin-left: 6px
+			padding-right: 6px
+			border-right: 1px solid #DEDEDE
+
+			&:last-child
+				border: none
+
+	&__receive
+		border-top: 1px solid $whitegrey
+		padding-top: 17px
+
+		&__input
+			margin: 10px 0
+
+		.input
+			width: 100%
+
+		&__button
+			font-size: 12px
+			padding: 16px 2px
+
+			&.send
+				background-color: $green
+				border-color: $green
+
+.input-card
+	position: relative
+
+	&:after
+		content: ''
+		position: absolute
+		width: 13px
+		height: 17px
+		background: url(../img/icons/lock.svg) no-repeat center
+		right: 15px
+		top: 50%
+		+center(0, -50%)
+
+.modal
+	position: relative
+
+.gift
+	width: 730px
+	background-color: #fff
+	padding: 30px
+
+	&__title
+		margin-bottom: 25px
+
+	&__subtitle
+		margin-bottom: 20px
+
+	&__photo
+		margin-bottom: 24px
+		height: 240px
+
+		img
+			+cover
+
+	.input
+		width: 100%
+		margin-bottom: 20px
+
+	.order
+
+		&__title
+			font-size: 16px
+
+		&__subtitle
+			margin: 15px 0
+
+	&__radio
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		margin-bottom: 14px
+
+		.radio-label
+			flex-basis: 48%
+			padding: 13px 20px 13px 30px
+
+			&:before
+				top: 50%
+				left: 10px
+				+center(0, -50%)
+
+.input-phone
+	position: relative
+
+	label
+		position: absolute
+		top: 5px
+		left: 10px
+		font-size: 14px
+		color: #828282
+		padding-right: 10px
+		border-right: 1px solid #D4D4D4
+		height: 40px
+		display: flex
+		align-items: center
+
+	.input
+		padding-left: 60px
+
+.dashboard
+	padding-bottom: 50px
+
+	&__title
+		 margin: 22px 0 32px
+
+	.orders__sidebar
+		width: 100%
+
+	&__main
+		background-color: #fff
+		padding: 20px
+		width: 100%
+
+		&__subtitle
+			margin: 12px 0 24px
+
+		.search
+
+			.input
+				border-right: none
+				width: 450px
+
+	.stretch-cols
+		margin-bottom: 200px
+
+		[class^="col"]
+			display: flex
+			align-items: stretch
+
+	.order
+		box-shadow: none !important
+		padding: 0
+
+		&__photo
+			height: 132px
+			flex-basis: 15%
+
+			img
+				+cover
+
+		&__content
+			flex-basis: 85%
+
+		&__details
+			margin-top: 15px
+
+			&__block
+				flex-basis: 25%
+				display: block
+
+		.button
+			font-size: 13px
+
+		&__price
+			font-size: 18px
+			font-weight: 500
+			margin: 12px 0 6px
+			font-family: Roboto
+
+	&__search-result
+		margin-top: 44px
+
+		.result__title
+			margin-bottom: 20px
+
+	&__search-not-found
+		color: $red
+		margin: 40px 0 20px
+
+	&__block
+		padding: 20px
+		background-color: #fff
+		margin-bottom: 20px
+
+	&__filter
+
+		.button
+			width: auto
+			display: inline-block
+			padding: 11px 16px
+			margin-right: 20px
+
+	&__vouchers
+		background-color: #fff
+
+		&__title
+			padding: 10px 20px
+
+		&__table
+
+			&__mobile
+				display: none
+
+			td, th
+				vertical-align: middle
+				padding: 5px 10px
+
+				&:first-child
+					width: 50%
+					padding-left: 20px
+
+			tr
+
+				&:nth-child(even)
+					background-color: #FAFAFA
+
+				&:first-child
+					border-bottom: 1px solid #EEEEEE
+
+				&:last-child
+					border-bottom: 1px solid #EEEEEE
+
+		.pagination
+			padding: 20px
+
+	&__numbers
+		display: flex
+		padding: 20px 0
+		margin-top: 20px
+		border-top: 1px solid #F6F6F6
+
+	&__number
+		width: 160px
+		padding: 20px
+		border: 1px solid #ECECEC
+		margin-right: 20px
+
+		&__title
+			font-size: 14px
+
+		&__text
+			font-weight: 400
+			font-size: 21px
+			margin-top: 5px
+
+.calendar_wrap
+	display: inline-block
+	position: relative
+
+	.button
+		margin-right: 0
+
+.calendar
+	position: absolute
+	top: 50px
+	left: 0
+	width: 100%
+	background-color: #fff
+	box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1)
+	padding: 4px
+	display: none
+
+	table
+		width: 100%
+
+		th, td
+			padding: 2px 0
+
+	&__month
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 5px 0
+
+		&__title
+			text-align: center
+			color: $blackgrey
+
+	&__day
+		text-align: center
+		cursor: pointer
+
+		&__title
+			font-weight: 500
+
+		&.mute
+			color: $blackgrey
+
+		&.active
+			background-color: $yellow
+			color: #fff
+
+		&.interval
+			background-color: rgba($yellow, 0.2)
+
+.account
+	padding-bottom: 50px
+
+	&__title
+		margin: 22px 0 32px
+
+	&__block
+		padding: 20px 
+		background-color: #fff
+		margin-bottom: 20px
+
+		&__section
+			margin-bottom: 5px
+
+			.input
+				width: 100%
+				margin-bottom: 15px
+
+			.save-button
+				margin-top: 20px
+
+		&__title
+			margin-bottom: 20px
+
+	&__sidebar
+
+		&__title
+			margin-bottom: 10px
+
+.input-calendar
+	position: relative
+	margin-bottom: 15px
+
+	.input
+		margin-bottom: 0
+		padding-right: 35px
+
+	&:after
+		content: ''
+		position: absolute
+		top: 50%
+		right: 10px
+		+center(0, -50%)
+		background: url(../img/icons/calendar.svg) no-repeat center
+		width: 19px
+		height: 19px
+
+.voucher
+
+	&__angle
+		width: 5px
+		height: 8px
+		opacity: 0.5
+		display: block
+
+		&_top
+			background: url(../img/icons/angle-up-black.svg) no-repeat center
+			background-size: contain
+
+		&_bottom
+			background: url(../img/icons/angle-down-black.svg) no-repeat center
+			background-size: contain
+
+		&.active
+			opacity: 1
+
+.vouchers
+
+	&__title
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		color: #999
+		text-transform: uppercase
+		cursor: pointer
+		+ease
+
+		&__angles
+			flex-shrink: 0
+			margin-left: 5px
+
+		&:hover
+			color: #333
+
+	&__text
+		padding-right: 10px
+
+.pagination
+	display: flex
+	align-items: center
+
+	&__item
+		margin-right: 15px
+
+	&__link
+		display: flex
+		width: 35px
+		height: 35px
+		align-items: center
+		justify-content: center
+		border: 1px solid $yellow
+		color: $yellow
+		background-color: transparent
+
+		&.active, &:hover
+			background-color: $yellow
+			color: #fff
 
 
 

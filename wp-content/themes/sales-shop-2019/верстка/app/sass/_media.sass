@@ -62,6 +62,27 @@
 			&__subtotal, &__total
 				display: block
 
+	.orders
+
+		&__sidebar
+
+			&__photo
+				height: 90px
+
+	.dashboard
+
+		.order
+
+			&__photo
+				height: 110px
+
+	.checkout-success
+
+		&__receive
+
+			&__button
+				height: 66px
+
 @media screen and (max-width: 991px)
 
 	h1
@@ -302,6 +323,30 @@
 			&__text
 				margin-bottom: 15px
 
+	.orders
+
+		&__sidebar
+
+			&__photo
+				display: none
+
+	.dashboard
+
+		.stretch-cols
+			margin-bottom: 60px
+
+		.order
+
+			&__photo
+				height: 97px
+
+	.checkout-success
+
+		&__receive
+
+			&__button
+				height: auto
+
 @media screen and (max-width: 767px)
 
 	.page
@@ -521,10 +566,79 @@
 				&__price
 					text-align: right
 
+	.gift
+		width: 500px
+
+	h2
+		font-size: 16px
+
+	.checkout
+
+		&__block
+
+			&__title
+				padding: 15px 20px
+				font-size: 15px
+
+	.dashboard
+
+		&__main
+
+			.search
+
+				.input
+					width: 100%
+
+		.order
+
+			&__photo
+				height: 70px
+
+	.checkout-success
+
+		&__receive
+
+			&__button
+				height: 66px
+
+	.dashboard
+
+		&__filter
+
+			.button
+				margin-right: 10px
+
+		&__vouchers
+
+			&__table
+				display: none
+
+				&__mobile
+					display: block
+
+					.table-item
+						padding: 20px
+
+						&:nth-child(odd)
+							background-color: #F3F3F3
+
+						.row
+							margin: 10px -15px
+
+					.table-title
+						color: #999
+						text-transform: uppercase
+
+	.calendar_wrap .button
+		margin-right: 0
+
 @media screen and (max-width: 575px)
 
 	h1
 		font-size: 20px
+
+	h2
+		font-size: 14px
 
 	.control
 
@@ -796,6 +910,92 @@
 
 			&__content
 				padding-left: 0
+
+	.checkout
+
+		&__form_card
+
+			&__row
+				display: block
+
+				.input-block, .input-block.small
+					width: 100%
+
+		&__gift
+
+			&__item
+				align-items: flex-start
+
+				.left, .right
+					flex-basis: 50%
+					width: 50%
+
+				.right
+					word-wrap: break-word
+
+	.gift
+		width: 300px
+
+		&__photo
+			height: 150px
+
+		&__radio
+
+			.radio-label
+				padding: 13px 10px 13px 30px
+
+	.dashboard
+
+		.order
+
+			&__photo
+				height: 160px
+
+		&__filter
+			flex-wrap: wrap
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			.button
+				flex-basis: 48%
+				padding: 11px 8px
+				margin: 0
+
+			.calendar_wrap
+				flex-basis: 100%
+				margin-top: 10px
+
+			.calendar-button
+				width: 100%
+
+		&__number
+			width: 100%
+			margin: 10px 0
+
+		&__numbers
+			display: block
+
+		&__vouchers
+			margin: 0 -15px
+
+	.checkout-success
+
+		&__billing
+
+			.order-page__item
+				display: flex
+				flex-direction: column
+
+				&__value
+					border: none
+					margin: 0
+					padding: 0
+
+		&__receive
+
+			&__title
+				margin-top: 12px
 
 @media screen and (min-width: 320px)
 	//

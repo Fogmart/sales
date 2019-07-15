@@ -8,6 +8,11 @@
 
 $(document).ready(function() {
 
+	$('.calendar-button').click(function() {
+		$('.calendar').toggle();
+		$(this).toggleClass('button_light')
+	})
+
 	/* changing rating star color */
 	$(".rating__star__item").click(function() {
 		$(this).addClass('active');

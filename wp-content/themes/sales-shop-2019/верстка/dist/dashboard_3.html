@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="css/main.min.css?v=2" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<title>Anadi</title>
+
+</head>
+
+<body>
+
+	<header class="header fixed-header">
+		
+		<div class="header__top">
+			<div class="container">
+				<div class="header__top__content">
+					<div class="header__top__text">La Guinée en Ligne</div>
+					<div class="accordeon currency">
+						<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+						<div class="accordeon__content">
+							<div class="currency__item">€ euro</div>
+							<div class="currency__item">gnf</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="header__main">
+			<div class="container">
+				<div class="header__main__content">
+	
+					<div class="header__left">
+						<button class="menu-button" onclick="this.classList.toggle('active')">
+							<svg viewBox="0 0 100 100">
+								<path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+								<path class="line middle" d="m 70,50 h -40" />
+								<path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+							</svg>
+						</button>
+						<div class="logo"><a href="/"><img src="img/logo.svg" alt=""></a></div>
+					</div>
+	
+					<form class="search header__search">
+						<input type="text" placeholder="Search">
+						<button class="button button-3"><img src="img/icons/search.svg" alt=""></button>
+					</form>
+	
+					<div class="control">
+	
+						<div class="control__item search__mobile-btn">
+							<span class="control__icon"><img src="img/icons/search.svg" alt=""></span>
+						</div>
+	
+						<div class="control__item">
+							<span class="control__icon"><img src="img/icons/user.svg" alt=""></span>
+							<span class="control__link">Sign in</span>
+	
+							<div class="control__login control__popup">
+								<div class="control__login__title">If you are a new user</div>
+								<a href="#!" class="control__login__register">register</a>
+								<button class="button button-1">login</button>
+							</div>
+						</div>
+	
+						<div class="control__item my-anadi">
+							<span class="control__icon">
+								<img src="img/icons/label.svg" alt="">
+								<span class="control__counter">21</span>
+							</span>
+							<span class="control__link">My Anadi </span>
+						</div>
+	
+						<div class="control__item">
+							<span class="control__icon">
+								<img src="img/icons/cart.svg" alt="">
+								<span class="control__counter">3</span>
+							</span>
+							<span class="control__link">Cart</span>
+	
+							<div class="control__cart control__popup">
+								<div class="control__cart__content">
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here Product Title Goes Here </div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+									<div class="control__cart__item">
+										<div class="photo"><img src="img/card.jpg" alt=""></div>
+										<div class="info">
+											<div class="title">Product Title Goes Here</div>
+											<div class="quantity">3 item</div>
+										</div>
+										<div class="price">20 000 000$</div>
+										<button class="remove"><img src="img/icons/remove.svg" alt=""></button>
+									</div>
+								</div>
+	
+								<div class="control__cart__total">
+									<div class="text">Total</div>
+									<div class="sum">20 000 000$</div>
+								</div>
+								<div class="control__cart__buttons">
+									<button class="button button-1 button-1_120 button_light">View cart</button>
+									<button class="button button-1 button-1_120">Checkout</button>
+								</div>
+							</div>
+	
+						</div>
+	
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	
+		<div class="menu">
+			<div class="container">
+				<ul class="menu__content">
+					<li class="menu__item"><a href="#!" class="menu__link">local</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">shopping</a></li>
+					<li class="menu__item"><a href="#!" class="menu__link">gateways</a></li>
+				</ul>
+			</div>
+			<div class="accordeon currency_mobile">
+				<div class="accordeon__button"><div class="currency__item">$ usd</div></div>
+				<div class="accordeon__content">
+					<div class="currency__item">€ euro</div>
+					<div class="currency__item">gnf</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="search_mobile">
+			<form class="search_mobile__content">
+				<input type="text" placeholder="Search">
+				<button class="button button-3"><img src="img/icons/search-yellow.svg" alt=""></button>
+			</form>
+		</div>
+	
+	</header>
+
+	<div class="dashboard page">
+
+		<div class="container">
+
+			<h1 class="dashboard__title">Seller Dashboard</h1>
+
+			<div class="row">
+
+				<div class="col-md-2">
+					<div class="orders__sidebar">
+						<div class="orders__sidebar__photo"><img src="img/card.jpg" alt=""></div>
+						<h5 class="orders__sidebar__title">Hello Jon Snow</h5>
+						<button class="button button-1">logout</button>
+						<ul>
+							<li><a href="#!" class="link link_bold">Coupons List</a></li>
+							<li><a href="#!" class="link link_grey">Reports</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-10">
+					<div class="dashboard__block">
+						<div class="dashboard__filter">
+							<a href="#!" class="button button-1 button_light">Last 7 days</a>
+							<a href="#!" class="button button-1">Last 30 days</a>
+							<div class="calendar_wrap">
+								<a href="#!" class="button button-1 button_light calendar-button">14.05.2019 - 25.08.2019</a>
+								<div class="calendar">
+									<div class="calendar__month">
+										<a href="#!" class="calendar__arrow"><img src="img/icons/angle-left.svg" alt=""></a>
+										<div class="calendar__month__title">May 2019</div>
+										<a href="#!" class="calendar__arrow"><img src="img/icons/angle-right.svg" alt=""></a>
+									</div>
+									<table>
+										<tr>
+											<th><div class="calendar__day__title">Su</div></th>
+											<th><div class="calendar__day__title">Mo</div></th>
+											<th><div class="calendar__day__title">Tu</div></th>
+											<th><div class="calendar__day__title">We</div></th>
+											<th><div class="calendar__day__title">Th</div></th>
+											<th><div class="calendar__day__title">Fr</div></th>
+											<th><div class="calendar__day__title">Sa</div></th>
+										</tr>
+										<tr>
+											<td><div class="calendar__day mute">30</div></td>
+											<td><div class="calendar__day">1</div></td>
+											<td><div class="calendar__day">2</div></td>
+											<td><div class="calendar__day">3</div></td>
+											<td><div class="calendar__day">4</div></td>
+											<td><div class="calendar__day active">5</div></td>
+											<td><div class="calendar__day interval">6</div></td>
+										</tr>
+										<tr>
+											<td><div class="calendar__day interval">7</div></td>
+											<td><div class="calendar__day interval">8</div></td>
+											<td><div class="calendar__day active">9</div></td>
+											<td><div class="calendar__day">10</div></td>
+											<td><div class="calendar__day">11</div></td>
+											<td><div class="calendar__day">12</div></td>
+											<td><div class="calendar__day">13</div></td>
+										</tr>
+										<tr>
+											<td><div class="calendar__day">14</div></td>
+											<td><div class="calendar__day">15</div></td>
+											<td><div class="calendar__day">16</div></td>
+											<td><div class="calendar__day">17</div></td>
+											<td><div class="calendar__day">18</div></td>
+											<td><div class="calendar__day">19</div></td>
+											<td><div class="calendar__day">20</div></td>
+										</tr>
+										<tr>
+											<td><div class="calendar__day">21</div></td>
+											<td><div class="calendar__day">22</div></td>
+											<td><div class="calendar__day">23</div></td>
+											<td><div class="calendar__day">24</div></td>
+											<td><div class="calendar__day">25</div></td>
+											<td><div class="calendar__day">26</div></td>
+											<td><div class="calendar__day">27</div></td>
+										</tr>
+										<tr>
+											<td><div class="calendar__day">28</div></td>
+											<td><div class="calendar__day">29</div></td>
+											<td><div class="calendar__day">30</div></td>
+											<td><div class="calendar__day">31</div></td>
+											<td><div class="calendar__day mute">1</div></td>
+											<td><div class="calendar__day mute">2</div></td>
+											<td><div class="calendar__day mute">3</div></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="dashboard__numbers">
+							
+							<div class="dashboard__number">
+								<div class="dashboard__number__title">Transactions</div>
+								<div class="dashboard__number__text">67</div>
+							</div>
+							<div class="dashboard__number">
+								<div class="dashboard__number__title">Revenue</div>
+								<div class="dashboard__number__text">5.031.40</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="dashboard__vouchers">
+						<h2 class="dashboard__vouchers__title">My Vouchers</h2>
+
+						<table class="dashboard__vouchers__table">
+							<tr>
+								<th>
+									<div class="vouchers__title">voucher name
+										<div class="vouchers__title__angles">
+											<a href="#!" class="voucher__angle voucher__angle_top active"></a>
+											<a href="#!" class="voucher__angle voucher__angle_bottom"></a>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="vouchers__title">category
+										<div class="vouchers__title__angles">
+											<a href="#!" class="voucher__angle voucher__angle_top"></a>
+											<a href="#!" class="voucher__angle voucher__angle_bottom"></a>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="vouchers__title">Transactions
+										<div class="vouchers__title__angles">
+											<a href="#!" class="voucher__angle voucher__angle_top"></a>
+											<a href="#!" class="voucher__angle voucher__angle_bottom"></a>
+										</div>
+									</div>
+								</th>
+								<th>
+									<div class="vouchers__title">Total Revenue
+										<div class="vouchers__title__angles">
+											<a href="#!" class="voucher__angle voucher__angle_top"></a>
+											<a href="#!" class="voucher__angle voucher__angle_bottom"></a>
+										</div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td><div class="vouchers__text">Product Title Goes Here and here and here and here and here and here and here Product Title Product Title Goes </div></td>
+								<td><div class="vouchers__text">Name category</div></td>
+								<td><div class="vouchers__text">25</div></td>
+								<td><div class="vouchers__text">25 456 135</div></td>
+							</tr>
+							<tr>
+								<td><div class="vouchers__text">Product Title Goes Here and here and here and here and here and here and</div></td>
+								<td><div class="vouchers__text">Name category</div></td>
+								<td><div class="vouchers__text">25</div></td>
+								<td><div class="vouchers__text">25 456 135</div></td>
+							</tr>
+							<tr>
+								<td><div class="vouchers__text">Product Title Goes Here and here  </div></td>
+								<td><div class="vouchers__text">Name category</div></td>
+								<td><div class="vouchers__text">25</div></td>
+								<td><div class="vouchers__text">25 456 135</div></td>
+							</tr>
+							<tr>
+								<td><div class="vouchers__text">Product Title Goes Here and here and here and here and here and here and here Product Title</div></td>
+								<td><div class="vouchers__text">Name category</div></td>
+								<td><div class="vouchers__text">25</div></td>
+								<td><div class="vouchers__text">25 456 135</div></td>
+							</tr>
+
+						</table>
+
+						<div class="dashboard__vouchers__table__mobile">
+							<div class="table-item">
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">voucher name</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Product Title Goes Here and here and here and here and here and here</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">category</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Name category</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Transactions</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Total Revenue</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25 456 135</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="table-item">
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">voucher name</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Product Title Goes Here and here and here and here and here and here</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">category</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Name category</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Transactions</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Total Revenue</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25 456 135</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="table-item">
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">voucher name</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Product Title Goes Here and here and here and here and here and here</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">category</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">Name category</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Transactions</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="table-title">Total Revenue</div>
+									</div>
+									<div class="col-6">
+										<div class="table-value">25 456 135</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<ul class="pagination">
+							<li class="pagination__item"><a href="#!" class="pagination__link">1</a></li>
+							<li class="pagination__item"><a href="#!" class="pagination__link active">2</a></li>
+							<li class="pagination__item"><a href="#!" class="pagination__link">3</a></li>
+							<li class="pagination__item"><a href="#!" class="pagination__link">4</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<footer class="footer">
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6 order-xs-2">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-3">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-4">
+					<div class="footer__block">
+						<h4 class="footer__item__title">Name of chapter</h4>
+						<ul class="footer__menu">
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+							<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6 order-xs-1">
+					<div class="footer__block footer__main">
+						<div class="footer__logo"><img src="img/logo-2.svg" alt=""></div>
+						<h4 class="footer__title">Follow Us</h4>
+						<div class="socials">
+							<a href="#!" class="social fb"><img src="img/icons/fb.svg" alt=""></a>
+							<a href="#!" class="social wa"><img src="img/icons/whatsapp.svg" alt=""></a>
+							<a href="#!" class="social in"><img src="img/icons/LinkedIn.svg" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="copyright">
+				<div class="copyright__text">© 2019 Anadi Guinee. All Rights Reserved.</div>
+				<div class="copyright__payments">
+					<img alt="" src="img/payments/visa.png">
+					<img alt="" src="img/payments/mastercard.png">
+					<img alt="" src="img/payments/amex.png">
+					<img alt="" src="img/payments/paypal.png">
+					<img alt="" src="img/payments/orange_money.png">
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+
+	<script src="js/scripts.min.js?v=2"></script>
+
+</body>
+
+</html>
