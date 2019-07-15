@@ -18,9 +18,6 @@ define('SS_ENABLE_MIDDLEWARE', false);
 $post_form_action = 'action="'.esc_url(admin_url('admin-post.php')).'" method="POST"';
 define('SS_FORM_POST', $post_form_action);
 
-//theme options
-require_once(SS_INC . '/redux-theme-config.php');
-
 //menus
 require_once(SS_INC . '/menu/register.php');
 require_once(SS_INC . '/menu/render.php');
