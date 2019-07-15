@@ -11,6 +11,9 @@ define('SS_WOOCOMMERCE', SS_INC . '/woocommerce');
 define('SS_REG_PAGE', '/register');
 define('SS_LOGIN_PAGE', '/login');
 define('SS_RESET_PAGE', '/reset');
+define('SS_PROFILE_PAGE', '/profile');
+define('SS_ORDERS_PAGE', '/orders');
+define('SS_VOUCHERS_PAGE', '/vouchers');
 
 //settings
 define('SS_ENABLE_MIDDLEWARE', false);

@@ -21,40 +21,13 @@ global $ss_theme_option;
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3 col-xs-6 order-xs-2">
-				<div class="footer__block">
-					<h4 class="footer__item__title">Name of chapter</h4>
-					<ul class="footer__menu">
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-					</ul>
-				</div>
+				<?= ss_menu_footer_first() ?>
 			</div>
 			<div class="col-md-3 col-xs-6 order-xs-3">
-				<div class="footer__block">
-					<h4 class="footer__item__title">Name of chapter</h4>
-					<ul class="footer__menu">
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-					</ul>
-				</div>
+				<?= ss_menu_footer_second() ?>
 			</div>
 			<div class="col-md-3 col-xs-6 order-xs-4">
-				<div class="footer__block">
-					<h4 class="footer__item__title">Name of chapter</h4>
-					<ul class="footer__menu">
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-						<li class="footer__item"><a href="#!" class="footer__link">link for page</a></li>
-					</ul>
-				</div>
+				<?= ss_menu_footer_third() ?>
 			</div>
 			<div class="col-md-3 col-xs-6 order-xs-1">
 				<div class="footer__block footer__main">

@@ -1,9 +1,10 @@
 <?php
-global $ss_theme_option; 
+global $ss_theme_option;
 $logo = $ss_theme_option['logo-upload'];
 ?>
 <!DOCTYPE html>
 <html lang="<?= bloginfo('language') ?>">
+
 <head>
 	<meta charset="<?= bloginfo('charset') ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +13,11 @@ $logo = $ss_theme_option['logo-upload'];
 	<title><?php bloginfo('name') ?></title>
 	<?php wp_head(); ?>
 </head>
+
 <body>
 
 	<header class="header fixed-header">
-		
+
 		<div class="header__top">
 			<div class="container">
 				<div class="header__top__content">
@@ -24,11 +26,11 @@ $logo = $ss_theme_option['logo-upload'];
 				</div>
 			</div>
 		</div>
-	
+
 		<div class="header__main">
 			<div class="container">
 				<div class="header__main__content">
-	
+
 					<div class="header__left">
 						<button class="menu-button" onclick="this.classList.toggle('active')">
 							<svg viewBox="0 0 100 100">
@@ -39,60 +41,59 @@ $logo = $ss_theme_option['logo-upload'];
 						</button>
 						<div class="logo"><a href="/"><img src="<?= $logo['url'] ?>" alt="<?= $logo['alt'] ?>"></a></div>
 					</div>
-	
+
 					<form class="search header__search">
-						<input type="text" placeholder="<?= __('Search')?>">
+						<input type="text" placeholder="<?= __('Search') ?>">
 						<button class="button button-3"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt=""></button>
 					</form>
-	
+
 					<div class="control">
-	
+
 						<div class="control__item search__mobile-btn">
 							<span class="control__icon"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt=""></span>
 						</div>
-	
+
 						<div class="control__item">
 							<span class="control__icon"><img src="<?= ss_asset('img/icons/user.svg') ?>" alt=""></span>
-							<span class="control__link"><?= __('Sign in') ?></span>
-	
-							<div class="control__login control__popup">
-								<div class="control__login__title"><?= __('If you are a new user') ?></div>
-								<a href="#!" class="control__login__register"><?= __('register') ?></a>
-								<button class="button button-1"><?= __('login') ?></button>
+
+							<?php get_template_part('parts/header', 'user')?>
+						</div>
+
+						<a href="<?= is_user_logged_in() ? SS_VOUCHERS_PAGE : SS_REG_PAGE ?>">
+							<div class="control__item my-anadi">
+								<span class="control__icon">
+									<img src="<?= ss_asset('img/icons/label.svg') ?>" alt="">
+									<span class="control__counter">21</span>
+								</span>
+
+								<span class="control__link"><?= __('My Anadi') ?></span>
+
 							</div>
-						</div>
-	
-						<div class="control__item my-anadi">
-							<span class="control__icon">
-								<img src="<?= ss_asset('img/icons/label.svg') ?>" alt="">
-								<span class="control__counter">21</span>
-							</span>
-							<span class="control__link"><?= __('My Anadi') ?></span>
-						</div>
-	
+						</a>
+
 						<div class="control__item">
 							<span class="control__icon">
 								<img src="<?= ss_asset('img/icons/cart.svg') ?>" alt="">
 								<span class="control__counter">3</span>
 							</span>
 							<span class="control__link"><?= __('Cart') ?></span>
-	
+
 							<?php get_template_part('parts/header', 'cart') ?>
-	
+
 						</div>
-	
+
 					</div>
-	
+
 				</div>
 			</div>
 		</div>
-	
+
 		<?php echo ss_menu_header(); ?>
-	
+
 		<div class="search_mobile">
 			<form class="search_mobile__content">
-				<input type="text" placeholder="<?= __('Search')?>">
-				<button class="button button-3"><img src="<?= ss_asset('img/icons/search-yellow.svg')?>" alt=""></button>
+				<input type="text" placeholder="<?= __('Search') ?>">
+				<button class="button button-3"><img src="<?= ss_asset('img/icons/search-yellow.svg') ?>" alt=""></button>
 			</form>
 		</div>
 	</header>
