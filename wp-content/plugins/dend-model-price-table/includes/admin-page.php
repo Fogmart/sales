@@ -6,8 +6,8 @@ add_action('admin_menu', 'mp_register_my_custom_submenu_page');
 function mp_register_my_custom_submenu_page()
 {
 	add_menu_page(
-		__('Model Price Table'),
-		__('Model Price Table'),
+		__('Прайс услуга - модель'),
+		__('Прайс таблицы'),
 		'manage_options',
 		'model_price_table',
 		'mp_render_page',
