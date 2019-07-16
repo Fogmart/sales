@@ -59,22 +59,22 @@ global $ss_theme_option;
 
 <div class="modal-action_wrap" id="modal-action">
 	<div class="modal-action">
-		<div class="modal-action__photo"><img src="img/card.jpg" alt=""></div>
+		<div class="modal-action__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
 		<div class="modal-action__content">
 			<h1 class="modal-action__title">Call to action text</h1>
 			<h5 class="modal-action__subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </h5>
 
 			<div class="modal-action__socials">
 				<a href="#!" class="button button-2 button-2_1">
-					<span class="button-2__icon"><img src="img/icons/fb-color.svg" alt=""></span>
+					<span class="button-2__icon"><img src="<?= ss_asset('img/icons/fb-color.svg') ?>" alt=""></span>
 					<span class="button-2__text">Sign in with Facebook</span>
 				</a>
 				<a href="#!" class="button button-2 button-2_1">
-					<span class="button-2__icon"><img src="img/icons/google-color.svg" alt=""></span>
+					<span class="button-2__icon"><img src="<?= ss_asset('img/icons/google-color.svg') ?>" alt=""></span>
 					<span class="button-2__text">Sign in with Google</span>
 				</a>
 				<a href="#!" class="button button-2 button-2_1">
-					<span class="button-2__icon"><img src="img/icons/email-color.svg" alt=""></span>
+					<span class="button-2__icon"><img src="<?= ss_asset('img/icons/email-color.svg') ?>" alt=""></span>
 					<span class="button-2__text">Sign in with Email</span>
 				</a>
 

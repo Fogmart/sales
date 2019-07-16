@@ -10,6 +10,9 @@ function ss_get_user()
     if ($user->exists()) {
         $user->is_seller = in_array('seller', (array) $user->roles);
         $user->is_customer = in_array('customer', (array) $user->roles);
+
+        return $user;
     }
-    return $user->exists() ? $user : null;
+
+    return null;
 }
