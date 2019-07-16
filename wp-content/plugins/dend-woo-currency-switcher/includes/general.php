@@ -123,9 +123,9 @@ class WCS_Settings
     {
         $item = $template;
 
-        $item = str_replace('@name', $currency_obj['name'], $item);
-        $item = str_replace('@code', $currency_obj['code'], $item);
-        $item = str_replace('@symbol', $currency_obj['symbol'], $item);
+        $item = str_replace('@name', __($currency_obj['name']), $item);
+        $item = str_replace('@code', __($currency_obj['code']), $item);
+        $item = str_replace('@symbol', __($currency_obj['symbol']), $item);
 
         return $item;
     }

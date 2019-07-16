@@ -8,6 +8,28 @@ global $ss_theme_option;
 			<div class="col-md-8 subscribe__col">
 				<?php echo do_shortcode($ss_theme_option['footer-contact-us-form']) ?>
 			</div>
+			<div class="col-md-8 subscribe__col">
+				<h4 class="subscribe__title"><?= __($ss_theme_option['footer-contact-us-title'])?></h4>
+				<div class="subscribe__text"><?= __($ss_theme_option['footer-contact-us-text'])?></div>
+				<div class="subscribe__items">
+					<div class="subscribe__item">
+						<img src="<?= ss_asset('img/icons/contacts/mail-black.svg')?>" alt="">
+						<?= __($ss_theme_option['footer-contact-us-mail'])?>
+					</div>
+					<div class="subscribe__item">
+						<img src="<?= ss_asset('img/icons/contacts/phone-black.svg')?>" alt="">
+						<?= __($ss_theme_option['footer-contact-us-phone'])?>
+					</div>
+					<div class="subscribe__item">
+						<img src="<?= ss_asset('img/icons/contacts/help-black.svg')?>" alt="">
+						<?= __($ss_theme_option['footer-contact-us-help'])?>
+					</div>
+					<div class="subscribe__item">
+						<img src="<?= ss_asset('img/icons/contacts/shop-black.svg')?>" alt="">
+						<?= __($ss_theme_option['footer-contact-us-shop'])?>
+					</div>
+				</div>
+			</div>
 
 			<div class="col-md-4 subscribe__col">
 				<h4 class="subscribe__title">Subscribe</h4>

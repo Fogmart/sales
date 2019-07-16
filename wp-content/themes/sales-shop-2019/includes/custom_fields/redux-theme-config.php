@@ -264,6 +264,25 @@ Redux::setSection($opt_name, [
             'title' => __('Slogan', 'redux-framework'),
             'subtitle' => __('Enter your site slogan', 'redux-framework'),
         ],
+        // [
+        //     'id' => 'header-menu-start',
+        //     'type' => 'section',
+        //     'title' => __('Menu', 'redux-framework'),
+        //     'subtitle' => __('Menu that appeared in header block.', 'redux-framework'),
+        //     'indent' => true, 
+        // ],
+        [
+            'id' => 'header-menu',
+            'type' => 'select',
+            'title' => __('Header menu', 'redux-framework'),
+            'subtitle' => __('Select menu to be appeared in header', 'redux-framework'),
+            'data' => 'menu',
+        ],
+        // [
+        //     'id' => 'header-menu-end',
+        //     'type' => 'section',
+        //     'indent' => false,
+        // ],
     ]
 ]);
 
@@ -311,38 +330,36 @@ Redux::setSection($opt_name, [
             'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         //footer menu columns
-        // [
-        //     'id' => 'footer-link-columns-start',
-        //     'type' => 'section',
-        //     'title' => __('Footer columns with links', 'redux-framework'),
-        //     'subtitle' => __('Change columns with links.', 'redux-framework'),
-        //     'indent' => true, // Indent all options below until the next 'section' option is set.
-        // ],
-        // [
-        //     'id' => 'footer-menu-first',
-        //     'type' => 'select',
-        //     'title' => __('First column menu', 'redux-framework'),
-        //     'data' => 'menu',
-        // ],
-        // [
-        //     'id' => 'footer-menu-second',
-        //     'type' => 'select',
-        //     'title' => __('Second column menu', 'redux-framework'),
-        //     'data' => 'menu',
-        // ],
-        // [
-        //     'id' => 'footer-menu-third',
-        //     'type' => 'select',
-        //     'title' => __('Third column menu', 'redux-framework'),
-        //     'data' => 'menu',
-        // ],
-        // [
-        //     'id' => 'footer-link-columns-end',
-        //     'type' => 'section',
-        //     'title' => __('Footer columns with links', 'redux-framework'),
-        //     'subtitle' => __('Change columns with links.', 'redux-framework'),
-        //     'indent' => true, // Indent all options below until the next 'section' option is set.
-        // ],
+        [
+            'id' => 'footer-link-columns-start',
+            'type' => 'section',
+            'title' => __('Footer columns with links', 'redux-framework'),
+            'subtitle' => __('Change columns with links.', 'redux-framework'),
+            'indent' => true, // Indent all options below until the next 'section' option is set.
+        ],
+        [
+            'id' => 'footer-menu-first',
+            'type' => 'select',
+            'title' => __('First column menu', 'redux-framework'),
+            'data' => 'menu',
+        ],
+        [
+            'id' => 'footer-menu-second',
+            'type' => 'select',
+            'title' => __('Second column menu', 'redux-framework'),
+            'data' => 'menu',
+        ],
+        [
+            'id' => 'footer-menu-third',
+            'type' => 'select',
+            'title' => __('Third column menu', 'redux-framework'),
+            'data' => 'menu',
+        ],
+        [
+            'id' => 'footer-link-columns-end',
+            'type' => 'section',
+            'indent' => false,
+        ],
         [
             'id' => 'footer-copyright-text',
             'type' => 'text',
@@ -367,10 +384,52 @@ Redux::setSection($opt_name, [
             'indent' => true, // Indent all options below until the next 'section' option is set.
         ],
         [
-            'id' => 'footer-contact-us-form',
+            'id' => 'footer-contact-us-title',
             'type' => 'text',
-            'title' => __('Block shortcode', 'redux-framework'),
-            'subtitle' => __('Enter contact form 7 shortcode', 'redux-framework'),
+            'title' => __('Block title', 'redux-framework'),
+            'subtitle' => __('Enter title text', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-text',
+            'type' => 'text',
+            'title' => __('Block text', 'redux-framework'),
+            'subtitle' => __('Enter block text', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-items-start',
+            'type' => 'section',
+            'title' => __('Contact us items', 'redux-framework'),
+            'subtitle' => __('Settings for items that are bellow of contact us text', 'redux-framework'),
+            'indent' => true, 
+        ],
+        [
+            'id' => 'footer-contact-us-mail',
+            'type' => 'text',
+            'title' => __('Mail block', 'redux-framework'),
+            'subtitle' => __('Enter text appeared in mail item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-phone',
+            'type' => 'text',
+            'title' => __('Phone block', 'redux-framework'),
+            'subtitle' => __('Enter text appeared in phone item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-help',
+            'type' => 'text',
+            'title' => __('Help block', 'redux-framework'),
+            'subtitle' => __('Enter text appeared in help item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-shop',
+            'type' => 'text',
+            'title' => __('Shop block', 'redux-framework'),
+            'subtitle' => __('Enter text appeared in shop item', 'redux-framework'),
+        ],
+        [
+            'id' => 'footer-contact-us-items-end',
+            'type' => 'section',
+            'indent' => false, // Indent all options below until the next 'section' option is set.
         ],
         [
             'id' => 'footer-contact-us-section-end',
