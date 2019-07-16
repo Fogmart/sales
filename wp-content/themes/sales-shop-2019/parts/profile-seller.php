@@ -14,7 +14,7 @@ $user = wp_get_current_user();
             <div class="col-md-2">
                 <div class="orders__sidebar">
                     <div class="orders__sidebar__photo"><img src="<?= get_field('photo', 'user_' . $user->ID) ?>" alt=""></div>
-                    <h5 class="orders__sidebar__title"><?= __('Hello') ?> <?=$user->display_name ?></h5>
+                    <h5 class="orders__sidebar__title"><?= __('Hello') ?> <?= $user->display_name ?></h5>
                     <a href="<?= wp_logout_url(SS_LOGIN_PAGE) ?>"><button class="button button-1"><?= __('logout') ?></button></a>
                     <ul>
                         <li><a href="#!" class="link link_bold"><?= __('Coupons List') ?></a></li>
