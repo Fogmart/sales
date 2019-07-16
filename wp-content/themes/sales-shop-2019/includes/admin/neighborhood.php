@@ -51,5 +51,7 @@ function neighborhoods_by_city()
     return wp_send_json($neighborhoods);
 }
 
-add_action('wp_ajax_neighborhood_of_cities', 'neighborhoods_by_city');
-add_action('wp_ajax_nopriv_neighborhood_of_cities', 'neighborhoods_by_city');
+if (wp_doing_ajax()) {
+    add_action('wp_ajax_neighborhood_of_cities', 'neighborhoods_by_city');
+    add_action('wp_ajax_nopriv_neighborhood_of_cities', 'neighborhoods_by_city');
+}

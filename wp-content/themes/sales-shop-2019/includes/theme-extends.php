@@ -24,3 +24,19 @@ function ss_contact_asset_handler($tag)
     $path_index = array_search('path', $tag->options);
     return ss_asset($tag->values[$path_index]);
 }
+
+
+//Disable plugin update notification
+add_filter('site_transient_update_plugins', 'remove_update_notification');
+function remove_update_notification($value)
+{
+    //woocommerce gallery extending with videos
+    unset($value->response["woocommerce-embed-videos-to-product-image-gallery/woocommerce-embed-videos-product-image-gallery.php"]);
+    return $value;
+}
+
+//API KEYS
+function my_acf_init() {	
+	acf_update_setting('google_api_key', 'xxx');
+}
+add_action('acf/init', 'my_acf_init');

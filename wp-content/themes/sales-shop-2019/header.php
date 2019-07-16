@@ -54,7 +54,7 @@ $logo = $ss_theme_option['logo-upload'];
 						</div>
 
 						<div class="control__item">
-							<?php get_template_part('parts/header', 'user')?>
+							<?php get_template_part('parts/header', 'user') ?>
 						</div>
 
 						<a href="<?= is_user_logged_in() ? SS_VOUCHERS_PAGE : SS_REG_PAGE ?>">
@@ -87,4 +87,5 @@ $logo = $ss_theme_option['logo-upload'];
 				<button class="button button-3"><img src="<?= ss_asset('img/icons/search-yellow.svg') ?>" alt=""></button>
 			</form>
 		</div>
+
 	</header>

@@ -5,7 +5,7 @@
     <div class="control__cabinet control__popup">
         <ul class="control__cabinet__menu">
             <li>
-                <a href="<?= SS_PROFILE_PAGE ?>" class="control__cabinet__item">
+                <a href="<?= SS_ACCOUNT_PAGE ?>" class="control__cabinet__item">
                     <span><img src="<?= ss_asset('img/icons/settings.svg') ?>" alt=""></span>
                     <?= __('My Account') ?>
                 </a>

@@ -16,6 +16,7 @@ define('SS_ORDERS_PAGE', '/orders');
 define('SS_VOUCHERS_PAGE', '/vouchers');
 define('SS_CART_PAGE', '/cart');
 define('SS_CHECKOUT_PAGE', '/checkout');
+define('SS_ACCOUNT_PAGE', '/account');
 
 //settings
 define('SS_ENABLE_MIDDLEWARE', false);
@@ -28,17 +29,18 @@ require_once(SS_INC . '/menu/register.php');
 require_once(SS_INC . '/menu/render.php');
 
 //custom functional
+require_once(SS_INC . '/theme-middleware.php');
 require_once(SS_INC . '/admin/neighborhood.php');
 require_once(SS_INC . '/theme-roles.php');
 require_once(SS_INC . '/theme-functional.php');
 require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 require_once(SS_INC . '/theme-forms.php');
-require_once(SS_INC . '/theme-middleware.php');
 require_once(SS_INC . '/theme-users.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-product.php');
+require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
 
 //post types, post type fields, classes include

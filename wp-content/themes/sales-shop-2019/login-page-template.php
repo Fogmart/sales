@@ -22,7 +22,7 @@
                             <?php wp_nonce_field('ss_login_form'); ?>
                             <div class="login__item">
                                 <h5 class="login__form__title"><?= __('Your E-mail*') ?></h5>
-                                <input type="email" name="login" class="input" placeholder="Enter E-mail" required>
+                                <input type="email" name="email" class="input" placeholder="Enter E-mail" required>
                                 <div class="requirements">
                                     <?= __('Must be a valid email address.')?>
                                 </div>

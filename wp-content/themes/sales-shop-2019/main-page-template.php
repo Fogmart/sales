@@ -3,7 +3,6 @@
 <?php global $ss_theme_option; ?>
 <div class="main page">
 	<?php ss_banner_full(get_field('banner_top')); ?>
-	<?php do_shortcode('[model_price_table table="some"]'); ?>
 	<div class="popular-block">
 		<div class="container">
 			<div class="row">

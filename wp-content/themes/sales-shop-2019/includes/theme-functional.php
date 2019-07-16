@@ -45,3 +45,12 @@ function ss_return_home(){
     wp_safe_redirect($path);
     exit;
 }
+
+/**
+ * Function for redirecting to home
+ */
+function ss_return_login(){
+    wp_safe_redirect(SS_LOGIN_PAGE);
+    exit;
+}
+

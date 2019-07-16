@@ -25,6 +25,25 @@ function user_logged_in_redirect()
     }
 }
 
+/**
+ * - Hook handler -
+ * Redirect user to homepage if is not logged in and requested page in restriction list
+ */
+function user_not_logged_in_redirect()
+{
+    $restrict_on_login = [
+        SS_PROFILE_PAGE,
+        SS_ORDERS_PAGE,
+        SS_ACCOUNT_PAGE,
+    ];
+
+    $current_page_slug = ss_get_current_page_slug();
+    if (!is_user_logged_in() && in_array($current_page_slug, $restrict_on_login)) {
+        ss_return_login();
+    }
+}
+
 if(SS_ENABLE_MIDDLEWARE){
     add_action('init', 'user_logged_in_redirect');
+    add_action('init', 'user_not_logged_in_redirect');
 }
