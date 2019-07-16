@@ -35,6 +35,7 @@ require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 require_once(SS_INC . '/theme-forms.php');
 require_once(SS_INC . '/theme-middleware.php');
+require_once(SS_INC . '/theme-users.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-product.php');

@@ -18,6 +18,7 @@ class WCS_Settings
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 
@@ -34,6 +35,7 @@ class WCS_Settings
     static public function uninstall()
     {
         $empty = [];
+
         return self::setSettings($empty);
     }
 
@@ -45,26 +47,28 @@ class WCS_Settings
     static public function getSystemCurrency()
     {
         $out = get_option(self::$system_currency_slug);
-        if(!$out){
+        if (!$out) {
             $out = self::getSystemCurrencyInfo();
             self::setSystemCurrency($out);
         }
+
         return $out;
     }
 
-    static public function getSystemCurrencyInfo(){
+    static public function getSystemCurrencyInfo()
+    {
         $all = get_woocommerce_currencies();
         $system_curr_code = self::getSystemCurrency();
         $rez = [];
 
-        foreach($all as $key => $value){
-            if($key == $system_curr_code){
+        foreach ($all as $key => $value) {
+            if ($key == $system_curr_code) {
                 $rez['name'] = $value;
                 $rez['code'] = $key;
                 $rez['symbol'] = get_woocommerce_currency_symbol($key);
             }
         }
-        
+
         return $rez;
     }
 
@@ -74,8 +78,10 @@ class WCS_Settings
         if ($field) {
             $settings = isset($settings[$field]) ? $settings[$field] : null;
         }
+
         return $settings;
     }
+
     static public function setSettings($data)
     {
         update_option(self::$settings_slug, $data);
@@ -102,16 +108,19 @@ class WCS_Settings
         if ($field && !empty($out)) {
             $out = array_column($out, $field);
         }
+
         return $out;
     }
 
     public static function isSelectedCurrency($currency_code)
     {
         $codes = self::getCurrencies('code') ?: array();
+
         return in_array($currency_code, $codes);
     }
 
-    private function fillTemplateItem($currency_obj, $template){
+    private static function fillTemplateItem($currency_obj, $template)
+    {
         $item = $template;
 
         $item = str_replace('@name', $currency_obj['name'], $item);
@@ -135,7 +144,7 @@ class WCS_Settings
 
         //remove active elem from all 
         $currencies = self::getCurrencies();
-        $currencies = array_filter($currencies, function($item) use ($system_currency){
+        $currencies = array_filter($currencies, function ($item) use ($system_currency) {
             return $item['name'] !== $system_currency['name'];
         });
 
@@ -145,14 +154,14 @@ class WCS_Settings
         }
         $out = str_replace('@active', $active, $out);
         $out = str_replace('@all', $items, $out);
-        
+
         //adding extra classes
-        if($atts['classes']){
+        if ($atts['classes']) {
             $class_pos = strpos($out, 'class');
             $class_content_start = strpos($out, '"', $class_pos);
-            $class_content_end = strpos($out, '"', $class_content_start+1);
+            $class_content_end = strpos($out, '"', $class_content_start + 1);
 
-            $out = substr_replace( $out, ' '.$atts['classes'], $class_content_end, 0 ); 
+            $out = substr_replace($out, ' ' . $atts['classes'], $class_content_end, 0);
         }
 
         return $out;
