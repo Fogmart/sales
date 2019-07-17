@@ -69,7 +69,7 @@ $logo = $ss_theme_option['logo-upload'];
 							</div>
 						</a>
 
-						<div class="control__item">
+						<div class="control__item" id="header_cart">
 							<?php get_template_part('parts/header', 'cart') ?>
 						</div>
 
@@ -88,7 +88,10 @@ $logo = $ss_theme_option['logo-upload'];
 			</form>
 		</div>
 
+		<!-- Current product id -->
+		<input type="hidden" id="productId" value="<?= get_the_ID() ?>">
+
         <!-- Anchor elem for product added popup link start-->
-        <div id="product-adder-anchor"></div>
+        <div id="product-added-anchor"></div>
         <!-- Anchor elem for product added popup link end-->
 	</header>

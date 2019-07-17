@@ -8,7 +8,7 @@ function ss_get_product_seller($product_id)
         $seller->id = $seller_obj->ID;
         $seller->name = $seller_obj->first_name . ' ' . $seller_obj->last_name;
         //need to be processed!!!! start
-        $seller->rating = 4; 
+        $seller->rating = 3; 
         $seller->reviews_count = 23;
         //need to be processed!!!! end
     }
@@ -36,7 +36,8 @@ function ss_get_product($product_id)
     //init product city
     $obj->city = ss_get_seller_city($obj->seller->id);
     $obj->neighborhood = get_field('neighborhood', 'user_' . $obj->seller->id);
-    $obj->sale_percentage = $obj->is_on_sale() ? floor(($obj->get_sale_price() / $obj->get_regular_price()) * 100) : 0;
+    $obj->sale_percentage = $obj->is_on_sale() && !empty($obj->get_regular_price()) ? 100 - floor(($obj->get_sale_price() / $obj->get_regular_price()) * 100) : 0;
+    $obj->buyings_count = get_post_meta( $product_id, 'total_sales', true );;
 
     return $obj;
 }

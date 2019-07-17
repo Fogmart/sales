@@ -53,32 +53,10 @@ $product = ss_get_product(get_the_ID());
 
                     <div class="product__details__content">
                         <div class="product__details__block">
-                            <p class="product__text">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
-                            <p class="product__text">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
-                            <p class="product__text">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing lorem ipsum dolor sit amet</p>
+                            <?= get_field('description') ?>
                         </div>
                         <div class="product__details__block">
-                            <p class="product__text">123</p>
+                            <?= get_field('fine_print') ?>
                         </div>
                     </div>
                 </div>
@@ -108,7 +86,6 @@ $product = ss_get_product(get_the_ID());
                             <div class="product__supplier__map">
                                 <?php
                                 $location = get_field('geo_location', 'user_' . $product->seller->id);
-                                // var_dump($location);
                                 if (!empty($location)) :
                                     ?>
                                     <div class="acf-map">
@@ -131,7 +108,7 @@ $product = ss_get_product(get_the_ID());
                             max-width: inherit !important;
                         }
                     </style>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=<?= GOOGLE_API_KEY ?>"></script>
                     <script type="text/javascript">
                         (function($) {
 
@@ -308,57 +285,62 @@ $product = ss_get_product(get_the_ID());
                 <div class="product__sidebar_desktop">
                     <div class="product__sidebar">
                         <div class="product__sidebar__top">
-                            <div class="limited"><img src="<?= ss_asset('img/icons/chronometer.svg') ?>" alt="">Limited time only</div>
-                            <div class="byuings"><img src="<?= ss_asset('img/icons/smile.svg') ?>" alt="">Over 10,000 bought</div>
-                        </div>
-
-                        <div class="product__sidebar__main">
-                            <h4 class="product__sidebar__title">Select From Options:</h4>
-
-                            <div class="product__sidebar__options">
-                                <div class="product__sidebar__option">
-                                    <input type="radio" id="r1" name="options" checked>
-                                    <label for="r1" class="radio-label radio-label_yellow option__title">
-                                        <span class="option__title">First option</span>
-                                        <span class="card__old-price">45 200 000$</span>
-                                        <span class="card__new-price">24 200 000$</span>
-                                    </label>
-
-                                </div>
-                                <div class="product__sidebar__option">
-                                    <input type="radio" id="r2" name="options">
-                                    <label for="r2" class="radio-label radio-label_yellow">
-                                        <span class="option__title">Second option</span>
-                                        <span class="card__old-price">45 200 000$</span>
-                                        <span class="card__new-price">24 200 000$</span>
-                                    </label>
-                                </div>
-
+                            <div class="limited">
+                                <?php $limited = (object) get_field('limited'); ?>
+                                <?= wp_get_attachment_image($limited->icon) ?>
+                                <?= $limited->text ?>
                             </div>
+                            <?php $buyings = (object) get_field('buyings'); ?>
+                            <?php if ($buyings->behavior != 'hidden') : ?>
+                                <?php $count = ($buyings->behavior == 'fake' ? $buyings->fake : $product->buyings_count); ?>
+                                <div class="byuings">
+                                    <?= wp_get_attachment_image($buyings->icon) ?>
+                                    <?= __('Over') . " $count " . __('bought') ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
+
+                        <?php if ($product->has_child()) : ?>
+                            <div class="product__sidebar__main">
+                                <h4 class="product__sidebar__title"><?= __('Select From Options:') ?></h4>
+                                <div class="product__sidebar__options">
+                                    <?php foreach ($product->get_children() as $key => $child_id) : ?>
+                                        <?php $v_product = ss_get_product($child_id) ?>
+                                        <div class="product__sidebar__option">
+                                            <input type="radio" id="r<?= $key ?>" name="options" value="<?= $child_id ?>" data-attrs="<?= json_encode($v_product->get_variation_attributes()) ?>">
+                                            <label for="r<?= $key ?>" class="radio-label radio-label_yellow">
+                                                <span class="option__title"><?= $v_product->name ?></span>
+                                                <?php if ($v_product->is_on_sale()) : ?>
+                                                    <span class="card__old-price"><?= $v_product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?></span>
+                                                    <span class="card__new-price"><?= $v_product->get_sale_price() ?><?= get_woocommerce_currency_symbol() ?></span>
+                                                <?php else : ?>
+                                                    <span class="card__new-price"><?= $v_product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?></span>
+                                                <?php endif; ?>
+                                            </label>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
 
                         <div class="product__sidebar__buttons">
-                            <button class="button button-1">Add cart</button>
-                            <button class="button button-4">Buy for a Friend</button>
+                            <button class="button button-1 var-add-btn"><?= __('Add to cart') ?></button>
+                            <button class="button button-4"><?= __('Buy for a Friend') ?></button>
                         </div>
 
                         <div class="product__sidebar__bottom">
-                            <h4 class="product__sidebar__title">In summary</h4>
-                            <p class="product__text">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet, consectetur
-                                adipisicing ipsum dolor sit amet, tetur
-                                adipisicing Lorem ipsum dolor sit amet, consectetur
-                                adipisicing</p>
-                            <p class="product__text">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing lorem ipsum dolor sit amet</p>
+                            <?php if ($text_block = (object)get_field('text_block')) : ?>
+                                <h4 class="product__sidebar__title"><?= $text_block->title ?></h4>
+                                <?= $text_block->text ?>
+                            <?php endif; ?>
 
-                            <h4 class="product__sidebar__title">Share this deal</h4>
+                            <h4 class="product__sidebar__title"><?= __('Share this deal')?></h4>
 
                             <div class="socials">
-                                <a href="#!" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
-                                <a href="#!" class="social mail"><img src="<?= ss_asset('img/icons/mail.svg') ?>" alt=""></a>
-                                <a href="#!" class="social twitter"><img src="<?= ss_asset('img/icons/twitter.svg') ?>" alt=""></a>
-                                <a href="#!" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode(get_permalink($product->id)) ?>" target="_blank" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
+                                <a href="#!" target="_blank" class="social mail"><img src="<?= ss_asset('img/icons/mail.svg') ?>" alt=""></a>
+                                <a href="<?= "http://twitter.com/share?text=$product->name&url=".get_permalink($product->id) ?>" target="_blank" class="social twitter"><img src="<?= ss_asset('img/icons/twitter.svg') ?>" alt=""></a>
+                                <a href="https://api.whatsapp.com/send?text=<?= urlencode($product->name) ?>  <?= urlencode(get_permalink($product->id)) ?>" target="_blank" data-action="share/whatsapp/share" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
                             </div>
 
                         </div>

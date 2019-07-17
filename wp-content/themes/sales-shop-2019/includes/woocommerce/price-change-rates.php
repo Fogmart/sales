@@ -7,14 +7,15 @@ function get_price_multiplier()
 }
 function custom_price($price, $product)
 {
-    return $price * get_price_multiplier();
+    // return empty($price) ? $price : $price * get_price_multiplier();
+    return $price;
 }
 function custom_variable_price($price, $variation, $product)
 {
     // Delete product cached price  (if needed)
     // wc_delete_product_transients($variation->get_id());
-
-    return $price * get_price_multiplier();
+    // return empty($price) ? $price : $price * get_price_multiplier();
+    return $price;
 }
 
 // Simple, grouped and external products

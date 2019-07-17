@@ -20,8 +20,9 @@ define('SS_ACCOUNT_PAGE', '/account');
 
 //settings
 define('SS_ENABLE_MIDDLEWARE', false);
+define('GOOGLE_API_KEY', 'xxx');
 
-$post_form_action = 'action="'.esc_url(admin_url('admin-post.php')).'" method="POST"';
+$post_form_action = 'action="' . esc_url(admin_url('admin-post.php')) . '" method="POST"';
 define('SS_FORM_POST', $post_form_action);
 
 //menus
@@ -41,6 +42,7 @@ require_once(SS_INC . '/theme-users.php');
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
+require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
 
 //post types, post type fields, classes include
@@ -56,6 +58,14 @@ function ss_theme_assets()
 
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
+
+    if (is_product()) {
+        wp_register_script('ss_product', SS_JS . '/product.js');
+        wp_localize_script('ss_product', 'pData', array(
+            'nonce' => wp_create_nonce('nonce_' . get_the_ID()),
+        ));
+        wp_enqueue_script('ss_product');
+    }
 }
 
 add_action('pre_get_posts', 'tt_woocommerce_archive');

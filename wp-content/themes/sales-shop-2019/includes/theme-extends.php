@@ -12,7 +12,7 @@ add_filter('wpcf7_form_elements', function ($content) {
     return $content;
 });
 
-//Contact form theme asset tag
+//Contact form theme asset tag start
 add_action('wpcf7_init', 'ss_contact_asset_tag');
 function ss_contact_asset_tag()
 {
@@ -24,6 +24,7 @@ function ss_contact_asset_handler($tag)
     $path_index = array_search('path', $tag->options);
     return ss_asset($tag->values[$path_index]);
 }
+//Contact form theme asset tag end
 
 
 //Disable plugin update notification
@@ -36,7 +37,34 @@ function remove_update_notification($value)
 }
 
 //API KEYS
-function my_acf_init() {	
-	acf_update_setting('google_api_key', 'xxx');
+function my_acf_init()
+{
+    acf_update_setting('google_api_key', GOOGLE_API_KEY);
 }
 add_action('acf/init', 'my_acf_init');
+
+
+//CHECKOUT PAGE CUSTOM URL
+function ss_custom_checkout_url($url)
+{
+
+    // Force SSL if needed
+    $scheme = (is_ssl() || 'yes' === get_option('woocommerce_force_ssl_checkout')) ? 'https' : 'http';
+    $url = site_url(SS_CHECKOUT_PAGE, $scheme);
+
+    return $url;
+}
+add_filter('woocommerce_get_checkout_url', 'ss_custom_checkout_url', 10, 2);
+
+
+//CART PAGE CUSTOM URL
+function ss_custom_cart_url($url)
+{
+
+    // Force SSL if needed
+    $scheme = (is_ssl() || 'yes' === get_option('woocommerce_force_ssl_checkout')) ? 'https' : 'http';
+    $url = site_url(SS_CART_PAGE, $scheme);
+
+    return $url;
+}
+add_filter('woocommerce_get_cart_url', 'ss_custom_cart_url', 10, 2);
