@@ -74,3 +74,81 @@ function ss_register_form_handler()
 }
 add_action('admin_post_nopriv_register_form', 'ss_register_form_handler');
 add_action('admin_post_register_form', 'ss_register_form_handler');
+
+//Account details form
+function ss_account_details_form_handler()
+{
+    $user = wp_get_current_user();
+    // Verify nonce
+    if (
+        !isset($_POST['_wpnonce']) ||
+        !wp_verify_nonce($_POST['_wpnonce'], 'ss_account_details_form') ||
+        !$user->exists()
+    ) {
+        die('Permission denied');
+    }
+
+    $data = $_POST;
+    $user_data = [];
+
+    if (
+        !empty($data['current_pass']) &&
+        !empty($data['user_pass']) &&
+        !empty($data['confirm_pass']) &&
+        $data['user_pass'] !== $data['confirm_pass']
+    ) {
+        return ss_return_back();
+    } else {
+        if (
+            !empty($data['current_pass']) &&
+            !empty($data['user_pass']) &&
+            !empty($data['confirm_pass']) &&
+            $data['user_pass'] === $data['confirm_pass']
+        ) {
+            if (wp_check_password($data['current_pass'], $user->user_pass, $user->ID)) {
+                $user_data['user_pass'] = filter_input(INPUT_POST, 'user_pass');
+            } else {
+                return ss_return_back();
+            }
+        }
+    }
+
+    $available_fields = [
+        'first_name',
+        'last_name',
+        'user_email'
+    ];
+    foreach ($available_fields as $field) {
+        if (isset($data[$field])) {
+            if ($field === 'user_email') {
+                $user_data[$field] = filter_input(INPUT_POST, $field, FILTER_SANITIZE_EMAIL);
+            } else {
+                $user_data[$field] = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+            }
+
+        }
+    }
+
+    if (!empty($user_data)) {
+        $user_data['ID'] = $user->ID;
+        wp_update_user($user_data);
+    }
+
+    $available_acf_fields = [
+        'mobile',
+        'date_of_birth',
+        'gender',
+        'address',
+        //'city',
+        'neighborhood'
+    ];
+    foreach ($available_acf_fields as $field) {
+        if (isset($data[$field])) {
+            update_field($field, filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING), 'user_' . $user->ID);
+        }
+    }
+
+    return ss_return_back();
+}
+add_action('admin_post_nopriv_account_details_form', 'ss_account_details_form_handler');
+add_action('admin_post_account_details_form', 'ss_account_details_form_handler');
