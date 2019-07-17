@@ -4,7 +4,7 @@ if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
 	'key' => 'group_5d2ed5b6737f9',
-	'title' => 'Review setting',
+	'title' => 'Review settings',
 	'fields' => array(
 		array(
 			'key' => 'field_5d2ed5bb1e7ed',

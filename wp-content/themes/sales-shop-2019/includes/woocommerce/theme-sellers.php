@@ -4,9 +4,21 @@ function ss_get_seller_profile_link($seller_id){
     return SS_PROFILE_PAGE.'/'.$seller_id;
 }
 
+function ss_get_seller_city($seller_id)
+{
+    $city = new stdClass();
+    $city_id = get_field('city', 'user_' . $seller_id);
+    if ($city_id) {
+        $city->id = $city_id;
+        $city->name = get_the_title($city->id);
+        $city->country = get_field('country', 'user_' . $seller_id);
+    }
+    return $city;
+}
+
 function ss_get_seller_info($seller_id)
 {
-    $seller = new stdClass();
+    $seller = null;
     $seller_obj = get_user_by('id', $seller_id); //user obj
     $rating = 0;
     $count = 0;
@@ -32,8 +44,15 @@ function ss_get_seller_info($seller_id)
             $rating = $rating + $value;        
         endwhile; 
 
+        wp_reset_postdata();
+
         $rated_rating = $rating / $count;
         
+        $seller = new stdClass();
+        
+        $seller->id = $seller_obj->ID;
+        $seller->name = $seller_obj->first_name . ' ' . $seller_obj->last_name;
+
         $seller->rating = round($rated_rating, 2); 
         $seller->reviews_count = $count;
     }
