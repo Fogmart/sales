@@ -2,10 +2,13 @@
 
 function acf_admin_enqueue($hook)
 {
-
-    $post_id = get_the_ID(); // Get current post id
-    $type = get_post_type(); // Check current post type
-    $types = array('seller'); // Allowed post types
+    $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : false;
+    if ($user_id === false) {
+        return;
+    }
+    //$post_id = get_the_ID(); // Get current post id
+    //$type = get_post_type(); // Check current post type
+    //$types = array('seller'); // Allowed post types
 
     // if( !in_array( $type, $types ) )
     //     return; // Only applies to post types in array
@@ -18,7 +21,7 @@ function acf_admin_enqueue($hook)
         'pa_vars',
         array(
             'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
-            'current_neighborhood' => get_field('neighborhood', 'post_' . $post_id) // Get current neighborhood
+            'current_neighborhood' => get_field('neighborhood', 'user_' . $user_id) // Get current neighborhood
         )
     );
 }
@@ -51,7 +54,5 @@ function neighborhoods_by_city()
     return wp_send_json($neighborhoods);
 }
 
-if (wp_doing_ajax()) {
-    add_action('wp_ajax_neighborhood_of_cities', 'neighborhoods_by_city');
-    add_action('wp_ajax_nopriv_neighborhood_of_cities', 'neighborhoods_by_city');
-}
+add_action('wp_ajax_neighborhood_of_cities', 'neighborhoods_by_city');
+add_action('wp_ajax_nopriv_neighborhood_of_cities', 'neighborhoods_by_city');
