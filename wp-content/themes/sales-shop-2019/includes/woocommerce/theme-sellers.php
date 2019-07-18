@@ -23,7 +23,7 @@ function ss_get_seller_info($seller_id)
     $rating = 0;
     $count = 0;
     
-    if ($seller_obj) {
+    if ($seller_obj && in_array('seller', (array) $seller_obj->roles)) {
         
         $args = array('posts_per_page'=>-1,
             'post_type'=> 'review',
@@ -54,6 +54,7 @@ function ss_get_seller_info($seller_id)
         $seller->name = $seller_obj->first_name . ' ' . $seller_obj->last_name;
 
         $seller->rating = round($rated_rating, 2); 
+        $seller->rating_real = $rated_rating;
         $seller->reviews_count = $count;
     }
     return $seller;
