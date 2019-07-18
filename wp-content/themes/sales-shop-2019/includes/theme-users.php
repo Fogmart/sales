@@ -16,3 +16,11 @@ function ss_get_user()
 
     return null;
 }
+
+/**
+ * Return relative link to user page
+ */
+function ss_get_user_page_url($user_id)
+{
+    return SS_ACCOUNT_PAGE . '/' . $user_id;
+}
