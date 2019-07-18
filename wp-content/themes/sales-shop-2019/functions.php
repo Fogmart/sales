@@ -43,6 +43,7 @@ require_once(SS_INC . '/theme-users.php');
 require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
 require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
+require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
 
 //post types, post type fields, classes include
