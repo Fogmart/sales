@@ -3,12 +3,25 @@
 // Currency exchange rate
 function get_price_multiplier()
 {
-    return 2;
+    global $ss_theme_option;
+    $coefficient = 1;
+    
+    $current_currency = get_woocommerce_currency();
+    if($current_currency == "EUR"){
+        if($ss_theme_option["eur-rate"]){
+            $coefficient = $ss_theme_option["eur-rate"];
+        }
+    }elseif($current_currency == "USD"){
+        if($ss_theme_option["usd-rate"]){
+            $coefficient = $ss_theme_option["usd-rate"];
+        }
+    }
+    return $coefficient;
 }
 function custom_price($price, $product)
 {
-    // return empty($price) ? $price : $price * get_price_multiplier();
-    return $price;
+    $new_price = $price * get_price_multiplier();
+    return $new_price;
 }
 function custom_variable_price($price, $variation, $product)
 {
@@ -24,22 +37,13 @@ $simple_price_change_hooks = [
     'woocommerce_product_get_sale_price',
     'woocommerce_product_get_regular_price',
     'woocommerce_product_variation_get_regular_price',
-    'woocommerce_product_variation_get_price'
-];
-
-foreach ($simple_price_change_hooks as $one) {
-    add_filter($one, 'custom_price', 99, 2);
-}
-
-// Variable (price range)
-
-$variable_price_change_hooks = [
+    'woocommerce_product_variation_get_price',
     'woocommerce_variation_prices_price',
     'woocommerce_variation_prices_regular_price',
 ];
 
-foreach ($variable_price_change_hooks as $one) {
-    add_filter($one, 'custom_price', 99, 3);
+foreach ($simple_price_change_hooks as $one) {
+    add_filter($one, 'custom_price', 99, 2);
 }
 
 // Handling price caching
