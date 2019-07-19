@@ -6,9 +6,6 @@ global $ss_theme_option;
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 subscribe__col">
-				<?php echo do_shortcode($ss_theme_option['footer-contact-us-form']) ?>
-			</div>
-			<div class="col-md-8 subscribe__col">
 				<h4 class="subscribe__title"><?= __($ss_theme_option['footer-contact-us-title'])?></h4>
 				<div class="subscribe__text"><?= __($ss_theme_option['footer-contact-us-text'])?></div>
 				<div class="subscribe__items">
