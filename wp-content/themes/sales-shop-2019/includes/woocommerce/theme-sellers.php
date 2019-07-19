@@ -56,6 +56,7 @@ function ss_get_seller_info($seller_id)
         $seller->rating = round($rated_rating, 2); 
         $seller->rating_real = $rated_rating;
         $seller->reviews_count = $count;
+        $seller->user = $seller_obj;
     }
     return $seller;
 }
