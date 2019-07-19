@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="col-sm-4 card__content">
-                <div class="card__title"><?= $product->name ?></div>
+                <div class="card__title"><?= $product->get_name() ?></div>
                 <div class="card__name"><?= $product->seller->name ?></div>
                 <div class="card__location">
                     <?= $product->city->country ?>, <?= $product->city->name ?>

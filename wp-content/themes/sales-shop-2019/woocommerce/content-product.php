@@ -46,11 +46,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
                         ?>
                         <!--Kiev, Ukraine-->
                     </div>
-                    <?php if($product->get_sale_price($product_id)) { ?>
-                        <div class="card__old-price"><?php echo $product->get_regular_price($product_id) ." ". get_woocommerce_currency_symbol(); ?></div>
-                        <div class="card__new-price"><?php echo $product->get_sale_price($product_id) ." ". get_woocommerce_currency_symbol(); ?></div>
+                    <?php //var_dump($product) ?>
+                    <?php if($product->sale_price) { ?>
+                        <div class="card__old-price"><?php echo $product->regular_price ." ". get_woocommerce_currency_symbol(); ?></div>
+                        <div class="card__new-price"><?php echo $product->sale_price ." ". get_woocommerce_currency_symbol(); ?></div>
                     <?php } else { ?>
-                        <div class="card__new-price"><?php echo $product->get_regular_price($product_id) ." ". get_woocommerce_currency_symbol(); ?></div>
+                        <div class="card__new-price"><?php echo $product->regular_price ." ". get_woocommerce_currency_symbol(); ?></div>
                     <?php } ?>
                     
             </div>

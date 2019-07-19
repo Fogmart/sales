@@ -20,7 +20,7 @@ function ss_get_product($product_id)
     $obj->city = ss_get_seller_city($obj->seller->id);
     $obj->neighborhood = get_field('neighborhood', 'user_' . $obj->seller->id);
     $obj->sale_percentage = $obj->is_on_sale() && !empty($obj->get_regular_price()) ? 100 - floor(($obj->get_sale_price() / $obj->get_regular_price()) * 100) : 0;
-    $obj->buyings_count = $obj->total_sales;
+    $obj->buyings_count = $obj->get_total_sales();
 
     return $obj;
 }

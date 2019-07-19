@@ -22,7 +22,7 @@ $product = ss_get_product(get_the_ID());
                         <div class="card__location"><?= $product->city->name ?>, <?= $product->city->country ?></div>
                     </div>
 
-                    <?php $gallery = $product->get_gallery_attachment_ids() ?>
+                    <?php $gallery = $product->get_gallery_image_ids() ?>
                     <div class="product__main__slider_for">
                         <?php foreach ($gallery as $one) : ?>
                             <div class="product__main__photo">
@@ -309,7 +309,7 @@ $product = ss_get_product(get_the_ID());
                                         <div class="product__sidebar__option">
                                             <input type="radio" id="r<?= $key ?>" name="options" value="<?= $child_id ?>" data-attrs="<?= json_encode($v_product->get_variation_attributes()) ?>">
                                             <label for="r<?= $key ?>" class="radio-label radio-label_yellow">
-                                                <span class="option__title"><?= $v_product->name ?></span>
+                                                <span class="option__title"><?= $v_product->get_name() ?></span>
                                                 <?php if ($v_product->is_on_sale()) : ?>
                                                     <span class="card__old-price"><?= $v_product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?></span>
                                                     <span class="card__new-price"><?= $v_product->get_sale_price() ?><?= get_woocommerce_currency_symbol() ?></span>
@@ -337,10 +337,10 @@ $product = ss_get_product(get_the_ID());
                             <h4 class="product__sidebar__title"><?= __('Share this deal')?></h4>
 
                             <div class="socials">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode(get_permalink($product->id)) ?>" target="_blank" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode(get_permalink($product->get_id())) ?>" target="_blank" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
                                 <a href="#!" target="_blank" class="social mail"><img src="<?= ss_asset('img/icons/mail.svg') ?>" alt=""></a>
-                                <a href="<?= "http://twitter.com/share?text=$product->name&url=".get_permalink($product->id) ?>" target="_blank" class="social twitter"><img src="<?= ss_asset('img/icons/twitter.svg') ?>" alt=""></a>
-                                <a href="https://api.whatsapp.com/send?text=<?= urlencode($product->name) ?>  <?= urlencode(get_permalink($product->id)) ?>" target="_blank" data-action="share/whatsapp/share" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
+                                <a href="<?= "http://twitter.com/share?text=" . $product->get_name() . "&url=".get_permalink($product->get_id()) ?>" target="_blank" class="social twitter"><img src="<?= ss_asset('img/icons/twitter.svg') ?>" alt=""></a>
+                                <a href="https://api.whatsapp.com/send?text=<?= urlencode($product->get_name()) ?>  <?= urlencode(get_permalink($product->get_id())) ?>" target="_blank" data-action="share/whatsapp/share" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
                             </div>
 
                         </div>
