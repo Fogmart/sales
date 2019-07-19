@@ -38,6 +38,7 @@ require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 require_once(SS_INC . '/theme-forms.php');
 require_once(SS_INC . '/theme-users.php');
+require_once(SS_INC . '/theme-rules.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
