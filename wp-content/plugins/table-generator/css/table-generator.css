@@ -1,0 +1,117 @@
+.wrap h2 {
+    margin-bottom: 10px;
+}
+
+.fixed .column-id,
+.fixed .column-rows,
+.fixed .column-cols {
+    text-align: center;
+    width: 6em;
+}
+
+.wptg-title {
+    font-size: 30px;
+    font-weight: 300;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.wptg-controls{
+	margin: 20px 0;
+}
+
+.wptg-table{
+	border-collapse: collapse;
+	margin-top: 30px;
+	width: 100%;
+}
+
+.wptg-table th,
+.wptg-table td {
+	padding: 20px;
+}
+
+.wptg-table th {
+	background: #464b4f;
+	border-right: 1px solid #363B3F;
+}
+
+.wptg-table th input {
+	color: #FFF;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.wptg-table th.wptg-placeholder {
+	background: transparent;
+}
+
+.wptg-table td {
+	background: rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.1);
+}
+
+.wptg-table th input,
+.wptg-table td input,
+.wptg-table th input:focus,
+.wptg-table td input:focus {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	text-align: center;
+	width: 100%;
+	outline: none;
+}
+
+.wptg-dialog {
+	display: none;
+}
+
+.wptg-dialog .wptg-dialog-error {
+	padding: 10px;
+	background: #E14D43;
+	color: #FFF;
+	margin-bottom: 10px;
+	display: none;
+}
+
+/*
+jQuery UI Styling
+*/
+.ui-dialog {
+	position: fixed !important;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    z-index: 999999;
+}
+
+.ui-dialog-titlebar {
+    background: none repeat scroll 0 0 #363b3f;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    background: url(../img/cross.png) transparent;
+    border: medium none transparent;
+    right: 15px;
+}
+
+.ui-dialog .ui-dialog-content{
+	padding: 1.5em 1.5em 2em 1.5em;
+}
+
+.ui-dialog .ui-dialog-content input[type="text"]{
+	width: 100%;
+	clear: both;
+	padding: 5px;
+	margin: 10px 0;
+}
+
+.ui-widget-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}

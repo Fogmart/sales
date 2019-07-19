@@ -5,13 +5,38 @@
 //= '../libs/selectric/jquery.selectric.js'
 //= '../libs/selectric/jquery.selectric.placeholder.js'
 //= '../libs/sticky-kit/sticky-kit.min.js'
+//= '../libs/datepicker/datepicker.min.js'
+//= '../libs/datepicker/datepicker.en.js'
 
 $(document).ready(function() {
+
+	/* фильтр по категориям */
+	function filter (section, filterName) {
+		var items = section.find('.filter__item');
+		if (filterName !== 'all') {
+			items.hide();
+			items = items.filter('.' + filterName);
+		}
+		items.show();
+	}
+	$('.filter__button').click(function () {
+		var filterName = $(this).data('filter');
+		if (filterName) { 
+			filter($(this).parents('.filter__section'), filterName);
+		}
+		$('.filter__button').removeClass('active');
+		$(this).addClass('active');
+	});
 
 	$('.calendar-button').click(function() {
 		$('.calendar').toggle();
 		$(this).toggleClass('button_light')
 	})
+	$('.input-calendar__button').click(function() {
+		$('.calendar').toggle();
+		$(this).toggleClass('active')
+	})
+	
 
 	/* changing rating star color */
 	$(".rating__star__item").click(function() {
@@ -216,7 +241,7 @@ $(document).ready(function() {
 	})
 	
 	/* auto hiding header */
-	var header = $(".header");
+	/*var header = $(".header");
 	var scrollPrev = 0 // prev scroll value
 	
 	$(window).scroll(function() {
@@ -263,8 +288,21 @@ $(document).ready(function() {
 			}
 			scrollPrev = scrolled;
 		}	
-	});			
+	});	*/		
 });
+
+$(window).on("load resize scroll", function() {
+	if($(window).width() >= 768){
+		if ($(this).scrollTop() > 100){  
+			$('.header__top, .menu').slideUp(300)
+		}
+		else{
+			$('.header__top, .menu').slideDown(300)
+		}
+	}else {
+		$('.header__top, .menu').slideUp()
+	}
+})
 
 $(window).on("load resize", function() {
 	if($(window).width() < 992){
@@ -274,9 +312,23 @@ $(window).on("load resize", function() {
 	}
 
 	if( $(window).width() >= 992 ) {
-		$('.filter__accordeon').stick_in_parent();
+		$('.filter__accordeon').stick_in_parent({
+			offset_top: 85
+		});
+		$('.product__sidebar_desktop').stick_in_parent({
+			offset_top: 85
+		});
+		$('.cart__sidebar').stick_in_parent({
+			offset_top: 85
+		});
+		$('.orders__sidebar').stick_in_parent({
+			offset_top: 85
+		});
+		
 	} else {
 		$('.filter__accordeon').trigger("sticky_kit:detach")
-
+		$('.product__sidebar_desktop').trigger("sticky_kit:detach")
+		$('.cart__sidebar').trigger("sticky_kit:detach")
+		$('.orders__sidebar').trigger("sticky_kit:detach")
 	}
 })

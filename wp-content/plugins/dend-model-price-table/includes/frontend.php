@@ -15,6 +15,7 @@ function MP_render_shortcode($atts)
     ], $atts);
 
     wp_enqueue_style('MP_cloned');
-    return ModelPriceTable::getCode($attr['table']) ?: '';
+    $table_key = ModelPriceTable::getTableKey(urlencode($attr['table']));
+    return ModelPriceTable::getCode($table_key) ?: '';
 }
 add_shortcode('model_price_table', 'MP_render_shortcode');

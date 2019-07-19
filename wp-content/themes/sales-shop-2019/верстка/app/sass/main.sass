@@ -6,6 +6,7 @@
 @import "../libs/optimaX/optimaX.min.css"
 @import "../libs/jQueryUI/jquery-ui.min.css"
 @import "../libs/selectric/selectric.css"
+@import "../libs/datepicker/datepicker.css"
 
 .ui > *
 	margin: 10px 0
@@ -506,6 +507,11 @@ input[type="radio"]:checked + .radio-label
 		&__buttons
 			display: flex
 			justify-content: space-between
+			padding: 10px
+
+		&__empty
+			background-color: #F3F3F3
+			margin: 20px
 			padding: 10px
 
 .search
@@ -1156,6 +1162,10 @@ input[type="checkbox"]:checked + .checkbox-label
 			img
 				+cover
 
+			iframe
+				width: 100%
+				height: 100%
+
 		&__slider
 
 			&_nav
@@ -1213,11 +1223,15 @@ input[type="checkbox"]:checked + .checkbox-label
 
 		&__map
 
-			img
+			iframe
 				width: 100%
+				height: 230px
 
 	&__sidebar
 		background-color: #fff
+
+		&_desktop
+			margin-bottom: 20px
 
 		&__top
 			display: flex
@@ -1713,6 +1727,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 
 	&__sidebar
 		background-color: #fff
+		margin-bottom: 10px
 
 		&__title
 			padding: 20px
@@ -1886,7 +1901,6 @@ p.text
 				position: absolute
 				top: 0
 				left: 0
-
 .orders
 
 	.col-md-2
@@ -1941,9 +1955,14 @@ p.text
 	&__sidebar
 		padding: 20px 
 		background-color: #fff
+		margin-bottom: 20px
 
 		.link
 			line-height: 20px
+
+			&.active
+				color: $yellow
+				font-weight: 500
 
 		.button
 			margin: 10px 0 20px
@@ -2343,6 +2362,9 @@ p.text
 .dashboard
 	padding-bottom: 50px
 
+	.filter__item:not(:first-child)
+		display: none
+
 	&__title
 		 margin: 22px 0 32px
 
@@ -2422,6 +2444,10 @@ p.text
 			display: inline-block
 			padding: 11px 16px
 			margin-right: 20px
+
+		.datepicker-here
+			padding: 13.5px 16px
+			min-width: 220px
 
 	&__vouchers
 		background-color: #fff
@@ -2529,8 +2555,14 @@ p.text
 .account
 	padding-bottom: 50px
 
+	.filter__item:not(:first-child)
+		display: none
+
 	&__title
 		margin: 22px 0 32px
+
+		div:not(:first-child)
+			display: none
 
 	&__block
 		padding: 20px 
@@ -2540,7 +2572,7 @@ p.text
 		&__section
 			margin-bottom: 5px
 
-			.input
+			.input, .selectric
 				width: 100%
 				margin-bottom: 15px
 
@@ -2558,20 +2590,40 @@ p.text
 .input-calendar
 	position: relative
 	margin-bottom: 15px
+	display: block
 
-	.input
-		margin-bottom: 0
+	.calendar
+		z-index: 2
+		border: 1px solid $yellow
+		border-top: none
+		top: 49px
+		box-shadow: none
+
+	&__button
+		@extend .input
+		width: 100%
+		display: block
+		position: relative
+		font-family: Poppins
+		font-size: 16px
+		font-weight: 300
+		color: #828282
 		padding-right: 35px
+		padding-top: 11.5px
+		padding-bottom: 11.5px
 
-	&:after
-		content: ''
-		position: absolute
-		top: 50%
-		right: 10px
-		+center(0, -50%)
-		background: url(../img/icons/calendar.svg) no-repeat center
-		width: 19px
-		height: 19px
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			right: 10px
+			+center(0, -50%)
+			background: url(../img/icons/calendar.svg) no-repeat center
+			width: 19px
+			height: 19px
+
+		&.active
+			border: 1px solid $yellow
 
 .voucher
 
@@ -2634,9 +2686,12 @@ p.text
 			background-color: $yellow
 			color: #fff
 
+.datepicker-here
+	font-size: 16px
+	text-transform: uppercase
 
-
-		
+	&::placeholder
+		color: #fff
 
 
 
