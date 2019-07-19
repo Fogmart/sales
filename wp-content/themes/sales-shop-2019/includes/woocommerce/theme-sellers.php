@@ -46,7 +46,7 @@ function ss_get_seller_info($seller_id)
 
         wp_reset_postdata();
 
-        $rated_rating = $rating / $count;
+        $rated_rating = $count > 0 ? $rating / $count : 0;
         
         $seller = new stdClass();
         
