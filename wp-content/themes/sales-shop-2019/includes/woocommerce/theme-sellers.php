@@ -16,7 +16,7 @@ function ss_get_seller_city($seller_id)
     return $city;
 }
 
-function ss_get_seller_info($seller_id)
+function ss_get_seller_info($seller_id, $load_more_info = false)
 {
     $seller = null;
     $seller_obj = get_user_by('id', $seller_id); //user obj
@@ -33,18 +33,26 @@ function ss_get_seller_info($seller_id)
                 'value'   => $seller_id,
                 'compare' => '=',
             ),
-        );       
-        $new_wp_query = new WP_Query($args);
+        );
 
-        while ($new_wp_query->have_posts()) : 
-            $new_wp_query->the_post(); 
+        $reviews = get_posts($args);
+        foreach ($reviews as $key => $review) {
             $count = $count + 1;
-            $ID = get_the_ID();
-            $value = get_field( "rating", $ID );
-            $rating = $rating + $value;        
-        endwhile; 
+            $value = get_field("rating", $review->ID);
+            $reviews[$key]->rating = $value;
+            $reviews[$key]->customer = null;
+            $rating = $rating + $value;
 
-        wp_reset_postdata();
+            if ($load_more_info) {
+                $time = human_time_diff(strtotime($review->post_date), current_time( 'timestamp' )) . ' ' . __( 'ago' );
+                $reviews[$key]->human_time_diff = $time;
+                $user_id = get_field("customer", $review->ID);
+                if (!empty($user_id)) {
+                    $reviews[$key]->customer = get_user_by('id', $user_id);
+                    $reviews[$key]->customer->name = $reviews[$key]->customer->first_name . ' ' . $reviews[$key]->customer->last_name;
+                }
+            }
+        }
 
         $rated_rating = $count > 0 ? $rating / $count : 0;
         
@@ -53,7 +61,8 @@ function ss_get_seller_info($seller_id)
         $seller->id = $seller_obj->ID;
         $seller->name = $seller_obj->first_name . ' ' . $seller_obj->last_name;
 
-        $seller->rating = round($rated_rating, 2); 
+        $seller->reviews = $reviews;
+        $seller->rating = round($rated_rating, 2);
         $seller->rating_real = $rated_rating;
         $seller->reviews_count = $count;
         $seller->user = $seller_obj;

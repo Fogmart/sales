@@ -6,13 +6,14 @@ if (empty($seller_id)) {
     $seller_id = get_current_user_id();
 }
 
-$seller = ss_get_seller_info($seller_id);
+$seller = ss_get_seller_info($seller_id, true);
 
 if ($seller === null) {
     ss_return_home();
 }
 
 $additional_fields = get_fields('user_' . $seller->id);
+$active_products = ss_get_active_seller_products($seller->id);
 
 get_header();
 ?>
@@ -65,31 +66,16 @@ get_header();
             <section class="seller__coupons">
                 <h2 class="seller__coupons__title"><?= __('Active coupon') ?></h2>
                 <div class="seller__coupons__content">
-                    <div class="seller__coupon">
-                        <div class="seller__coupon__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__coupon__content">
-                            <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                            <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                            <div class="seller__coupon__price">20 000 000$</div>
+                    <?php foreach ($active_products as $product) : ?>
+                        <div class="seller__coupon">
+                            <div class="seller__coupon__photo"><?= $product->get_image('full') ?></div>
+                            <div class="seller__coupon__content">
+                                <a href="<?= $product->get_permalink() ?>" class="order__title"><?= $product->get_name() ?></a>
+                                <div class="order__subtitle_mute"><?= $product->get_short_description() ?></div>
+                                <div class="seller__coupon__price"><?= ss_get_min_regular_price_product($product) ?><?= get_woocommerce_currency_symbol() ?></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="seller__coupon">
-                        <div class="seller__coupon__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__coupon__content">
-                            <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and here and here and here Product Title Goes Here and here and </a>
-                            <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                            <div class="seller__coupon__price">20 000 000$</div>
-                        </div>
-                    </div>
-                    <div class="seller__coupon">
-                        <div class="seller__coupon__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__coupon__content">
-                            <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                            <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                            <div class="seller__coupon__price">20 000 000$</div>
-                        </div>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
             </section>
 
@@ -103,35 +89,35 @@ get_header();
 
                         <div class="rating__star__item">
                             <input class="rating__star" type="radio" name="star" id="star1" value="1"
-                                   aria-label="Ужасно">
+                                   aria-label="<?= __('Terribly') ?>">
                             <label for="star1" class="rating__star__label"></label>
                         </div>
 
 
                         <div class="rating__star__item">
                             <input class="rating__star" type="radio" name="star" id="star2" value="2"
-                                   aria-label="Сносно">
+                                   aria-label="<?= __('Passable') ?>">
                             <label for="star2" class="rating__star__label"></label>
                         </div>
 
 
                         <div class="rating__star__item">
                             <input class="rating__star" type="radio" name="star" id="star3" value="3"
-                                   aria-label="Нормально">
+                                   aria-label="<?= __('Normally') ?>">
                             <label for="star3" class="rating__star__label"></label>
                         </div>
 
 
                         <div class="rating__star__item">
                             <input class="rating__star" type="radio" name="star" id="star4" value="4"
-                                   aria-label="Хорошо">
+                                   aria-label="<?= __('Good') ?>">
                             <label for="star4" class="rating__star__label"></label>
                         </div>
 
 
                         <div class="rating__star__item">
                             <input class="rating__star" type="radio" name="star" id="star5" value="5"
-                                   aria-label="Отлично">
+                                   aria-label="<?= __('Fine') ?>">
                             <label for="star5" class="rating__star__label"></label>
                         </div>
 
@@ -144,74 +130,31 @@ get_header();
                 </form>
 
                 <div class="seller__reviews__content">
-                    <div class="seller__review">
-                        <div class="seller__review__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__review__content">
-                            <div class="seller__review__title">
-                                <h5 class="seller__review__name">Zandile Makhosi</h5>
-                                <p class="seller__review__date">6 months ago</p>
+                    <?php foreach ($seller->reviews as $review) : ?>
+                        <div class="seller__review">
+                            <div class="seller__review__photo">
+                                <?= get_avatar($review->customer->ID) ?>
                             </div>
-                            <div class="rating">
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_empty"></div>
+                            <div class="seller__review__content">
+                                <div class="seller__review__title">
+                                    <h5 class="seller__review__name"><?= $review->customer->name ?></h5>
+                                    <p class="seller__review__date"><?= $review->human_time_diff ?></p>
+                                </div>
+                                <div class="rating">
+                                    <?php
+                                        for ($i = 0; $i < 5; $i++) {
+                                            if ($i < $review->rating) {
+                                                echo '<div class="star star_full"></div>';
+                                            } else {
+                                                echo '<div class="star star_empty"></div>';
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                                <div class="seller__review__text"><?= $review->post_content ?></div>
                             </div>
-                            <div class="seller__review__text">It was amazing, staff is friendly and manager gave every table constant attention. Hubby enjoyed his birthday.</div>
                         </div>
-                    </div>
-                    <div class="seller__review">
-                        <div class="seller__review__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__review__content">
-                            <div class="seller__review__title">
-                                <h5 class="seller__review__name">Zandile Makhosi</h5>
-                                <p class="seller__review__date">6 months ago</p>
-                            </div>
-                            <div class="rating">
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_empty"></div>
-                            </div>
-                            <div class="seller__review__text">It was amazing, staff is friendly and manager gave every table constant attention. Hubby enjoyed his birthday.</div>
-                        </div>
-                    </div>
-                    <div class="seller__review">
-                        <div class="seller__review__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__review__content">
-                            <div class="seller__review__title">
-                                <h5 class="seller__review__name">Zandile Makhosi</h5>
-                                <p class="seller__review__date">6 months ago</p>
-                            </div>
-                            <div class="rating">
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_empty"></div>
-                            </div>
-                            <div class="seller__review__text">It was amazing, staff is friendly and manager gave every table constant attention. Hubby enjoyed his birthday.</div>
-                        </div>
-                    </div>
-                    <div class="seller__review">
-                        <div class="seller__review__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                        <div class="seller__review__content">
-                            <div class="seller__review__title">
-                                <h5 class="seller__review__name">Zandile Makhosi</h5>
-                                <p class="seller__review__date">6 months ago</p>
-                            </div>
-                            <div class="rating">
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_full"></div>
-                                <div class="star star_empty"></div>
-                            </div>
-                            <div class="seller__review__text">It was amazing, staff is friendly and manager gave every table constant attention. Hubby enjoyed his birthday.</div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
 
                     <a href="#!" class="button button-1 button-1_180"><?= __('Load more reviews') ?></a>
 
