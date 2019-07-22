@@ -57,6 +57,7 @@ function ss_get_video_image_link($attachment_id)
     return $video_link;
 }
 
+<<<<<<< HEAD
 /**
  * Makes pricegetting in all product templates like from regular product
  * When product is variable, product prices will be largest and smalles variables prices
@@ -84,3 +85,45 @@ function ss_sync_variable_sale_price($price, $product)
     }
     return $price;
 }
+=======
+function ss_get_active_seller_products($seller_id)
+{
+    return wc_get_products([
+        'status' => 'publish',
+        'seller' => $seller_id
+    ]);
+}
+
+function ss_get_min_regular_price_product($product)
+{
+    $regular_price = 0;
+    if ($product->is_type('variable') && !empty($product->get_variation_regular_price('min', true))) {
+        $regular_price = $product->get_variation_regular_price('min', true);
+    } elseif (!empty($product->get_regular_price())) {
+        $regular_price = $product->get_regular_price();
+    }
+
+    return $regular_price;
+}
+
+/**
+ * Handle a custom 'seller' query var to get products with the 'seller' meta.
+ * @param array $query - Args for WP_Query.
+ * @param array $query_vars - Query vars from WC_Product_Query.
+ * @return array modified $query
+ */
+function handle_custom_query_var($query, $query_vars)
+{
+    $field = 'seller';
+    if (!empty($query_vars[$field])) {
+        $query['meta_query'][] = [
+            'key' => $field,
+            'value' => esc_attr($query_vars[$field]),
+        ];
+    }
+
+    return $query;
+}
+
+add_filter( 'woocommerce_product_data_store_cpt_get_products_query', 'handle_custom_query_var', 10, 2 );
+>>>>>>> 7aea20a75f6b9861a5b98645f7c40e6d2e7fa82d
