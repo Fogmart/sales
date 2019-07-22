@@ -57,7 +57,6 @@ function ss_get_video_image_link($attachment_id)
     return $video_link;
 }
 
-<<<<<<< HEAD
 /**
  * Makes pricegetting in all product templates like from regular product
  * When product is variable, product prices will be largest and smalles variables prices
@@ -85,7 +84,7 @@ function ss_sync_variable_sale_price($price, $product)
     }
     return $price;
 }
-=======
+
 function ss_get_active_seller_products($seller_id)
 {
     return wc_get_products([
@@ -126,4 +125,3 @@ function handle_custom_query_var($query, $query_vars)
 }
 
 add_filter( 'woocommerce_product_data_store_cpt_get_products_query', 'handle_custom_query_var', 10, 2 );
->>>>>>> 7aea20a75f6b9861a5b98645f7c40e6d2e7fa82d
