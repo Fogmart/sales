@@ -50,6 +50,9 @@ require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to 
 //post types, post type fields, classes include
 ss_autoload_scripts([SS_POST_TYPES, SS_CUSTOM_FIELDS,]);
 
+//Fix variable product template prices errors
+ss_variable_simulate_regular();
+
 
 //scripts, styles
 add_action('wp_enqueue_scripts', 'ss_theme_assets');

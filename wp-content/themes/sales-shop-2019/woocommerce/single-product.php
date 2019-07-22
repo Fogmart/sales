@@ -347,69 +347,25 @@ $product = ss_get_product(get_the_ID());
         </div>
 
         <div class="cards__block">
-            <h2 class="cards__block__title">You might also like these!</h2>
+            <h2 class="cards__block__title"><?= __('You might also like these!')?></h2>
             <div class="cards">
                 <div class="row">
-                    <div class="col-md-3 col-sm-4 col-6">
-                        <a href="#!" class="card">
-                            <div class="card__photo">
-                                <img src="<?= ss_asset('img/card.jpg') ?>" alt="">
-                                <div class="card__discount">-51%</div>
-                            </div>
-                            <div class="card__content">
-                                <div class="card__title">Pamper Spa Package for Two Spa Package</div>
-                                <div class="card__name">Charlotte Johnson</div>
-                                <div class="card__location">Kiev, Ukraine</div>
-                                <div class="card__old-price">45 200 000$</div>
-                                <div class="card__new-price">24 200 000$</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-6">
-                        <a href="#!" class="card">
-                            <div class="card__photo">
-                                <img src="<?= ss_asset('img/card.jpg') ?>" alt="">
-                                <div class="card__discount">-51%</div>
-                            </div>
-                            <div class="card__content">
-                                <div class="card__title">Pamper Spa Package for Two Spa Package</div>
-                                <div class="card__name">Charlotte Johnson</div>
-                                <div class="card__location">Kiev, Ukraine</div>
-                                <div class="card__old-price">45 200 000$</div>
-                                <div class="card__new-price">24 200 000$</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-6">
-                        <a href="#!" class="card">
-                            <div class="card__photo">
-                                <img src="<?= ss_asset('img/card.jpg') ?>" alt="">
-                                <div class="card__discount">-51%</div>
-                            </div>
-                            <div class="card__content">
-                                <div class="card__title">Pamper Spa Package for Two Spa Package</div>
-                                <div class="card__name">Charlotte Johnson</div>
-                                <div class="card__location">Kiev, Ukraine</div>
-                                <div class="card__old-price">45 200 000$</div>
-                                <div class="card__new-price">24 200 000$</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-6">
-                        <a href="#!" class="card">
-                            <div class="card__photo">
-                                <img src="<?= ss_asset('img/card.jpg') ?>" alt="">
-                                <div class="card__discount">-51%</div>
-                            </div>
-                            <div class="card__content">
-                                <div class="card__title">Pamper Spa Package for Two Spa Package</div>
-                                <div class="card__name">Charlotte Johnson</div>
-                                <div class="card__location">Kiev, Ukraine</div>
-                                <div class="card__old-price">45 200 000$</div>
-                                <div class="card__new-price">24 200 000$</div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php
+                    $related_products = array();
+                    $related_show_type = get_field('related_products_type');
+                    if ($related_show_type == 'custom') {
+                        $related_products = (array)get_field('custom_related_products');
+                        $related_products = array_column($related_products, 'product');
+                    } elseif ($related_show_type == 'auto') {
+                        $show_limit = 4;
+                        $related_products = wc_get_related_products($product->id,  $show_limit);
+                    }
+                    ?>
+                    <?php foreach ($related_products as $product_id) : ?>
+                        <div class="col-md-3 col-sm-4 col-6">
+                            <?= ss_render_product_card($product_id) ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

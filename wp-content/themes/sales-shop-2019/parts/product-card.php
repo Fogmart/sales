@@ -12,12 +12,16 @@
             <div class="card__location">
                 <?= $product->city->country ?>, <?= $product->city->name ?>
             </div>
-            <div class="card__old-price">
-                <?= $product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?>
-            </div>
             <?php if ($product->is_on_sale()) : ?>
+                <div class="card__old-price">
+                    <?= $product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?>
+                </div>
                 <div class="card__new-price">
                     <?= $product->get_sale_price() ?><?= get_woocommerce_currency_symbol() ?>
+                </div>
+            <?php else : ?>
+                <div class="card__new-price">
+                    <?= $product->get_regular_price() ?><?= get_woocommerce_currency_symbol() ?>
                 </div>
             <?php endif; ?>
         </div>

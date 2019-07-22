@@ -1,5 +1,4 @@
 <?php
-
 if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
@@ -336,6 +335,97 @@ if (function_exists('acf_add_local_field_group')) :
                     ),
                 ),
             ),
+            array(
+                'key' => 'field_5d3573028b070',
+                'label' => 'Related Products',
+                'name' => '',
+                'type' => 'tab',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'placement' => 'top',
+                'endpoint' => 0,
+            ),
+            array(
+                'key' => 'field_5d35731d8b071',
+                'label' => 'Products to Show',
+                'name' => 'related_products_type',
+                'type' => 'radio',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'auto' => 'Automatically - Similar Products',
+                    'custom' => 'Certain Products',
+                ),
+                'allow_null' => 0,
+                'other_choice' => 0,
+                'default_value' => '',
+                'layout' => 'vertical',
+                'return_format' => 'value',
+                'save_other_choice' => 0,
+            ),
+            array(
+                'key' => 'field_5d3573df8b072',
+                'label' => 'Custom Related Products',
+                'name' => 'custom_related_products',
+                'type' => 'repeater',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_5d35731d8b071',
+                            'operator' => '==',
+                            'value' => 'custom',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'table',
+                'button_label' => '',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_5d3573fa8b073',
+                        'label' => 'Product',
+                        'name' => 'product',
+                        'type' => 'post_object',
+                        'instructions' => '',
+                        'required' => 1,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'post_type' => array(
+                            0 => 'product',
+                        ),
+                        'taxonomy' => '',
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'return_format' => 'id',
+                        'ui' => 1,
+                    ),
+                ),
+            ),
         ),
         'location' => array(
             array(
@@ -363,7 +453,7 @@ if (function_exists('acf_add_local_field_group')) :
             8 => 'tags',
             9 => 'send-trackbacks',
         ),
-        'active' => false,
+        'active' => true,
         'description' => '',
     ));
 

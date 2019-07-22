@@ -19,7 +19,10 @@ function ss_get_product($product_id)
     //init product city
     $obj->city = ss_get_seller_city($obj->seller->id);
     $obj->neighborhood = get_field('neighborhood', 'user_' . $obj->seller->id);
-    $obj->sale_percentage = $obj->is_on_sale() && !empty($obj->get_regular_price()) ? 100 - floor(($obj->get_sale_price() / $obj->get_regular_price()) * 100) : 0;
+
+    if($obj->is_on_sale()){
+        $obj->sale_percentage = $obj->is_on_sale() && !empty($obj->get_regular_price()) ? 100 - floor(($obj->get_sale_price() / $obj->get_regular_price()) * 100) : 0;
+    }
     $obj->buyings_count = $obj->get_total_sales();
 
     return $obj;
@@ -52,4 +55,32 @@ function ss_get_video_image_link($attachment_id)
         $video_link = video_site_name($video_link_name, $videolink_id_value);
     }
     return $video_link;
+}
+
+/**
+ * Makes pricegetting in all product templates like from regular product
+ * When product is variable, product prices will be largest and smalles variables prices
+ */
+function ss_variable_simulate_regular()
+{
+    if (!is_admin()) {
+        add_filter( 'woocommerce_product_get_sale_price', 'ss_sync_variable_sale_price', 10, 2);
+        add_filter( 'woocommerce_product_get_regular_price', 'ss_sync_variable_price', 10, 2);
+    }
+}
+
+function ss_sync_variable_price($price, $product)
+{
+    if ($product->has_child()) {
+        $price = (float)$product->get_variation_price('min');
+    }
+    return $price;
+}
+
+function ss_sync_variable_sale_price($price, $product)
+{
+    if ($product->has_child()) {
+        $price = (float)$product->get_variation_sale_price('min');
+    }
+    return $price;
 }
