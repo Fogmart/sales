@@ -329,18 +329,15 @@ $product = ss_get_product(get_the_ID());
                         </div>
 
                         <div class="product__sidebar__bottom">
-                            <?php if ($text_block = (object)get_field('text_block')) : ?>
+                            <?php if ($text_block = (object) get_field('text_block')) : ?>
                                 <h4 class="product__sidebar__title"><?= $text_block->title ?></h4>
                                 <?= $text_block->text ?>
                             <?php endif; ?>
 
-                            <h4 class="product__sidebar__title"><?= __('Share this deal')?></h4>
+                            <h4 class="product__sidebar__title"><?= __('Share this deal') ?></h4>
 
                             <div class="socials">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode(get_permalink($product->get_id())) ?>" target="_blank" class="social fb"><img src="<?= ss_asset('img/icons/fb.svg') ?>" alt=""></a>
-                                <a href="#!" target="_blank" class="social mail"><img src="<?= ss_asset('img/icons/mail.svg') ?>" alt=""></a>
-                                <a href="<?= "http://twitter.com/share?text=" . $product->get_name() . "&url=".get_permalink($product->get_id()) ?>" target="_blank" class="social twitter"><img src="<?= ss_asset('img/icons/twitter.svg') ?>" alt=""></a>
-                                <a href="https://api.whatsapp.com/send?text=<?= urlencode($product->get_name()) ?>  <?= urlencode(get_permalink($product->get_id())) ?>" target="_blank" data-action="share/whatsapp/share" class="social wa"><img src="<?= ss_asset('img/icons/whatsapp.svg') ?>" alt=""></a>
+                                <?= do_shortcode('[TheChamp-Sharing]') ?>
                             </div>
 
                         </div>
