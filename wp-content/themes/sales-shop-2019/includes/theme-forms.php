@@ -85,7 +85,7 @@ function ss_account_details_form_handler()
         !wp_verify_nonce($_POST['_wpnonce'], 'ss_account_details_form') ||
         !$user->exists()
     ) {
-        die('Permission denied');
+        return ss_return_back();
     }
 
     $data = $_POST;
@@ -152,3 +152,52 @@ function ss_account_details_form_handler()
 }
 add_action('admin_post_nopriv_account_details_form', 'ss_account_details_form_handler');
 add_action('admin_post_account_details_form', 'ss_account_details_form_handler');
+
+//Account details form
+function ss_review_add_form_handler()
+{
+    $user = wp_get_current_user();
+    // Verify nonce
+    if (
+        !isset($_POST['_wpnonce']) ||
+        !wp_verify_nonce($_POST['_wpnonce'], 'ss_review_add_form') ||
+        !$user->exists()
+    ) {
+        return ss_return_back();
+    }
+
+    $seller_id = filter_input(INPUT_POST, 'review_add_id', FILTER_SANITIZE_NUMBER_INT);
+    $star = filter_input(INPUT_POST, 'star', FILTER_SANITIZE_NUMBER_INT);
+    $comment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING);
+
+    if (empty($seller_id) || $seller_id == $user->ID || empty($comment)) {
+        return ss_return_back();
+    }
+
+    $seller = get_user_by('id', $seller_id);
+    if (!$seller->exists() || !in_array('seller', (array) $seller->roles)) {
+        return ss_return_back();
+    }
+
+    if (empty($star)) {
+        $star = 1;
+    }
+
+    $post_data = array(
+        'post_title'   => 'Review for the seller ' . $seller->ID,
+        'post_content' => $comment,
+        'post_status'  => 'publish',
+        'post_author'  => $user->ID,
+        'post_type'    => 'review'
+    );
+
+    $post_id = wp_insert_post($post_data);
+
+    update_field('seller', $seller->ID, $post_id);
+    update_field('customer', $user->ID, $post_id);
+    update_field('rating', $star, $post_id);
+
+    return ss_return_back();
+}
+add_action('admin_post_nopriv_review_add_form', 'ss_review_add_form_handler');
+add_action('admin_post_review_add_form', 'ss_review_add_form_handler');

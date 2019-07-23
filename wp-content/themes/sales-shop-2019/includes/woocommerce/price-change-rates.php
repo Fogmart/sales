@@ -21,7 +21,11 @@ if (!is_admin()) {
     }
     function custom_price($price, $product)
     {
-        $new_price = $price * get_price_multiplier();
+        $new_price = false;
+        if (!empty($price)) {
+            $new_price = $price * get_price_multiplier();
+        }
+
         return $new_price;
     }
     function custom_variable_price($price, $variation, $product)
