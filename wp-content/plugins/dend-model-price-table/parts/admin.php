@@ -123,7 +123,7 @@
                                                                             <span class="current-price">
                                                                                 6 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Мотоциклы">Записаться</a></span>
+                                                                        <!-- <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Мотоциклы">Записаться</a></span> -->
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -132,7 +132,6 @@
                                                                             <span class="current-price">
                                                                                 8 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -141,7 +140,6 @@
                                                                             <span class="current-price">
                                                                                 14 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -150,7 +148,6 @@
                                                                             <span class="current-price">
                                                                                 22 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -159,7 +156,6 @@
                                                                             <span class="current-price">
                                                                                 38 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (4+) Ceramic Pro 9h 4 слоя + Ceramic Pro Light_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -168,7 +164,6 @@
                                                                             <span class="current-price">
                                                                                 51 300 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -177,7 +172,6 @@
                                                                             <span class="current-price">
                                                                                 7 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Мотоциклы">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -199,7 +193,6 @@
                                                                             <span class="current-price">
                                                                                 8 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -208,7 +201,6 @@
                                                                             <span class="current-price">
                                                                                 11 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -217,7 +209,6 @@
                                                                             <span class="old-price">19 000 <i class="fa fa-rub"></i></span>
                                                                             <span class="new-price">Акция - 17100 <i class="fa fa-rub"></i></span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -226,7 +217,6 @@
                                                                             <span class="current-price">
                                                                                 30 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -235,7 +225,6 @@
                                                                             <span class="current-price">
                                                                                 52 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (4+) Ceramic Pro 9h 4 слоя + Ceramic Pro Light_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -244,7 +233,6 @@
                                                                             <span class="current-price">
                                                                                 70 300 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -253,7 +241,6 @@
                                                                             <span class="current-price">
                                                                                 10 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Класс 1">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -275,7 +262,6 @@
                                                                             <span class="current-price">
                                                                                 9 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -284,7 +270,6 @@
                                                                             <span class="current-price">
                                                                                 13 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -293,7 +278,6 @@
                                                                             <span class="old-price">22 000 <i class="fa fa-rub"></i></span>
                                                                             <span class="new-price">Акция - 20900 <i class="fa fa-rub"></i></span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -302,7 +286,6 @@
                                                                             <span class="current-price">
                                                                                 35 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -311,7 +294,6 @@
                                                                             <span class="current-price">
                                                                                 61 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (4+) Ceramic Pro 9h 4 слоя + Ceramic Pro Light_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -320,7 +302,6 @@
                                                                             <span class="current-price">
                                                                                 82 650 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -329,7 +310,6 @@
                                                                             <span class="current-price">
                                                                                 12 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Класс 2">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -351,7 +331,6 @@
                                                                             <span class="current-price">
                                                                                 10 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -360,7 +339,6 @@
                                                                             <span class="current-price">
                                                                                 14 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -369,7 +347,6 @@
                                                                             <span class="old-price">24 000 <i class="fa fa-rub"></i></span>
                                                                             <span class="new-price">Акция - 22800 <i class="fa fa-rub"></i></span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -378,7 +355,6 @@
                                                                             <span class="current-price">
                                                                                 38 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -387,7 +363,6 @@
                                                                             <span class="current-price">
                                                                                 66 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (4+) Ceramic Pro 9h 4 слоя + Ceramic Pro Light_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -396,7 +371,6 @@
                                                                             <span class="current-price">
                                                                                 89 300 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -405,7 +379,6 @@
                                                                             <span class="current-price">
                                                                                 14 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Класс 3">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -427,7 +400,6 @@
                                                                             <span class="current-price">
                                                                                 11 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -436,7 +408,6 @@
                                                                             <span class="current-price">
                                                                                 15 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -445,7 +416,6 @@
                                                                             <span class="old-price">26 000 <i class="fa fa-rub"></i></span>
                                                                             <span class="new-price">Акция - 24700 <i class="fa fa-rub"></i></span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -454,7 +424,6 @@
                                                                             <span class="current-price">
                                                                                 41 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -472,7 +441,6 @@
                                                                             <span class="current-price">
                                                                                 95 950 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -481,7 +449,6 @@
                                                                             <span class="current-price">
                                                                                 16 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Класс 4">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -503,7 +470,6 @@
                                                                             <span class="current-price">
                                                                                 14 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Ceramic Pro Light_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -512,7 +478,6 @@
                                                                             <span class="current-price">
                                                                                 16 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="О Ceramic Pro 9h (каждый слой)_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -521,7 +486,6 @@
                                                                             <span class="old-price">30 000 <i class="fa fa-rub"></i></span>
                                                                             <span class="new-price">Акция - 28500 <i class="fa fa-rub"></i></span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" Ceramic Pro 9h 1 слой + Ceramic Pro Light_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -530,7 +494,6 @@
                                                                             <span class="current-price">
                                                                                 46 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (2+) Ceramic Pro 9h 2 слоя + Ceramic Pro Light_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -539,7 +502,6 @@
                                                                             <span class="current-price">
                                                                                 78 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (4+) Ceramic Pro 9h 4 слоя + Ceramic Pro Light_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -548,7 +510,6 @@
                                                                             <span class="current-price">
                                                                                 104 500 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name=" (6+) Ceramic Pro 9h 6 слоев + Ceramic Pro Light_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="table__row">
@@ -557,7 +518,6 @@
                                                                             <span class="current-price">
                                                                                 18 000 <i class="fa fa-rub"></i> </span>
                                                                         </div>
-                                                                        <span class="btn-order"><a href="#modalSubmitApp" data-service_name="Подготовка ЛКП к керамической полировке_Класс 5">Записаться</a></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
