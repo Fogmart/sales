@@ -93,11 +93,11 @@ function ss_get_active_seller_products($seller_id)
     ]);
 }
 
-function ss_get_min_regular_price_product($product)
+function ss_get_min_price_product($product)
 {
     $regular_price = 0;
-    if ($product->is_type('variable') && !empty($product->get_variation_regular_price('min', true))) {
-        $regular_price = $product->get_variation_regular_price('min', true);
+    if ($product->is_on_sale()) {
+        $regular_price = $product->get_sale_price();
     } elseif (!empty($product->get_regular_price())) {
         $regular_price = $product->get_regular_price();
     }

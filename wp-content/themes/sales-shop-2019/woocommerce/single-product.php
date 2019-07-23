@@ -358,7 +358,7 @@ $product = ss_get_product(get_the_ID());
                         $related_products = array_column($related_products, 'product');
                     } elseif ($related_show_type == 'auto') {
                         $show_limit = 4;
-                        $related_products = wc_get_related_products($product->id,  $show_limit);
+                        $related_products = wc_get_related_products($product->get_id(),  $show_limit);
                     }
                     ?>
                     <?php foreach ($related_products as $product_id) : ?>
