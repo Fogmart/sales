@@ -161,7 +161,8 @@ function ss_review_add_form_handler()
     if (
         !isset($_POST['_wpnonce']) ||
         !wp_verify_nonce($_POST['_wpnonce'], 'ss_review_add_form') ||
-        !$user->exists()
+        !$user->exists() ||
+        !in_array('customer', (array) $user->roles)
     ) {
         return ss_return_back();
     }

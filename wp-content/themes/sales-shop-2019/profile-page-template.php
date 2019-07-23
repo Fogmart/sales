@@ -12,6 +12,7 @@ if ($seller === null) {
     ss_return_home();
 }
 
+$current_user = ss_get_user();
 $additional_fields = get_fields('user_' . $seller->id);
 $active_products = ss_get_active_seller_products($seller->id);
 
@@ -82,7 +83,7 @@ get_header();
             <section class="seller__reviews">
                 <h2 class="seller__reviews__title"><?= __('Reviews') ?></h2>
 
-                <?php if ($seller->id !== get_current_user_id()) : ?>
+                <?php if (!empty($current_user) && $current_user->is_customer == true) : ?>
                     <form <?= SS_FORM_POST ?>>
                         <input type="hidden" name="action" value="review_add_form"/>
                         <?php wp_nonce_field('ss_review_add_form'); ?>
