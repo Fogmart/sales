@@ -1,3 +1,4 @@
+<?php $current_user = ss_get_user(); ?>
 <span class="control__icon"><img src="<?= ss_asset('img/icons/user.svg') ?>" alt=""></span>
 <?php if (is_user_logged_in()) : ?>
     <!-- <span class="control__link"></span> -->
@@ -10,12 +11,14 @@
                     <?= __('My Account') ?>
                 </a>
             </li>
-            <li>
-                <a href="<?= SS_PROFILE_PAGE ?>" class="control__cabinet__item">
-                    <span><img src="<?= ss_asset('img/icons/profile.svg') ?>" alt=""></span>
-                    <?= __('Profile') ?>
-                </a>
-            </li>
+            <?php if ($current_user->is_seller) : ?>
+                <li>
+                    <a href="<?= SS_PROFILE_PAGE ?>" class="control__cabinet__item">
+                        <span><img src="<?= ss_asset('img/icons/profile.svg') ?>" alt=""></span>
+                        <?= __('Profile') ?>
+                    </a>
+                </li>
+            <?php endif; ?>
             <li>
                 <a href="<?= SS_ORDERS_PAGE ?>" class="control__cabinet__item">
                     <span><img src="<?= ss_asset('img/icons/orders.svg') ?>" alt=""></span>

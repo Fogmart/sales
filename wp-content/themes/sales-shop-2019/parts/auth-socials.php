@@ -6,3 +6,4 @@
     <span class="button-2__icon"><img src="<?= ss_asset('img/icons/google.svg') ?>" alt=""></span>
     <span class="button-2__text"><?= __('Sign in with Google') ?></span>
 </a>
+<?= do_shortcode('[TheChamp-Login]') ?>
