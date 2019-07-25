@@ -19,9 +19,9 @@ if (!is_admin()) {
         }
         return $coefficient;
     }
-    function custom_price($price, $product)
+    function custom_price($price)
     {
-        $new_price = false;
+        $new_price = $price;
         if (!empty($price)) {
             $new_price = $price * get_price_multiplier();
         }
@@ -51,10 +51,12 @@ if (!is_admin()) {
         'woocommerce_product_variation_get_price',
         'woocommerce_variation_prices_price',
         'woocommerce_variation_prices_regular_price',
+        'woocommerce_cart_get_subtotal',
+        'woocommerce_cart_get_total',
     ];
 
     foreach ($simple_price_change_hooks as $one) {
-        add_filter($one, 'custom_price', 99, 2);
+        add_filter($one, 'custom_price', 99, 1);
     }
     // Handling price caching
     add_filter('woocommerce_get_variation_prices_hash', 'add_price_multiplier_to_variation_prices_hash', 99, 1);
