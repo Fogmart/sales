@@ -16,7 +16,7 @@ $items = WC()->cart->get_cart();
                 </div>
                 <div class="info">
                     <div class="title" onclick="window.location.href='<?= $product->get_permalink() ?>'">
-                        <?= $product->name ?>
+                        <?= $product->get_name() ?>
                     </div>
 
                     <div class="quantity"><?= $one['quantity'] ?> <?= __('item') ?></div>
