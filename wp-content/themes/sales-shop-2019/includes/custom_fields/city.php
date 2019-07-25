@@ -1,17 +1,18 @@
 <?php
-if( function_exists('acf_add_local_field_group') ):
+
+if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group(array(
         'key' => 'group_5d133f6eaec8a',
-        'title' => __('Neighborhoods Fields'),
+        'title' => 'Neighborhoods Fields',
         'fields' => array(
             array(
                 'key' => 'field_5d145cc326287',
-                'label' => __('Neighborhoods'),
+                'label' => 'Neighborhoods',
                 'name' => 'neighborhoods',
                 'type' => 'repeater',
                 'instructions' => '',
-                'required' => 1,
+                'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
                     'width' => '',
@@ -22,12 +23,12 @@ if( function_exists('acf_add_local_field_group') ):
                 'min' => 1,
                 'max' => 0,
                 'layout' => 'table',
-                'button_label' => __('Add neighborhood'),
+                'button_label' => 'Add neighborhood',
                 'sub_fields' => array(
                     array(
                         'key' => 'field_5d145d2626288',
-                        'label' => __('Neighborhood'),
-                        'name' => 'neighborhood',
+                        'label' => 'Name',
+                        'name' => 'name',
                         'type' => 'text',
                         'instructions' => '',
                         'required' => 1,
@@ -65,7 +66,7 @@ if( function_exists('acf_add_local_field_group') ):
             1 => 'the_content',
             2 => 'featured_image',
         ),
-        'active' => true,
+        'active' => false,
         'description' => '',
     ));
 

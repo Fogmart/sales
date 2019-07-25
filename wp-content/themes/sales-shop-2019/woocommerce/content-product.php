@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content within loops
  *
@@ -15,45 +16,15 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
 // Ensure visibility.
-if ( empty( $product ) || ! $product->is_visible() ) {
-	return;
+if (empty($product) || !$product->is_visible()) {
+    return;
 }
 ?>
-<div class="col-sm-4 col-6" <?php wc_product_class( '', $product ); ?>>
-    <?php $product_id = $product->get_id(); ?>
-    <a href="<?php echo get_permalink($product_id); ?>" class="card">
-            <div class="card__photo">
-                    <?php woocommerce_template_loop_product_thumbnail(); ?>
-                    <?php get_template_part( 'woocommerce/single-product/percentage' ); ?>
-            </div>
-            <div class="card__content">
-                    <div class="card__title"><?php woocommerce_template_loop_product_title(); ?></div>
-                    <?php 
-                        $relacion = get_field('product_seller', $product_id);
-                        $seller = $relacion[0];
-                    ?>
-                    <div class="card__name"><?php echo $seller->post_title; ?></div>
-                    <div class="card__location">
-                        <?php 
-                            $seller_id = $seller->ID;
-                            $city_id = get_field('city', $seller_id);
-                            echo get_the_title($city_id).", ". get_field('country', $seller_id);
-                        ?>
-                        <!--Kiev, Ukraine-->
-                    </div>
-                    <?php //var_dump($product) ?>
-                    <?php if($product->sale_price) { ?>
-                        <div class="card__old-price"><?php echo $product->regular_price ." ". get_woocommerce_currency_symbol(); ?></div>
-                        <div class="card__new-price"><?php echo $product->sale_price ." ". get_woocommerce_currency_symbol(); ?></div>
-                    <?php } else { ?>
-                        <div class="card__new-price"><?php echo $product->regular_price ." ". get_woocommerce_currency_symbol(); ?></div>
-                    <?php } ?>
-                    
-            </div>
-    </a>
+<div class="col-sm-4 col-6">
+    <?= ss_render_product_card(get_the_ID()) ?>
 </div>

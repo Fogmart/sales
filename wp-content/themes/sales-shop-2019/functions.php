@@ -25,6 +25,12 @@ define('GOOGLE_API_KEY', 'xxx');
 $post_form_action = 'action="' . esc_url(admin_url('admin-post.php')) . '" method="POST"';
 define('SS_FORM_POST', $post_form_action);
 
+//load required functional
+require_once(SS_INC . '/theme-functional.php');
+
+//post types, post type fields, classes include
+ss_autoload_scripts([SS_POST_TYPES, SS_CUSTOM_FIELDS,]);
+
 //menus
 require_once(SS_INC . '/menu/register.php');
 require_once(SS_INC . '/menu/render.php');
@@ -33,13 +39,13 @@ require_once(SS_INC . '/menu/render.php');
 require_once(SS_INC . '/theme-middleware.php');
 require_once(SS_INC . '/admin/neighborhood.php');
 require_once(SS_INC . '/theme-roles.php');
-require_once(SS_INC . '/theme-functional.php');
 require_once(SS_INC . '/theme-banners.php');
 require_once(SS_INC . '/theme-extends.php');
 require_once(SS_INC . '/theme-forms.php');
 require_once(SS_INC . '/theme-users.php');
 require_once(SS_INC . '/theme-rules.php');
 require_once(SS_INC . '/theme-reset.php');
+require_once(SS_INC . '/theme-cities.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
@@ -47,9 +53,6 @@ require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
 require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
-
-//post types, post type fields, classes include
-ss_autoload_scripts([SS_POST_TYPES, SS_CUSTOM_FIELDS,]);
 
 //Fix variable product template prices errors
 ss_variable_simulate_regular();
