@@ -9,7 +9,7 @@ if (wp_doing_ajax()) {
         global $woocommerce;
 
         $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
-        $variation_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
+        $variation_id = filter_input(INPUT_POST, 'variation_id', FILTER_VALIDATE_INT);
 
         if (!wp_verify_nonce($_POST['_wpnonce'], 'nonce_' . $product_id))
             exit;
@@ -18,7 +18,7 @@ if (wp_doing_ajax()) {
             $variation_id = empty($variation_id) ? 0 : $variation_id;
             $variation_attributes = json_decode($_POST['v_attributes']);
             //adding to cart
-            $cart_key = $woocommerce->cart->add_to_cart($product_id, 1, $variation_id, $variation_attributes);
+            $cart_key = $woocommerce->cart->add_to_cart($variation_id, 1, $variation_id, $variation_attributes);
             $product->cart_key = $cart_key;
 
             set_query_var('ss_product', $product);
