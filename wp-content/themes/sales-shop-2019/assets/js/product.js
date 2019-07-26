@@ -14,18 +14,20 @@ jQuery(function(){
                 v_attributes: variationAttributes,
                 _wpnonce: pData.nonce
             }
-            $.post(woocommerce_params.ajax_url, data, function(reponse){
-                var anchor = $('#product-added-anchor');
-                anchor.empty();
-                //Bar with product under header
-                var addBar = $(reponse.data.added_bar);
-                anchor.append(addBar);
-                autoEmptyIn(anchor, 7000);
+        }else{
 
-                //Update cart in header
-                $('#header_cart').empty().append(reponse.data.header_cart);
-            });
         }
+        $.post(woocommerce_params.ajax_url, data, function(reponse){
+            var anchor = $('#product-added-anchor');
+            anchor.empty();
+            //Bar with product under header
+            var addBar = $(reponse.data.added_bar);
+            anchor.append(addBar);
+            autoEmptyIn(anchor, 7000);
+
+            //Update cart in header
+            $('#header_cart').empty().append(reponse.data.header_cart);
+        });
     }
 
     function autoEmptyIn(container, time){

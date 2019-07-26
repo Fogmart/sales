@@ -333,7 +333,6 @@ $product = ss_get_product(get_the_ID());
                                 <h4 class="product__sidebar__title"><?= $text_block->title ?></h4>
                                 <?= $text_block->text ?>
                             <?php endif; ?>
-
                             <h4 class="product__sidebar__title"><?= __('Share this deal') ?></h4>
 
                             <div class="socials">
