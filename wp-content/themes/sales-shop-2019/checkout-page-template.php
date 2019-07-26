@@ -147,7 +147,7 @@ get_header();
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('Recipient’s Mobile') ?>:</span>
-                            <span class="right"><?= $additional_fields['phone'] ?: 'Phone not specified' ?></span>
+                            <span class="right"><?= !empty($additional_fields['phone']) ? $additional_fields['phone'] : 'Phone not specified' ?></span>
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('Yоur message') ?>: </span>
