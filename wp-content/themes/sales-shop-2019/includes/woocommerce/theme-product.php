@@ -72,7 +72,7 @@ function ss_variable_simulate_regular()
 function ss_sync_variable_price($price, $product)
 {
     if ($product->has_child()) {
-        $price = (float)$product->get_variation_price('min');
+        $price = (float)$product->get_variation_regular_price('min');
     }
     return $price;
 }
