@@ -9,6 +9,8 @@ if (empty($items)) {
     ss_return_home();
 }
 
+$additional_fields = get_fields('user_' . $user->ID);
+
 get_header();
 ?>
 
@@ -137,23 +139,23 @@ get_header();
                     <div class="checkout__block__content">
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('To') ?>: </span>
-                            <span class="right"><?= __('Cersei Lannister') ?></span>
+                            <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('Recipient’s Email') ?>:</span>
-                            <span class="right">CerseiLannister@gmail.com</span>
+                            <span class="right"><?= $user->user_email ?: 'Email not specified' ?></span>
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('Recipient’s Mobile') ?>:</span>
-                            <span class="right">345-921-134</span>
+                            <span class="right"><?= $additional_fields['phone'] ?: 'Phone not specified' ?></span>
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('Yоur message') ?>: </span>
-                            <span class="right">Hope you enjoy the gift!</span>
+                            <span class="right"><?= __('Hope you enjoy the gift') ?>!</span>
                         </div>
                         <div class="checkout__gift__item">
                             <span class="left"><?= __('From') ?>:</span>
-                            <span class="right">Jon Snow</span>
+                            <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
                         </div>
 
                     </div>
