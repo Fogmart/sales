@@ -17,7 +17,7 @@ function auth()
     var_dump($server_output);
 }
 
-function send_sms()
+function send_sms($phone)
 {
     $access = [
         "token_type" => "Bearer",
@@ -25,7 +25,7 @@ function send_sms()
     ];
     $data = [
         'outboundSMSMessageRequest' => [
-            'address' => 'tel:+224629550707',
+            'address' => 'tel:' . $phone,
             'senderAddress' => 'tel:+2240000',
             'outboundSMSTextMessage' => [
                 'message' => 'Hello!'
@@ -51,3 +51,5 @@ function send_sms()
     var_dump($server_output);
 }
 
+//send_sms('+224660585276');
+//send_sms('+224656319263');
