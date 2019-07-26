@@ -20,7 +20,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             <div class="row">
                 <div class="col-md-2">
                     <div class="orders__sidebar">
-                        <h5 class="orders__sidebar__title"><?= __('Hello') ?> <?= $user->display_name ?></h5>
+                        <h5 class="orders__sidebar__title"><?= __('Hello') ?> <?= $user->first_name . ' ' . $user->last_name ?></h5>
                         <a href="<?= wp_logout_url(SS_LOGIN_PAGE) ?>"><button class="button button-1"><?= __('logout') ?></button></a>
                         <ul>
                             <li><a href="#edit" data-id="edit_account" class="link link_bold"><?= __('Edit Account') ?></a></li>
