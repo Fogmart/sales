@@ -49,8 +49,9 @@ if (!is_admin()) {
         'woocommerce_product_get_regular_price',
         'woocommerce_product_variation_get_regular_price',
         'woocommerce_product_variation_get_price',
+        'woocommerce_product_variation_get_sale_price',
         //'woocommerce_variation_prices_price',
-        'woocommerce_variation_prices_regular_price',
+        //'woocommerce_variation_prices_regular_price',
         'woocommerce_cart_get_subtotal',
         'woocommerce_cart_get_total',
     ];
