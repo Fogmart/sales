@@ -10,7 +10,6 @@ if (wp_doing_ajax()) {
 
         $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
         $variation_id = filter_input(INPUT_POST, 'variation_id', FILTER_VALIDATE_INT);
-        $variation_attributes = filter_input(INPUT_POST, 'v_attributes');
 
         if (!wp_verify_nonce($_POST['_wpnonce'], 'nonce_' . $product_id))
             exit;
@@ -18,35 +17,42 @@ if (wp_doing_ajax()) {
         if ($product_id && $product = ss_get_product($product_id)) {
             $cart_key = null;
 
-            if($product->has_child()){
-                //variation product
-                $variation_id = empty($variation_id) ? 0 : $variation_id;
-                $variation_attributes = json_decode($variation_attributes) ?: [];
-                
-                $cart_key = $woocommerce->cart->add_to_cart($variation_id, 1, $variation_id, $variation_attributes);
+            if ($product->has_child()) {
+                if ($variation_id) {
+                    //variation product
+                    $variation_product = new WC_Product_Variable($variation_id);
+                    exit(var_dump($variation_product));
+                    $variation_attrs = $variation_product->get_variation_attributes();
 
-            }else{
+                    $cart_key = $woocommerce->cart->add_to_cart($variation_id, 1, $variation_id);
+                }
+            } else {
                 //simple product
                 $cart_key = $woocommerce->cart->add_to_cart($product_id, 1);
             }
-            $product->cart_key = $cart_key;
 
-            set_query_var('ss_product', $product);
-            ob_start();
-            get_template_part('parts/header', 'add');
-            $added_bar = ob_get_clean();
-            remove_query_arg('ss_product');
+            if ($cart_key) {
+                $product->cart_key = $cart_key;
 
-            ob_start();
-            get_template_part('parts/header', 'cart');
-            $header_cart = ob_get_clean();
+                set_query_var('ss_product', $product);
+                ob_start();
+                get_template_part('parts/header', 'add');
+                $added_bar = ob_get_clean();
+                remove_query_arg('ss_product');
 
-            $out = [
-                'added_bar' => $added_bar,
-                'header_cart' => $header_cart,
-            ];
+                ob_start();
+                get_template_part('parts/header', 'cart');
+                $header_cart = ob_get_clean();
 
-            wp_send_json_success($out);
+                $out = [
+                    'added_bar' => $added_bar,
+                    'header_cart' => $header_cart,
+                ];
+
+                wp_send_json_success($out);
+            }
         }
+
+        wp_send_json_error();
     }
 }

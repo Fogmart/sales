@@ -50,6 +50,6 @@ function send_sms($phone)
 
     var_dump($server_output);
 }
-
 //send_sms('+224660585276');
 //send_sms('+224656319263');
+// send_sms('+224657202816');

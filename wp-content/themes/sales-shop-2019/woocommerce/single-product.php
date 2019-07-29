@@ -307,7 +307,7 @@ $product = ss_get_product(get_the_ID());
                                     <?php foreach ($product->get_children() as $key => $child_id) : ?>
                                         <?php $v_product = ss_get_product($child_id) ?>
                                         <div class="product__sidebar__option">
-                                            <input type="radio" id="r<?= $key ?>" name="options" value="<?= $child_id ?>" data-attrs="<?= json_encode($v_product->get_variation_attributes()) ?>">
+                                            <input type="radio" id="r<?= $key ?>" name="options" value="<?= $child_id ?>">
                                             <label for="r<?= $key ?>" class="radio-label radio-label_yellow">
                                                 <span class="option__title"><?= $v_product->get_name() ?></span>
                                                 <?php if ($v_product->is_on_sale()) : ?>
