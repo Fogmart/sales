@@ -90,7 +90,9 @@ get_header();
                             <div class="right"><?= WC()->cart->total ?><?= get_woocommerce_currency_symbol() ?></div>
                         </div>
                         <div class="cart__sidebar__checkout">
-                            <button class="button button-1"><?= __('checkout') ?></button>
+                            <a href="<?= wc_get_checkout_url() ?>">
+                                <button class="button button-1"><?= __('checkout') ?></button>
+                            </a>
                         </div>
                     </div>
                 </div>
