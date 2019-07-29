@@ -21,3 +21,12 @@ function ss_get_user_orders($paginate_page = 1, $paginate_count = -1, $status = 
 
     return $orders;
 }
+
+function edit_formatted_wc_price($return, $price, $args, $unformatted_price)
+{
+    $return = $unformatted_price . get_woocommerce_currency_symbol();
+
+    return $return;
+}
+
+add_filter('wc_price', 'edit_formatted_wc_price', 99, 4);
