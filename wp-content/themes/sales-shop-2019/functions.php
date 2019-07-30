@@ -53,6 +53,7 @@ require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
 require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
+require_once(SS_WOOCOMMERCE . '/theme-filters.php'); //change price due to exchange rates
 
 //Fix variable product template prices errors
 ss_variable_simulate_regular();
@@ -71,10 +72,10 @@ function ss_theme_assets()
     ));
 
     wp_register_script('ss_reset', SS_JS . '/reset-page.js');
-    wp_localize_script('ss_reset', 'rData', array(
-        'nonce' => wp_create_nonce('nonce_' . get_the_ID()),
-    ));
 
+    wp_register_script('ss_filters', SS_JS . '/filters.js');
+
+    
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 
@@ -82,7 +83,11 @@ function ss_theme_assets()
         wp_enqueue_script('ss_product');
     }
 
-    if(is_page_template('reset-page-template.php')){
+    if (is_product_category()) {
+        wp_enqueue_script('ss_filters');
+    }
+
+    if (is_page_template('reset-page-template.php')) {
         wp_enqueue_script('ss_reset');
     }
 }

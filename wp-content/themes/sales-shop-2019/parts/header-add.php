@@ -5,7 +5,10 @@
                 <div class="product__added__photo">
                     <?= get_the_post_thumbnail($product->id, 'thumbnail') ?>
                 </div>
-                <h4 class="product__added__title"><?= $product->name ?></h4>
+                <h4 class="product__added__title">
+                    <?= $product->name ?>
+                    
+                </h4>
             </div>
             <div class="product__added__block">
                 <div class="product__added__buttons">

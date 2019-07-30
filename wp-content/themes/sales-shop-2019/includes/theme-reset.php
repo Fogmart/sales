@@ -11,11 +11,13 @@ if (wp_doing_ajax()) {
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $found = get_user_by('email', $email);
             
-            $responce_data = [
-                'token' => get_password_reset_key($found),
-                'user_login' => $found->user_login
-            ];
-            $found ? wp_send_json_success($responce_data) : '';
+            if($found){
+                $responce_data = [
+                    'token' => get_password_reset_key($found),
+                    'user_login' => $found->user_login
+                ];
+                wp_send_json_success($responce_data);
+            }
         }
         wp_send_json_error();
     }

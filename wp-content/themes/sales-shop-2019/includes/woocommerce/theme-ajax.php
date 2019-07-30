@@ -20,11 +20,10 @@ if (wp_doing_ajax()) {
             if ($product->has_child()) {
                 if ($variation_id) {
                     //variation product
-                    $variation_product = new WC_Product_Variable($variation_id);
-                    exit(var_dump($variation_product));
-                    $variation_attrs = $variation_product->get_variation_attributes();
+                    $product = ss_get_product($variation_id);
+                    $v_attributes = $product->get_variation_attributes();
 
-                    $cart_key = $woocommerce->cart->add_to_cart($variation_id, 1, $variation_id);
+                    $cart_key = $woocommerce->cart->add_to_cart($product_id, 1, $variation_id, $v_attributes);
                 }
             } else {
                 //simple product
@@ -54,5 +53,16 @@ if (wp_doing_ajax()) {
         }
 
         wp_send_json_error();
+    }
+
+    add_action('wp_ajax_nopriv_render_filters', 'ss_render_filters');
+    add_action('wp_ajax_render_filters', 'ss_render_filters');
+
+    function ss_render_filters(){
+        ob_start();
+        
+        wc_get_template_part('filters', 'archive');
+        $filters = ob_get_clean();
+        wp_send_json_success($filters);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 if (function_exists('acf_add_local_field_group')) :
-
     acf_add_local_field_group(array(
         'key' => 'group_5d133f6eaec8a',
         'title' => 'Neighborhoods Fields',
@@ -66,7 +65,7 @@ if (function_exists('acf_add_local_field_group')) :
             1 => 'the_content',
             2 => 'featured_image',
         ),
-        'active' => false,
+        'active' => true,
         'description' => '',
     ));
 

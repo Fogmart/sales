@@ -14,27 +14,8 @@ $term = get_queried_object();
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<div class="filter__accordeon">
-						<div class="filter__toggler">
-							<?= __('filter') ?>
-							<img src="<?= ss_asset('img/icons/angle-down.svg') ?>" alt="">
-						</div>
-						<div class="filter">
-							
-							<?php wc_get_template_part('filter', 'city') ?>
-
-							<?php wc_get_template_part('filter', 'neighborhood') ?>
-
-							<?php wc_get_template_part('filter', 'keywords') ?>
-
-							<?php wc_get_template_part('filter', 'price') ?>
-
-							<?php wc_get_template_part('filter', 'category') ?>
-
-						</div>
-					</div>
-
+				<div class="col-md-3 filters-update">
+					<?= wc_get_template_part('filters', 'archive') ?>
 				</div>
 
 				<div class="col-md-9">
@@ -50,30 +31,33 @@ $term = get_queried_object();
 					</div>
 
 					<?php
-					if (wc_get_loop_prop('total')) { ?>
-						<div class="category__content cards">
-							<div class="row js_appendTo">
-								<?php
-								while (have_posts()) {
-									the_post();
-									wc_get_template_part('content', 'product');
-								} ?>
-							</div>
+					if (have_posts()) {
+						woocommerce_product_loop_start();
+						if (wc_get_loop_prop('total')) { ?>
+							<div class="category__content cards">
+								<div class="row js_appendTo">
+									<?php
+									while (have_posts()) {
+										the_post();
+										wc_get_template_part('content', 'product');
+									} ?>
+								</div>
 
-							<?php
-							if ($ss_theme_option["category-pagination"] === "1") {
-								if (wc_get_loop_prop('total') > $ss_theme_option["category-pagination-amount"]) {
-									?>
-									<button class="button button-1 button-1_160 js_load_more_products"><?= __('load more') ?></button>
 								<?php
+								if ($ss_theme_option["category-pagination"] === "1") {
+									if (wc_get_loop_prop('total') > $ss_theme_option["category-pagination-amount"]) {
+										?>
+										<button class="button button-1 button-1_160 js_load_more_products"><?= __('load more') ?></button>
+									<?php
+									}
+								} else {
+									woocommerce_pagination();
 								}
-							} else {
-								woocommerce_pagination();
-							}
-							?>
-						</div>
-					<?php }
-					woocommerce_product_loop_end();
+								?>
+							</div>
+						<?php }
+						woocommerce_product_loop_end();
+					}
 					?>
 				</div>
 			</div>

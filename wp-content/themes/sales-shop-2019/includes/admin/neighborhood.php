@@ -47,7 +47,7 @@ function neighborhoods_by_city()
     $neighborhoods = array();
     if (!empty($neighborhoods_data)) {
         foreach ($neighborhoods_data as $row) {
-            $neighborhoods[] = $row['neighborhood'];
+            $neighborhoods[] = $row['name'];
         }
     }
 
