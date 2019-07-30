@@ -45,7 +45,7 @@ get_header();
                                             echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="order__title">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
                                         }
                                         ?>
-                                        <div class="order__subtitle"><span class="order__subtitle_mute"><?= __('Options') ?>:</span> <?= $_product->get_short_description() ?></div>
+                                        <div class="order__subtitle"><span class="order__subtitle_mute"><?= __('Options') ?>:</span> <?= get_the_title($_product->get_id()) ?></div>
 
                                         <div class="order__details">
                                             <div class="order__details__block">
@@ -90,7 +90,9 @@ get_header();
                             <div class="right"><?= WC()->cart->total ?><?= get_woocommerce_currency_symbol() ?></div>
                         </div>
                         <div class="cart__sidebar__checkout">
-                            <button class="button button-1"><?= __('checkout') ?></button>
+                            <a href="<?= wc_get_checkout_url() ?>">
+                                <button class="button button-1"><?= __('checkout') ?></button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -107,15 +109,17 @@ get_header();
     $(function () {
         $('.input-stepper .plus, .input-stepper .minus').click(function () {
             let stepperInput = $(this).closest('.input-stepper').find('.quantity_field');
-            let data = {
+            let send_data = {
                 'action': 'quantity_order_form',
                 '_wpnonce': '<?= wp_create_nonce('ss_quantity_order_form') ?>',
                 'key': stepperInput.attr('data-key'),
-                'quantity': stepperInput.val();
+                'quantity': stepperInput.val()
             };
 
-            $.post('<?= esc_url(admin_url('admin-post.php')) ?>', data, function () {
-                
+            $.post('<?= esc_url(admin_url('admin-ajax.php')) ?>', send_data, function (data) {
+                if (data == 'ok') {
+                    window.location.reload();
+                }
             });
         })
     });
