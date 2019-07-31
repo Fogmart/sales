@@ -53,7 +53,8 @@ require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
 require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
-require_once(SS_WOOCOMMERCE . '/theme-filters.php'); //change price due to exchange rates
+require_once(SS_WOOCOMMERCE . '/theme-filters.php'); 
+require_once(SS_WOOCOMMERCE . '/theme-coupons.php');
 
 //Fix variable product template prices errors
 ss_variable_simulate_regular();

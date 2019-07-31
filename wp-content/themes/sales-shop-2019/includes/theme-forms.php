@@ -125,7 +125,6 @@ function ss_account_details_form_handler()
             } else {
                 $user_data[$field] = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
             }
-
         }
     }
 
@@ -229,3 +228,27 @@ function ss_quantity_order_form_handler()
 }
 add_action('wp_ajax_quantity_order_form', 'ss_quantity_order_form_handler');
 add_action('wp_ajax_nopriv_quantity_order_form', 'ss_quantity_order_form_handler');
+
+function ss_apply_discount_handler()
+{
+    $retrieved_nonce = $_POST['_wpnonce'];
+    if (empty($_POST) || !wp_verify_nonce($retrieved_nonce, 'ss_discount')) {
+        exit(wp_generate_uuid4());
+    }
+
+    $code = filter_input(INPUT_POST, 'code');
+
+    if ($code) {
+        if ( null === WC()->session ) {
+            $session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+            WC()->session = new $session_class();
+            WC()->session->init();
+        }
+
+        WC()->session->set('coupon_code', $code);
+    }
+
+    ss_return_back();
+}
+add_action('admin_post_nopriv_apply_discount', 'ss_apply_discount_handler');
+add_action('admin_post_apply_discount', 'ss_apply_discount_handler');

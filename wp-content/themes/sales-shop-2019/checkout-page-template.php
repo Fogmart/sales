@@ -4,6 +4,7 @@ $user = wp_get_current_user();
 if (!$user->exists()) {
     ss_return_login();
 }
+
 $items = WC()->cart->get_cart();
 if (empty($items)) {
     ss_return_home();
@@ -69,6 +70,7 @@ get_header();
 
                 <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
+                <!-- payments -->
                 <?php $payment_gateways = WC()->payment_gateways->payment_gateways(); ?>
                 <?php foreach ($payment_gateways as $key => $one) : ?>
                     <div class="checkout__block">
@@ -78,6 +80,7 @@ get_header();
                         </h3>
                     </div>
                 <?php endforeach; ?>
+
                 <div class="checkout__block">
                     <h3 class="checkout__block__title">
                         <input type="radio" name="payment" id="credit-card">
@@ -126,12 +129,9 @@ get_header();
 
                 </div>
 
-                <div class="checkout__block">
-                    <h3 class="checkout__block__title">
-                        <input type="radio" name="payment" id="orange-money">
-                        <label for="orange-money" class="radio-label"><?= __('Orange Money') ?></label>
-                    </h3>
-                </div>
+                <!-- end payments -->
+
+                
 
                 <div class="checkout__block">
                     <h3 class="checkout__block__title"><?= __('Give as a Gift') ?></h3>
@@ -180,9 +180,11 @@ get_header();
                     </div>
                     <div class="cart__sidebar__discount">
                         <h5><?= __('Gift card or discount code') ?></h5>
-                        <form class="cart__sidebar__discount__form">
-                            <input type="text" class="input" placeholder="<?= __('Enter code') ?>">
-                            <button class="button button-1 button_grey"><?= __('Apply') ?></button>
+                        <form class="cart__sidebar__discount__form" <?= SS_FORM_POST ?>>
+                            <?php wp_nonce_field('ss_discount'); ?>
+                            <input type="hidden" name="action" value="apply_discount">
+                            <input type="text" class="input" name="code" placeholder="<?= __('Enter code') ?>">
+                            <button type="submit" class="button button-1 button_grey"><?= __('Apply') ?></button>
                         </form>
                     </div>
                     <div class="cart__sidebar__total">

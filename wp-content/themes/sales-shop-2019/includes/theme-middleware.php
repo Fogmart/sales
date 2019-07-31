@@ -16,7 +16,7 @@ function ss_get_current_page_slug(){
 function user_logged_in_redirect()
 {
     $restrict_on_login = [
-        SS_LOGIN_PAGE, SS_REG_PAGE
+        SS_LOGIN_PAGE, SS_REG_PAGE, SS_RESET_PAGE
     ];
 
     $current_page_slug = ss_get_current_page_slug();
@@ -33,9 +33,10 @@ function user_not_logged_in_redirect()
 {
     $restrict_on_login = [
         SS_PROFILE_PAGE,
-        SS_ORDERS_PAGE,
         SS_ACCOUNT_PAGE,
+        SS_ORDERS_PAGE,
         SS_CHECKOUT_PAGE,
+        SS_CART_PAGE
     ];
 
     $current_page_slug = ss_get_current_page_slug();
