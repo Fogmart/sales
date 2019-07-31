@@ -27,10 +27,10 @@ get_header();
                     <div class="checkout__block__content orders">
                         <?php
                         foreach ($items as $cart_item_key => $cart_item) :
-                            $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-                            if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) :
-                                $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-                        ?>
+                            $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                            if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) :
+                                $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+                                ?>
                                 <div class="order">
                                     <div class="order__remove" onclick="window.location.href='<?= esc_url(wc_get_cart_remove_url($cart_item_key)) ?>'">
                                         <img src="<?= ss_asset('img/icons/remove.svg') ?>" alt="">
@@ -41,9 +41,9 @@ get_header();
                                     <div class="order__content">
                                         <?php
                                         if (!$product_permalink) {
-                                            echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
+                                            echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
                                         } else {
-                                            echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s" class="order__title">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+                                            echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s" class="order__title">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
                                         }
                                         ?>
                                         <div class="order__subtitle"><span class="order__subtitle_mute"><?= __('Options') ?>:</span> <?= get_the_title($_product->get_id()) ?></div>
@@ -60,7 +60,7 @@ get_header();
                                         </div>
                                     </div>
                                 </div>
-                        <?php
+                            <?php
                             endif;
                         endforeach;
                         ?>
@@ -69,6 +69,15 @@ get_header();
 
                 <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
+                <?php $payment_gateways = WC()->payment_gateways->payment_gateways(); ?>
+                <?php foreach ($payment_gateways as $key => $one) : ?>
+                    <div class="checkout__block">
+                        <h3 class="checkout__block__title">
+                            <input type="radio" name="payment" id="p_<?= $key ?>">
+                            <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
+                        </h3>
+                    </div>
+                <?php endforeach; ?>
                 <div class="checkout__block">
                     <h3 class="checkout__block__title">
                         <input type="radio" name="payment" id="credit-card">
@@ -181,8 +190,16 @@ get_header();
                         <div class="right"><?= WC()->cart->total ?><?= get_woocommerce_currency_symbol() ?></div>
                     </div>
                     <div class="cart__sidebar__checkout">
-                        <div class="cart__sidebar__privacy"><?= __('By clicking below I accept the current') ?> <a href="#!" class="link link_bold"><?= __('Terms of Use') ?></a> <?= __('and') ?> <a href="#!" class="link link_bold"><?= __('Privacy Policy') ?>.</a></div>
+                        <div class="cart__sidebar__privacy"><?= __('By clicking below I accept the current') ?> <a href="<?= get_field('terms_of_use_page') ?>" class="link link_bold"><?= __('Terms of Use') ?></a>
+                            <?= __('and') ?> <a href="<?= get_field('privacy_policy_page') ?>" class="link link_bold"><?= __('Privacy Policy') ?>.</a></div>
                         <button class="button button-1"><?= __('Place Order') ?></button>
+                        <?php
+                        //     $checkout = WC()->checkout();
+                        //     $order_id = $checkout->create_order();
+                        //     $order = wc_get_order( $order_id );
+                        // exit(var_dump($order));
+                        // $order_id = $checkout->create_order();
+                        ?>
                     </div>
                 </div>
 
@@ -202,7 +219,7 @@ get_header();
                 </div>
 
                 <a href="#!" class="order__title">Product Title Goes Here and here</a>
-                <div class="order__subtitle"><span class="order__subtitle_mute">Options:</span>	Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
+                <div class="order__subtitle"><span class="order__subtitle_mute">Options:</span> Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
 
                 <div class="card__location">Kiev, Ukraine</div>
 
