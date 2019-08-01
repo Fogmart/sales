@@ -37,8 +37,8 @@ if( function_exists('acf_add_local_field_group') ):
                     'class' => '',
                     'id' => '',
                 ),
-                'display_format' => 'd/m/Y',
-                'return_format' => 'd/m/Y',
+                'display_format' => 'm/d/Y',
+                'return_format' => 'm/d/Y',
                 'first_day' => 1,
             ),
             array(

@@ -21,7 +21,9 @@ function acf_admin_enqueue($hook)
         'pa_vars',
         array(
             'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
-            'current_neighborhood' => get_field('neighborhood', 'user_' . $user_id) // Get current neighborhood
+            'current_neighborhood' => get_field('neighborhood', 'user_' . $user_id), // Get current neighborhood
+            'ajaxurl' => esc_url(admin_url('admin-ajax.php')), // URL
+            'is_admin' => true
         )
     );
 }
