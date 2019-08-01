@@ -2,7 +2,7 @@
 function ss_get_current_page_slug(){
 
     //defineing current page slug
-    $current_page_slug = $_SERVER['REDIRECT_URL'];
+    $current_page_slug = $_SERVER['REDIRECT_URL'] ?? '/';
     if(substr($current_page_slug, -1) == '/') {
         $current_page_slug = substr($current_page_slug, 0, -1);
     }
