@@ -7,9 +7,8 @@ $cities = ss_get_cities();
 global $ss_theme_option;
 $my_coupons_pagination_amount = $ss_theme_option['buyer-tab-my-coupons-pagination-amount'];
 $historical_coupons_pagination_amount = $ss_theme_option['buyer-tab-historical-coupons-pagination-amount'];
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-// $historical_coupons = ss_get_user_orders($paged, $historical_coupons_pagination_amount);
-// var_dump($historical_coupons);
+
+$orders = ss_get_user_orders();
 ?>
 
 <div class="account page">
@@ -20,8 +19,8 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
             <h1 class="account__title">
                 <div class="filter__item account-section"><?= __('Account details') ?></div>
-                <div class="filter__item orders-section"><?= __('My Orders') ?></div>
-                <div class="filter__item history-section"><?= __('My Historical Orders') ?></div>
+                <div class="filter__item orders-section"><?= __('My Coupons') ?></div>
+                <div class="filter__item history-section"><?= __('My Historical Coupons') ?></div>
             </h1>
 
             <div class="account__section orders history">
@@ -32,7 +31,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                             <a href="<?= wp_logout_url(SS_LOGIN_PAGE) ?>"><button class="button button-1"><?= __('logout') ?></button></a>
                             <ul>
                                 <li><a href="#account" class="link link_grey active filter__button" data-filter="account-section"><?= __('Edit Account') ?></a></li>
-                                <li><a href="#orders" class="link link_grey filter__button" data-filter="orders-section"><?= __('My Coupons') ?></a></li>
+                                <li><a href="#coupons" class="link link_grey filter__button" data-filter="orders-section"><?= __('My Coupons') ?></a></li>
                                 <li><a href="#history" class="link link_grey filter__button" data-filter="history-section"><?= __('Historical coupons') ?></a></li>
                             </ul>
                         </div>
@@ -45,7 +44,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                     <div class="col-md-9">
                                         <div class="account__block">
                                             <form <?= SS_FORM_POST ?>>
-                                                <input type="hidden" name="action" value="account_details_form"/>
+                                                <input type="hidden" name="action" value="account_details_form" />
                                                 <?php wp_nonce_field('ss_account_details_form'); ?>
                                                 <div class="account__block__section">
                                                     <h2 class="account__block__title"><?= __('Account Information') ?></h2>
@@ -86,7 +85,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                                         <div class="col-sm-6">
                                                             <select name="city" id="acf-field_5d1334a256be3">
                                                                 <?php foreach ($cities as $city) : ?>
-                                                                <option value="<?= $city->ID ?>" <?= $additional_fields['city'] == $city->ID ? 'selected' : '' ?>><?= $city->post_title ?></option>
+                                                                    <option value="<?= $city->ID ?>" <?= $additional_fields['city'] == $city->ID ? 'selected' : '' ?>><?= $city->post_title ?></option>
                                                                 <?php endforeach; ?>
                                                             </select>
                                                         </div>
@@ -120,14 +119,16 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                     <div class="col-md-3">
                                         <div class="account__sidebar account__block">
                                             <h2 class="account__sidebar__title"><?= $post_additional_fields['headline_sidebar'] ?></h2>
-                                            <p class="account__sidebar__text"><?= $post_additional_fields['body_sidebar'] ?></p>
+                                            <p class="account__sidebar__text">
+                                                <?= trim($post_additional_fields['body_sidebar']); ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             <?php else : ?>
                                 <div class="account__block">
                                     <form <?= SS_FORM_POST ?>>
-                                        <input type="hidden" name="action" value="account_details_form"/>
+                                        <input type="hidden" name="action" value="account_details_form" />
                                         <?php wp_nonce_field('ss_account_details_form'); ?>
                                         <div class="account__block__section">
                                             <h2 class="account__block__title"><?= __('Account Information') ?></h2>
@@ -174,7 +175,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <select name="neighborhood" id="acf-field_5d1334b756be4">
-                                                        <option>Neighborhood</option>
+                                                        <option><?= __('Neighborhood')?></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -205,181 +206,28 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
                             <h2 class="orders__subtitle"><?= __('My Coupons') ?></h2>
 
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
+                            <?php
+                            $coupons = ss_get_coupons($orders, SS_FREE_COUPON_STATUSES);
+                            ss_render_account_customer_loop($coupons, false);
+                            ?>
 
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
-
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
-
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="orders__control">
-                                <div class="orders__control__text">Showing 1 to 10 of 11 entries</div>
-                                <div class="orders__control__buttons">
-                                    <button class="button button-1 button-1_120">Previous</button>
-                                    <button class="button button-1 button-1_120">next</button>
-
-                                </div>
-                            </div>
                         </div>
 
                         <div class="orders__main filter__item history-section">
 
-                            <h2 class="orders__subtitle">My Historical Coupons</h2>
+                            <h2 class="orders__subtitle"><?= __('My Historical Coupons') ?></h2>
 
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
-
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block status">
-                                            <div class="order__block__title">Status:</div>
-                                            <div class="order__block__status canceled">Canceled</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
-
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block status">
-                                            <div class="order__block__title">Status:</div>
-                                            <div class="order__block__status used">Used</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order">
-                                <div class="order__photo"><img src="<?= ss_asset('img/card.jpg') ?>" alt=""></div>
-                                <div class="order__content">
-                                    <a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-                                    <div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
-                                    <div class="order__block__price">20 000 000$</div>
-
-                                    <div class="order__details">
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Purchase Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block">
-                                            <div class="order__block__title">Expiration Date: </div>
-                                            <div class="order__block__text">September 24, 2018</div>
-                                        </div>
-                                        <div class="order__details__block status">
-                                            <div class="order__block__title">Status:</div>
-                                            <div class="order__block__status awaiting">Awaiting</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="orders__control">
-                                <div class="orders__control__text">Showing 1 to 10 of 11 entries</div>
-                                <div class="orders__control__buttons">
-                                    <button class="button button-1 button-1_120">Previous</button>
-                                    <button class="button button-1 button-1_120">next</button>
-
-                                </div>
-                            </div>
+                            <?php
+                            $coupons = ss_get_coupons($orders);
+                            ss_render_account_customer_loop($coupons, true);
+                            ?>
 
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
-<?php
-wp_enqueue_script('neighborhoods', get_stylesheet_directory_uri() . '/assets/js/autopopulates.js');
-
-wp_localize_script(
-    'neighborhoods',
-    'pa_vars',
-    array(
-        'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
-        'current_neighborhood' => get_field('neighborhood', 'user_' . $user->ID), // Get current neighborhood
-        'ajaxurl' => esc_url(admin_url('admin-ajax.php')), // URL
-        'is_admin' => false
-    )
-);
-
-get_footer();
-?>
+<?php get_footer(); ?>

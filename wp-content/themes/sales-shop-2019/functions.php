@@ -25,6 +25,23 @@ define('GOOGLE_API_KEY', 'xxx');
 $post_form_action = 'action="' . esc_url(admin_url('admin-post.php')) . '" method="POST"';
 define('SS_FORM_POST', $post_form_action);
 
+
+//coupons
+$all_coupon_statuses = [
+    'sold', //sold on site {free to use ???}
+    'redeemed',
+    'canceled',
+    'awaiting',
+    'used',
+];
+
+define('SS_COUPON_STATUSES', $all_coupon_statuses);
+
+$coupon_statuses = [
+    'sold'
+];
+define('SS_FREE_COUPON_STATUSES', $coupon_statuses);
+
 //load required functional
 require_once(SS_INC . '/theme-functional.php');
 
@@ -46,6 +63,7 @@ require_once(SS_INC . '/theme-users.php');
 require_once(SS_INC . '/theme-rules.php');
 require_once(SS_INC . '/theme-reset.php');
 require_once(SS_INC . '/theme-cities.php');
+require_once(SS_INC . '/theme-account.php');
 
 //woocommerce
 require_once(SS_WOOCOMMERCE . '/theme-sellers.php');
@@ -53,7 +71,7 @@ require_once(SS_WOOCOMMERCE . '/theme-product.php');
 require_once(SS_WOOCOMMERCE . '/theme-ajax.php');
 require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
-require_once(SS_WOOCOMMERCE . '/theme-filters.php'); 
+require_once(SS_WOOCOMMERCE . '/theme-filters.php');
 require_once(SS_WOOCOMMERCE . '/theme-coupons.php');
 
 //Fix variable product template prices errors
@@ -76,7 +94,19 @@ function ss_theme_assets()
 
     wp_register_script('ss_filters', SS_JS . '/filters.js');
 
-    
+    wp_register_script('neighborhoods', get_stylesheet_directory_uri() . '/assets/js/autopopulates.js');
+    wp_localize_script(
+        'neighborhoods',
+        'pa_vars',
+        array(
+            'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
+            'current_neighborhood' => get_field('neighborhood', 'user_' . $user->ID), // Get current neighborhood
+            'ajaxurl' => esc_url(admin_url('admin-ajax.php')), // URL
+            'is_admin' => false
+        )
+    );
+
+
     wp_enqueue_script('ss_script');
     wp_enqueue_style('ss_style');
 
@@ -90,6 +120,10 @@ function ss_theme_assets()
 
     if (is_page_template('reset-page-template.php')) {
         wp_enqueue_script('ss_reset');
+    }
+
+    if(is_page_template('account-page-template.php')){
+        wp_enqueue_script('neighborhoods');
     }
 }
 

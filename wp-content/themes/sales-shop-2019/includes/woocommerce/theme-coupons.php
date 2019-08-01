@@ -1,5 +1,6 @@
 <?php
 add_action('woocommerce_init', 'add_discout_to_checkout', 10, 0);
+//discounts, not vouchers (coupons)
 function add_discout_to_checkout()
 {
     if (null === WC()->session) {

@@ -58,7 +58,8 @@ if( function_exists('acf_add_local_field_group') ):
                 'key' => 'field_5d42902834daa',
                 'label' => __('Body'),
                 'name' => 'body_sidebar',
-                'type' => 'wysiwyg',
+                // 'type' => 'wysiwyg',
+                'type' => 'textarea',
                 'instructions' => '',
                 'required' => 1,
                 'conditional_logic' => array(
