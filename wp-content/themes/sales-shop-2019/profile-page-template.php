@@ -12,6 +12,9 @@ if ($seller === null) {
     ss_return_home();
 }
 
+global $ss_theme_option;
+$reviews_amount = $ss_theme_option['seller-page-pagination-amount'];
+$reviews_show = 0;
 $current_user = ss_get_user();
 $additional_fields = get_fields('user_' . $seller->id);
 $active_products = ss_get_active_seller_products($seller->id);
@@ -136,7 +139,8 @@ get_header();
 
                 <div class="seller__reviews__content">
                     <?php foreach ($seller->reviews as $review) : ?>
-                        <div class="seller__review">
+                        <?php $reviews_show++ ?>
+                        <div class="seller__review moreBox" <?= ($reviews_amount > 0 && $reviews_show > $reviews_amount) ? 'style="display: none"' : '' ?>>
                             <div class="seller__review__photo">
                                 <?= get_avatar($review->customer->ID) ?>
                             </div>
@@ -161,8 +165,9 @@ get_header();
                         </div>
                     <?php endforeach; ?>
 
-                    <a href="#!" class="button button-1 button-1_180"><?= __('Load more reviews') ?></a>
-
+                    <?php if ($reviews_amount > 0 && $reviews_show > $reviews_amount) : ?>
+                        <a id="loadMore" href="javascript:void(0);" class="button button-1 button-1_180"><?= __('Load more reviews') ?></a>
+                    <?php endif; ?>
                 </div>
 
             </section>
@@ -170,4 +175,17 @@ get_header();
 
     </div>
 
+<?php if ($reviews_amount > 0 && $reviews_show > $reviews_amount) : ?>
+    <script>
+        $(function() {
+            $("#loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".moreBox:hidden").slice(0, <?= $reviews_amount ?>).slideDown();
+                if ($(".moreBox:hidden").length == 0) {
+                    $("#loadMore").fadeOut('slow');
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
 <?php get_footer(); ?>

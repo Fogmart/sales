@@ -20,7 +20,9 @@ jQuery(document).ready(function($) {
 
             var selected_city = $(this).val(); // Get selected value
 
-            $( neighborhood_id ).attr( 'disabled', 'disabled' );
+            if (pa_vars.is_admin) {
+                $( neighborhood_id ).attr( 'disabled', 'disabled' );
+            }
 
             // If default is not selected get areas for selected country
             if( selected_city !== null && selected_city.length > 0 ) {
@@ -32,7 +34,7 @@ jQuery(document).ready(function($) {
                 };
 
                 // Get response and populate area select field
-                $.post( ajaxurl, data, function(response) {
+                $.post( pa_vars.ajaxurl, data, function(response) {
                     $( neighborhood_id ).html('');
 
                     if( response ){
@@ -41,8 +43,12 @@ jQuery(document).ready(function($) {
                             $( neighborhood_id ).append( $('<option'+(pa_vars.current_neighborhood == text ? ' selected' : '')+'></option>').val(text).html(text) );
                         });
 
-                        // Enable 'Select Area' field
-                        $( neighborhood_id ).removeAttr( 'disabled' );
+                        if (pa_vars.is_admin) {
+                            // Enable 'Select Area' field
+                            $( neighborhood_id ).removeAttr( 'disabled' );
+                        } else {
+                            $( neighborhood_id ).selectric();
+                        }
                     }
                 });
             }

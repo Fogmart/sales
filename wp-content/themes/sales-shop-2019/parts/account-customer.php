@@ -2,6 +2,8 @@
 get_header();
 $user = wp_get_current_user();
 $additional_fields = get_fields('user_' . $user->ID);
+$post_additional_fields = get_fields();
+$cities = ss_get_cities();
 global $ss_theme_option;
 $my_coupons_pagination_amount = $ss_theme_option['buyer-tab-my-coupons-pagination-amount'];
 $historical_coupons_pagination_amount = $ss_theme_option['buyer-tab-historical-coupons-pagination-amount'];
@@ -38,170 +40,165 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     <div class="col-md-10">
 
                         <div class="filter__item account-section">
+                            <?php if ($post_additional_fields['enable_sidebar'] == 1) : ?>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="account__block">
+                                            <form <?= SS_FORM_POST ?>>
+                                                <input type="hidden" name="action" value="account_details_form"/>
+                                                <?php wp_nonce_field('ss_account_details_form'); ?>
+                                                <div class="account__block__section">
+                                                    <h2 class="account__block__title"><?= __('Account Information') ?></h2>
 
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="account__block">
-                                        <form <?= SS_FORM_POST ?>>
-                                            <input type="hidden" name="action" value="account_details_form"/>
-                                            <?php wp_nonce_field('ss_account_details_form'); ?>
-                                            <div class="account__block__section">
-                                                <h2 class="account__block__title"><?= __('Account Information') ?></h2>
-
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <input type="text" name="first_name" class="input" placeholder="<?= __('Name') ?>" value="<?= $user->first_name ?>">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" name="last_name" class="input" placeholder="<?= __('Surname') ?>" value="<?= $user->last_name ?>">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="email" name="user_email" class="input" placeholder="<?= __('Email') ?>" value="<?= $user->user_email ?>">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="tel" name="mobile" class="input" placeholder="<?= __('Mobile') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['mobile'] ?>">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" name="date_of_birth" class="datepicker-here input" placeholder="<?= __('Date of Birth') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['date_of_birth'] ?>" data-language='en'>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <select name="gender">
-                                                            <option value="0"><?= __('Gender') ?> (<?= __('optional') ?>)</option>
-                                                            <option value="male" <?= $additional_fields['gender'] === 'male' ? 'selected' : '' ?>><?= __('Male') ?></option>
-                                                            <option value="female" <?= $additional_fields['gender'] === 'female' ? 'selected' : '' ?>><?= __('Female') ?></option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="account__block__section">
-                                                <h2 class="account__block__title"><?= __('Address details') ?></h2>
-
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <input type="text" name="address" class="input" placeholder="<?= __('Address') ?>" value="<?= $additional_fields['address'] ?>">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <select>
-                                                            <option>City</option>
-                                                            <option>City 1</option>
-                                                            <option>City 2</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <select>
-                                                            <option>Neighborhood</option>
-                                                            <option>Neighborhood 1</option>
-                                                            <option>Neighborhood 2</option>
-                                                        </select>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="first_name" class="input" placeholder="<?= __('Name') ?>" value="<?= $user->first_name ?>">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="last_name" class="input" placeholder="<?= __('Surname') ?>" value="<?= $user->last_name ?>">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="email" name="user_email" class="input" placeholder="<?= __('Email') ?>" value="<?= $user->user_email ?>">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="tel" name="mobile" class="input" placeholder="<?= __('Mobile') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['mobile'] ?>">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="date_of_birth" class="datepicker-here input" placeholder="<?= __('Date of Birth') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['date_of_birth'] ?>" data-language='en'>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <select name="gender">
+                                                                <option value="0"><?= __('Gender') ?> (<?= __('optional') ?>)</option>
+                                                                <option value="male" <?= $additional_fields['gender'] === 'male' ? 'selected' : '' ?>><?= __('Male') ?></option>
+                                                                <option value="female" <?= $additional_fields['gender'] === 'female' ? 'selected' : '' ?>><?= __('Female') ?></option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="account__block__section">
-                                                <h2 class="account__block__title"><?= __('Password change') ?></h2>
+                                                <div class="account__block__section">
+                                                    <h2 class="account__block__title"><?= __('Address details') ?></h2>
 
-                                                <input type="password" name="current_pass" class="input" placeholder="<?= __('Current password') ?> (<?= __('leave blank to leave unchanged') ?>)">
-                                                <input type="password" name="user_pass" class="input" placeholder="<?= __('New password') ?> (<?= __('leave blank to leave unchanged') ?>)">
-                                                <input type="password" name="confirm_pass" class="input" placeholder="<?= __('Confirm new password') ?>">
-                                            </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="address" class="input" placeholder="<?= __('Address') ?>" value="<?= $additional_fields['address'] ?>">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <select name="city" id="acf-field_5d1334a256be3">
+                                                                <?php foreach ($cities as $city) : ?>
+                                                                <option value="<?= $city->ID ?>" <?= $additional_fields['city'] == $city->ID ? 'selected' : '' ?>><?= $city->post_title ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <select name="neighborhood" id="acf-field_5d1334b756be4">
+                                                                <option>Neighborhood</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            <div class="account__block__section">
-                                                <h2 class="account__block__title"><?= __('Password change') ?></h2>
+                                                <div class="account__block__section">
+                                                    <h2 class="account__block__title"><?= __('Password change') ?></h2>
 
-                                                <input type="checkbox" id="password">
-                                                <label class="checkbox-label" for="password"><?= __('I want to get newsletters and promotional offers') ?></label>
+                                                    <input type="password" name="current_pass" class="input" placeholder="<?= __('Current password') ?> (<?= __('leave blank to leave unchanged') ?>)">
+                                                    <input type="password" name="user_pass" class="input" placeholder="<?= __('New password') ?> (<?= __('leave blank to leave unchanged') ?>)">
+                                                    <input type="password" name="confirm_pass" class="input" placeholder="<?= __('Confirm new password') ?>">
+                                                </div>
 
-                                                <button class="button button-1 button-1_160 save-button"><?= __('Save changes') ?></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="account__sidebar account__block">
-                                        <h2 class="account__sidebar__title">h2. Heading</h2>
-                                        <p class="account__sidebar__text">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    </div>
-                                </div>
-                            </div>
+                                                <div class="account__block__section">
+                                                    <h2 class="account__block__title"><?= __('Password change') ?></h2>
 
-                            <div class="account__block">
-                                <form <?= SS_FORM_POST ?>>
-                                    <input type="hidden" name="action" value="account_details_form"/>
-                                    <?php wp_nonce_field('ss_account_details_form'); ?>
-                                    <div class="account__block__section">
-                                        <h2 class="account__block__title"><?= __('Account Information') ?></h2>
+                                                    <input type="checkbox" id="password">
+                                                    <label class="checkbox-label" for="password"><?= __('I want to get newsletters and promotional offers') ?></label>
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="text" name="first_name" class="input" placeholder="<?= __('Name') ?>" value="<?= $user->first_name ?>">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" name="last_name" class="input" placeholder="<?= __('Surname') ?>" value="<?= $user->last_name ?>">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="email" name="user_email" class="input" placeholder="<?= __('Email') ?>" value="<?= $user->user_email ?>">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="tel" name="mobile" class="input" placeholder="<?= __('Mobile') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['mobile'] ?>">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" name="date_of_birth" class="datepicker-here input" placeholder="<?= __('Date of Birth') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['date_of_birth'] ?>" data-language='en'>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select name="gender">
-                                                    <option value="0"><?= __('Gender') ?> (<?= __('optional') ?>)</option>
-                                                    <option value="male" <?= $additional_fields['gender'] === 'male' ? 'selected' : '' ?>><?= __('Male') ?></option>
-                                                    <option value="female" <?= $additional_fields['gender'] === 'female' ? 'selected' : '' ?>><?= __('Female') ?></option>
-                                                </select>
-                                            </div>
+                                                    <button class="button button-1 button-1_160 save-button"><?= __('Save changes') ?></button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-
-                                    <div class="account__block__section">
-                                        <h2 class="account__block__title"><?= __('Address details') ?></h2>
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="text" name="address" class="input" placeholder="<?= __('Address') ?>" value="<?= $additional_fields['address'] ?>">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select>
-                                                    <option>City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select>
-                                                    <option>Neighborhood</option>
-                                                    <option>Neighborhood 1</option>
-                                                    <option>Neighborhood 2</option>
-                                                </select>
-                                            </div>
+                                    <div class="col-md-3">
+                                        <div class="account__sidebar account__block">
+                                            <h2 class="account__sidebar__title"><?= $post_additional_fields['headline_sidebar'] ?></h2>
+                                            <p class="account__sidebar__text"><?= $post_additional_fields['body_sidebar'] ?></p>
                                         </div>
                                     </div>
+                                </div>
+                            <?php else : ?>
+                                <div class="account__block">
+                                    <form <?= SS_FORM_POST ?>>
+                                        <input type="hidden" name="action" value="account_details_form"/>
+                                        <?php wp_nonce_field('ss_account_details_form'); ?>
+                                        <div class="account__block__section">
+                                            <h2 class="account__block__title"><?= __('Account Information') ?></h2>
 
-                                    <div class="account__block__section">
-                                        <h2 class="account__block__title"><?= __('Password change') ?></h2>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="first_name" class="input" placeholder="<?= __('Name') ?>" value="<?= $user->first_name ?>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="last_name" class="input" placeholder="<?= __('Surname') ?>" value="<?= $user->last_name ?>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="email" name="user_email" class="input" placeholder="<?= __('Email') ?>" value="<?= $user->user_email ?>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="tel" name="mobile" class="input" placeholder="<?= __('Mobile') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['mobile'] ?>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="date_of_birth" class="datepicker-here input" placeholder="<?= __('Date of Birth') ?> (<?= __('optional') ?>)" value="<?= $additional_fields['date_of_birth'] ?>" data-language='en'>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <select name="gender">
+                                                        <option value="0"><?= __('Gender') ?> (<?= __('optional') ?>)</option>
+                                                        <option value="male" <?= $additional_fields['gender'] === 'male' ? 'selected' : '' ?>><?= __('Male') ?></option>
+                                                        <option value="female" <?= $additional_fields['gender'] === 'female' ? 'selected' : '' ?>><?= __('Female') ?></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <input type="password" name="current_pass" class="input" placeholder="<?= __('Current password') ?> (<?= __('leave blank to leave unchanged') ?>)">
-                                        <input type="password" name="user_pass" class="input" placeholder="<?= __('New password') ?> (<?= __('leave blank to leave unchanged') ?>)">
-                                        <input type="password" name="confirm_pass" class="input" placeholder="<?= __('Confirm new password') ?>">
-                                    </div>
+                                        <div class="account__block__section">
+                                            <h2 class="account__block__title"><?= __('Address details') ?></h2>
 
-                                    <div class="account__block__section">
-                                        <h2 class="account__block__title"><?= __('Password change') ?></h2>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="address" class="input" placeholder="<?= __('Address') ?>" value="<?= $additional_fields['address'] ?>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <select name="city" id="acf-field_5d1334a256be3">
+                                                        <?php foreach ($cities as $city) : ?>
+                                                            <option value="<?= $city->ID ?>" <?= $additional_fields['city'] == $city->ID ? 'selected' : '' ?>><?= $city->post_title ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <select name="neighborhood" id="acf-field_5d1334b756be4">
+                                                        <option>Neighborhood</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <input type="checkbox" id="password">
-                                        <label class="checkbox-label" for="password"><?= __('I want to get newsletters and promotional offers') ?></label>
+                                        <div class="account__block__section">
+                                            <h2 class="account__block__title"><?= __('Password change') ?></h2>
 
-                                        <button class="button button-1 button-1_160 save-button"><?= __('Save changes') ?></button>
-                                    </div>
-                                </form>
-                            </div>
+                                            <input type="password" name="current_pass" class="input" placeholder="<?= __('Current password') ?> (<?= __('leave blank to leave unchanged') ?>)">
+                                            <input type="password" name="user_pass" class="input" placeholder="<?= __('New password') ?> (<?= __('leave blank to leave unchanged') ?>)">
+                                            <input type="password" name="confirm_pass" class="input" placeholder="<?= __('Confirm new password') ?>">
+                                        </div>
+
+                                        <div class="account__block__section">
+                                            <h2 class="account__block__title"><?= __('Password change') ?></h2>
+
+                                            <input type="checkbox" id="password">
+                                            <label class="checkbox-label" for="password"><?= __('I want to get newsletters and promotional offers') ?></label>
+
+                                            <button class="button button-1 button-1_160 save-button"><?= __('Save changes') ?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="orders__main filter__item orders-section">
@@ -370,4 +367,19 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 </div>
 
-<?php get_footer(); ?>
+<?php
+wp_enqueue_script('neighborhoods', get_stylesheet_directory_uri() . '/assets/js/autopopulates.js');
+
+wp_localize_script(
+    'neighborhoods',
+    'pa_vars',
+    array(
+        'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
+        'current_neighborhood' => get_field('neighborhood', 'user_' . $user->ID), // Get current neighborhood
+        'ajaxurl' => esc_url(admin_url('admin-ajax.php')), // URL
+        'is_admin' => false
+    )
+);
+
+get_footer();
+?>

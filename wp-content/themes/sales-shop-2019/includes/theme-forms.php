@@ -138,7 +138,7 @@ function ss_account_details_form_handler()
         'date_of_birth',
         'gender',
         'address',
-        //'city',
+        'city',
         'neighborhood'
     ];
     foreach ($available_acf_fields as $field) {
@@ -201,33 +201,6 @@ function ss_review_add_form_handler()
 }
 add_action('admin_post_nopriv_review_add_form', 'ss_review_add_form_handler');
 add_action('admin_post_review_add_form', 'ss_review_add_form_handler');
-
-//Quantity order form
-function ss_quantity_order_form_handler()
-{
-    $user = wp_get_current_user();
-    // Verify nonce
-    if (
-        !isset($_POST['_wpnonce']) ||
-        !wp_verify_nonce($_POST['_wpnonce'], 'ss_quantity_order_form') ||
-        !$user->exists()
-    ) {
-        wp_die('verify error');
-    }
-
-    $key = filter_input(INPUT_POST, 'key', FILTER_SANITIZE_STRING);
-    $quantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_NUMBER_INT);
-
-    if (empty($key) || empty($quantity) || $quantity < 1) {
-        wp_die('error input');
-    }
-
-    WC()->cart->set_quantity($key, $quantity);
-
-    wp_die('ok');
-}
-add_action('wp_ajax_quantity_order_form', 'ss_quantity_order_form_handler');
-add_action('wp_ajax_nopriv_quantity_order_form', 'ss_quantity_order_form_handler');
 
 function ss_apply_discount_handler()
 {

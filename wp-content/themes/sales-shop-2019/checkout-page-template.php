@@ -173,7 +173,7 @@ get_header();
             </div>
             <div class="col-md-3">
                 <div class="cart__sidebar">
-                    <div class="cart__sidebar__title"><?= __('Summary') ?> (<?= WC()->cart->get_cart_contents_count() ?> <?= __('items') ?>)</div>
+                    <div class="cart__sidebar__title"><?= __('Summary') ?> (<?= WC()->cart->get_cart_contents_count() ?> <?= __('items') ?>) &nbsp;<a href="<?= wc_get_cart_url() ?>" class="link link_bold"><?= __('Edit cart') ?></a></div>
                     <div class="cart__sidebar__subtotal">
                         <div class="left"><?= __('Subtotal') ?></div>
                         <div class="right"><?= WC()->cart->get_subtotal() ?><?= get_woocommerce_currency_symbol() ?></div>
@@ -263,4 +263,10 @@ get_header();
         </div>
     </div>
 </div>
+
+<style>
+    .cart__sidebar__title {
+        font-size: 15px;
+    }
+</style>
 <?php get_footer(); ?>
