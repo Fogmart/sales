@@ -19,7 +19,7 @@ define('SS_CHECKOUT_PAGE', '/checkout');
 define('SS_ACCOUNT_PAGE', '/account');
 
 //settings
-define('SS_ENABLE_MIDDLEWARE', false);
+define('SS_ENABLE_MIDDLEWARE', true);
 define('GOOGLE_API_KEY', 'xxx');
 
 $post_form_action = 'action="' . esc_url(admin_url('admin-post.php')) . '" method="POST"';
