@@ -93,4 +93,36 @@ if (wp_doing_ajax()) {
 
         wp_die('ok');
     }
+
+    add_action('wp_ajax_nopriv_checkout_form_order', 'ss_checkout_form_order_handler');
+    add_action('wp_ajax_checkout_form_order', 'ss_checkout_form_order_handler');
+
+    function ss_checkout_form_order_handler()
+    {
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'ss_checkout_form_order')) {
+            exit(wp_generate_uuid4());
+        }
+
+        $payment = filter_input(INPUT_POST, 'payment');
+
+        $arg = [
+            'payment_method' => $payment
+        ];
+        $order_id = WC()->checkout()->create_order($arg);
+        if ($order_id) {
+            WC()->cart->empty_cart();
+
+            if (in_array('sold', SS_FREE_COUPON_STATUSES)) {
+                $order = wc_get_order($order_id);
+                foreach ($order->get_items() as $coupon) {
+                    $coupon->add_meta_data('coupon_status', 'sold', false);
+                    $coupon->save();
+                }
+            }
+
+            //ss_return_home(); redirect on Thank You Page
+        }
+
+        ss_return_back();
+    }
 }
