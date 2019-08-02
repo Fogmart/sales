@@ -57,7 +57,13 @@ get_header();
                     </div>
                     <div class="col-md-3 col-xs-6">
                         <div class="seller__contacts__subtitle"><?= __('Address') ?>:</div>
-                        <div class="seller__contacts__text"><?= $additional_fields['address'] ?> <br> <a href="#!" class="link link_bold">Get Directions</a></div>
+                        <div class="seller__contacts__text">
+                            <?= $additional_fields['address'] ?>
+                            <?php if (!empty($additional_fields['geo_location']['lat'])) : ?>
+                                <br>
+                                <a target="_blank" href="https://maps.google.com/maps?z=5&t=m&q=loc:<?= $additional_fields['geo_location']['lat'].'+'.$additional_fields['geo_location']['lng'] ?>" class="link link_bold">Get Directions</a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="seller__contacts__subtitle"><?= __('About') ?>:</div>
