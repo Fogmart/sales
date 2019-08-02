@@ -68,108 +68,111 @@ get_header();
                     </div>
                 </div>
 
-                <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
+                <form id="checkout_form_order" action="<?= esc_url(admin_url('admin-ajax.php')) ?>" method="POST">
+                    <?php wp_nonce_field('ss_checkout_form_order'); ?>
+                    <input type="hidden" name="action" value="checkout_form_order">
+                    <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
-                <!-- payments -->
-                <?php $payment_gateways = WC()->payment_gateways->payment_gateways(); ?>
-                <?php foreach ($payment_gateways as $key => $one) : ?>
+                    <!-- payments -->
+                    <?php $payment_gateways = WC()->payment_gateways->payment_gateways(); ?>
+                    <?php foreach ($payment_gateways as $key => $one) : ?>
+                        <div class="checkout__block">
+                            <h3 class="checkout__block__title">
+                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key ?>">
+                                <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
+                            </h3>
+                        </div>
+                    <?php endforeach; ?>
+
                     <div class="checkout__block">
                         <h3 class="checkout__block__title">
-                            <input type="radio" name="payment" id="p_<?= $key ?>">
-                            <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
+                            <input type="radio" name="payment" id="credit-card">
+                            <label for="credit-card" class="radio-label"><?= __('Credit Card') ?></label>
                         </h3>
-                    </div>
-                <?php endforeach; ?>
 
-                <div class="checkout__block">
-                    <h3 class="checkout__block__title">
-                        <input type="radio" name="payment" id="credit-card">
-                        <label for="credit-card" class="radio-label"><?= __('Credit Card') ?></label>
-                    </h3>
+                        <div class="checkout__block__content">
+                            <div class="checkout__form_card">
 
-                    <div class="checkout__block__content">
-                        <form class="checkout__form_card">
-
-                            <h5 class="checkout__form__label"><?= __('Card number') ?>*</h5>
-                            <div class="row aic">
-                                <div class="col-md-9">
-                                    <div class="input-card"><input type="text" class="input" placeholder="<?= __('Card number') ?>" name=""></div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="checkout__form_card__payments">
-                                        <img src="<?= ss_asset('img/icons/visa.svg') ?>" alt="">
-                                        <img src="<?= ss_asset('img/icons/mastercard.svg') ?>" alt="">
-                                        <img src="<?= ss_asset('img/icons/amex.svg') ?>" alt="">
+                                <h5 class="checkout__form__label"><?= __('Card number') ?>*</h5>
+                                <div class="row aic">
+                                    <div class="col-md-9">
+                                        <div class="input-card"><input type="text" class="input" placeholder="<?= __('Card number') ?>" name=""></div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-9">
-
-                                    <div class="checkout__form_card__row">
-                                        <div class="input-block">
-                                            <h5 class="checkout__form__label"><?= __('Name of card') ?>*</h5>
-                                            <input class="input" type="text" placeholder="Name of card"></input>
+                                    <div class="col-md-3">
+                                        <div class="checkout__form_card__payments">
+                                            <img src="<?= ss_asset('img/icons/visa.svg') ?>" alt="">
+                                            <img src="<?= ss_asset('img/icons/mastercard.svg') ?>" alt="">
+                                            <img src="<?= ss_asset('img/icons/amex.svg') ?>" alt="">
                                         </div>
-                                        <div class="input-block">
-                                            <h5 class="checkout__form__label">MM/YY*</h5>
-                                            <input class="input" type="text" pattern="[0-9]{2}/[0-9]{2}" placeholder="MM/YY"></input>
-                                        </div>
-                                        <div class="input-block small">
-                                            <h5 class="checkout__form__label">CVV*</h5>
-                                            <input class="input" type="password" pattern="[0-9]{3}" placeholder="CVV"></input>
+                                    </div>
+
+                                    <div class="col-md-9">
+
+                                        <div class="checkout__form_card__row">
+                                            <div class="input-block">
+                                                <h5 class="checkout__form__label"><?= __('Name of card') ?>*</h5>
+                                                <input class="input" type="text" placeholder="Name of card"></input>
+                                            </div>
+                                            <div class="input-block">
+                                                <h5 class="checkout__form__label">MM/YY*</h5>
+                                                <input class="input" type="text" pattern="[0-9]{2}/[0-9]{2}" placeholder="MM/YY"></input>
+                                            </div>
+                                            <div class="input-block small">
+                                                <h5 class="checkout__form__label">CVV*</h5>
+                                                <input class="input" type="password" pattern="[0-9]{3}" placeholder="CVV"></input>
+                                            </div>
+
                                         </div>
 
                                     </div>
 
                                 </div>
-
                             </div>
-                        </form>
-                    </div>
-
-                </div>
-
-                <!-- end payments -->
-
-                
-
-                <div class="checkout__block">
-                    <h3 class="checkout__block__title"><?= __('Give as a Gift') ?></h3>
-
-                    <div class="checkout__block__content">
-                        <input type="checkbox" id="gift-checkbox">
-                        <label for="gift-checkbox" class="checkbox-label"><?= __('Add Gift message') ?></label>
-                    </div>
-                </div>
-
-                <div class="checkout__block">
-                    <h3 class="checkout__block__title"><?= __('Give as a Gift') ?> <a href="#gift" class="magnific link link_bold"><?= __('Edit cart') ?></a></h3>
-
-                    <div class="checkout__block__content">
-                        <div class="checkout__gift__item">
-                            <span class="left"><?= __('To') ?>: </span>
-                            <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
-                        </div>
-                        <div class="checkout__gift__item">
-                            <span class="left"><?= __('Recipient’s Email') ?>:</span>
-                            <span class="right"><?= $user->user_email ?: 'Email not specified' ?></span>
-                        </div>
-                        <div class="checkout__gift__item">
-                            <span class="left"><?= __('Recipient’s Mobile') ?>:</span>
-                            <span class="right"><?= !empty($additional_fields['phone']) ? $additional_fields['phone'] : 'Phone not specified' ?></span>
-                        </div>
-                        <div class="checkout__gift__item">
-                            <span class="left"><?= __('Yоur message') ?>: </span>
-                            <span class="right"><?= __('Hope you enjoy the gift') ?>!</span>
-                        </div>
-                        <div class="checkout__gift__item">
-                            <span class="left"><?= __('From') ?>:</span>
-                            <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
                         </div>
 
                     </div>
-                </div>
 
+                    <!-- end payments -->
+
+
+
+                    <div class="checkout__block">
+                        <h3 class="checkout__block__title"><?= __('Give as a Gift') ?></h3>
+
+                        <div class="checkout__block__content">
+                            <input type="checkbox" id="gift-checkbox">
+                            <label for="gift-checkbox" class="checkbox-label"><?= __('Add Gift message') ?></label>
+                        </div>
+                    </div>
+
+                    <div class="checkout__block">
+                        <h3 class="checkout__block__title"><?= __('Give as a Gift') ?> <a href="#gift" class="magnific link link_bold"><?= __('Edit cart') ?></a></h3>
+
+                        <div class="checkout__block__content">
+                            <div class="checkout__gift__item">
+                                <span class="left"><?= __('To') ?>: </span>
+                                <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
+                            </div>
+                            <div class="checkout__gift__item">
+                                <span class="left"><?= __('Recipient’s Email') ?>:</span>
+                                <span class="right"><?= $user->user_email ?: 'Email not specified' ?></span>
+                            </div>
+                            <div class="checkout__gift__item">
+                                <span class="left"><?= __('Recipient’s Mobile') ?>:</span>
+                                <span class="right"><?= !empty($additional_fields['phone']) ? $additional_fields['phone'] : 'Phone not specified' ?></span>
+                            </div>
+                            <div class="checkout__gift__item">
+                                <span class="left"><?= __('Yоur message') ?>: </span>
+                                <span class="right"><?= __('Hope you enjoy the gift') ?>!</span>
+                            </div>
+                            <div class="checkout__gift__item">
+                                <span class="left"><?= __('From') ?>:</span>
+                                <span class="right"><?= $user->first_name . ' ' . $user->last_name ?></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-md-3">
                 <div class="cart__sidebar">
@@ -194,7 +197,7 @@ get_header();
                     <div class="cart__sidebar__checkout">
                         <div class="cart__sidebar__privacy"><?= __('By clicking below I accept the current') ?> <a href="<?= get_field('terms_of_use_page') ?>" class="link link_bold"><?= __('Terms of Use') ?></a>
                             <?= __('and') ?> <a href="<?= get_field('privacy_policy_page') ?>" class="link link_bold"><?= __('Privacy Policy') ?>.</a></div>
-                        <button class="button button-1"><?= __('Place Order') ?></button>
+                        <button id="checkout_form_order_submit" class="button button-1"><?= __('Place Order') ?></button>
                         <?php
                         //     $checkout = WC()->checkout();
                         //     $order_id = $checkout->create_order();
@@ -269,4 +272,12 @@ get_header();
         font-size: 15px;
     }
 </style>
+
+<script>
+    $(function () {
+        $('#checkout_form_order_submit').click(function () {
+            $('#checkout_form_order').submit();
+        });
+    });
+</script>
 <?php get_footer(); ?>
