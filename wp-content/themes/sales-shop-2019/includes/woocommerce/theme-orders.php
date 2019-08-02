@@ -1,6 +1,6 @@
 <?php
 
-function ss_get_user_orders($paginate_page = 1, $paginate_count = -1, $status = [])
+function ss_get_user_orders($status = [])
 {
     if (empty($status)) {
         $status = array_keys(wc_get_order_statuses());
@@ -54,6 +54,29 @@ function ss_render_account_customer_coupon($order_item, $show_status){
     
     return $out;
 }
+
+function ss_get_seller_coupons_by_search($search){
+    $founded_coupons = [];
+
+    $args = array(
+        'customer_id' => get_current_user_id(),
+    );
+    $orders = wc_get_orders($args);
+    foreach($orders as $order){
+        $order_id = get_field('order_id', $order->get_id());
+        exit(var_dump($order_id));
+
+        $order_id_found = strpos($order_id, $search);
+
+        // if( !== false){
+        //     $founded_coupons += ss_get_coupons($order);
+        // }
+    }
+
+    return $founded_coupons;
+}
+
+ss_get_seller_coupons_by_search('1');
 
 function edit_formatted_wc_price($return, $price, $args, $unformatted_price)
 {

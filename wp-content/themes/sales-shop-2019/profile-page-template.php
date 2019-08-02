@@ -111,7 +111,7 @@ get_header();
 
                                 <div class="rating__star__item">
                                     <input class="rating__star" type="radio" name="star" id="star2" value="2"
-                                           aria-label="<?= __('Passable') ?>">
+                                           aria-label="<?= __('Possable') ?>">
                                     <label for="star2" class="rating__star__label"></label>
                                 </div>
 
