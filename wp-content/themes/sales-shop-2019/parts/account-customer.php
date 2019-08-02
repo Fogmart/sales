@@ -208,7 +208,7 @@ $orders = ss_get_user_orders();
 
                             <?php
                             $coupons = ss_get_coupons($orders, SS_FREE_COUPON_STATUSES);
-                            ss_render_account_customer_loop($coupons, false);
+                            ss_render_account_customer_loop($coupons, false, 'cpage', $my_coupons_pagination_amount);
                             ?>
 
                         </div>
@@ -218,8 +218,8 @@ $orders = ss_get_user_orders();
                             <h2 class="orders__subtitle"><?= __('My Historical Coupons') ?></h2>
 
                             <?php
-                            $coupons = ss_get_coupons($orders);
-                            ss_render_account_customer_loop($coupons, true);
+                            $coupons = ss_get_coupons($orders);;
+                            ss_render_account_customer_loop($coupons, true, 'hpage', $historical_coupons_pagination_amount);
                             ?>
 
                         </div>

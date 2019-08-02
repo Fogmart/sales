@@ -28,7 +28,6 @@ function ss_get_coupons($orders, $status = [])
 
             $coupon_status = wc_get_order_item_meta($coupon->get_id(), 'coupon_status', true);
 
-            // wc_update_order_item_meta() 
             if (!empty($status) && !in_array($coupon_status, $status)) {
                 continue;
             }
@@ -36,8 +35,6 @@ function ss_get_coupons($orders, $status = [])
             $coupons[] = $coupon;
         }
     }
-
-    // var_dump($coupons);
 
     return $coupons;
 }
