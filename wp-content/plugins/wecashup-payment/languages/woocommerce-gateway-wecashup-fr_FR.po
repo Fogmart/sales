@@ -1,0 +1,463 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-11-29 19:35+0530\n"
+"PO-Revision-Date: 2019-01-08 20:43+0530\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"Last-Translator: \n"
+"Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: WeCashUp.php:418 WeCashUp.php:428
+msgid ""
+"<strong>Woocommerce WeCashUp Payment gateway</strong> plugin requires the <a "
+"href=\"http://wordpress.org/extend/plugins/woocommerce\" target=\"_blank"
+"\">Woocommerce</a> plugin to be activated."
+msgstr ""
+"Le plug-in de la passerelle de paiement WeCashUp Payment de <a href=\"http://"
+"wordpress.org/extend/plugins/woocommerce\" target=\"_blank\">Woocommerce</"
+"a>nécessite l'activation de ce plug-in. "
+
+#: WeCashUp.php:436
+msgid "WooCommerce WeCashUp - cURL is not installed."
+msgstr "WooCommerce WeCashUp - cURL n'est pas installé."
+
+#: WeCashUp.php:466
+msgid "Settings"
+msgstr "Réglages"
+
+#: includes/class-wc-gateway-wecashup.php:13
+msgid "WeCashUp"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:15
+msgid ""
+"Pay by WeCashUp: You can use your Mobile Money account to pay your order."
+msgstr ""
+"Payer via WeCashUp: Vous pouvez utiliser un compte Mobile Money pour payer "
+"votre commande."
+
+#: includes/class-wc-gateway-wecashup.php:44
+msgid "Enable/Disable"
+msgstr "Activer / désactiver"
+
+#: includes/class-wc-gateway-wecashup.php:45
+msgid "Enable WeCashUp"
+msgstr "Activer WeCashUp"
+
+#: includes/class-wc-gateway-wecashup.php:47
+msgid ""
+"This controls whether or not this gateway is enabled within WooCommerce."
+msgstr "Ceci contrôle si cette passerelle est activée ou non dans WooCommerce"
+
+#: includes/class-wc-gateway-wecashup.php:52
+msgid "Title"
+msgstr "Titre"
+
+#: includes/class-wc-gateway-wecashup.php:54
+msgid "This controls the title which the user sees during checkout."
+msgstr "Ceci contrôle le titre que l'utilisateur voit lors du paiement"
+
+#: includes/class-wc-gateway-wecashup.php:55
+msgid "Pay with Mobile Money"
+msgstr "Payer avec de l'argent mobile"
+
+#: includes/class-wc-gateway-wecashup.php:59
+msgid "Description"
+msgstr "La description"
+
+#: includes/class-wc-gateway-wecashup.php:61
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:66
+msgid "Merchant UID"
+msgstr "UID du marchand"
+
+#: includes/class-wc-gateway-wecashup.php:68
+msgid "This is the merchant UID, received from WeCashUp."
+msgstr "Il s'agit de l'UID du commerçant, reçu de WeCashUp"
+
+#: includes/class-wc-gateway-wecashup.php:72
+msgid "Merchant Public Key"
+msgstr "Clé publique du marchand"
+
+#: includes/class-wc-gateway-wecashup.php:74
+msgid "This is the merchant key, received from WeCashUp."
+msgstr "C’est la clé du commerçant, reçue de WeCashUp."
+
+#: includes/class-wc-gateway-wecashup.php:78
+msgid "Merchant Secret Key"
+msgstr "Clé secrète du marchand"
+
+#: includes/class-wc-gateway-wecashup.php:80
+msgid "This is the merchant secret key from WeCashUp."
+msgstr "C'est la clé secrète du commerçant de WeCashUp"
+
+#: includes/class-wc-gateway-wecashup.php:84
+msgid "Merchant Currency"
+msgstr "Monnaie Marchand"
+
+#: includes/class-wc-gateway-wecashup.php:86
+msgid ""
+"Setup currency for mobile banking. Leave blank to use woocommerce default "
+"currency"
+msgstr ""
+"Configuration de la devise pour les services bancaires mobiles. Laissez le "
+"champ vide pour utiliser le paramètre woocommerce par défaut devise"
+
+#: includes/class-wc-gateway-wecashup.php:89
+msgid "Select Merchant Currency"
+msgstr "Sélectionner la devise du commerçant"
+
+#: includes/class-wc-gateway-wecashup.php:90
+msgid "Kwanza"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:91
+msgid "Burundi Franc"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:92
+msgid "Pula"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:93
+msgid "Franc Congolais"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:94
+msgid "Cape Verde Escudo"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:95
+msgid "Djibouti Franc"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:96
+msgid "Algerian Dinar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:97
+msgid "Egyptian Pound"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:98
+msgid "Nakfa"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:99
+msgid "Ethiopian Birr"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:100
+msgid "Ghanaian Cedi"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:101
+msgid "Dalasi"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:102
+msgid "Guinea Franc"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:103
+msgid "Kenyan Shilling"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:104
+msgid "Comoro Franc"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:105
+msgid "Liberian Dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:106
+msgid "Loti"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:107
+msgid "Lybian Dinar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:108
+msgid "Moroccan Dirham"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:109
+msgid "Malagasy Ariary"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:110
+msgid "Ouguiya"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:111
+msgid "Mauritius Rupee"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:112
+msgid "Kwacha"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:113
+msgid "Mozambican Metical"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:114
+#: includes/class-wc-gateway-wecashup.php:131
+msgid "Rand Namibia Dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:115
+msgid "Naira"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:116
+msgid "Norwegian Krone"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:117
+msgid "Rwanda Franc"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:118
+msgid "Seychelles Rupee"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:119
+msgid "Sudanese Dinar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:120
+msgid "Saint Helena Pound"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:121
+msgid "Leone"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:122
+msgid "Somali Shilling"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:123
+msgid "South Sudanese pound"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:124
+msgid "Sao Tomean Dobra"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:125
+msgid "Lilangeni"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:126
+msgid "Tunisian Dinar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:127
+msgid "Tanzanian Shilling"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:128
+msgid "Uganda Shilling"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:129
+msgid "CFA Franc BEAC"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:130
+msgid "CFA Franc BCEAO"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:132
+msgid "Zambian Kwacha"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:133
+msgid "Zimbabwean dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:134
+msgid "Euro"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:135
+msgid "Pound Sterling"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:136
+msgid "Leu"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:137
+msgid "Albania"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:138
+msgid "Indian Rupee"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:139
+msgid "Philippine Peso"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:140
+msgid "Argentine Peso"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:141
+msgid "Boliviano"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:142
+msgid "Brazilian Real"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:143
+msgid "Chilean Peso"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:144
+msgid "Colombian Peso"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:145
+msgid "Cuban Convertible Peso"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:146
+msgid "Quetzal"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:147
+msgid "Nuevo Sol"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:148
+msgid "Guarani"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:149
+msgid "Surinamese Dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:150
+msgid "Peso Uruguayo"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:151
+msgid "Venezuelan Bolívar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:152
+msgid "Mexican Peso Mexican Unidad de Inversion (UDI)"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:153
+msgid "Cordoba Oro"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:154
+msgid "Canadian Dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:155
+msgid "US Dollar"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:160
+msgid "Payment methods"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:165
+msgid "Enable Cash Payment method"
+msgstr "Activer le mode de paiement en espèces"
+
+#: includes/class-wc-gateway-wecashup.php:167
+#: includes/class-wc-gateway-wecashup.php:177
+#: includes/class-wc-gateway-wecashup.php:187
+msgid "Select true/false to enable this method."
+msgstr "Sélectionnez vrai / faux pour activer cette méthode."
+
+#: includes/class-wc-gateway-wecashup.php:170
+#: includes/class-wc-gateway-wecashup.php:180
+#: includes/class-wc-gateway-wecashup.php:190
+#: includes/class-wc-gateway-wecashup.php:200
+msgid "True"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:171
+#: includes/class-wc-gateway-wecashup.php:181
+#: includes/class-wc-gateway-wecashup.php:191
+#: includes/class-wc-gateway-wecashup.php:201
+msgid "False"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:175
+msgid "Enable Telecom Payment method"
+msgstr "Activer le mode de paiement Telecom"
+
+#: includes/class-wc-gateway-wecashup.php:185
+msgid "Enable  M-wallet Payment method"
+msgstr "Activer le mode de paiement M-wallet"
+
+#: includes/class-wc-gateway-wecashup.php:195
+msgid "Split payment"
+msgstr "Payer en plusieurs fois"
+
+#: includes/class-wc-gateway-wecashup.php:197
+msgid "Select true/false to enable this feature."
+msgstr "Sélectionnez vrai / faux pour activer cette fonctionnalité"
+
+#: includes/class-wc-gateway-wecashup.php:205
+msgid "Payment box design options"
+msgstr "Options de création de boîtes de paiement"
+
+#: includes/class-wc-gateway-wecashup.php:210
+msgid "Payment Box name"
+msgstr "Nom du champ de paiement"
+
+#: includes/class-wc-gateway-wecashup.php:212
+msgid "This is heading used to display in payment box."
+msgstr "Ceci est l'en-tête utilisé pour afficher dans la case de paiement"
+
+#: includes/class-wc-gateway-wecashup.php:216
+msgid "Payment Box Language"
+msgstr "Langue du boîtier de paiement"
+
+#: includes/class-wc-gateway-wecashup.php:218
+msgid "Select language for payment box"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:221
+msgid "English"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:222
+msgid "French"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:223
+msgid "Automatic"
+msgstr ""
+
+#: includes/class-wc-gateway-wecashup.php:227
+msgid "Payment Box logo url"
+msgstr "URL du champ de paiement"
+
+#: includes/class-wc-gateway-wecashup.php:229
+msgid "Logo use in payment box."
+msgstr ""

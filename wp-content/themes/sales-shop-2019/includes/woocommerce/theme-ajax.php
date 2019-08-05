@@ -106,20 +106,24 @@ if (wp_doing_ajax()) {
         $payment = filter_input(INPUT_POST, 'payment');
 
         $arg = [
-            'payment_method' => $payment
+            'payment_method' => $payment,
+            'status' => 'wc-pending'
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
             WC()->cart->empty_cart();
+            $order = wc_get_order($order_id);
 
             if (in_array('sold', SS_FREE_COUPON_STATUSES)) {
-                $order = wc_get_order($order_id);
                 foreach ($order->get_items() as $coupon) {
                     $coupon->add_meta_data('coupon_status', 'sold', false);
                     $coupon->save();
                 }
             }
 
+            $pay_now_url = $order->get_checkout_payment_url();
+            wp_safe_redirect($pay_now_url);
+            exit;
             //ss_return_home(); redirect on Thank You Page
         }
 
