@@ -1,0 +1,6 @@
+received_transaction_merchant_secret : ImCjUPpUdPdsh7iw
+received_transaction_uid : 6310044439122858554
+received_transaction_token : a5d6eb2242c4cdcb41a1c7baf29e1371bd172d36
+received_transaction_details : MTN
+received_transaction_status : PAID
+received_transaction_type : payment
