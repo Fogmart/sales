@@ -74,8 +74,19 @@ get_header();
                     <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
                     <!-- payments -->
-                    <?php $payment_gateways = WC()->payment_gateways->payment_gateways(); ?>
-                    <?php foreach ($payment_gateways as $key => $one) : ?>
+                    <?php
+                    $gateways = WC()->payment_gateways->get_available_payment_gateways();
+                    $enabled_gateways = [];
+
+                    if ($gateways) {
+                        foreach ($gateways as $gateway) {
+
+                            if ($gateway->enabled == 'yes') {
+                                $enabled_gateways[] = $gateway;
+                            }
+                        }
+                    } ?>
+                    <?php foreach ($enabled_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
                                 <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key ?>">
@@ -274,8 +285,8 @@ get_header();
 </style>
 
 <script>
-    $(function () {
-        $('#checkout_form_order_submit').click(function () {
+    $(function() {
+        $('#checkout_form_order_submit').click(function() {
             $('#checkout_form_order').submit();
         });
     });

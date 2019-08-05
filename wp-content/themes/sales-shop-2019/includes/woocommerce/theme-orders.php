@@ -55,28 +55,46 @@ function ss_render_account_customer_coupon($order_item, $show_status){
     return $out;
 }
 
-function ss_get_seller_coupons_by_search($search){
+function ss_get_seller_coupons($search = null){
+    global $wpdb;
+
     $founded_coupons = [];
+    
+    $select = "SELECT * FROM {$wpdb->prefix}woocommerce_order_items";
+    
+    $all_coupons = $wpdb->get_results($select);
 
-    $args = array(
-        'customer_id' => get_current_user_id(),
-    );
-    $orders = wc_get_orders($args);
-    foreach($orders as $order){
-        $order_id = get_field('order_id', $order->get_id());
-        exit(var_dump($order_id));
+    exit(var_dump($all_coupons));
+    foreach($all_coupons as $coupon_row){
+        $found = false;
 
-        $order_id_found = strpos($order_id, $search);
+        $coupon_number = wc_get_order_item_meta($coupon_row->order_item_id, 'coupon_number', true);
+        $order_customer = get_post_meta( $coupon_row->order_id, '_customer_user', true );
 
-        // if( !== false){
-        //     $founded_coupons += ss_get_coupons($order);
-        // }
+        $search_in = array(
+            $coupon_number,
+            $order_customer
+        );
+
+        foreach($search_in as $value){
+            $found = strpos($value, $search) !== false;
+
+            if($found){
+                break;
+            }
+        }
+
+        if($found || $search === null){
+            $coupon_data = array(
+                'order_item_id' => $coupon_row->order_item_id,
+                'coupon_number' => $coupon_number,
+            );
+            $founded_coupons[$coupon_row->order_id] = $coupon_data;
+        }
     }
-
     return $founded_coupons;
 }
-
-ss_get_seller_coupons_by_search('1');
+// ss_get_seller_coupons();
 
 function edit_formatted_wc_price($return, $price, $args, $unformatted_price)
 {

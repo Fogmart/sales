@@ -94,7 +94,6 @@ if (wp_doing_ajax()) {
         wp_die('ok');
     }
 
-    add_action('wp_ajax_nopriv_checkout_form_order', 'ss_checkout_form_order_handler');
     add_action('wp_ajax_checkout_form_order', 'ss_checkout_form_order_handler');
 
     function ss_checkout_form_order_handler()
@@ -116,6 +115,8 @@ if (wp_doing_ajax()) {
                 $order = wc_get_order($order_id);
                 foreach ($order->get_items() as $coupon) {
                     $coupon->add_meta_data('coupon_status', 'sold', false);
+                    $coupon->add_meta_data('coupon_number', genCouponUniqId($order_id), false);
+                    $coupon->add_meta_data('coupon_number', genCouponUniqId($order_id), false);
                     $coupon->save();
                 }
             }
@@ -124,5 +125,18 @@ if (wp_doing_ajax()) {
         }
 
         ss_return_back();
+    }
+
+    function genCouponUniqId($order_id, $maxLen = 8) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@&$#';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+    
+        for ($i = 0; $i < $maxLen; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+    
+        $generated = substr(sha1($order_id . $randomString), 0, $maxLen);
+        return $generated;
     }
 }
