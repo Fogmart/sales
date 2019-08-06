@@ -159,4 +159,25 @@ if (wp_doing_ajax()) {
         $generated = substr(sha1($order_id . $randomString), 0, $maxLen);
         return $generated;
     }
+
+    add_action('wp_ajax_send_coupon_form', 'ss_send_coupon_form_handler');
+
+    function ss_send_coupon_form_handler()
+    {
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'ss_send_coupon_form')) {
+            exit(wp_generate_uuid4());
+        }
+
+        $type = filter_input(INPUT_POST, 'type');
+        $coupon = filter_input(INPUT_POST, 'coupon', FILTER_SANITIZE_NUMBER_INT);
+
+
+        if ($type == 'phone') {
+            $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_NUMBER_INT);
+        } else {
+            $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_EMAIL);
+        }
+
+        wp_die('ok');
+    }
 }

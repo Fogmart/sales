@@ -131,14 +131,14 @@ get_header();
                                             <input type="tel" class="input input-phone__input" id="input-phone-<?= $key ?>">
                                         </div>
                                     </div>
-                                    <button class="checkout-success__receive__button button button-1"><?= __('Send me the coupon as SMS') ?></button>
+                                    <button data-id="input-phone-<?= $key ?>" data-coupon="<?= $key ?>" data-type="phone" class="ss_send_button checkout-success__receive__button button button-1"><?= __('Send me the coupon as SMS') ?></button>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="checkout-success__receive__title"><?= __('Want to receive the coupon in E-MAIL?') ?></div>
                                     <div class="checkout-success__receive__input">
-                                        <input type="email" class="input" placeholder="<?= __('Your e-mail') ?>">
+                                        <input type="email" id="input-email-<?= $key ?>" class="input" placeholder="<?= __('Your e-mail') ?>">
                                     </div>
-                                    <button class="checkout-success__receive__button send button button-1"><img src="<?= ss_asset('img/icons/sucess-send.svg') ?>" alt=""> <?= __('Coupon sent successfully to your e-mail') ?></button>
+                                    <button data-id="input-email-<?= $key ?>" data-coupon="<?= $key ?>" data-type="email" class="ss_send_button checkout-success__receive__button send button button-1"><img src="<?= ss_asset('img/icons/sucess-send.svg') ?>" alt=""> <?= __('Coupon sent successfully to your e-mail') ?></button>
                                 </div>
 
                             </div>
@@ -181,5 +181,28 @@ get_header();
     </div>
 
 </div>
+
+<script>
+    $(function () {
+        $('.ss_send_button').click(function () {
+            let send_data = {
+                'action': 'send_coupon_form',
+                '_wpnonce': '<?= wp_create_nonce('ss_send_coupon_form') ?>',
+                'type': $(this).attr('data-type'),
+                'coupon': $(this).attr('data-coupon'),
+                'to': $('#' + $(this).attr('data-id')).val()
+            };
+
+            if (send_data['to'].length > 0) {
+                let self = this;
+                $.post('<?= esc_url(admin_url('admin-ajax.php')) ?>', send_data, function (data) {
+                    if (data == 'ok') {
+                        $(self).attr('disabled', 'disabled');
+                    }
+                });
+            }
+        })
+    });
+</script>
 
 <?php get_footer(); ?>
