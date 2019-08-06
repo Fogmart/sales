@@ -102,11 +102,20 @@ if (wp_doing_ajax()) {
             exit(wp_generate_uuid4());
         }
 
-        $payment = filter_input(INPUT_POST, 'payment');
+        $payment = explode('::', filter_input(INPUT_POST, 'payment'));
+
+        if (empty($payment[1]) || !is_array($payment)) {
+            ss_return_back();
+        }
+
+        $user = ss_get_user();
 
         $arg = [
-            'payment_method' => $payment,
-            'status' => 'wc-pending'
+            'payment_method' => $payment[0],
+            'payment_method_title' => $payment[1],
+            'billing_first_name' => $user->first_name,
+            'billing_last_name' => $user->last_name,
+            'billing_phone' => get_field('mobile', 'user_' . $user->ID),
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
@@ -132,8 +141,20 @@ if (wp_doing_ajax()) {
                 wp_redirect($result['redirect']);
                 exit;
             }
+
             //test
 
+            // if ( null === WC()->session ) {
+            //     $session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+            //     WC()->session = new $session_class();
+            //     WC()->session->init();
+            // }
+
+            // WC()->session->set('order_id', $order_id);
+
+            // $pay_now_url = $order->get_checkout_payment_url();
+            // wp_safe_redirect('/checkout/thankyou');
+            // exit;
             //ss_return_home(); redirect on Thank You Page
         }
 
@@ -151,5 +172,26 @@ if (wp_doing_ajax()) {
     
         $generated = substr(sha1($order_id . $randomString), 0, $maxLen);
         return $generated;
+    }
+
+    add_action('wp_ajax_send_coupon_form', 'ss_send_coupon_form_handler');
+
+    function ss_send_coupon_form_handler()
+    {
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'ss_send_coupon_form')) {
+            exit(wp_generate_uuid4());
+        }
+
+        $type = filter_input(INPUT_POST, 'type');
+        $coupon = filter_input(INPUT_POST, 'coupon', FILTER_SANITIZE_NUMBER_INT);
+
+
+        if ($type == 'phone') {
+            $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_NUMBER_INT);
+        } else {
+            $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_EMAIL);
+        }
+
+        wp_die('ok');
     }
 }

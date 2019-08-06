@@ -78,7 +78,7 @@ get_header();
                     <?php foreach ($payment_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
-                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key ?>">
+                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>">
                                 <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
                             </h3>
                         </div>
