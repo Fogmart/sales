@@ -132,6 +132,7 @@ if (wp_doing_ajax()) {
 
             //test
             WC()->session->order_awaiting_payment = $order->id;
+            WC()->session->set('order_id', $order_id);
 
             // Process Payment
             $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
@@ -141,21 +142,6 @@ if (wp_doing_ajax()) {
                 wp_redirect($result['redirect']);
                 exit;
             }
-
-            //test
-
-            // if ( null === WC()->session ) {
-            //     $session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
-            //     WC()->session = new $session_class();
-            //     WC()->session->init();
-            // }
-
-            // WC()->session->set('order_id', $order_id);
-
-            // $pay_now_url = $order->get_checkout_payment_url();
-            // wp_safe_redirect('/checkout/thankyou');
-            // exit;
-            //ss_return_home(); redirect on Thank You Page
         }
 
         ss_return_back();
@@ -182,16 +168,32 @@ if (wp_doing_ajax()) {
             exit(wp_generate_uuid4());
         }
 
+        $out = array(
+            'message' => 'Error was occured',
+        );
+
         $type = filter_input(INPUT_POST, 'type');
         $coupon = filter_input(INPUT_POST, 'coupon', FILTER_SANITIZE_NUMBER_INT);
 
 
         if ($type == 'phone') {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_NUMBER_INT);
+
+            //some part
+
+            $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
+                . __('Coupon sent successfully to your phone');
+            wp_send_json_success($out);
         } else {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_EMAIL);
+
+            //some part
+            
+            $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
+                . __('Coupon sent successfully to your e-mail');
+            wp_send_json_success($out);
         }
 
-        wp_die('ok');
+        wp_send_json_error($out);
     }
 }

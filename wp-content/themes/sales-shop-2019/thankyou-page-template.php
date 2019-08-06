@@ -80,11 +80,13 @@ get_header();
 
                 <?php foreach ($order->get_items() as $key => $coupon) : ?>
                     <?php
-                    $seller = get_field('seller', $coupon->get_data()['product_id']);
-                    $coupon_validity = get_field('coupon_validity', $coupon->get_data()['product_id']);
+                    $coupon_data = $coupon->get_data();
+
+                    $seller = get_field('seller', $coupon_data['product_id']);
+                    $coupon_validity = get_field('coupon_validity', $$coupon_data['product_id']);
                     $coupon_validity = !empty($coupon_validity) && $coupon_validity > 0 ? $coupon_validity : $ss_theme_option['coupon-validity'];
                     $order_date = clone ($order->get_date_completed() ?? $order->get_date_created());
-                    $expiration_date = $order_date->add(new DateInterval('P'.$coupon_validity.'D'))->date_i18n('F j, Y');
+                    $expiration_date = $order_date->add(new DateInterval('P' . $coupon_validity . 'D'))->date_i18n('F j, Y');
                     ?>
                     <div class="checkout-success__block">
                         <div class="row">
@@ -94,7 +96,7 @@ get_header();
                                     <div class="order-page__item__value">
                                         <ul>
                                             <li>
-                                                <a href="#!" class="link link_bold"><?= $coupon->get_name() ?></a>
+                                                <a href="<?= get_permalink($coupon->get_product_id()) ?>" class="link link_bold"><?= $coupon->get_name() ?></a>
                                                 <span class="order-page__item__quantity">X<?= $coupon->get_quantity() ?></span>
                                             </li>
                                         </ul>
@@ -116,7 +118,7 @@ get_header();
                             <div class="col-sm-3">
                                 <div class="order-page__item">
                                     <div class="order-page__item__title"><?= __('Subotal') ?>:</div>
-                                    <div class="order-page__item__value"><?= $coupon->get_data()['total'] ?></div>
+                                    <div class="order-page__item__value"><?= $coupon_data['total'] ?></div>
                                 </div>
                             </div>
                         </div>
@@ -131,14 +133,18 @@ get_header();
                                             <input type="tel" class="input input-phone__input" id="input-phone-<?= $key ?>">
                                         </div>
                                     </div>
-                                    <button data-id="input-phone-<?= $key ?>" data-coupon="<?= $key ?>" data-type="phone" class="ss_send_button checkout-success__receive__button button button-1"><?= __('Send me the coupon as SMS') ?></button>
+                                    <button data-id="input-phone-<?= $key ?>" data-coupon="<?= $coupon_data['coupon_number'] ?>" data-type="phone" class="ss_send_button checkout-success__receive__button button button-1">
+                                        <span class="msg"><?= __('Send me the coupon as SMS') ?></span>
+                                    </button>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="checkout-success__receive__title"><?= __('Want to receive the coupon in E-MAIL?') ?></div>
                                     <div class="checkout-success__receive__input">
                                         <input type="email" id="input-email-<?= $key ?>" class="input" placeholder="<?= __('Your e-mail') ?>">
                                     </div>
-                                    <button data-id="input-email-<?= $key ?>" data-coupon="<?= $key ?>" data-type="email" class="ss_send_button checkout-success__receive__button send button button-1"><img src="<?= ss_asset('img/icons/sucess-send.svg') ?>" alt=""> <?= __('Coupon sent successfully to your e-mail') ?></button>
+                                    <button data-id="input-email-<?= $key ?>" data-coupon="<?= $coupon_data['coupon_number'] ?>" data-type="email" class="ss_send_button checkout-success__receive__button button button-1">
+                                        <span class="msg"><?= __('Send me the coupon as Email') ?></span>
+                                    </button>
                                 </div>
 
                             </div>
@@ -183,8 +189,10 @@ get_header();
 </div>
 
 <script>
-    $(function () {
-        $('.ss_send_button').click(function () {
+    $(function() {
+        $('.ss_send_button').click(function() {
+            var button_send = $(this);
+
             let send_data = {
                 'action': 'send_coupon_form',
                 '_wpnonce': '<?= wp_create_nonce('ss_send_coupon_form') ?>',
@@ -194,12 +202,14 @@ get_header();
             };
 
             if (send_data['to'].length > 0) {
-                let self = this;
-                $.post('<?= esc_url(admin_url('admin-ajax.php')) ?>', send_data, function (data) {
-                    if (data == 'ok') {
-                        $(self).attr('disabled', 'disabled');
-                    }
-                });
+                $.post('<?= esc_url(admin_url('admin-ajax.php')) ?>', send_data)
+                    .done(function(response) {
+                        var data = response.data;
+
+                        button_send.addClass('send');
+                        button_send.find('.msg').html(data.message);
+                        button_send.attr('disabled', 'disabled');
+                    });
             }
         })
     });
