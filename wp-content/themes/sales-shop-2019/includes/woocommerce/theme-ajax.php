@@ -102,11 +102,20 @@ if (wp_doing_ajax()) {
             exit(wp_generate_uuid4());
         }
 
-        $payment = filter_input(INPUT_POST, 'payment');
+        $payment = explode('::', filter_input(INPUT_POST, 'payment'));
+
+        if (empty($payment[1]) || !is_array($payment)) {
+            ss_return_back();
+        }
+
+        $user = ss_get_user();
 
         $arg = [
-            'payment_method' => $payment,
-            'status' => 'wc-pending'
+            'payment_method' => $payment[0],
+            'payment_method_title' => $payment[1],
+            'billing_first_name' => $user->first_name,
+            'billing_last_name' => $user->last_name,
+            'billing_phone' => get_field('mobile', 'user_' . $user->ID),
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
@@ -121,8 +130,16 @@ if (wp_doing_ajax()) {
                 }
             }
 
+            if ( null === WC()->session ) {
+                $session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+                WC()->session = new $session_class();
+                WC()->session->init();
+            }
+
+            WC()->session->set('order_id', $order_id);
+
             $pay_now_url = $order->get_checkout_payment_url();
-            wp_safe_redirect($pay_now_url);
+            wp_safe_redirect('/checkout/thankyou');
             exit;
             //ss_return_home(); redirect on Thank You Page
         }

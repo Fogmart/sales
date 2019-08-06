@@ -54,6 +54,7 @@ if (!is_admin()) {
         //'woocommerce_variation_prices_regular_price',
         'woocommerce_cart_get_subtotal',
         'woocommerce_cart_get_total',
+        'woocommerce_order_get_total'
     ];
 
     foreach ($simple_price_change_hooks as $one) {

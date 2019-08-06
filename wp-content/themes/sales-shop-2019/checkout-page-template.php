@@ -79,17 +79,17 @@ get_header();
                     $enabled_gateways = [];
 
                     if ($gateways) {
-                        foreach ($gateways as $gateway) {
+                        foreach ($gateways as $key => $gateway) {
 
                             if ($gateway->enabled == 'yes') {
-                                $enabled_gateways[] = $gateway;
+                                $enabled_gateways[$key] = $gateway;
                             }
                         }
                     } ?>
                     <?php foreach ($enabled_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
-                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key ?>">
+                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>">
                                 <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
                             </h3>
                         </div>
