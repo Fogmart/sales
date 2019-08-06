@@ -73,6 +73,7 @@ require_once(SS_WOOCOMMERCE . '/theme-orders.php');
 require_once(SS_WOOCOMMERCE . '/price-change-rates.php'); //change price due to exchange rates
 require_once(SS_WOOCOMMERCE . '/theme-filters.php');
 require_once(SS_WOOCOMMERCE . '/theme-coupons.php');
+require_once(SS_WOOCOMMERCE . '/orange-payment/orange-payment.php');
 
 //Fix variable product template prices errors
 ss_variable_simulate_regular();

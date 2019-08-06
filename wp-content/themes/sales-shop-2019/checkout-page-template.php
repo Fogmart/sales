@@ -12,9 +12,10 @@ if (empty($items)) {
 
 $additional_fields = get_fields('user_' . $user->ID);
 
+$payment_gateways = WC()->payment_gateways->get_available_payment_gateways();
+
 get_header();
 ?>
-
 <div class="checkout page">
 
     <div class="container">
@@ -74,19 +75,7 @@ get_header();
                     <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
                     <!-- payments -->
-                    <?php
-                    $gateways = WC()->payment_gateways->get_available_payment_gateways();
-                    $enabled_gateways = [];
-
-                    if ($gateways) {
-                        foreach ($gateways as $gateway) {
-
-                            if ($gateway->enabled == 'yes') {
-                                $enabled_gateways[] = $gateway;
-                            }
-                        }
-                    } ?>
-                    <?php foreach ($enabled_gateways as $key => $one) : ?>
+                    <?php foreach ($payment_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
                                 <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key ?>">
@@ -291,4 +280,5 @@ get_header();
         });
     });
 </script>
-<?php get_footer(); ?>
+<?php
+get_footer(); 
