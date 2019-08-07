@@ -83,7 +83,7 @@ get_header();
                     $coupon_data = $coupon->get_data();
 
                     $seller = get_field('seller', $coupon_data['product_id']);
-                    $coupon_validity = get_field('coupon_validity', $$coupon_data['product_id']);
+                    $coupon_validity = get_field('coupon_validity', $coupon_data['product_id']);
                     $coupon_validity = !empty($coupon_validity) && $coupon_validity > 0 ? $coupon_validity : $ss_theme_option['coupon-validity'];
                     $order_date = clone ($order->get_date_completed() ?? $order->get_date_created());
                     $expiration_date = $order_date->add(new DateInterval('P' . $coupon_validity . 'D'))->date_i18n('F j, Y');
@@ -191,7 +191,7 @@ get_header();
 <script>
     $(function() {
         $('.ss_send_button').click(function() {
-            var button_send = $(this);
+            let button_send = $(this);
 
             let send_data = {
                 'action': 'send_coupon_form',
@@ -204,11 +204,13 @@ get_header();
             if (send_data['to'].length > 0) {
                 $.post('<?= esc_url(admin_url('admin-ajax.php')) ?>', send_data)
                     .done(function(response) {
-                        var data = response.data;
+                        let data = response.data;
 
-                        button_send.addClass('send');
                         button_send.find('.msg').html(data.message);
-                        button_send.attr('disabled', 'disabled');
+                        if (response.success) {
+                            button_send.addClass('send');
+                            button_send.attr('disabled', 'disabled');
+                        }
                     });
             }
         })
