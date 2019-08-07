@@ -101,15 +101,15 @@ function orange_init_gateway_class()
 
             $opt = [
                 "merchant_key" => $this->get_option('merchant_key'),
-                "currency" => "GNF",
-                "order_id" => $order_id,
-                "amount" => $order_amount,
+                "currency" => 'OUV', //"GNF",
+                "order_id" => $order_id.'a',
+                "amount" => round($order_amount),
                 "return_url" => $this->get_return_url($order),
                 "cancel_url" => $this->get_return_url($order),
                 "notif_url" => $this->get_return_url($order),
                 "lang" => "en"
             ];
-            putenv('AUTH_HEADER=NHROR3Ywek5Kak13Z3hpUXpxZlk2T2daR0h0MHBaSDM6Z0FDRFl3YTFkemNMSUdwbg==');
+            putenv('AUTH_HEADER=' . $this->get_option('auth_header'));
             putenv('MERCHANT_KEY=' . $opt['merchant_key']);
             putenv('RETURN_URL=' . $opt['return_url']);
             putenv('CANCEL_URL=' . $opt['cancel_url']);
@@ -123,10 +123,11 @@ function orange_init_gateway_class()
             $pay_token = $rep['pay_token'] ?? null;
 
             if ($pay_token) {
-                $rep = $om->checkTransactionStatus($order_id, $order_amount, $pay_token);
-                switch ($rep['status']) {
+                $rep2 = $om->checkTransactionStatus($order_id.'a', round($order_amount), $pay_token);
+                switch ($rep2['status']) {
                     case "INITIATED":
-
+                        wp_redirect($rep['payment_url']);
+                        exit;
                         break;
                     case "PENDING":
 
@@ -137,7 +138,7 @@ function orange_init_gateway_class()
                     case "SUCCESS":
                         // we received the payment
                         $order->payment_complete();
-                        wc_reduce_stock_levels($order->get_id());
+                        wc_reduce_stock_levels($order);
                         // Empty cart
                         $woocommerce->cart->empty_cart();
                         break;
