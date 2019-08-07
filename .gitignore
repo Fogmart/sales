@@ -6,3 +6,4 @@ wp-content/uploads
 composer.lock
 wp-config.php
 wp-content/cache
+wp-content/themes/sales-shop-2019/vendor

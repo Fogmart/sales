@@ -99,7 +99,6 @@ function orange_init_gateway_class()
             $order = wc_get_order($order_id);
             $order_amount = $order->get_total();
 
-            $om = new OmSdk();
             $opt = [
                 "merchant_key" => $this->get_option('merchant_key'),
                 "currency" => "GNF",
@@ -110,9 +109,15 @@ function orange_init_gateway_class()
                 "notif_url" => $this->get_return_url($order),
                 "lang" => "en"
             ];
+            putenv('AUTH_HEADER=NHROR3Ywek5Kak13Z3hpUXpxZlk2T2daR0h0MHBaSDM6Z0FDRFl3YTFkemNMSUdwbg==');
+            putenv('MERCHANT_KEY=' . $opt['merchant_key']);
+            putenv('RETURN_URL=' . $opt['return_url']);
+            putenv('CANCEL_URL=' . $opt['cancel_url']);
+            putenv('NOTIF_URL=' . $opt['notif_url']);
 
             // header('WWW-Authenticate:  Basic NHROR3Ywek5Kak13Z3hpUXpxZlk2T2daR0h0MHBaSDM6Z0FDRFl3YTFkemNMSUdwbg==');
 
+            $om = new OmSdk();
             $rep = $om->webPayment($opt);
 
             $pay_token = $rep['pay_token'] ?? null;
@@ -132,7 +137,7 @@ function orange_init_gateway_class()
                     case "SUCCESS":
                         // we received the payment
                         $order->payment_complete();
-                        $order->reduce_order_stock();
+                        wc_reduce_stock_levels($order->get_id());
                         // Empty cart
                         $woocommerce->cart->empty_cart();
                         break;
