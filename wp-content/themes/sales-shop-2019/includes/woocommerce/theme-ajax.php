@@ -176,19 +176,32 @@ if (wp_doing_ajax()) {
         $type = filter_input(INPUT_POST, 'type');
         $coupon = filter_input(INPUT_POST, 'coupon', FILTER_SANITIZE_NUMBER_INT);
 
+        if (empty($coupon)) {
+            wp_send_json_error($out);
+        }
 
         if ($type == 'phone') {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_NUMBER_INT);
+
+            if (empty($to)) {
+                wp_send_json_error($out);
+            }
 
             //some part
 
             $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
                 . __('Coupon sent successfully to your phone');
             wp_send_json_success($out);
-        } else {
+        } else if ($type == 'email') {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_EMAIL);
 
-            //some part
+            if (empty($to)) {
+                wp_send_json_error($out);
+            }
+
+            $message = __('Your coupon number: ' . $coupon);
+
+            wp_mail($to, __('Coupon number'), $message);
             
             $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
                 . __('Coupon sent successfully to your e-mail');
