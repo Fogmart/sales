@@ -119,7 +119,7 @@ if (wp_doing_ajax()) {
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
-            // WC()->cart->empty_cart();
+            
             $order = wc_get_order($order_id);
 
             if (in_array('sold', SS_FREE_COUPON_STATUSES)) {
@@ -136,7 +136,8 @@ if (wp_doing_ajax()) {
 
             // Process Payment
             $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-            $result = $available_gateways[$payment]->process_payment($order->id);
+            
+            $result = $available_gateways[$payment[0]]->process_payment($order->id);
 
             if ($result['result'] == 'success') {
                 wp_redirect($result['redirect']);

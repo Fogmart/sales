@@ -78,7 +78,7 @@ get_header();
                     <?php foreach ($payment_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
-                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>">
+                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>" required="required">
                                 <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
                             </h3>
                         </div>
@@ -198,13 +198,6 @@ get_header();
                         <div class="cart__sidebar__privacy"><?= __('By clicking below I accept the current') ?> <a href="<?= get_field('terms_of_use_page') ?>" class="link link_bold"><?= __('Terms of Use') ?></a>
                             <?= __('and') ?> <a href="<?= get_field('privacy_policy_page') ?>" class="link link_bold"><?= __('Privacy Policy') ?>.</a></div>
                         <button id="checkout_form_order_submit" class="button button-1"><?= __('Place Order') ?></button>
-                        <?php
-                        //     $checkout = WC()->checkout();
-                        //     $order_id = $checkout->create_order();
-                        //     $order = wc_get_order( $order_id );
-                        // exit(var_dump($order));
-                        // $order_id = $checkout->create_order();
-                        ?>
                     </div>
                 </div>
 

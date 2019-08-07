@@ -1,0 +1,5 @@
+{
+    "require": {
+        "foris-master/orange-money-sdk": "^0.6.0"
+    }
+}

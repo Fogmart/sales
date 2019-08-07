@@ -2,5 +2,7 @@
 wp-content/uploads
 *.log
 .idea/
+.vscode/
+composer.lock
 wp-config.php
 wp-content/cache
