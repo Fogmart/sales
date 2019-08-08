@@ -133,8 +133,8 @@ if (wp_doing_ajax()) {
             }
 
             //test
-            // WC()->session->order_awaiting_payment = $order->get_id();
-            WC()->session->set('order_id', $order_id);
+            WC()->session->order_awaiting_payment = $order->get_id();
+            WC()->session->set('pay_order_id', $order_id);
 
             // Process Payment
             $available_gateways = WC()->payment_gateways->get_available_payment_gateways();

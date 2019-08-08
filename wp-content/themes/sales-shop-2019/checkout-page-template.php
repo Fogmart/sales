@@ -5,6 +5,19 @@ if (!$user->exists()) {
     ss_return_login();
 }
 
+if (null === WC()->session) {
+    $session_class = apply_filters('woocommerce_session_handler', 'WC_Session_Handler');
+    WC()->session = new $session_class();
+    WC()->session->init();
+}
+
+$order_id = WC()->session->get('pay_order_id');
+
+if (!empty($order_id)) {
+    $order = wc_get_order($order_id);
+    do_action('woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id());
+}
+
 $items = WC()->cart->get_cart();
 if (empty($items)) {
     ss_return_home();

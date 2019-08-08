@@ -41,6 +41,9 @@ function orange_init_gateway_class()
             $this->merchant_key = $this->get_option('merchant_key');
 
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
+            add_action('woocommerce_thankyou_' . $this->id, array($this, 'capture_payment'));
+            add_action('woocommerce_order_status_completed', array($this, 'capture_payment'));
+            add_action('woocommerce_order_status_completed', array($this, 'capture_payment'));
 
             // You can also register a webhook here
             add_action('woocommerce_api_wc_orange_pay_hook', array($this, 'webhook'));
@@ -93,8 +96,6 @@ function orange_init_gateway_class()
 		 */
         public function process_payment($order_id)
         {
-            global $woocommerce;
-
             // we need it to get any order detailes
             $order = wc_get_order($order_id);
             $order_amount = $order->get_total();
@@ -102,8 +103,8 @@ function orange_init_gateway_class()
             $opt = [
                 "merchant_key" => $this->get_option('merchant_key'),
                 "currency" => 'OUV', //"GNF",
-                "order_id" => $order_id.'a',
-                "amount" => round($order_amount),
+                "order_id" => $order_id.'_pay',
+                "amount" => $order_amount,
                 "return_url" => $this->get_return_url($order),
                 "cancel_url" => $this->get_return_url($order),
                 "notif_url" => $this->get_return_url($order),
@@ -123,29 +124,10 @@ function orange_init_gateway_class()
             $pay_token = $rep['pay_token'] ?? null;
 
             if ($pay_token) {
-                $rep2 = $om->checkTransactionStatus($order_id.'a', round($order_amount), $pay_token);
-                switch ($rep2['status']) {
-                    case "INITIATED":
-                        wp_redirect($rep['payment_url']);
-                        exit;
-                        break;
-                    case "PENDING":
+                update_option('pay_token_'.$order_id, $pay_token);
+                update_option('payment_url_'.$order_id, $rep['payment_url']);
 
-                        break;
-                    case "EXPIRED":
-
-                        break;
-                    case "SUCCESS":
-                        // we received the payment
-                        $order->payment_complete();
-                        wc_reduce_stock_levels($order);
-                        // Empty cart
-                        $woocommerce->cart->empty_cart();
-                        break;
-                    case "FAILED":
-
-                        break;
-                }
+                $this->capture_payment($order_id);
             }
 
             // Redirect to the thank you page
@@ -153,6 +135,79 @@ function orange_init_gateway_class()
                 'result' => 'success',
                 'redirect' => $this->get_return_url($order)
             );
+        }
+
+        /**
+         * Capture payment when the order is changed from on-hold to complete or processing
+         *
+         * @param  int $order_id Order ID.
+         */
+        public function capture_payment($order_id)
+        {
+            $pay_token = get_option('pay_token_'.$order_id);
+
+            if (empty($pay_token)) {
+                return;
+            }
+
+            $order = wc_get_order($order_id);
+            if ($order->has_status(['processing', 'completed'])) {
+                delete_option('pay_token_'.$order_id);
+                delete_option('payment_url_'.$order_id);
+
+                WC()->session->set('order_id', $order_id);
+
+                wp_redirect(SS_THANKYOU_PAGE);
+            }
+
+            $order_amount = $order->get_total();
+
+            putenv('AUTH_HEADER=' . $this->get_option('auth_header'));
+            putenv('MERCHANT_KEY=' . $this->get_option('merchant_key'));
+            putenv('RETURN_URL=' . $this->get_return_url($order));
+            putenv('CANCEL_URL=' . $this->get_return_url($order));
+            putenv('NOTIF_URL=' . $this->get_return_url($order));
+
+            $om = new OmSdk();
+
+            $rep = $om->checkTransactionStatus($order_id.'_pay', $order_amount, $pay_token);
+            $order->add_order_note(
+                print_r($rep, true)
+            );
+            switch ($rep['status']) {
+                case "INITIATED":
+                    $payment_url = get_option('payment_url_'.$order_id);
+                    wp_redirect($payment_url);
+                    exit;
+                    break;
+                case "PENDING":
+
+                    break;
+                case "EXPIRED":
+                    delete_option('pay_token_'.$order_id);
+                    delete_option('payment_url_'.$order_id);
+
+                    break;
+                case "SUCCESS":
+                    // we received the payment
+                    $order->payment_complete();
+                    wc_reduce_stock_levels($order);
+                    // Empty cart
+                    WC()->cart->empty_cart();
+                    delete_option('pay_token_'.$order_id);
+                    delete_option('payment_url_'.$order_id);
+
+                    WC()->session->set('order_id', $order_id);
+
+                    wp_redirect(SS_THANKYOU_PAGE);
+                    exit;
+                    break;
+                case "FAILED":
+                    delete_option('pay_token_'.$order_id);
+                    delete_option('payment_url_'.$order_id);
+
+                    break;
+            }
         }
 
         /*
