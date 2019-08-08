@@ -119,8 +119,6 @@ function orange_init_gateway_class()
             $om = new OmSdk();
             $rep = $om->webPayment($opt);
 
-            exit(var_dump($rep));
-
             $pay_token = $rep['pay_token'] ?? null;
 
             if ($pay_token) {
