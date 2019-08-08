@@ -16,6 +16,7 @@ define('SS_ORDERS_PAGE', '/orders');
 define('SS_VOUCHERS_PAGE', '/vouchers');
 define('SS_CART_PAGE', '/cart');
 define('SS_CHECKOUT_PAGE', '/checkout');
+define('SS_THANKYOU_PAGE', '/thankyou');
 define('SS_ACCOUNT_PAGE', '/account');
 
 //settings
