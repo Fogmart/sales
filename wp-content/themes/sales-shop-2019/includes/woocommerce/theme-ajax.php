@@ -58,9 +58,10 @@ if (wp_doing_ajax()) {
     add_action('wp_ajax_nopriv_render_filters', 'ss_render_filters');
     add_action('wp_ajax_render_filters', 'ss_render_filters');
 
-    function ss_render_filters(){
+    function ss_render_filters()
+    {
         ob_start();
-        
+
         wc_get_template_part('filters', 'archive');
         $filters = ob_get_clean();
         wp_send_json_success($filters);
@@ -119,7 +120,7 @@ if (wp_doing_ajax()) {
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
-            
+
             $order = wc_get_order($order_id);
 
             if (in_array('sold', SS_FREE_COUPON_STATUSES)) {
@@ -136,7 +137,7 @@ if (wp_doing_ajax()) {
 
             // Process Payment
             $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-            
+
             $result = $available_gateways[$payment[0]]->process_payment($order->get_id());
 
             if ($result['result'] == 'success') {
@@ -148,15 +149,16 @@ if (wp_doing_ajax()) {
         ss_return_back();
     }
 
-    function genCouponUniqId($order_id, $maxLen = 8) {
+    function genCouponUniqId($order_id, $maxLen = 8)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@&$#';
         $charactersLength = strlen($characters);
         $randomString = '';
-    
+
         for ($i = 0; $i < $maxLen; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-    
+
         $generated = substr(sha1($order_id . $randomString), 0, $maxLen);
         return $generated;
     }
@@ -171,6 +173,7 @@ if (wp_doing_ajax()) {
 
         $out = array(
             'message' => 'Error was occured',
+            'error' => true,
         );
 
         $type = filter_input(INPUT_POST, 'type');
@@ -183,31 +186,30 @@ if (wp_doing_ajax()) {
         if ($type == 'phone') {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_NUMBER_INT);
 
-            if (empty($to)) {
-                wp_send_json_error($out);
+            if (!empty($to)) {
+
+                
+
+                $out['error'] = false;
+                $out['message'] = '<img src="' . ss_asset('img/icons/sucess-send.svg') . '" alt=""> '
+                    . __('Coupon sent successfully to your phone');
             }
-
-            //some part
-
-            $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
-                . __('Coupon sent successfully to your phone');
-            wp_send_json_success($out);
         } else if ($type == 'email') {
             $to = filter_input(INPUT_POST, 'to', FILTER_SANITIZE_EMAIL);
 
-            if (empty($to)) {
-                wp_send_json_error($out);
+            if (!empty($to)) {
+                $message = __('Your coupon number: ' . $coupon);
+
+                $rez = wp_mail($to, __('Coupon number'), $message);
+
+                if ($rez) {
+                    $out['error'] = false;
+                    $out['message'] = '<img src="' . ss_asset('img/icons/sucess-send.svg') . '" alt=""> '
+                        . __('Coupon sent successfully to your e-mail');
+                }
             }
-
-            $message = __('Your coupon number: ' . $coupon);
-
-            wp_mail($to, __('Coupon number'), $message);
-            
-            $out['message'] = '<img src="'.ss_asset('img/icons/sucess-send.svg').'" alt=""> '
-                . __('Coupon sent successfully to your e-mail');
-            wp_send_json_success($out);
         }
 
-        wp_send_json_error($out);
+        $out['error'] ? wp_send_json_error($out) : wp_send_json_success($out);
     }
 }

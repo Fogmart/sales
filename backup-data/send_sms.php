@@ -21,7 +21,7 @@ function send_sms($phone)
 {
     $access = [
         "token_type" => "Bearer",
-        "access_token" => "lDcGKypCBCDEOZ561LxhnVlHlGyg"
+        "access_token" => "lDcGKypCBCDEOZ561LxhnVlHlGyg" //получить с auth
     ];
     $data = [
         'outboundSMSMessageRequest' => [
