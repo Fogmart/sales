@@ -123,16 +123,17 @@ if (wp_doing_ajax()) {
 
             $order = wc_get_order($order_id);
 
-            if (in_array('sold', SS_FREE_COUPON_STATUSES)) {
+            $coupon_init_status = 'sold';
+            if (in_array($coupon_init_status, SS_FREE_COUPON_STATUSES)) {
                 foreach ($order->get_items() as $coupon) {
-                    $coupon->add_meta_data('coupon_status', 'sold', false);
+                    $coupon->add_meta_data('coupon_status', $coupon_init_status, false);
                     $coupon->add_meta_data('coupon_number', genCouponUniqId($order_id), false);
                     $coupon->save();
                 }
             }
 
             //test
-            WC()->session->order_awaiting_payment = $order->get_id();
+            // WC()->session->order_awaiting_payment = $order->get_id();
             WC()->session->set('order_id', $order_id);
 
             // Process Payment

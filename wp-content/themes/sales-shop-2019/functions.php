@@ -102,7 +102,7 @@ function ss_theme_assets()
         'pa_vars',
         array(
             'pa_nonce' => wp_create_nonce('pa_nonce'), // Create nonce which we later will use to verify AJAX request
-            'current_neighborhood' => get_field('neighborhood', 'user_' . $user->ID), // Get current neighborhood
+            'current_neighborhood' => get_field('neighborhood', 'user_' . get_current_user_id()), // Get current neighborhood
             'ajaxurl' => esc_url(admin_url('admin-ajax.php')), // URL
             'is_admin' => false
         )

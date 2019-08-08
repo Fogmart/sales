@@ -64,7 +64,7 @@ function ss_get_seller_coupons($search = null){
     
     $all_coupons = $wpdb->get_results($select);
 
-    exit(var_dump($all_coupons));
+    // exit(var_dump($all_coupons));
     foreach($all_coupons as $coupon_row){
         $found = false;
 
@@ -89,7 +89,7 @@ function ss_get_seller_coupons($search = null){
                 'order_item_id' => $coupon_row->order_item_id,
                 'coupon_number' => $coupon_number,
             );
-            $founded_coupons[$coupon_row->order_id] = $coupon_data;
+            $founded_coupons[$coupon_row->order_id] = (object) $coupon_data;
         }
     }
     return $founded_coupons;

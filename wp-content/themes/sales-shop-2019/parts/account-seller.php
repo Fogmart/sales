@@ -1,11 +1,14 @@
 <?php
 get_header();
+global $ss_theme_option;
+
 $user = ss_get_user();
 $found_coupons = array();
 
 $search = filter_input(INPUT_GET, 'search');
+
 // if ($search) {
-	$found_coupons = ss_get_seller_coupons($search);
+$found_coupons = ss_get_seller_coupons($search);
 // }
 
 ?>
@@ -49,45 +52,55 @@ $search = filter_input(INPUT_GET, 'search');
 					<?php else : ?>
 						<div class="dashboard__search-result">
 							<h2 class="result__title"><?= __('Relevant results') ?></h2>
-							<?php foreach ($found_coupons as $order_id => $order_item_id) : ?>
-							
-								<?php $order_item = new WC_Order_Item_Product($order_item_id);?>
+							<?php foreach ($found_coupons as $order_id => $coupon_data) : ?>
+								<?php
+								$order_item_product = new WC_Order_Item_Product($coupon_data->order_item_id);
+								$product = $order_item_product->get_product();
+								$order = wc_get_order($order_id);
+								?>
+
 								<div class="order">
-									<div class="order__photo"><img src="img/card.jpg" alt=""></div>
+									<div class="order__photo"><?= $product->get_image() ?></div>
 									<div class="order__content">
-										<a href="#!" class="order__title">Product Title Goes Here and here and here and here and here and here and here Product Title Goes Here and here and </a>
-										<div class="order__subtitle_mute">Fine-Dining Date Night: 3-Course Meal with Wine for 2 at Priva Lounge</div>
+										<a href="<?= get_permalink($product->id) ?>" class="order__title"><?= $product->get_name() ?></a>
+										<div class="order__subtitle_mute"><?= $product->get_short_description() ?></div>
 
 										<div class="order__details">
 											<div class="order__details__block">
-												<div class="order__block__title">order no: </div>
-												<div class="order__block__text">#523</div>
+												<div class="order__block__title"><?= __('order no') ?>: </div>
+												<div class="order__block__text">#<?= $order_id ?></div>
 											</div>
 											<div class="order__details__block">
-												<div class="order__block__title">Coupon Code: </div>
-												<div class="order__block__text">5234645645</div>
+												<div class="order__block__title"><?= __('Coupon Code') ?>: </div>
+												<div class="order__block__text"><?= $coupon_data->coupon_number ?></div>
 											</div>
 											<div class="order__details__block">
-												<div class="order__block__title">Purchase Date: </div>
-												<div class="order__block__text">September 24, 2018</div>
+												<div class="order__block__title"><?= __('Purchase Date') ?>: </div>
+												<div class="order__block__text"><?= $order->get_date_created()->date_i18n('F j, Y') ?></div>
 											</div>
 											<div class="order__details__block">
-												<div class="order__block__title">Expiration Date: </div>
-												<div class="order__block__text">September 24, 2018</div>
+												<?php
+												$coupon_validity = get_field('coupon_validity', $product->id);
+												$coupon_validity = !empty($coupon_validity) && $coupon_validity > 0 ? $coupon_validity : $ss_theme_option['coupon-validity'];
+												$order_date = clone ($order->get_date_completed() ?? $order->get_date_created());
+												$expiration_date = $order_date->add(new DateInterval('P' . $coupon_validity . 'D'));
+												?>
+												<div class="order__block__title"><?= __('Expiration Date') ?>: </div>
+												<div class="order__block__text"><?= $expiration_date->date_i18n('F j, Y') ?></div>
 											</div>
 										</div>
 
 										<div class="order__client">
-											<h5 class="order__client__title">Client details</h5>
+											<h5 class="order__client__title"><?= __('Client details') ?></h5>
 											<div class="order__client__info">
-												<div class="order__client__info__item">Name: Jon Snow</div>
-												<div class="order__client__info__item">Phone: 315-565-2341</div>
-												<div class="order__client__info__item">Email: JonSnow@gmail.com</div>
+												<div class="order__client__info__item"><?= __('Name') ?>: <?= $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ?></div>
+												<div class="order__client__info__item"><?= __('Phone') ?>: <?= $order->get_billing_phone() ?></div>
+												<div class="order__client__info__item"><?= __('Email') ?>: <?= $order->get_billing_email() ?></div>
 											</div>
 										</div>
 
-										<div class="order__price">20 000 000$</div>
-										<button class="button button-1 button-1_140">redeem coupon</button>
+										<div class="order__price"><?= $order_item_product->get_total() ?><?= get_woocommerce_currency_symbol() ?></div>
+										<button class="button button-1 button-1_140 button-redeem" data-order="<?= $order_id ?>" data-item="<?= $coupon_data->order_item_id ?>">redeem coupon</button>
 									</div>
 								</div>
 							<?php endforeach; ?>

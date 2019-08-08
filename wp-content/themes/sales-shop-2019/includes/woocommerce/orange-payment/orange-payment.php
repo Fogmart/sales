@@ -115,10 +115,10 @@ function orange_init_gateway_class()
             putenv('CANCEL_URL=' . $opt['cancel_url']);
             putenv('NOTIF_URL=' . $opt['notif_url']);
 
-            // header('WWW-Authenticate:  Basic NHROR3Ywek5Kak13Z3hpUXpxZlk2T2daR0h0MHBaSDM6Z0FDRFl3YTFkemNMSUdwbg==');
-
             $om = new OmSdk();
             $rep = $om->webPayment($opt);
+
+            exit(var_dump($rep));
 
             $pay_token = $rep['pay_token'] ?? null;
 
