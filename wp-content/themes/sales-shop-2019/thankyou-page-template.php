@@ -5,7 +5,7 @@ if (null === WC()->session) {
     WC()->session->init();
 }
 
-$order_id = WC()->session->get('pay_order_id');
+$order_id = WC()->session->get('order_id');
 
 if (empty($order_id)) {
     ss_return_home();
