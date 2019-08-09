@@ -1,12 +1,13 @@
 <?php /* Template Name: Сheckout Page Template */
+global $wp;
 
 $user = wp_get_current_user();
-if (!$user->exists()) {
+if (!$user->exists() && empty($wp->query_vars['order-received'])) {
     ss_return_login();
 }
 
 $items = WC()->cart->get_cart();
-if (empty($items)) {
+if (empty($items) && empty($wp->query_vars['order-received'])) {
     ss_return_home();
 }
 

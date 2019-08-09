@@ -147,10 +147,14 @@ function orange_init_gateway_class()
             $pay_token = get_option('pay_token_' . $order_id);
 
             if (empty($pay_token)) {
-                return;
+                ss_return_home();
             }
 
             $order = wc_get_order($order_id);
+            if (empty($order)) {
+                ss_return_home();
+            }
+
             if ($order->has_status(['processing', 'completed'])) {
                 delete_option('pay_token_' . $order_id);
                 delete_option('payment_url_' . $order_id);
@@ -228,17 +232,16 @@ function orange_init_gateway_class()
         {
             global $wp;
 
-            $order_id = WC()->session->get('pay_order_id');
-
-            if ($order_id > 0) {
-                $this->capture_payment($order_id);
-
-                return;
-            }
-
             if (!empty($wp->query_vars['order-received'])) {
-
                 $order_id = absint($wp->query_vars['order-received']);
+
+                if ($order_id > 0) {
+                    $this->capture_payment($order_id);
+                } else {
+                    ss_return_home();
+                }
+            } else {
+                $order_id = WC()->session->get('pay_order_id');
 
                 if ($order_id > 0) {
                     $this->capture_payment($order_id);
