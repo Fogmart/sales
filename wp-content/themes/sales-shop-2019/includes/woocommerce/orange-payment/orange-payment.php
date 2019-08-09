@@ -154,7 +154,7 @@ function orange_init_gateway_class()
 
             if (empty($pay_token)) {
                 $this->clear_data($order_id);
-                if ($order->get_user_id() == get_current_user_id()) {
+                if ($order->get_user_id() == get_current_user_id() && $order->has_status(['processing', 'completed'])) {
                     WC()->session->set('order_id', $order_id);
                     wp_redirect(SS_THANKYOU_PAGE);
                     exit;
@@ -165,7 +165,7 @@ function orange_init_gateway_class()
             if ($order->has_status(['processing', 'completed'])) {
                 $this->clear_data($order_id);
 
-                if ($order->get_user_id() == get_current_user_id()) {
+                if ($order->get_user_id() == get_current_user_id() && $order->has_status(['processing', 'completed'])) {
                     WC()->session->set('order_id', $order_id);
                     wp_redirect(SS_THANKYOU_PAGE);
                     exit;
@@ -207,7 +207,7 @@ function orange_init_gateway_class()
 
                     $this->clear_data($order_id);
 
-                    if ($order->get_user_id() == get_current_user_id()) {
+                    if ($order->get_user_id() == get_current_user_id() && $order->has_status(['processing', 'completed'])) {
                         WC()->session->set('order_id', $order_id);
                         wp_redirect(SS_THANKYOU_PAGE);
                         exit;
