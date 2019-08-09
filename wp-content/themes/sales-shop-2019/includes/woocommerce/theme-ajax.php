@@ -120,7 +120,6 @@ if (wp_doing_ajax()) {
         ];
         $order_id = WC()->checkout()->create_order($arg);
         if ($order_id) {
-
             $order = wc_get_order($order_id);
 
             $coupon_init_status = 'sold';

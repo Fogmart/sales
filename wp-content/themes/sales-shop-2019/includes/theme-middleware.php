@@ -35,7 +35,7 @@ function user_not_logged_in_redirect()
         SS_PROFILE_PAGE,
         SS_ACCOUNT_PAGE,
         SS_ORDERS_PAGE,
-        SS_CHECKOUT_PAGE,
+        //SS_CHECKOUT_PAGE,
         SS_CART_PAGE
     ];
 

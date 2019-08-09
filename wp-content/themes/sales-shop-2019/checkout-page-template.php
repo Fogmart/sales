@@ -1,25 +1,13 @@
 <?php /* Template Name: Сheckout Page Template */
+global $wp;
 
 $user = wp_get_current_user();
-if (!$user->exists()) {
+if (!$user->exists() && empty($wp->query_vars['order-received'])) {
     ss_return_login();
 }
 
-if (null === WC()->session) {
-    $session_class = apply_filters('woocommerce_session_handler', 'WC_Session_Handler');
-    WC()->session = new $session_class();
-    WC()->session->init();
-}
-
-$order_id = WC()->session->get('pay_order_id');
-
-if (!empty($order_id)) {
-    $order = wc_get_order($order_id);
-    do_action('woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id());
-}
-
 $items = WC()->cart->get_cart();
-if (empty($items)) {
+if (empty($items) && empty($wp->query_vars['order-received'])) {
     ss_return_home();
 }
 
@@ -88,13 +76,15 @@ get_header();
                     <h3 class="checkout__subtitle"><?= __('How would you like to pay') ?>?</h3>
 
                     <!-- payments -->
+                    <?php $pay_i = true; ?>
                     <?php foreach ($payment_gateways as $key => $one) : ?>
                         <div class="checkout__block">
                             <h3 class="checkout__block__title">
-                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>" required="required">
+                                <input type="radio" name="payment" id="p_<?= $key ?>" value="<?= $key . '::' . $one->title ?>" <?= $pay_i ? 'required' : '' ?>>
                                 <label for="p_<?= $key ?>" class="radio-label"><?= __($one->title) ?></label>
                             </h3>
                         </div>
+                        <?php $pay_i = false; ?>
                     <?php endforeach; ?>
 
                     <div class="checkout__block">
