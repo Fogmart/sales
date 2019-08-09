@@ -206,8 +206,10 @@ function orange_init_gateway_class()
 
                     WC()->session->set('order_id', $order_id);
 
-                    wp_redirect(SS_THANKYOU_PAGE);
-                    exit;
+                    if (is_user_logged_in()) {
+                        wp_redirect(SS_THANKYOU_PAGE);
+                        exit;
+                    }
 
                     break;
                 case "FAILED":
