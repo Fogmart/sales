@@ -148,6 +148,10 @@ function orange_init_gateway_class()
 
             if (empty($pay_token)) {
                 $this->clear_data($order_id);
+                if (!empty(WC()->session->order_id)) {
+                    wp_redirect(SS_THANKYOU_PAGE);
+                    exit;
+                }
                 ss_return_home();
             }
 
@@ -163,6 +167,7 @@ function orange_init_gateway_class()
                 WC()->session->set('order_id', $order_id);
 
                 wp_redirect(SS_THANKYOU_PAGE);
+                exit;
             }
 
             $order_amount = $order->get_total();
@@ -203,7 +208,7 @@ function orange_init_gateway_class()
 
                     wp_redirect(SS_THANKYOU_PAGE);
                     exit;
-                    
+
                     break;
                 case "FAILED":
                 case "EXPIRED":
