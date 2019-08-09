@@ -144,30 +144,33 @@ function orange_init_gateway_class()
          */
         public function capture_payment($order_id)
         {
-            $pay_token = get_option('pay_token_' . $order_id);
-
-            if (empty($pay_token)) {
-                $this->clear_data($order_id);
-                if (!empty(WC()->session->order_id)) {
-                    wp_redirect(SS_THANKYOU_PAGE);
-                    exit;
-                }
-                ss_return_home();
-            }
-
             $order = wc_get_order($order_id);
             if (empty($order)) {
                 $this->clear_data($order_id);
                 ss_return_home();
             }
 
+            $pay_token = get_option('pay_token_' . $order_id);
+
+            if (empty($pay_token)) {
+                $this->clear_data($order_id);
+                if ($order->get_user_id() == get_current_user_id()) {
+                    WC()->session->set('order_id', $order_id);
+                    wp_redirect(SS_THANKYOU_PAGE);
+                    exit;
+                }
+                ss_return_home();
+            }
+
             if ($order->has_status(['processing', 'completed'])) {
                 $this->clear_data($order_id);
 
-                WC()->session->set('order_id', $order_id);
-
-                wp_redirect(SS_THANKYOU_PAGE);
-                exit;
+                if ($order->get_user_id() == get_current_user_id()) {
+                    WC()->session->set('order_id', $order_id);
+                    wp_redirect(SS_THANKYOU_PAGE);
+                    exit;
+                }
+                ss_return_home();
             }
 
             $order_amount = $order->get_total();
@@ -204,9 +207,8 @@ function orange_init_gateway_class()
 
                     $this->clear_data($order_id);
 
-                    WC()->session->set('order_id', $order_id);
-
-                    if (is_user_logged_in()) {
+                    if ($order->get_user_id() == get_current_user_id()) {
+                        WC()->session->set('order_id', $order_id);
                         wp_redirect(SS_THANKYOU_PAGE);
                         exit;
                     }
