@@ -6,7 +6,6 @@ if (null === WC()->session) {
 }
 
 $order_id = WC()->session->get('order_id');
-unset(WC()->session->order_id);
 
 if (empty($order_id)) {
     ss_return_home();
