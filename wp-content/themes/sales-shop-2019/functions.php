@@ -85,6 +85,8 @@ ss_variable_simulate_regular();
 add_action('wp_enqueue_scripts', 'ss_theme_assets');
 function ss_theme_assets()
 {
+    $user = ss_get_user();
+
     wp_register_script('ss_script', SS_JS . '/scripts.min.js');
     wp_register_style('ss_style', SS_CSS . '/main.min.css');
 
@@ -96,6 +98,11 @@ function ss_theme_assets()
     wp_register_script('ss_reset', SS_JS . '/reset-page.js');
 
     wp_register_script('ss_filters', SS_JS . '/filters.js');
+
+    wp_register_script('ss_seller_dashboard', SS_JS . '/seller-dashboard.js');
+    wp_localize_script('ss_seller_dashboard', 'sdData', array(
+        'redeemNonce' => wp_create_nonce('ss_redeem_coupon'),
+    ));
 
     wp_register_script('neighborhoods', get_stylesheet_directory_uri() . '/assets/js/autopopulates.js');
     wp_localize_script(
@@ -125,8 +132,12 @@ function ss_theme_assets()
         wp_enqueue_script('ss_reset');
     }
 
-    if(is_page_template('account-page-template.php')){
+    if(is_page_template('account-page-template.php') && $user->is_customer ){
         wp_enqueue_script('neighborhoods');
+    }
+
+    if(is_page_template('account-page-template.php') && $user->is_seller){
+        wp_enqueue_script('ss_seller_dashboard');
     }
 }
 

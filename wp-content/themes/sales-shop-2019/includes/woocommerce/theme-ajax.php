@@ -189,7 +189,7 @@ if (wp_doing_ajax()) {
 
             if (!empty($to)) {
 
-                
+
 
                 $out['error'] = false;
                 $out['message'] = '<img src="' . ss_asset('img/icons/sucess-send.svg') . '" alt=""> '
@@ -212,5 +212,42 @@ if (wp_doing_ajax()) {
         }
 
         $out['error'] ? wp_send_json_error($out) : wp_send_json_success($out);
+    }
+
+    add_action('wp_ajax_redeem_coupon', 'ss_redeem_coupon');
+
+    function ss_redeem_coupon()
+    {
+
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'ss_redeem_coupon')) {
+            exit(wp_generate_uuid4());
+        }
+
+        $out = array(
+            'message' => 'Error was occured',
+            'error' => true,
+        );
+
+        $order_id = filter_input(INPUT_POST, 'orderId', FILTER_SANITIZE_NUMBER_INT);
+        $order_item_id = filter_input(INPUT_POST, 'orderItemId', FILTER_SANITIZE_NUMBER_INT);
+
+        if (isset($order_item_id, $order_id)) {
+            $order = wc_get_order($order_id);
+            foreach($order->get_items() as $item_id => $order_item){
+                if($item_id == $order_item_id){
+                    $new_coupon_status = 'redeemed';
+                    if(in_array($new_coupon_status, SS_COUPON_STATUSES)){
+                        $rez = wc_update_order_item_meta($item_id, 'coupon_status', $new_coupon_status);
+                        if($rez){
+                            $out['error'] = false;
+                            $out['message'] = 'Status changed';
+                            wp_send_json_success($out);
+                        }
+                    }
+                }
+            }
+         }
+
+         wp_send_json_error($out);
     }
 }

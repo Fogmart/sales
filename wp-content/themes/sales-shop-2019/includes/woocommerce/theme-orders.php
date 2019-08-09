@@ -68,28 +68,38 @@ function ss_get_seller_coupons($search = null){
     foreach($all_coupons as $coupon_row){
         $found = false;
 
-        $coupon_number = wc_get_order_item_meta($coupon_row->order_item_id, 'coupon_number', true);
-        $order_customer = get_post_meta( $coupon_row->order_id, '_customer_user', true );
+        $order_item_product = new WC_Order_Item_Product($coupon_row->order_item_id);
+        $coupon_seller = get_field('seller', $order_item_product->get_product_id());
+        
+        if(get_current_user_id() == $coupon_seller->ID){
+            $coupon_number = wc_get_order_item_meta($coupon_row->order_item_id, 'coupon_number', true);
+            $order_customer_id = get_post_meta($coupon_row->order_id, '_customer_user', true);
+            $customer_data = get_userdata($order_customer_id);
+            $customer_full_name = $customer_data->user_lastname . ' ' . $customer_data->user_firstname;
 
-        $search_in = array(
-            $coupon_number,
-            $order_customer
-        );
-
-        foreach($search_in as $value){
-            $found = strpos($value, $search) !== false;
-
-            if($found){
-                break;
-            }
-        }
-
-        if($found || $search === null){
-            $coupon_data = array(
-                'order_item_id' => $coupon_row->order_item_id,
-                'coupon_number' => $coupon_number,
+            $search_in = array(
+                $coupon_row->order_id,
+                $coupon_number,
+                $customer_data->user_firstname,
+                $customer_data->user_lastname,
+                $customer_full_name,
             );
-            $founded_coupons[$coupon_row->order_id] = (object) $coupon_data;
+
+            foreach ($search_in as $value) {
+                $found = strpos($value, $search) !== false;
+
+                if ($found) {
+                    break;
+                }
+            }
+
+            if ($search === null || $found) {
+                $coupon_data = array(
+                    'order_item_id' => $coupon_row->order_item_id,
+                    'coupon_number' => $coupon_number,
+                );
+                $founded_coupons[$coupon_row->order_id] = (object) $coupon_data;
+            }   
         }
     }
     return $founded_coupons;

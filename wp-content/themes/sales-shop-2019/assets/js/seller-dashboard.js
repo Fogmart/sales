@@ -6,7 +6,8 @@ jQuery(function () {
         var orderItemId = $this.data('item');
 
         var data = {
-            action: 'ss_redeem_coupon',
+            action: 'redeem_coupon',
+            _wpnonce: sdData.redeemNonce,
             orderId,
             orderItemId
         };

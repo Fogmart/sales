@@ -7,9 +7,9 @@ $found_coupons = array();
 
 $search = filter_input(INPUT_GET, 'search');
 
-// if ($search) {
+if ($search) {
 $found_coupons = ss_get_seller_coupons($search);
-// }
+}
 
 ?>
 
@@ -43,8 +43,8 @@ $found_coupons = ss_get_seller_coupons($search);
 					<div class="dashboard__main__subtitle"><?= __('You can search by order number, customer name, or customer phone') ?></div>
 
 					<form class="search" method="GET">
-						<input type="text" placeholder="<?= __('Search') ?>" class="input">
-						<button class="button button-3" type="submit" name="search"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt="search"></button>
+						<input type="text" placeholder="<?= __('Search') ?>" class="input" name="search" value="<?= $search ?? '' ?>">
+						<button class="button button-3" type="submit"><img src="<?= ss_asset('img/icons/search.svg') ?>" alt="search"></button>
 					</form>
 
 					<?php if (empty($found_coupons)) : ?>
