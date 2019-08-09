@@ -147,20 +147,19 @@ function orange_init_gateway_class()
             $pay_token = get_option('pay_token_' . $order_id);
 
             if (empty($pay_token)) {
+                $this->clear_data($order_id);
                 ss_return_home();
             }
 
             $order = wc_get_order($order_id);
             if (empty($order)) {
+                $this->clear_data($order_id);
                 ss_return_home();
             }
 
             if ($order->has_status(['processing', 'completed'])) {
-                delete_option('pay_token_' . $order_id);
-                delete_option('payment_url_' . $order_id);
-                delete_option('pay_order_' . $order_id);
+                $this->clear_data($order_id);
 
-                unset(WC()->session->pay_order_id);
                 WC()->session->set('order_id', $order_id);
 
                 wp_redirect(SS_THANKYOU_PAGE);
@@ -198,15 +197,13 @@ function orange_init_gateway_class()
                     // Empty Cart
                     WC()->cart->empty_cart();
 
-                    delete_option('pay_token_' . $order_id);
-                    delete_option('payment_url_' . $order_id);
-                    delete_option('pay_order_' . $order_id);
+                    $this->clear_data($order_id);
 
-                    unset(WC()->session->pay_order_id);
                     WC()->session->set('order_id', $order_id);
 
                     wp_redirect(SS_THANKYOU_PAGE);
                     exit;
+                    
                     break;
                 case "FAILED":
                 case "EXPIRED":
@@ -215,10 +212,7 @@ function orange_init_gateway_class()
                     // Empty Cart
                     WC()->cart->empty_cart();
 
-                    unset(WC()->session->pay_order_id);
-                    delete_option('pay_token_' . $order_id);
-                    delete_option('payment_url_' . $order_id);
-                    delete_option('pay_order_' . $order_id);
+                    $this->clear_data($order_id);
                     ss_return_home();
 
                     break;
@@ -228,7 +222,7 @@ function orange_init_gateway_class()
         /**
          * Order processing after payment
          */
-        function processing_after_payment()
+        public function processing_after_payment()
         {
             global $wp;
 
@@ -247,6 +241,14 @@ function orange_init_gateway_class()
                     $this->capture_payment($order_id);
                 }
             }
+        }
+
+        private function clear_data($order_id)
+        {
+            unset(WC()->session->pay_order_id);
+            delete_option('pay_token_' . $order_id);
+            delete_option('payment_url_' . $order_id);
+            delete_option('pay_order_' . $order_id);
         }
 
         /*
