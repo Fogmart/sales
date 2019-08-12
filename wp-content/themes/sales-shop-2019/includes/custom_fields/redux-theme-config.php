@@ -656,14 +656,42 @@ Redux::setSection($opt_name, [
     'subsection' => true,
     'fields' => [
         [
+            'id' => 'popup-register-enable',
+            'type' => 'switch',
+            'title' => __('Enable Popup', 'redux-framework'),
+            'default' => 0,
+        ],
+        [
             'id' => 'popup-register-show-time',
             'type' => 'text',
+            'required' => ['popup-register-enable', '=', '1'],
             'title' => __('Opening time', 'redux-framework'),
             'subtitle' => __('Time lapse before opening popup', 'redux-framework'),
             'desc' => __('seconds', 'redux-framework'),
             'validate' => 'numeric',
             'default' => '30'
         ],
+        [
+            'id' => 'popup-register-image',
+            'type' => 'media',
+            'title' => __('Image Uploader', 'redux-framework'),
+            'subtitle' => __('Picture on the left in a popup', 'redux-framework'),
+            'compiler' => 'true'
+        ],
+        [
+            'id' => 'popup-register-title',
+            'type' => 'text',
+            'required' => ['popup-register-enable', '=', '1'],
+            'title' => __('Title', 'redux-framework'),
+            'placeholder' => 'Enter a title',
+        ],
+        [
+            'id' => 'popup-register-body',
+            'type' => 'textarea',
+            'required' => ['popup-register-enable', '=', '1'],
+            'title' => __('Subtitle', 'redux-framework'),
+            'placeholder' => 'Enter a subtitle',
+        ]
     ]
 ]);
 
