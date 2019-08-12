@@ -5489,7 +5489,8 @@ textarea {
 
 .breadcrumbs {
     font-weight: 400;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 a.breadcrumb {
