@@ -8,6 +8,7 @@ register_post_type('city', array(
     'has_archive' => false,
     'rewrite' => true,
     'query_var' => true,
+    'menu_icon' => 'dashicons-location-alt'
 ));
 
 add_filter( 'enter_title_here', 'filter_function_name_city', 10, 2 );

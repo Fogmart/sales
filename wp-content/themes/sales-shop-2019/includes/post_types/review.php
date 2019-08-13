@@ -8,6 +8,7 @@ register_post_type('review', array(
     'has_archive' => false,
     'rewrite' => true,
     'query_var' => true,
+    'menu_icon' => 'dashicons-format-chat'
 ));
 
 
