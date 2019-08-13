@@ -63,7 +63,8 @@ global $ss_theme_option;
 		</div>
 
 		<div class="copyright">
-			<div class="copyright__text"><?= __($ss_theme_option['footer-copyright-text']) ?></div>
+            <?php $copyright = str_ireplace('%year%', date('Y'), $ss_theme_option['footer-copyright-text']) ?>
+            <div class="copyright__text"><?= __($copyright) ?></div>
 			<div class="copyright__payments">
 				<img alt="" src="<?= ss_asset('img/payments/visa.png') ?>">
 				<img alt="" src="<?= ss_asset('img/payments/mastercard.png') ?>">
